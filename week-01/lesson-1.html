@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>World History &mdash; Lesson 1.1</title>
+<style>
+    body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
+    .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
+    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+    .widget-reset:hover { background: #FDF3E3; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 34px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width: 50px; height: 40px; object-fit: contain;" /></div>
+        <div>
+            <div style="font-size: 28px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+            <div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
+        </div>
+    </div>
+    <div style="font-size: 36px; color: #ffffff; margin-bottom: 6px;">WORLD HISTORY</div>
+</div>
+
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+        <div style="font-size: 17px; color: #0e1c42;">Q1 &middot; Module 1</div>
+        <div style="font-size: 12px; color: #666;">The Neolithic Revolution</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+        <div style="font-size: 17px; color: #0e1c42;">Lesson 1.1 &middot; Monday</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Why Farm? The Origins of Agriculture</div>
+    </div>
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
+        <div style="font-size: 16px; color: #0e1c42;">Farming Begins Across the Ancient World</div>
+    </div>
+</div>
+
+<div style="padding: 24px 34px;">
+
+    <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 1</div>
+        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Why Farm? The Origins of Agriculture</div>
+        <div style="font-size: 16px; color: #666;">Lesson</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Was farming really an obvious improvement over foraging?</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Ten thousand years ago, nearly every human being on Earth lived the same way. Small bands of families moved with the seasons, following herds of wild animals and the ripening of wild plants. They knew their territory intimately: which valley held ripe wild wheat in early summer, which hillside sheltered ibex in winter. This was not a poor way to live. Studies of the few hunter-gatherer societies that survived into modern times suggest that many foragers ate a varied diet, worked fewer hours than farmers would later work, and suffered less from certain diseases. Keep that in mind as this lesson unfolds, because it is tempting to assume that farming was simply a better idea that someone finally had. The truth is stranger and slower than that.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain why the Fertile Crescent was the birthplace of farming and describe the real trade-offs early farmers faced.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> use era vocabulary (decade, century, millennium, BC/AD) to place events in deep time.</div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> name the Six Essential Elements of Geography as a toolkit for studying any place.</div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; THE FERTILE CRESCENT</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The story of farming begins in a curved band of hill country stretching from the eastern Mediterranean coast, up through what is now Turkey, and down into the valleys of Mesopotamia. Geographers call this region the <strong>Fertile Crescent</strong>. It is not, for the most part, a well-watered plain; much of it is rocky highland. But it happened to hold wild ancestors of wheat, barley, lentils, and chickpeas, along with wild sheep, goats, cattle, and pigs, all living in the same general area. Nowhere else on Earth did so many useful wild species overlap so conveniently.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Beginning around 9500 BC, people living in this region started doing something new: instead of only gathering wild grain, they began deliberately planting seeds from the plants with the traits they liked best, larger seeds, tougher stalks that didn't shatter and scatter grain before harvest. Over many centuries of this selective replanting, wild wheat and barley slowly changed into true <strong>domesticated</strong> crops. By around 8500 BC, domesticated einkorn wheat, emmer wheat, and barley were established across the region. Sheep and goats followed close behind, domesticated by roughly 8000 BC, with cattle and pigs not far after. This whole shift, from gathering and hunting wild food to deliberately growing and herding it, is called the <strong>Neolithic Revolution</strong>. Note that "revolution" here does not mean it happened quickly. It unfolded over dozens of generations, and in most places, foraging and early farming existed side by side for a very long time before farming won out.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; A REAL TRADE-OFF, NOT AN OBVIOUS UPGRADE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Why does this matter for how you think about history? Because it would be easy, looking back with the advantage of knowing how the story turns out, to assume farming was an obvious improvement that any sensible person would choose. The archaeological evidence complicates that story. Skeletons from early farming villages often show signs of harder physical labor, more tooth decay from a grain-heavy diet, and more evidence of infectious disease, likely worsened by living in permanent settlements alongside domesticated animals and their waste. A forager who fell ill could move away from where sickness had spread. A farmer, tied to fields that took a full growing season to produce a harvest, could not simply walk away.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">So why did farming spread anyway? Part of the answer is that farming produces something foraging cannot reliably produce: <strong>surplus</strong>, more food than a family needs to survive right now. Surplus changes everything downstream. A family with surplus grain can support a member who does not spend all day gathering food, a potter, a builder, eventually a priest or a soldier. Surplus stored in granaries can carry a community through a bad season that would have scattered a foraging band. And a settled, farming population without the need to constantly relocate tends to have more children survive to adulthood, since infants no longer have to be carried on long seasonal migrations. Over enough generations, farming populations simply outgrew foraging ones in the same territory, whatever the individual trade-offs in daily life. This is <strong>sedentism</strong>, the practice of staying in one place year-round, and it is the quiet engine underneath everything that follows in this course: villages, cities, kings, writing, and armies all depend on people staying put long enough to build them.</p>
+    </div>
+
+    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
+        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; HELPFUL TO KNOW &middot; LEARNING TO READ DEEP TIME</div>
+        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">A <strong>decade</strong> is ten years, a <strong>century</strong> is one hundred years, and a <strong>millennium</strong> is one thousand years. This course uses <strong>BC</strong> ("before Christ," sometimes written BCE) for dates before year 1, and <strong>AD</strong> ("anno Domini") for dates after. One tricky feature of BC dates: they count downward toward the present, so 9500 BC is older than 8500 BC, even though 9500 is the larger number. You will need this vocabulary every week from here forward.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; A GEOGRAPHER'S TOOLKIT</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">You'll also meet, starting this week and returning to often, the <strong>Six Essential Elements of Geography</strong>: The World in Spatial Terms, Places and Regions, Physical Systems, Human Systems, Environment and Society, and the Uses of Geography. Think of this as a geographer's toolkit for asking good questions about any place you study: Where is it? What is it like there? How did people and the land shape each other? Keep this toolkit in mind as you meet Jericho and &Ccedil;atalh&ouml;y&uuml;k in the next lesson, two of the very first places in the world where people committed fully to staying put.</p>
+
+        <div class="optima-widget">
+            <div class="widget-kicker">&#127919; TRY IT: WHERE WERE THESE FIRST DOMESTICATED?</div>
+            <div class="widget-question">Match each group of plants or animals to the region where farmers first domesticated it. (You'll meet the Indus Valley and Shang China properly in Week 7, but see if you can place them now.)</div>
+
+            <div class="widget-row" data-correct="fc">
+                <div class="widget-row-prompt">Wheat, barley, and lentils</div>
+                <div class="widget-options">
+                    <button data-choice="indus">Indus Valley</button>
+                    <button data-choice="fc">Fertile Crescent</button>
+                    <button data-choice="shang">Shang China</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="fc">
+                <div class="widget-row-prompt">Sheep and goats</div>
+                <div class="widget-options">
+                    <button data-choice="shang">Shang China</button>
+                    <button data-choice="indus">Indus Valley</button>
+                    <button data-choice="fc">Fertile Crescent</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="indus">
+                <div class="widget-row-prompt">Cotton and zebu cattle</div>
+                <div class="widget-options">
+                    <button data-choice="fc">Fertile Crescent</button>
+                    <button data-choice="indus">Indus Valley</button>
+                    <button data-choice="shang">Shang China</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="shang">
+                <div class="widget-row-prompt">Silkworms and millet</div>
+                <div class="widget-options">
+                    <button data-choice="indus">Indus Valley</button>
+                    <button data-choice="shang">Shang China</button>
+                    <button data-choice="fc">Fertile Crescent</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
+            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 1</strong></div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short quiz on today's lesson, in Canvas.</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128170; KEEP THIS IN MIND</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Farming did not spread because it made every individual life easier. It spread because it produced surplus, and surplus quietly builds everything this course studies from here on: villages, cities, kings, writing, and armies. Hold onto that idea. It will return again and again.</p>
+    </div>
+
+</div>
+
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; WORLD HISTORY &middot; Quarter 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 1 &middot; Why Farm? The Origins of Agriculture</div>
+    <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var sBtn = e.target.closest('.widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? 'Right. That region and its wild ancestors match up.' : 'Not quite. Think about which region held the wild ancestor species described in Lesson 1.';
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
