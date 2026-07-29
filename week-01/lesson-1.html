@@ -23,6 +23,18 @@
     .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
     .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
     .widget-reset:hover { background: #FDF3E3; }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -67,48 +79,65 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">BC / AD<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'BEE SEE, or AY DEE')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">BEE-SEE / AY-DEE</span>BC means "before Christ." BC dates count backward toward today, so a bigger BC number is actually older. AD means "in the year of the Lord." AD dates count forward, the same way a normal calendar does.</span></span></li>
+            <li><span class="gloss" tabindex="0">century<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'century')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SEN-chuh-ree</span>a period of one hundred years.</span></span></li>
+            <li><span class="gloss" tabindex="0">decade<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'decade')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">DEK-ayd</span>a period of ten years.</span></span></li>
+            <li><span class="gloss" tabindex="0">domestication<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'domestication')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">duh-mess-tih-KAY-shun</span>the slow process of breeding wild plants and animals so people can grow, raise, and use them more easily.</span></span></li>
+            <li><span class="gloss" tabindex="0">millennium<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'millennium')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">mih-LEN-ee-um</span>a period of one thousand years.</span></span></li>
+            <li><span class="gloss" tabindex="0">Neolithic Revolution<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Neolithic Revolution')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">nee-oh-LITH-ik rev-oh-LOO-shun</span>the slow shift, starting around 9500 BC, from hunting and gathering wild food to farming and raising it instead.</span></span></li>
+            <li><span class="gloss" tabindex="0">sedentism<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'sedentism')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SED-en-tiz-um</span>the practice of staying in one place all year, instead of moving from camp to camp.</span></span></li>
+            <li><span class="gloss" tabindex="0">Six Essential Elements of Geography<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Six Essential Elements of Geography')">&#128266;</button><span class="gloss-tip">six big questions geographers ask about any place: The World in Spatial Terms, Places and Regions, Physical Systems, Human Systems, Environment and Society, and the Uses of Geography.</span></span></li>
+            <li><span class="gloss" tabindex="0">surplus<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'surplus')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SUR-plus</span>more food or goods than a family needs right away.</span></span></li>
+        </ul>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; THE FERTILE CRESCENT</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Fertile_Crescent_map.png" alt="Map of the Fertile Crescent, a curved band of land from the eastern Mediterranean through Mesopotamia" />
+        <div class="img-credit">Map: NormanEinstein, CC BY-SA 3.0 / GFDL, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map shows the curved band of hill country where farming first began. It stretches from the eastern Mediterranean coast, through what is now Turkey, and down into the river valleys of Mesopotamia. <strong>Jericho</strong> and <strong>&Ccedil;atalh&ouml;y&uuml;k</strong>, the two settlements you'll study in Lesson 2, both sit inside this region.</p>
+        <div style="margin-top: 12px; font-size: 13px; color: #444;"><strong>Geographical Glossary:</strong> <span class="gloss" tabindex="0">Fertile Crescent<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Fertile Crescent')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">FUR-tile KRESS-ent</span>a curved strip of hill country in the Middle East. Wild wheat, barley, sheep, and goats all lived here close together, which made it a good place for farming to begin.</span></span></div>
+    </div>
+
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
         <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Was farming really an obvious improvement over foraging?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Ten thousand years ago, nearly every human being on Earth lived the same way. Small bands of families moved with the seasons, following herds of wild animals and the ripening of wild plants. They knew their territory intimately: which valley held ripe wild wheat in early summer, which hillside sheltered ibex in winter. This was not a poor way to live. Studies of the few hunter-gatherer societies that survived into modern times suggest that many foragers ate a varied diet, worked fewer hours than farmers would later work, and suffered less from certain diseases. Keep that in mind as this lesson unfolds, because it is tempting to assume that farming was simply a better idea that someone finally had. The truth is stranger and slower than that.</p>
-    </div>
-
-    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
-        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
-            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
-            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain why the Fertile Crescent was the birthplace of farming and describe the real trade-offs early farmers faced.</div>
-        </div>
-        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
-            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
-            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> use era vocabulary (decade, century, millennium, BC/AD) to place events in deep time.</div>
-        </div>
-        <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
-            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> name the Six Essential Elements of Geography as a toolkit for studying any place.</div>
-        </div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Ten thousand years ago, almost every person on Earth lived the same way. Small groups of families moved with the seasons. They followed herds of wild animals. They gathered wild plants as they ripened. These families knew their land well. They knew which valley grew wild wheat in early summer. They knew which hillside sheltered wild goats in winter. This was not a bad way to live. Studies of hunter-gatherer groups who survived into modern times show something surprising. Many of these foragers ate a varied diet. Many worked fewer hours than farmers later would. Many suffered less from certain diseases. Keep this in mind as you read on. It is tempting to think that farming was simply a better idea that someone finally had. The real story is stranger and slower than that.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; THE FERTILE CRESCENT</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The story of farming begins in a curved band of hill country stretching from the eastern Mediterranean coast, up through what is now Turkey, and down into the valleys of Mesopotamia. Geographers call this region the <strong>Fertile Crescent</strong>. It is not, for the most part, a well-watered plain; much of it is rocky highland. But it happened to hold wild ancestors of wheat, barley, lentils, and chickpeas, along with wild sheep, goats, cattle, and pigs, all living in the same general area. Nowhere else on Earth did so many useful wild species overlap so conveniently.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Beginning around 9500 BC, people living in this region started doing something new: instead of only gathering wild grain, they began deliberately planting seeds from the plants with the traits they liked best, larger seeds, tougher stalks that didn't shatter and scatter grain before harvest. Over many centuries of this selective replanting, wild wheat and barley slowly changed into true <strong>domesticated</strong> crops. By around 8500 BC, domesticated einkorn wheat, emmer wheat, and barley were established across the region. Sheep and goats followed close behind, domesticated by roughly 8000 BC, with cattle and pigs not far after. This whole shift, from gathering and hunting wild food to deliberately growing and herding it, is called the <strong>Neolithic Revolution</strong>. Note that "revolution" here does not mean it happened quickly. It unfolded over dozens of generations, and in most places, foraging and early farming existed side by side for a very long time before farming won out.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; THE FERTILE CRESCENT</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The story of farming begins in the <span class="gloss" tabindex="0">Fertile Crescent<span class="gloss-tip"><span class="gloss-pron">FUR-tile KRESS-ent</span>a curved strip of hill country in the Middle East. Wild wheat, barley, sheep, and goats all lived here close together, which made it a good place for farming to begin.</span></span>. Most of this land is rocky hill country, not flat, easy-to-farm plains. But it happened to hold wild ancestors of wheat, barley, lentils, and chickpeas. It also held wild sheep, goats, cattle, and pigs, all living in the same general area. No other place on Earth held so many useful wild plants and animals so close together.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Around 9500 BC, people in this region started doing something new. Instead of only gathering wild grain, they began planting seeds on purpose. They chose seeds from the plants they liked best: plants with larger seeds, and stalks that held their grain instead of scattering it before harvest. Over many centuries of this careful replanting, wild wheat and barley slowly changed into true farmed crops. By about 8500 BC, farmers across the region grew <span class="gloss" tabindex="0">domesticated<span class="gloss-tip"><span class="gloss-pron">duh-mess-tih-KAY-shun</span>the slow process of breeding wild plants and animals so people can grow, raise, and use them more easily.</span></span> wheat and barley. Sheep and goats were domesticated soon after, by about 8000 BC. Cattle and pigs followed close behind.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 0 0;">This whole shift has a name: the <span class="gloss" tabindex="0">Neolithic Revolution<span class="gloss-tip"><span class="gloss-pron">nee-oh-LITH-ik rev-oh-LOO-shun</span>the slow shift, starting around 9500 BC, from hunting and gathering wild food to farming and raising it instead.</span></span>. The word "revolution" might make it sound fast, but it was not. This change took place over dozens of generations. In most places, hunting and early farming existed side by side for a very long time before farming finally won out.</p>
+    </div>
+
+    <div class="tech-card">
+        <div class="callout-label">&#9881;&#65039; TECHNOLOGY SPOTLIGHT &middot; FARMING AND ANIMAL DOMESTICATION</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Bull%27s_head%2C_shrine%2C_%C3%87atalh%C3%B6y%C3%BCk%2C_6000-5500_BC%2C_MACA%2C_99001.jpg" alt="Reconstructed bull's-head shrine from a Neolithic farming settlement, showing how closely people lived alongside domesticated and managed animals" />
+        <div class="img-credit">Photo: Zde, CC BY-SA 4.0, via Wikimedia Commons. (Reconstruction from &Ccedil;atalh&ouml;y&uuml;k, the town you'll meet in Lesson 2, used here to show how central managed animals became to early farming life.)</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Farming did not appear overnight, and it did not appear as one single invention. It grew out of thousands of small, repeated choices. Each year, a family gathering wild grain would notice which stalks held onto their seeds longest, or which plants grew the biggest heads of grain. If they replanted seeds from those plants instead of eating them all, the next year's crop would inherit those same useful traits. Repeated over centuries, this simple habit turned wild einkorn wheat, emmer wheat, and barley into true domesticated crops that depended on people to reproduce successfully. Animal domestication followed a similar path. Herders who kept the calmest, most manageable sheep and goats alive longer, instead of hunting them at random, gradually bred animals that tolerated close contact with people and stayed near camp. Domestication changed both farmer and farmed: wheat lost its ability to scatter its own seed in the wind, and goats lost some of their wild caution. Irrigation, carrying river or spring water to fields that would not otherwise get enough rain, came later but built on the same idea: managing nature deliberately, instead of only taking what it happened to offer. Both breakthroughs made surplus food possible, and surplus made everything else in this course possible.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; A REAL TRADE-OFF, NOT AN OBVIOUS UPGRADE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Why does this matter for how you think about history? Because it would be easy, looking back with the advantage of knowing how the story turns out, to assume farming was an obvious improvement that any sensible person would choose. The archaeological evidence complicates that story. Skeletons from early farming villages often show signs of harder physical labor, more tooth decay from a grain-heavy diet, and more evidence of infectious disease, likely worsened by living in permanent settlements alongside domesticated animals and their waste. A forager who fell ill could move away from where sickness had spread. A farmer, tied to fields that took a full growing season to produce a harvest, could not simply walk away.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">So why did farming spread anyway? Part of the answer is that farming produces something foraging cannot reliably produce: <strong>surplus</strong>, more food than a family needs to survive right now. Surplus changes everything downstream. A family with surplus grain can support a member who does not spend all day gathering food, a potter, a builder, eventually a priest or a soldier. Surplus stored in granaries can carry a community through a bad season that would have scattered a foraging band. And a settled, farming population without the need to constantly relocate tends to have more children survive to adulthood, since infants no longer have to be carried on long seasonal migrations. Over enough generations, farming populations simply outgrew foraging ones in the same territory, whatever the individual trade-offs in daily life. This is <strong>sedentism</strong>, the practice of staying in one place year-round, and it is the quiet engine underneath everything that follows in this course: villages, cities, kings, writing, and armies all depend on people staying put long enough to build them.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; A REAL TRADE-OFF, NOT AN OBVIOUS UPGRADE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Why does this matter for how you think about history? It would be easy to look back and assume farming was an obvious improvement. Any sensible person would choose it, right? The evidence tells a more complicated story. Skeletons from early farming villages often show harder physical labor. They show more tooth decay, likely from a grain-heavy diet. They show more disease, probably made worse by living in permanent villages next to farm animals and their waste. A forager who got sick could move away from the sickness. A farmer could not. Farmers were tied to fields that took a whole growing season to produce a harvest.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">So why did farming spread anyway? Part of the answer is <span class="gloss" tabindex="0">surplus<span class="gloss-tip"><span class="gloss-pron">SUR-plus</span>more food or goods than a family needs right away.</span></span>. Farming can produce more food than a family needs right now, something foraging usually cannot do reliably. Surplus changes everything that follows. A family with surplus grain can support someone who does not spend the whole day finding food: a potter, a builder, eventually a priest or a soldier. Surplus stored away can also carry a village through a bad season that would have scattered a foraging band. And a settled, farming population tends to raise more children to adulthood, since babies no longer travel on long seasonal journeys. Over many generations, farming populations simply grew larger than foraging ones living in the same land.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 0 0;">This settled way of life is called <span class="gloss" tabindex="0">sedentism<span class="gloss-tip"><span class="gloss-pron">SED-en-tiz-um</span>the practice of staying in one place all year, instead of moving from camp to camp.</span></span>, staying in one place year-round. Sedentism is the quiet engine behind everything else in this course. Villages, cities, kings, writing, and armies all depend on people staying in one place long enough to build them.</p>
     </div>
 
     <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
         <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; HELPFUL TO KNOW &middot; LEARNING TO READ DEEP TIME</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">A <strong>decade</strong> is ten years, a <strong>century</strong> is one hundred years, and a <strong>millennium</strong> is one thousand years. This course uses <strong>BC</strong> ("before Christ," sometimes written BCE) for dates before year 1, and <strong>AD</strong> ("anno Domini") for dates after. One tricky feature of BC dates: they count downward toward the present, so 9500 BC is older than 8500 BC, even though 9500 is the larger number. You will need this vocabulary every week from here forward.</div>
+        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">This course needs some shared vocabulary for talking about dates from long ago. A <span class="gloss" tabindex="0">decade<span class="gloss-tip"><span class="gloss-pron">DEK-ayd</span>a period of ten years.</span></span> is ten years. A <span class="gloss" tabindex="0">century<span class="gloss-tip"><span class="gloss-pron">SEN-chuh-ree</span>a period of one hundred years.</span></span> is one hundred years. A <span class="gloss" tabindex="0">millennium<span class="gloss-tip"><span class="gloss-pron">mih-LEN-ee-um</span>a period of one thousand years.</span></span> is one thousand years. This course uses <span class="gloss" tabindex="0">BC / AD<span class="gloss-tip"><span class="gloss-pron">BEE-SEE / AY-DEE</span>BC means "before Christ." BC dates count backward toward today. AD means "in the year of the Lord" and counts forward, the same way a normal calendar does.</span></span> ("before Christ," sometimes written BCE) for dates before year 1, and AD ("anno Domini," sometimes written CE) for dates after year 1. One tricky feature of BC dates: they count downward toward today. That means 9500 BC is older than 8500 BC, even though 9500 is the bigger number. You will use this vocabulary every week for the rest of the course.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; A GEOGRAPHER'S TOOLKIT</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">You'll also meet, starting this week and returning to often, the <strong>Six Essential Elements of Geography</strong>: The World in Spatial Terms, Places and Regions, Physical Systems, Human Systems, Environment and Society, and the Uses of Geography. Think of this as a geographer's toolkit for asking good questions about any place you study: Where is it? What is it like there? How did people and the land shape each other? Keep this toolkit in mind as you meet Jericho and &Ccedil;atalh&ouml;y&uuml;k in the next lesson, two of the very first places in the world where people committed fully to staying put.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; A GEOGRAPHER'S TOOLKIT</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">You'll also meet, starting this week and returning to often, the <span class="gloss" tabindex="0">Six Essential Elements of Geography<span class="gloss-tip">six big questions geographers ask about any place: The World in Spatial Terms, Places and Regions, Physical Systems, Human Systems, Environment and Society, and the Uses of Geography.</span></span>. Think of this as a geographer's toolkit for asking good questions about any place you study: Where is it? What is it like there? How did people and the land shape each other? Keep this toolkit in mind as you meet Jericho and &Ccedil;atalh&ouml;y&uuml;k in the next lesson, two of the very first places in the world where people committed fully to staying put.</p>
 
         <div class="optima-widget">
             <div class="widget-kicker">&#127919; TRY IT: WHERE WERE THESE FIRST DOMESTICATED?</div>
@@ -117,25 +146,25 @@
             <div class="widget-row" data-correct="fc">
                 <div class="widget-row-prompt">Wheat, barley, and lentils</div>
                 <div class="widget-options">
-                    <button data-choice="indus">Indus Valley</button>
                     <button data-choice="fc">Fertile Crescent</button>
                     <button data-choice="shang">Shang China</button>
+                    <button data-choice="indus">Indus Valley</button>
                 </div>
             </div>
             <div class="widget-row" data-correct="fc">
                 <div class="widget-row-prompt">Sheep and goats</div>
                 <div class="widget-options">
-                    <button data-choice="shang">Shang China</button>
                     <button data-choice="indus">Indus Valley</button>
                     <button data-choice="fc">Fertile Crescent</button>
+                    <button data-choice="shang">Shang China</button>
                 </div>
             </div>
             <div class="widget-row" data-correct="indus">
                 <div class="widget-row-prompt">Cotton and zebu cattle</div>
                 <div class="widget-options">
+                    <button data-choice="shang">Shang China</button>
                     <button data-choice="fc">Fertile Crescent</button>
                     <button data-choice="indus">Indus Valley</button>
-                    <button data-choice="shang">Shang China</button>
                 </div>
             </div>
             <div class="widget-row" data-correct="shang">
@@ -177,6 +206,15 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
     var reset = e.target.closest('.widget-reset');
@@ -198,6 +236,13 @@
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;
       return;
+    }
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();

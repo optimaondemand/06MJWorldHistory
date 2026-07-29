@@ -7,6 +7,16 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .source-note { background: #FFF7E8; border: 1px solid #E8D3A0; border-left: 5px solid #C7922C; border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-size: 14px; color: #4a3a1a; line-height: 1.55; }
+    .source-quote { background: #F7F5EF; border: 1px solid #D8CFB8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 22px 26px; margin: 18px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; color: #2a2214; line-height: 1.75; }
+    .source-quote p { margin: 0 0 14px 0; }
+    .source-quote p:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -27,15 +37,14 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q1 &middot; Module 1</div>
-        <div style="font-size: 12px; color: #666;">The Neolithic Revolution</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source</div>
-        <div style="font-size: 17px; color: #0e1c42;">Source 1.2 &middot; Thursday</div>
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source 2</div>
+        <div style="font-size: 17px; color: #0e1c42;">Thursday</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
-        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">An Excavation Account of &Ccedil;atalh&ouml;y&uuml;k</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">An Excavation Account of <span class="gloss" tabindex="0">&Ccedil;atalh&ouml;y&uuml;k<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Chah tal hoo yook')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">CHAH-tal-hoo-yook</span>an ancient farming town on the Anatolian plateau, famous for its rooftop entrances and painted walls.</span></span></div>
     </div>
 </div>
 
@@ -43,41 +52,56 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Primary Source 2</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">An Excavation Account of &Ccedil;atalh&ouml;y&uuml;k</div>
-        <div style="font-size: 16px; color: #666;">Primary Source Reading</div>
+        <div style="font-size: 22px; color: #0e1c42;">An Excavation Account of &Ccedil;atalh&ouml;y&uuml;k</div>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; ABOUT THIS SOURCE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">This is an <strong>adapted classroom account</strong>, based on the well-documented findings of James Mellaart's excavations at &Ccedil;atalh&ouml;y&uuml;k in central Anatolia, carried out between 1961 and 1965. It is not a verbatim quotation from Mellaart's own published reports; it is a careful summary, in report form, of what his team actually found and how they interpreted it, written so you can practice reading an archaeological account directly.</div>
+    <div class="source-note">
+        <strong>About this source:</strong> James Mellaart's own report, <em>&Ccedil;atal H&uuml;y&uuml;k: A Neolithic Town in Anatolia</em> (1967), remains under copyright and could not be located as an open, full-text scan. What follows is a careful, closely-researched report, in Mellaart's own report-writing style, of what his team actually found, such as the rooftop entries, the bucrania installations, and the lack of streets or a central palace or temple, and how he himself interpreted it. It is written so you can practice reading an archaeological account directly, but it is not a word-for-word quotation from his published book.
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 24px 28px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#128214; THE ACCOUNT</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; font-style: italic; margin: 0 0 16px 0;">Nothing prepared us for the layout of this settlement. There are no streets. House after house stands wall to wall, packed together into a single continuous mass of mudbrick, so that a visitor arriving eight thousand years ago could not have walked between the buildings at all. Instead, each house was entered from above: a hole cut into the flat roof, reached by a wooden ladder, led down into the main room. To move from one house to a neighbor's, a resident of this town would have walked across the rooftops themselves, climbing down through whichever roof-hole belonged to their destination. We have come to suspect that this arrangement served a defensive purpose of its own, since an outer wall of houses with no ground-level doors or windows would have presented an unbroken barrier to any outsider, much as Jericho's stone wall did by different means.</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; font-style: italic; margin: 0 0 16px 0;">Inside many of the houses, the plastered walls were covered in painted scenes, some showing hunting parties surrounding wild cattle, others showing geometric patterns whose meaning we cannot yet reconstruct. Most striking of all are the installations we have come to call bucrania: the actual horned skulls of wild cattle, plastered over and mounted into walls, pillars, and raised platforms inside the main rooms of many houses. In some houses we found several such installations together, arranged with evident deliberateness. We do not know precisely what belief or practice these skulls represented, whether reverence for a hunted animal whose strength was thought to pass to the household, a marker of a family's status or lineage, or something closer to what we would call a household shrine. What is certain is that these were not incidental decorations; households invested real effort in plastering, re-plastering, and maintaining them over years, sometimes building new floors and platforms directly on top of old ones many times over in the same house, so that a single house's floor can represent decades or generations of continuous use by the same family line.</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; font-style: italic; margin: 0;">The population living within this dense cluster of houses may have numbered in the thousands, remarkable for a community with no visible central palace, temple, or evidence of a single ruling authority. Whatever kept order here, whether custom, kinship, shared ritual, or some combination of the three, it operated without the kind of monumental civic architecture that later Mesopotamian cities would build to house their kings and priests.</p>
+    <div class="source-quote">
+        <p>Nothing prepared us for the layout of this settlement. There are no streets. House after house stands wall to wall, packed together into a single continuous mass of mudbrick, so that a visitor arriving eight thousand years ago could not have walked between the buildings at all. Instead, each house was entered from above: a hole cut into the flat roof, reached by a wooden ladder, led down into the main room. To move from one house to a neighbor's, a resident of this town would have walked across the rooftops themselves, climbing down through whichever roof-hole belonged to their destination. We have come to suspect that this arrangement served a defensive purpose of its own, since an outer wall of houses with no ground-level doors or windows would have presented an unbroken barrier to any outsider, much as Jericho's stone wall did by different means.</p>
+        <p>Inside many of the houses, the plastered walls were covered in painted scenes, some showing hunting parties surrounding wild cattle, others showing geometric patterns whose meaning we cannot yet reconstruct. Most striking of all are the installations we have come to call bucrania: the actual horned skulls of wild cattle, plastered over and mounted into walls, pillars, and raised platforms inside the main rooms of many houses. In some houses we found several such installations together, arranged with evident deliberateness. We do not know precisely what belief or practice these skulls represented, whether reverence for a hunted animal whose strength was thought to pass to the household, a marker of a family's status or lineage, or something closer to what we would call a household shrine. What is certain is that these were not incidental decorations; households invested real effort in plastering, re-plastering, and maintaining them over years, sometimes building new floors and platforms directly on top of old ones many times over in the same house, so that a single house's floor can represent decades or generations of continuous use by the same family line.</p>
+        <p>The population living within this dense cluster of houses may have numbered in the thousands, remarkable for a community with no visible central palace, temple, or evidence of a single ruling authority. Whatever kept order here, whether custom, kinship, shared ritual, or some combination of the three, it operated without the kind of monumental civic architecture that later Mesopotamian cities would build to house their kings and priests.</p>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px;">
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
-            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
-            <div>
-                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Primary Source Exercise</strong></div>
-                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Return to this excerpt to answer the Primary Source Exercise in Canvas.</div>
-            </div>
-        </div>
+        <div style="font-size: 16px; color: #1a2340; line-height: 1.55;"><strong>Primary Source Exercise</strong>, in Canvas: two open-ended questions on this excerpt.</div>
     </div>
 
 </div>
 
 <div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
-    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; WORLD HISTORY &middot; Quarter 1 &middot; Primary Source</div>
-    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">An Excavation Account of &Ccedil;atalh&ouml;y&uuml;k</div>
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; WORLD HISTORY &middot; Quarter 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Primary Source 2 &middot; An Excavation Account of &Ccedil;atalh&ouml;y&uuml;k</div>
     <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>

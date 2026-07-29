@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -35,7 +47,7 @@
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
-        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Digging Up the Neolithic</div>
+        <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Digging Up the Neolithic: Jericho and &Ccedil;atalh&ouml;y&uuml;k</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
@@ -51,49 +63,71 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How do we know any of this happened?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">How do we know any of what Lesson 1 described? No one alive today watched wild wheat become domesticated wheat. The answer is <strong>archaeology</strong>, the careful study of the physical remains people leave behind: buildings, tools, seeds, bones, and trash. Archaeologists don't simply dig for treasure. They perform an <strong>excavation</strong>, a slow, layer-by-layer removal of soil, recording exactly where every object was found and at what depth, because the depth of a layer usually tells you its age relative to the layers above and below it. When people build, abandon, and rebuild on the same spot for thousands of years, the site grows upward into a mound called a <strong>tell</strong>. Walk across the Middle East today and you will see dozens of these grassy or dusty hills, each one a stack of ancient towns waiting to be read like the pages of a book, oldest page on the bottom.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">archaeology<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'archaeology')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ar-kee-OL-uh-jee</span>the careful study of the things people left behind: buildings, tools, seeds, bones, and trash.</span></span></li>
+            <li><span class="gloss" tabindex="0">excavation<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'excavation')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ek-skuh-VAY-shun</span>a slow, careful dig, done layer by layer, that records exactly where and how deep every object was found.</span></span></li>
+            <li><span class="gloss" tabindex="0">tell<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'tell')">&#128266;</button><span class="gloss-tip">rhymes with "bell" &mdash; a mound formed when people build, abandon, and rebuild on the same spot for thousands of years, so the site grows upward like a layered cake.</span></span></li>
+        </ul>
+        <div style="font-size: 12px; color: #8a94ab; margin-top: 10px; font-style: italic;">Continuing from Lesson 1, this is the last lesson where these terms are called out: BC/AD, century, decade, domestication, millennium, Neolithic Revolution, sedentism, Six Essential Elements of Geography, surplus.</div>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; JERICHO AND &Ccedil;ATALH&Ouml;Y&Uuml;K, UP CLOSE</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Fertile_Crescent_map.png" alt="Map of the Fertile Crescent showing the general region containing Jericho and Catalhoyuk" />
+        <div class="img-credit">Map: NormanEinstein, CC BY-SA 3.0 / GFDL, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map zooms in on each settlement: <span class="gloss" tabindex="0">Jericho<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Jericho')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">juh-RY-koh</span>an ancient settlement near the Jordan River, in the region called the Levant. It holds one of the oldest known stone walls and towers in the world.</span></span> near the Jordan River valley, and <span class="gloss" tabindex="0">&Ccedil;atalh&ouml;y&uuml;k<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Chah tal hoo yook')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">CHAH-tal-hoo-yook</span>an ancient farming town on the Anatolian plateau, in what is now central Turkey, famous for its rooftop entrances and painted walls.</span></span> on the Anatolian plateau farther north.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; JERICHO: WALLS BEFORE POTTERY</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">One of the most remarkable tells anywhere is at <strong>Jericho</strong>, near the Jordan River in the Levant. In the early 1950s, the British archaeologist Kathleen Kenyon excavated deep into Jericho's mound and found something startling: a massive stone tower, over eight meters tall, attached to a substantial stone wall, dating to roughly 8000 BC. This made Jericho one of the very oldest walled settlements ever discovered, built by people who had not yet even invented pottery.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Why build a monumental tower and wall so early, before writing, before the wheel, before fired clay pots? Kenyon herself debated the answer. A defensive wall against raiders is the obvious guess, but some archaeologists have argued the wall might have held back flash floods or seasonal mudslides instead, or that the tower served some ceremonial or status purpose we don't fully understand. This is worth sitting with honestly: sometimes the physical evidence is clear, but the human motive behind it is not. That gap between what we can prove and what we can only guess is part of what makes history a discipline of careful reasoning, not simple fact-retrieval.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">How do we know any of what Lesson 1 described? No one alive today watched wild wheat slowly become farmed wheat. The answer is <span class="gloss" tabindex="0">archaeology<span class="gloss-tip"><span class="gloss-pron">ar-kee-OL-uh-jee</span>the careful study of the things people leave behind: buildings, tools, seeds, bones, and trash.</span></span>, the careful study of the things people leave behind: buildings, tools, seeds, bones, and trash. Archaeologists do not simply dig for treasure. They perform an <span class="gloss" tabindex="0">excavation<span class="gloss-tip"><span class="gloss-pron">ek-skuh-VAY-shun</span>a slow, careful dig, done layer by layer, that records exactly where and how deep every object was found.</span></span>, a slow, careful dig done layer by layer. They record exactly where every object was found, and how deep, because the depth of a layer usually tells you its age compared to the layers above and below it. When people build, abandon, and rebuild on the same spot for thousands of years, the site grows upward into a mound called a <span class="gloss" tabindex="0">tell<span class="gloss-tip">rhymes with "bell" &mdash; a mound formed when people build, abandon, and rebuild on the same spot for thousands of years, so the site grows upward like a layered cake.</span></span>. Travel across the Middle East today and you will see dozens of these grassy or dusty hills. Each one is a stack of ancient towns, waiting to be read like the pages of a book, with the oldest page on the bottom.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; &Ccedil;ATALH&Ouml;Y&Uuml;K: A TOWN WITHOUT STREETS</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Roughly a thousand years later and several hundred kilometers north, in what is now central Turkey, a very different kind of Neolithic town grew up at <strong>&Ccedil;atalh&ouml;y&uuml;k</strong>. Excavated beginning in the 1960s by James Mellaart, &Ccedil;atalh&ouml;y&uuml;k turns out to have had no streets at all. Its mudbrick houses were built wall-to-wall in a dense honeycomb, and residents entered their homes not through a front door but down a ladder through a hole in the roof, walking across the rooftops of the whole settlement to get from house to house.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Inside many homes, Mellaart's team found plastered walls decorated with paintings of hunting scenes, and startling installations of <strong>bucrania</strong>, the horned skulls of wild cattle (aurochs), set into walls and platforms, evidence of ritual or ancestral significance that archaeologists still debate the exact meaning of.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; JERICHO: WALLS BEFORE POTTERY</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">One of the greatest tells anywhere sits at Jericho, near the Jordan River in the region called the Levant. In the early 1950s, the British archaeologist <strong>Kathleen Kenyon</strong> dug deep into Jericho's mound. She found something startling: a massive stone tower, more than eight meters tall, attached to a thick stone wall. The wall and tower date to roughly 8000 BC. This makes Jericho one of the oldest walled settlements ever found, built before people had even invented pottery.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Why build a monument like this so early? This was before writing, before the wheel, before fired clay pots. Kenyon herself argued over the answer. A wall to keep out raiders is the obvious guess. But some archaeologists think the wall might have held back flash floods or mudslides instead. Others think the tower had some special role in Jericho's rituals, a role we do not fully grasp today. This is worth sitting with honestly. Sometimes the physical evidence is clear, but the human reason behind it is not. That gap, between what we can prove and what we can only guess, is part of what makes history a subject built on careful reasoning. It is not simple fact-finding.</p>
     </div>
 
-    <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; DON'T MIX THESE UP &middot; WHAT A REPORT CAN AND CANNOT TELL YOU</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Kenyon's and Mellaart's excavation reports are <strong>primary sources</strong>, but only about the dig itself. What Kenyon wrote is a firsthand, eyewitness account of what her team actually found in the ground at Jericho in the 1950s; that much is primary evidence, the direct testimony of someone who was there. But neither Kenyon nor Mellaart lived in the Neolithic period they were excavating. Their reports are <strong>secondary evidence</strong> about the Neolithic itself, careful, expert interpretation built from physical clues, not eyewitness memory of Neolithic life. Learning to ask "is this person a firsthand witness to the event I actually care about, or an expert interpreting evidence about it afterward?" will serve you all year.</div>
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; JERICHO</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Jericho_Neolitic_Tower_P1190749.JPG" alt="The excavated Neolithic stone tower at Jericho, Tell es-Sultan" />
+        <div class="img-credit">Photo: CC BY-SA 3.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Picture a walled settlement of simple mudbrick and stone houses clustered around a single massive stone tower built into the settlement's thick outer wall. No streets ran in straight lines. Paths wound between houses built close together, with fields of wheat and barley just outside the wall, watered by a nearby freshwater spring.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; KATHLEEN KENYON</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Kathleen_Kenyon.jpg" alt="Portrait photograph of archaeologist Kathleen Kenyon" style="max-width: 220px;" />
+        <div class="img-credit">Photo: courtesy UCL Institute of Archaeology, CC BY 4.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0"><strong>Kathleen Kenyon</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Kathleen Kenyon')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">KATH-leen KEN-yun</span>British archaeologist who led the excavation of Jericho.</span></span> was a British archaeologist who led the major excavation of Jericho in the early 1950s. Her careful, layer-by-layer digging techniques helped set the standard for how archaeologists still excavate sites today. Her discovery of Jericho's ancient tower and wall reshaped what historians understood about how early humans first settled into permanent life.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; PLACING THESE SITES ON THE MAP</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Jericho sits at roughly 31.9 degrees north latitude and 35.4 degrees east longitude, near the Jordan River valley. &Ccedil;atalh&ouml;y&uuml;k sits much farther north and slightly west, at roughly 37.7 degrees north latitude and 32.8 degrees east longitude, on the Anatolian plateau. Take a moment with a world map or atlas to plot both points.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; &Ccedil;ATALH&Ouml;Y&Uuml;K: A TOWN WITHOUT STREETS</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">About a thousand years later, several hundred kilometers north, a very new kind of Neolithic town grew up at &Ccedil;atalh&ouml;y&uuml;k, in what is now central Turkey. The British archaeologist <strong>James Mellaart</strong> began digging there in the 1960s. He found a town with no streets at all. Its mudbrick houses were built wall to wall, packed together like a honeycomb. Residents did not enter their homes through a front door. Instead, they climbed down a ladder through a hole in the roof, walking across the rooftops of the whole town to get from house to house.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Inside many homes, Mellaart's team found painted walls showing hunting scenes. They also found startling <strong>bucrania</strong>, the horned skulls of wild cattle, set into walls and platforms. Archaeologists still argue over exactly what these skulls meant to the people who placed them there, though most agree they held some ritual or family meaning.</p>
+    </div>
 
-        <div style="background: #F4F6FA; border: 1px solid #D0D9E8; border-radius: 8px; padding: 18px 20px; margin: 10px 0;">
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around;">
-                <div style="text-align: center; min-width: 140px;">
-                    <div style="font-size: 15px; color: #0E1C42;"><strong>Jericho</strong></div>
-                    <div style="font-size: 14px; color: #555;">31.9&deg; N, 35.4&deg; E</div>
-                    <div style="font-size: 13px; color: #888;">Jordan River valley</div>
-                </div>
-                <div style="text-align: center; min-width: 140px;">
-                    <div style="font-size: 15px; color: #0E1C42;"><strong>&Ccedil;atalh&ouml;y&uuml;k</strong></div>
-                    <div style="font-size: 14px; color: #555;">37.7&deg; N, 32.8&deg; E</div>
-                    <div style="font-size: 13px; color: #888;">Anatolian plateau</div>
-                </div>
-            </div>
-        </div>
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; &Ccedil;ATALH&Ouml;Y&Uuml;K</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Bull%27s_head%2C_shrine%2C_%C3%87atalh%C3%B6y%C3%BCk%2C_6000-5500_BC%2C_MACA%2C_99001.jpg" alt="Reconstructed bull's-head shrine wall from a house at Catalhoyuk" />
+        <div class="img-credit">Photo: Zde, CC BY-SA 4.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Imagine a town with no streets or doors at ground level at all. Flat-roofed mudbrick houses packed together wall to wall, so closely that people walked across the rooftops to get anywhere, climbing down ladders through roof holes into rooms with wall paintings and the horned skulls of wild cattle.</p>
+    </div>
 
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 10px 0 0 0;">Notice how far apart they are, and yet how similar their basic story is: small bands of people, in two unconnected corners of the Fertile Crescent's wider neighborhood, independently committing to permanent settlement within a thousand years of each other. That is not a coincidence of two clever individuals; it is what happens when the deeper shift described in Lesson 1, the slow domestication of plants and animals, reaches the point where staying in one place finally makes more sense than moving. This week's primary sources let you look directly at what archaeologists actually found at both places.</p>
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; JAMES MELLAART</div>
+        <p style="font-size: 13px; color: #8a94ab; font-style: italic; margin: 0 0 8px 0;">No verified public-domain or openly-licensed solo portrait of Mellaart could be confirmed for this page; a photo is omitted here rather than risking an uncleared image.</p>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 0;"><span class="gloss" tabindex="0"><strong>James Mellaart</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'James Mellaart')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">JAYMZ MEL-art</span>British archaeologist who began digging at &Ccedil;atalh&ouml;y&uuml;k in 1961.</span></span> was a British archaeologist who began digging at &Ccedil;atalh&ouml;y&uuml;k in 1961. His work turned up one of the best-kept Neolithic towns ever found, including its painted walls and cattle-skull shrines. Mellaart's finds remain central to how historians picture daily life in an early farming town.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; WHAT A REPORT CAN AND CANNOT TELL YOU</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Here is an important idea for how you will read sources all semester. Kenyon's and Mellaart's excavation reports are <strong>primary sources</strong>, but only about the dig itself. What Kenyon wrote is a firsthand, eyewitness account of what her team actually found in the ground at Jericho in the 1950s. That much is primary evidence, the direct word of someone who was there. But neither Kenyon nor Mellaart lived during the Neolithic period they were digging up. Their reports are <strong>secondary evidence</strong> about the Neolithic itself. They are careful, expert readings of physical clues, not eyewitness memories of Neolithic life. All year, ask yourself this question about any source you read: is this person a firsthand witness to the event I actually care about? Or is this person an expert explaining evidence about it long after the fact?</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Jericho sits at roughly 31.9 degrees north latitude and 35.4 degrees east longitude, near the Jordan River valley. &Ccedil;atalh&ouml;y&uuml;k sits much farther north and slightly west, at roughly 37.7 degrees north latitude and 32.8 degrees east longitude, on the Anatolian plateau. Take a moment with a world map or atlas and plot both points. Notice how far apart they are, and yet how similar their basic story is. In two separate corners of the Fertile Crescent's wider neighborhood, small bands of people chose to settle down for good, within about a thousand years of each other, without ever meeting. That is not just luck, and it is not the work of two clever people acting alone. It is what happens when a deeper shift, the slow domestication of plants and animals from Lesson 1, finally reaches a tipping point.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -102,7 +136,7 @@
             <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
             <div>
                 <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 2</strong></div>
-                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short quiz on today's lesson, in Canvas.</div>
+                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short quiz on today's lesson, in Canvas. Then, Primary Source 2 and the Primary Source Exercise on Thursday.</div>
             </div>
         </div>
     </div>
@@ -111,10 +145,34 @@
 
 <div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
     <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; WORLD HISTORY &middot; Quarter 1 &middot; Student Lesson Page</div>
-    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 2 &middot; Digging Up the Neolithic</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 2 &middot; Digging Up the Neolithic: Jericho and &Ccedil;atalh&ouml;y&uuml;k</div>
     <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
