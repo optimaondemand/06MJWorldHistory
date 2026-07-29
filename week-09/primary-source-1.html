@@ -7,6 +7,11 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .source-note { background: #FFF7E8; border: 1px solid #E8D3A0; border-left: 5px solid #C7922C; border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-size: 14px; color: #4a3a1a; line-height: 1.55; }
+    .source-quote { background: #F7F5EF; border: 1px solid #D8CFB8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 22px 26px; margin: 18px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; color: #2a2214; line-height: 1.7; }
+    .source-quote p { margin: 0 0 12px 0; }
+    .source-quote p:last-child { margin-bottom: 0; }
+    .source-quote strong { color: #0E1C42; }
 </style>
 </head>
 <body>
@@ -27,11 +32,10 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q1 &middot; Module 9</div>
-        <div style="font-size: 12px; color: #666;">The Bronze Age Collapse</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source</div>
-        <div style="font-size: 17px; color: #0e1c42;">Source 9.1 &middot; Tuesday</div>
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source 1</div>
+        <div style="font-size: 17px; color: #0e1c42;">Tuesday</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
@@ -43,43 +47,35 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Primary Source 1</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Ramesses III's Medinet Habu Inscription</div>
-        <div style="font-size: 16px; color: #666;">Primary Source Reading</div>
+        <div style="font-size: 22px; color: #0e1c42;">Ramesses III's Medinet Habu Inscription</div>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; ABOUT THIS SOURCE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Adapted into plain modern English from early Egyptological translations of the inscription Ramesses III had carved on the walls of his mortuary temple at Medinet Habu, describing Egypt's defense against a major Sea Peoples assault, likely around 1175 BC.</div>
+    <div class="source-note">
+        <strong>About this source:</strong> Adapted and lightly modernized from James Henry Breasted's translation in <em>Ancient Records of Egypt</em>, Vol. IV (University of Chicago Press, 1906, public domain), of the inscription Ramesses III had carved on the walls of his mortuary temple at Medinet Habu, describing Egypt's defense against a major Sea Peoples assault, likely around 1175 BC.
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 24px 28px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#128214; THE INSCRIPTION</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the scale of the crisis beyond Egypt's own borders:</strong><br/>"The foreign countries made a conspiracy in their islands. All at once the lands were removed and scattered in the conflict. No land could stand before their arms, from Hatti, Kode, Carchemish, Arzawa, and Cyprus onward, all being cut off at one time. They set up a camp in one place inside Amurru. They desolated its people, and its land was as if it had never come into being at all. They were coming onward toward Egypt, while the flame was prepared before them."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the composition of the invading coalition:</strong><br/>"Their confederation included the Peleset, the Tjeker, the Shekelesh, the Denyen, and the Weshesh, lands united together, and they laid their hands upon the lands as far as the circuit of the earth, their hearts confident and trusting, saying, 'Our plan will succeed.'"</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On Egypt's preparation for the assault:</strong><br/>"I organized my frontier in Djahy, prepared before them: princes, garrison commanders, and charioteers, equipped with all the weapons of war. The ships, the boats, and the barges were manned completely from bow to stern with brave fighters bearing their weapons, and the infantry consisted of all the pick of Egypt."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the battle itself, land and sea together:</strong><br/>"Those who reached my frontier, their seed exists no longer; their heart and their soul are finished forever. As for those who banded together upon the sea, the full flame was in front of them at the mouths of the rivers, while a wall of metal, bristling with lances, surrounded them on the shore. They were dragged in, enclosed, and prostrated on the beach, slain, and made into heaps from head to tail."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0;"><strong>A closing claim of total victory:</strong><br/>"I have made the lands turn back from even mentioning Egypt, for when they say the name of my majesty in their land, it burns their bodies."</p>
+    <div class="source-quote">
+        <p><strong>On the scale of the crisis beyond Egypt's own borders:</strong><br>"The foreign countries made a conspiracy in their islands. All at once the lands were removed and scattered in the conflict. No land could stand before their arms, from Hatti, Kode, Carchemish, Arzawa, and Cyprus onward, all being cut off at one time. They set up a camp in one place inside Amurru. They desolated its people, and its land was as if it had never come into being at all. They were coming onward toward Egypt, while the flame was prepared before them."</p>
+        <p><strong>On the composition of the invading coalition:</strong><br>"Their confederation included the Peleset, the Tjeker, the Shekelesh, the Denyen, and the Weshesh, lands united together, and they laid their hands upon the lands as far as the circuit of the earth, their hearts confident and trusting, saying, 'Our plan will succeed.'"</p>
+        <p><strong>On Egypt's preparation for the assault:</strong><br>"I organized my frontier in Djahy, prepared before them: princes, garrison commanders, and charioteers, equipped with all the weapons of war. The ships, the boats, and the barges were manned completely from bow to stern with brave fighters bearing their weapons, and the infantry consisted of all the pick of Egypt."</p>
+        <p><strong>On the battle itself, land and sea together:</strong><br>"Those who reached my frontier, their seed exists no longer; their heart and their soul are finished forever. As for those who banded together upon the sea, the full flame was in front of them at the mouths of the rivers, while a wall of metal, bristling with lances, surrounded them on the shore. They were dragged in, enclosed, and prostrated on the beach, slain, and made into heaps from head to tail."</p>
+        <p><strong>A closing claim of total victory:</strong><br>"I have made the lands turn back from even mentioning Egypt, for when they say the name of my majesty in their land, it burns their bodies."</p>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px;">
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
-            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
-            <div>
-                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Critical Questions</strong></div>
-                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">Return to this inscription to answer the Critical Questions assignment in Canvas.</div>
-            </div>
-        </div>
+        <div style="font-size: 16px; color: #1a2340; line-height: 1.55;"><strong>Critical Questions</strong>, in Canvas.</div>
     </div>
 
 </div>
 
 <div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 18px 34px; text-align: center;">
-    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; WORLD HISTORY &middot; Quarter 1 &middot; Primary Source</div>
-    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Ramesses III's Medinet Habu Inscription</div>
+    <div style="font-size: 18px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> &middot; WORLD HISTORY &middot; Quarter 1 &middot; Student Lesson Page</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Primary Source 1 &middot; Ramesses III's Medinet Habu Inscription</div>
     <div style="font-size: 12px; color: rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
 </div>
 
 </div>
+
 </body>
 </html>
