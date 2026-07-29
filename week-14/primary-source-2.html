@@ -7,6 +7,11 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .source-note { background: #FFF7E8; border: 1px solid #E8D3A0; border-left: 5px solid #C7922C; border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-size: 14px; color: #4a3a1a; line-height: 1.55; }
+    .source-quote { background: #F7F5EF; border: 1px solid #D8CFB8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 22px 26px; margin: 18px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; color: #2a2214; line-height: 1.7; }
+    .source-quote p { margin: 0 0 12px 0; }
+    .source-quote p:last-child { margin-bottom: 0; }
+    .source-quote strong { color: #0E1C42; }
 </style>
 </head>
 <body>
@@ -27,7 +32,6 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q2 &middot; Module 14</div>
-        <div style="font-size: 12px; color: #666;">The Medes</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source</div>
@@ -43,21 +47,17 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Primary Source 2</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Herodotus's Account of the Battle of the Eclipse (585 BC)</div>
-        <div style="font-size: 16px; color: #666;">Primary Source Reading</div>
+        <div style="font-size: 22px; color: #0e1c42;">Herodotus's Account of the Battle of the Eclipse (585 BC)</div>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; ABOUT THIS SOURCE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Adapted into plain modern English from public domain English translations of Herodotus's <em>Histories</em>, Book I, describing the war between Media and Lydia and the eclipse that helped end it.</div>
+    <div class="source-note">
+        <strong>About this source:</strong> G.C. Macaulay's 1890 translation of Herodotus's <em>Histories</em>, Book I, describing the war between Media and Lydia and the eclipse that helped end it. Public domain; confirmed via direct fetch of Project Gutenberg's hosted text (gutenberg.org/files/2707).
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 24px 28px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#128214; THE HISTORIES, BOOK I</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the course of the war before the eclipse:</strong><br/>"War continued between the Lydians and the Medes for five years, during which each side won victories over the other in turn, without either gaining a lasting advantage. In the sixth year, a battle took place in which the two armies were still engaged, evenly matched, when suddenly day became night in the midst of the fighting."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the prediction of this event:</strong><br/>"This change of day into night had been foretold to the Greeks by Thales of Miletus, who had set the very year in which it occurred as the limit for his prediction, though he could not say the precise day."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the armies' reaction:</strong><br/>"When the Lydians and the Medes saw this happening, they ceased their fighting at once, and both sides seemed far more eager to make peace with one another than they had been before."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0;"><strong>On the resulting peace settlement:</strong><br/>"The peace between them was arranged with the help of other rulers acting as go-betweens, and was sealed by a marriage between the families of the two kings. They agreed that the river Halys should form the boundary between their two kingdoms, and both sides swore to keep faith with this agreement."</p>
+    <div class="source-quote">
+        <p><strong>On the course of the war before the eclipse:</strong><br>"[There was] war between the Lydians and the Medes lasting five years; in which years the Medes often discomfited the Lydians and the Lydians often discomfited the Medes." In the sixth year of fighting, "suddenly the day became night."</p>
+        <p><strong>On the prediction of this event:</strong><br>"This change of the day Thales the Milesian had foretold to the Ionians, laying down as a limit this very year in which the change took place."</p>
+        <p><strong>On the armies' reaction and the resulting peace:</strong><br>Both armies ceased fighting at once when they saw the day turn to night, and became eager to make peace. The two sides were reconciled through mediators who arranged "an interchange of marriages," with the Lydian king Alyattes giving his daughter Aryenis in marriage to the Median royal house, and the river Halys was set as the boundary between the two kingdoms.</p>
     </div>
 
     <div style="background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">

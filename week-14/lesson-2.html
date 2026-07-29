@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -51,30 +63,63 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Can the sky itself end a war?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">By the time of King <strong>Cyaxares</strong> (r. 625 to 585 BC), the Medes were no longer anyone's tribute-paying frontier people. They were one of the two powers that ended the Neo-Assyrian Empire outright, joining Babylon in the siege and destruction of Nineveh in 612 BC, an event this course studied in full in Week 12. In barely more than a century, the Medes had gone from near-invisibility in the historical record to bringing down the largest empire the Near East had yet seen.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">celestial omen<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'celestial omen, suh-LES-chul OH-men')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">suh-LES-chul OH-men</span>an event in the sky, such as an eclipse or comet, that ancient peoples often read as a sign or warning from the gods.</span></span></li>
+            <li><span class="gloss" tabindex="0">eclipse<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'eclipse')">&#128266;</button><span class="gloss-tip">an event where the sun or moon is blocked from view, in this lesson by the moon passing in front of the sun.</span></span></li>
+        </ul>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; MEDIA AND LYDIA AT WAR</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Kingdom_of_Lydia.png" alt="Map of the Kingdom of Lydia in Anatolia, near the Halys River border with Media" />
+        <div class="img-credit">Map: via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map traces the rough border war zone between Media and <strong>Lydia</strong>, in Anatolia, before both sides settled on the <strong>Halys River</strong> as their new shared border.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A WAR THAT ENDED WITHOUT A WINNER</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Cyaxares's Median kingdom soon found itself at war with another rising power to the west, <strong>Lydia</strong>, a wealthy kingdom in Anatolia under King Alyattes. This week's second Primary Source, again drawn from Herodotus, describes a war that dragged on for roughly five years with no decisive victory for either side, until, during a battle in its sixth year, something extraordinary happened: the day suddenly turned to night. A solar <strong>eclipse</strong>, which Herodotus reports had been predicted in advance by the Greek thinker Thales of Miletus, interrupted the fighting so completely that both armies stopped at once, apparently unnerved by an omen neither side wanted to defy. Both sides quickly pursued peace, formalized through a diplomatic marriage between the two royal families and a new, mutually accepted border along the <strong>Halys River</strong> in Anatolia.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">By the time of King <strong>Cyaxares</strong> (r. 625 to 585 BC), the Medes were no longer anyone's tribute-paying frontier people. They were one of the two powers that ended the Neo-Assyrian Empire outright. Media joined Babylon in the siege and destruction of Nineveh in 612 BC, an event this course studied in full in Week 12. In barely more than a century, the Medes had gone from near-invisibility in the historical record to bringing down the largest empire the Near East had yet seen. Herodotus credits Cyaxares with rebuilding the Median army itself. He separated spearmen, archers, and cavalry into their own distinct units. Earlier armies often fought all mixed together instead. Whether or not this specific reform belongs to Cyaxares alone, one thing is clear. A stronger, more organized Median military is what made the siege of Nineveh possible in the first place. In other words, a stronger army is exactly what let the Medes finally settle old scores.</p>
+    </div>
+
+    <div style="background: #F4EFE3; border: 1px solid #E0D3AD; border-left: 5px solid #8A6416; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+        <div class="callout-label" style="color: #8A6416;">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340; line-height: 1.5;"><span class="gloss" tabindex="0"><strong>Cyaxares</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Cyaxares, sy-AK-suh-reez')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">sy-AK-suh-reez</span>king of Media from 625 to 585 BC, who helped destroy Nineveh and fought Lydia to a negotiated peace.</span></span>, king of Media from 625 to 585 BC, who helped destroy Nineveh and fought Lydia to a negotiated peace.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; DEEP-DIVE SPOTLIGHT: ANCIENT ASTRONOMY</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This episode deserves this course's full attention as a <strong>deep-dive spotlight on astronomy</strong>, distinct from the mathematics spotlight this course gave Babylon back in Week 4. Mesopotamian and Near Eastern observers had spent centuries carefully tracking the sky, recording the regular movements of the sun, moon, and stars for religious, agricultural, and administrative purposes, and this patient observation had, by the sixth century BC, developed real predictive power. Whether or not Thales specifically deserves credit for this particular prediction, a question ancient and modern scholars have both debated, the underlying point stands: a natural event that would have seemed like nothing but a terrifying omen to any observer without this tradition of careful sky-watching instead became something at least some contemporaries could reportedly see coming. Prediction, even imperfect prediction, is a genuinely different relationship with the natural world than superstition alone, though this course should be careful not to overstate: fear of the eclipse, not calm scientific confidence, is still what actually stopped the battle.</p>
+        <div class="callout-label">&#128218; A WAR THAT ENDED WITHOUT A WINNER</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;"><span class="gloss" tabindex="0">Cyaxares<span class="gloss-tip"><span class="gloss-pron">sy-AK-suh-reez</span>king of Media from 625 to 585 BC, who helped destroy Nineveh and fought Lydia to a negotiated peace.</span></span>'s Median kingdom soon found itself at war with another rising power to the west. This was <strong>Lydia</strong>, a wealthy kingdom in Anatolia, ruled by King Alyattes. This week's second Primary Source, again drawn from Herodotus, describes a war that dragged on for roughly five years with no clear winner on either side. Then, during a battle in its sixth year, something amazing happened. The day suddenly turned to night.</p>
     </div>
 
-    <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; SLOWLY, THEN ALL AT ONCE, ONE FINAL TIME</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Consider the full arc this week has traced: four centuries of near-total obscurity, a legendary founding king whose story this course cannot fully verify, and then, within a single lifetime, an empire strong enough to help destroy Assyria and negotiate as an equal with a wealthy Anatolian kingdom. This is the same pattern this course keeps returning to, because it keeps genuinely happening: history does not move at a steady pace, and long periods of apparent stillness can give way, with startling speed, to consequential change.</div>
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">A solar <span class="gloss" tabindex="0">eclipse<span class="gloss-tip">an event where the sun or moon is blocked from view, in this lesson by the moon passing in front of the sun.</span></span> interrupted the fighting so completely that both armies stopped at once. Herodotus reports that the Greek thinker Thales of Miletus had predicted this eclipse in advance. Whether or not that detail is exactly true, both sides seem to have been badly shaken. To them, this eclipse was a <span class="gloss" tabindex="0">celestial omen<span class="gloss-tip"><span class="gloss-pron">suh-LES-chul OH-men</span>an event in the sky, such as an eclipse or comet, that ancient peoples often read as a sign or warning from the gods.</span></span>, a sign in the sky that the gods themselves were sending a warning. Neither army wanted to defy an omen this dramatic. Both sides quickly pursued peace. They sealed that peace through a marriage between the two royal families. They also agreed on a new, shared border along the <strong>Halys River</strong> in Anatolia. Alyattes's own son, a young prince named Croesus, grew up watching this peace hold. His own remarkable rise, and fall, is a story this course will tell in full in Week 17. In other words, a strange sky event ended a war that years of fighting could not.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Modern astronomers have actually worked backward from this account and calculated the exact date of this eclipse: May 28, 585 BC. This is a genuinely useful tool for historians, not just a fun fact. Eclipses can be calculated exactly, centuries in advance or centuries after the fact. Because of this, a single eclipse mentioned in an ancient text can help pin down the exact dates of everything else connected to it. Assyrian records this course has already met keep their own list of eclipses too, an official record scholars still use today to check and correct Mesopotamian dates across many different reigns and events. This is one of the clearest examples in this entire course of science and history working together to answer the same question: when, exactly, did this happen? In other words, the sky itself can help us pin down exactly when history happened.</p>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; CLOSING</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">One final piece of this pattern deserves to be named directly, since it closes this week's story with real irony. The same Median royal house that had grown so powerful, and negotiated so successfully with Lydia, was not destined to remain in power much longer. Within a few decades, Cyaxares's own line would be overthrown, not by a foreign invader, but by his own grandson, a young Persian vassal king this course will meet directly, and in full, in Week 17.</p>
+    <div class="tech-card">
+        <div class="callout-label">&#9881;&#65039; TECHNOLOGY SPOTLIGHT &middot; READING THE SKY</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Total_Solar_Eclipse_8-21-17.jpg" alt="Photograph of a total solar eclipse, showing the sun's corona around the darkened moon" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Mesopotamian and Near Eastern observers had spent centuries carefully tracking the sky. They recorded the regular movements of the sun, moon, and stars for religious, farming, and government purposes. By the sixth century BC, this patient watching had built up real predictive power over certain <span class="gloss" tabindex="0">celestial omens<span class="gloss-tip"><span class="gloss-pron">suh-LES-chul OH-men</span>an event in the sky, such as an eclipse or comet, that ancient peoples often read as a sign or warning from the gods.</span></span>, events like eclipses that most people still read as messages from the gods rather than natural, foreseeable events.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; A DEEP-DIVE SPOTLIGHT ON ASTRONOMY</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This episode deserves this course's full attention as a deep-dive spotlight on astronomy, distinct from the mathematics spotlight this course gave Babylon back in Week 4. Whether or not Thales specifically deserves credit for predicting this particular eclipse is still debated. Ancient and modern scholars have both argued about it. Either way, the underlying point stands. To most observers, this would have seemed like nothing but a terrifying omen. Instead, it became something at least some people of the time could reportedly see coming ahead of time.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Prediction, even imperfect prediction, is a truly different relationship with the natural world than pure superstition alone. It means asking what will happen next, instead of only reacting once it does. Still, this course should be careful not to overstate the point. Fear of the eclipse is what actually stopped the battle that day. It was not calm scientific confidence, and it was not some shared trust in Thales's calculations.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; SLOWLY, THEN ALL AT ONCE, ONE FINAL TIME</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Consider the full arc this week has traced. Four centuries of near-total silence in the record. A legendary founding king whose story this course cannot fully confirm. Then, within a single lifetime, an empire strong enough to help destroy Assyria and negotiate as an equal with a wealthy Anatolian kingdom. This is the same pattern this course keeps returning to. It keeps happening, again and again, in very different times and places. History does not move at a steady pace. Long periods of apparent stillness can give way, with startling speed, to real, lasting change. In other words, do not expect history to move at the same speed all the time.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">One final piece of this pattern deserves to be named directly, since it closes this week's story with real irony. The same Median royal house had grown so powerful. It had negotiated so successfully with Lydia. Yet it was not destined to stay in power much longer. Within a few decades, Cyaxares's own line would be overthrown. The one who overthrew it was not a foreign invader at all. It was his own grandson, a young Persian vassal king this course will meet directly, and in full, in Week 17. In other words, the Medes' own rise helped raise up the very man who would end their rule.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; CYAXARES</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 0;">No contemporary image of <span class="gloss" tabindex="0">Cyaxares<span class="gloss-tip"><span class="gloss-pron">sy-AK-suh-reez</span>king of Media from 625 to 585 BC, who helped destroy Nineveh and fought Lydia to a negotiated peace.</span></span> survives, and no verifiable public-domain artist's depiction could be located this session, so none is shown here. Cyaxares ruled Media from 625 to 585 BC. He helped destroy Nineveh alongside Babylon and fought Lydia to a negotiated peace after a solar eclipse halted their war.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -97,5 +142,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
