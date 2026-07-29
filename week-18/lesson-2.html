@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
     .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
     .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
     .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
@@ -66,33 +78,51 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
+    <div class="glossary-box">
+        <div class="callout-label">&#128218; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <p style="font-size: 15px; color: #1a2340; margin: 0;">There are some vocabulary words in this lesson worth reviewing.</p>
+        <ul>
+            <li><span class="gloss" tabindex="0">trilingual inscription<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'trilingual, try-LING-gwul')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">try-LING-gwul</span>a single carved text written out in three different languages side by side.</span></span> (try-LING-gwul) &mdash; a single carved text written out in three different languages side by side.</li>
+            <li><span class="gloss" tabindex="0">decipherment<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'decipherment, dee-SY-fur-ment')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">dee-SY-fur-ment</span>the work of figuring out how to read a lost or unknown system of writing.</span></span> (dee-SY-fur-ment) &mdash; the work of figuring out how to read a lost or unknown system of writing.</li>
+        </ul>
+    </div>
+
+    <div style="background: #F4EFE3; border: 1px solid #E0D3AD; border-left: 5px solid #8A6416; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+        <div class="callout-label" style="color: #8A6416;">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <p style="font-size: 13px; color: #6b7a99; font-style: italic; margin: 0 0 8px 0;">(Continuing from last lesson, this is the last lesson where these figures are called out: Cambyses II, Psamtik III.)</p>
+        <div style="font-size: 14px; color: #1a2340; line-height: 1.6;">
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><strong>Darius I</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Darius, duh-RY-us')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">duh-RY-us</span>the Persian king who took the throne after a succession crisis in 522 BC and left behind the Behistun Inscription.</span></span> (duh-RY-us) &mdash; the Persian king who took the throne after a succession crisis in 522 BC and left behind the Behistun Inscription.</p>
+            <p style="margin: 0;"><span class="gloss" tabindex="0"><strong>Henry Rawlinson</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Rawlinson, RAW-lin-sun')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">RAW-lin-sun</span>the British scholar who copied the Behistun Inscription at great personal risk and helped decipher Babylonian cuneiform in the 1830s and 1840s.</span></span> (RAW-lin-sun) &mdash; the British scholar who copied the Behistun Inscription at great personal risk and helped decipher Babylonian cuneiform in the 1830s and 1840s.</p>
+        </div>
+    </div>
+
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div class="callout-label">&#128214; TODAY'S FOCUS</div>
         <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Can a single carved cliff face unlock an entire lost language, centuries after the empire that carved it is gone?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Cambyses died in 522 BC, on his way back from Egypt, under circumstances no surviving source explains with real confidence. What followed was a genuine succession crisis, and the man who emerged from it, <strong>Darius I</strong>, left behind an account of his own rise carved directly into a cliff face, in a form this course can still read today.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Cambyses died in 522 BC, on his way back from Egypt, in ways no surviving source explains for sure. What followed was a real fight over the throne. The man who came out on top, <span class="gloss" tabindex="0">Darius I<span class="gloss-tip"><span class="gloss-pron">duh-RY-us</span>the Persian king who took the throne after a succession crisis in 522 BC and left behind the Behistun Inscription.</span></span>, left behind an account of his own rise carved directly into a cliff face, in a form this course can still read today.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A CONTESTED THRONE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">According to Darius's own inscription, a man claiming to be Cambyses's brother, Bardiya, seized the Persian throne while Cambyses was still in Egypt. Darius's account insists this man was actually an impostor named Gaumata, since the real Bardiya, Darius claims, had secretly been killed by Cambyses's own order years earlier. Darius killed the pretender and took the throne himself, then spent much of his first year as king putting down a wave of rebellions across the empire.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This course should be honest about a real limitation here. Darius's version is the only detailed account of these events to survive, carved at his own command to justify his own rule. No independent Persian or Egyptian record exists to check his claims about Gaumata's true identity against. This does not mean Darius invented the entire episode. It does mean this course cannot simply take a king's own justification for seizing his own throne as neutral, verified fact, any more than it could take the Cyrus Cylinder's language at face value back in Week 17.</p>
+        <div class="callout-label">&#128218; A CONTESTED THRONE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">According to Darius's own inscription, a man claiming to be Cambyses's brother, Bardiya, seized the Persian throne while Cambyses was still in Egypt. Darius's account insists this man was actually a fake, an impostor named Gaumata. The real Bardiya, Darius claims, had secretly been killed by Cambyses's own order years earlier. Darius killed the pretender and took the throne for himself. He then spent much of his first year as king putting down a wave of revolts across the empire. An empire this large, stitched together so quickly under Cyrus and Cambyses, was never fully settled the moment a new king took the throne. Darius had to prove, by force, that it truly answered to him.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This course should be honest about a real limit here. Darius's version is the only full account of these events to survive. It was carved at his own command, to defend his own right to rule. No separate Persian or Egyptian record exists to check his claims against. This does not mean Darius made up the whole story. It does mean this course cannot simply take a king's own defense of seizing his own throne as plain, checked fact. It could not take the Cyrus Cylinder's words at face value either, back in Week 17, for the exact same reason. A king writing about his own rise to power is never a neutral witness to it.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; DARIUS I</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Behistun_relief_Darius.jpg" alt="The Behistun relief showing Darius I standing over the defeated pretender Gaumata" />
+        <div class="img-credit">Photo: Patrick C (dynamosquito), via Wikimedia Commons, CC BY-SA 2.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Darius I<span class="gloss-tip"><span class="gloss-pron">duh-RY-us</span>the Persian king who took the throne after a succession crisis in 522 BC and left behind the Behistun Inscription.</span></span> (duh-RY-us) took the Persian throne after Cambyses's death in 522 BC, put down rival claims to it, and left behind the Behistun Inscription, the key that later let scholars read cuneiform again. This relief, carved beside the inscription itself, shows Darius standing over the defeated Gaumata.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; A ROCK THAT UNLOCKED AN ENTIRE FIELD</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This week's second Primary Source is the inscription itself, known as the <strong>Behistun Inscription</strong>, carved high into a cliff face at Mount Behistun in what is now western Iran, alongside a large relief image of Darius standing over the defeated pretender and a line of other captured rebel leaders. What makes this inscription genuinely extraordinary is not just its content, but its form: the same text appears three times, carved in three different <strong>trilingual</strong> cuneiform scripts, <strong>Old Persian</strong>, <strong>Elamite</strong>, and Babylonian, the same script this course has read all semester in the Epic of Gilgamesh, Hammurabi's Code, and Ashurbanipal's library tablets.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Because the same message appeared in three known and unknown scripts side by side, the Behistun Inscription became cuneiform's own key to <strong>decipherment</strong>, much as the Rosetta Stone had already done for Egyptian hieroglyphics. In the 1830s and 1840s, a British officer and scholar named <strong>Henry Rawlinson</strong> repeatedly risked his own life scaling the sheer, dangerous cliff face to copy the inscription by hand, section by section. Using the Old Persian portion, already partially understood, as a starting point, Rawlinson and other scholars gradually worked out how to read Babylonian cuneiform as well. This is worth stating plainly, as a closing thought for this entire semester: every cuneiform Primary Source this course has read since Sumer in Week 2 can be read today largely because of the work this single inscription made possible.</p>
+        <div class="callout-label">&#128218; A ROCK THAT UNLOCKED AN ENTIRE FIELD</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This week's second Primary Source is the inscription itself, known as the <strong>Behistun Inscription</strong>. It is carved high into a cliff face at Mount Behistun, in what is now western Iran. Beside the text sits a large relief image. It shows Darius standing over the defeated pretender and a line of other captured rebel leaders. What makes this inscription truly remarkable is not just its content, but its form. The same text appears three times, carved in three different languages and cuneiform scripts. This kind of carving is called a <span class="gloss" tabindex="0">trilingual inscription<span class="gloss-tip"><span class="gloss-pron">try-LING-gwul</span>a single carved text written out in three different languages side by side.</span></span>. In other words, one single message, carved three separate times side by side, so that no one who could read any one of the three languages would be left out. Its three versions are written in <strong>Old Persian</strong>, <strong>Elamite</strong>, and Babylonian, the same script this course has read all semester in the Epic of Gilgamesh, Hammurabi's Code, and Ashurbanipal's library tablets.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Because the same message appeared in three known and unknown scripts side by side, the Behistun Inscription became cuneiform's own key to <span class="gloss" tabindex="0">decipherment<span class="gloss-tip"><span class="gloss-pron">dee-SY-fur-ment</span>the work of figuring out how to read a lost or unknown system of writing.</span></span>, in much the way the Rosetta Stone had already done for Egyptian hieroglyphics. In the 1830s and 1840s, a British officer and scholar named <span class="gloss" tabindex="0">Henry Rawlinson<span class="gloss-tip"><span class="gloss-pron">RAW-lin-sun</span>the British scholar who copied the Behistun Inscription at great personal risk and helped decipher Babylonian cuneiform in the 1830s and 1840s.</span></span> again and again risked his own life climbing the steep, dangerous cliff face to copy the inscription by hand, section by section. Using the Old Persian part, already partly known, as a starting point, Rawlinson and other scholars slowly worked out how to read Babylonian cuneiform too. This is worth stating plainly, as a closing thought for this whole semester. Every cuneiform Primary Source this course has read since Sumer in Week 2 can be read today mostly because of the work this single inscription made possible.</p>
 
         <div class="optima-widget">
             <div class="widget-kicker">&#127919; TRY IT: DECIPHERING BEHISTUN</div>
             <div class="widget-question">Match each description to what it names in this week's story.</div>
-            <div class="widget-row" data-correct="rawlinson">
-                <div class="widget-row-prompt">The British officer and scholar who repeatedly risked his life scaling the cliff face to copy the inscription by hand in the 1830s and 1840s.</div>
-                <div class="widget-options">
-                    <button data-choice="rawlinson">Henry Rawlinson</button>
-                    <button data-choice="darius">Darius I</button>
-                </div>
-            </div>
             <div class="widget-row" data-correct="rosetta">
                 <div class="widget-row-prompt">The earlier discovery that played this same decipherment role for Egyptian hieroglyphics.</div>
                 <div class="widget-options">
@@ -100,19 +130,32 @@
                     <button data-choice="rosetta">The Rosetta Stone</button>
                 </div>
             </div>
+            <div class="widget-row" data-correct="rawlinson">
+                <div class="widget-row-prompt">The British officer and scholar who repeatedly risked his life scaling the cliff face to copy the inscription by hand in the 1830s and 1840s.</div>
+                <div class="widget-options">
+                    <button data-choice="darius">Darius I</button>
+                    <button data-choice="rawlinson">Henry Rawlinson</button>
+                </div>
+            </div>
             <button class="widget-reset">Reset</button>
         </div>
     </div>
 
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; HENRY RAWLINSON</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Rawlinson%2C_Sir_Henry_Creswick%2C_par_Arthur_J.Melhuish%2C_BNF_Gallica.jpg" alt="19th-century photographic portrait of Sir Henry Creswick Rawlinson" />
+        <div class="img-credit">Photo: Arthur J. Melhuish, via Wikimedia Commons/BNF Gallica, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Henry Rawlinson<span class="gloss-tip"><span class="gloss-pron">RAW-lin-sun</span>the British scholar who copied the Behistun Inscription at great personal risk and helped decipher Babylonian cuneiform in the 1830s and 1840s.</span></span> (RAW-lin-sun) was a British officer and scholar who risked his life scaling Mount Behistun's cliff face in the 1830s and 1840s to copy Darius's inscription, work that helped unlock cuneiform for modern readers.</p>
+    </div>
+
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; ONE EMPIRE, THREE RIVER VALLEYS</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">With Egypt's conquest in this week's opening lesson and Darius's throne now secure, this course has reached a genuine turning point. For the first time in this semester's story, Mesopotamia, Egypt, and Persia's own homeland all answer to one empire, an achievement no earlier power this course has studied, not Sargon, not Hammurabi, not Assyria at its height, ever managed. And this empire does not stop looking outward. The Ionian Greek cities along Anatolia's coast, this course already knows from Weeks 16 and 17, have been Persian subjects since Cyrus's conquest of Lydia. Just across the Aegean Sea lie the mainland Greek city-states this course has not yet studied in any depth at all.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This is where the Fall Semester's story ends, and deliberately so: one vast empire, newly unified across three river valleys, now looking west toward a scattered handful of small, quarrelsome Greek city-states that, at this exact moment, would seem to have no realistic chance against it at all. What actually comes next for Greece, and for Persia's own ambitions in that direction, is a story for another semester.</p>
+        <div class="callout-label">&#128218; ONE EMPIRE, THREE RIVER VALLEYS</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">With Egypt's conquest in this week's first lesson and Darius's throne now secure, this course has reached a genuine turning point. For the first time in this semester's story, Mesopotamia, Egypt, and Persia's own homeland all answer to one empire. That is an achievement no earlier power this course has studied ever managed. Not Sargon, back in Week 3. Not Hammurabi, back in Week 4. Not even Assyria, at its height in Weeks 11 and 12. And this empire does not stop looking outward. This course already knows, from Weeks 16 and 17, that the Ionian Greek cities along Anatolia's coast have been Persian subjects since Cyrus's conquest of Lydia. Just across the Aegean Sea lie other Greek cities, the mainland city-states this course has not yet studied in any real depth at all. Those cities are about to matter a great deal.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; CLOSING</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Eighteen weeks ago, this course began with small Neolithic farming villages. It closes this semester with three great river valleys, Mesopotamia, Egypt, and Persia's own homeland, bound under a single ruler, and a rock cliff in the Zagros foothills that quietly made every cuneiform source along the way readable in the first place. This week's Discussion Topic and capstone VR activity ask exactly the question this closing thought raises: with one empire now this large, what comes next for Greece?</p>
+        <div class="callout-label">&#128218; CLOSING</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This is where the Fall Semester's story ends, and on purpose. One vast empire, newly joined across three river valleys, now looks west toward a scattered handful of small, feuding Greek city-states. At this exact moment, those small cities would seem to have no real chance against an empire this size at all. What actually comes next for Greece, and for Persia's own plans in that direction, is a story for another semester.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -137,6 +180,15 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
     var reset = e.target.closest('.widget-reset');
@@ -153,11 +205,18 @@
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches Part 2 of today\'s lesson.' : 'Not quite. Reread Part 2 of today\'s lesson.';
+      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;
       return;
+    }
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();
