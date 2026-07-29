@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -51,26 +63,61 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What does a single carved image tell us that a whole page of writing cannot?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Ashurnasirpal II built the machine. His successors used it to reach further still. This lesson jumps forward roughly two decades, to the reign of his son <strong>Shalmaneser III</strong> (r. 859 to 824 BC), and to a single carved monument that captures, in unusually specific detail, the first direct point of contact between Assyria and the kingdoms this course will meet fully in Week 13.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Continuing from Monday, this is the last lesson where these terms are called out: professional standing army, siege engine, cavalry.</div>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; NIMRUD TO ISRAEL</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/C%2BB-Assyria-DetailedMap.JPG" alt="1903 map of the ancient Near East showing Nimrud and the kingdom of Israel around Samaria" />
+        <div class="img-credit">Map: from the <em>Encyclopaedia Biblica</em>, 1903, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map traces the distance from <strong>Nimrud</strong>, Assyria's capital, southwest to the kingdom of Israel around Samaria, showing how far Assyrian power already reached by Shalmaneser III's reign.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A MONUMENT OF TRIBUTE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The <strong>Black Obelisk</strong>, a tall, four-sided stone monument Shalmaneser III set up at Nimrud, records tribute received from five different foreign rulers, arranged in registers of small carved images running down its sides. Among them, one panel shows a bearded figure prostrating himself flat on the ground before the Assyrian king, while attendants carry silver, gold, and other precious goods. The accompanying inscription identifies this figure as <strong>Jehu</strong>, a king ruling in the region of Israel, and describes him presenting <strong>tribute</strong>, regular payments a lesser or defeated power sends to a stronger one to avoid conquest or continued attack.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This is a genuinely remarkable piece of evidence, for a reason worth naming plainly: it is one of the very few surviving images that any ancient Near Eastern artist made of a specific, named Israelite king. Everything else this course will read about the kingdoms of Israel and Judah in Week 13 comes from written text alone. Here, for one carved panel, a Mesopotamian sculptor has left behind an actual physical depiction of the political relationship between these two very different kingdoms, one enormous and expanding, the other small and increasingly caught between competing regional powers.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Ashurnasirpal II built the machine. His successors used it to reach even further. This lesson jumps forward roughly two decades, to the reign of his son <strong>Shalmaneser III</strong> (r. 859 to 824 BC). It also turns to a single carved monument. That monument shows, in surprising detail, the first direct point of contact between Assyria and the kingdoms this course will meet fully in Week 13.</p>
+    </div>
+
+    <div style="background: #F4EFE3; border: 1px solid #E0D3AD; border-left: 5px solid #8A6416; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+        <div class="callout-label" style="color: #8A6416;">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340; line-height: 1.5; margin-bottom: 8px;"><span class="gloss" tabindex="0"><strong>Shalmaneser III</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Shalmaneser, shal-muh-NEE-zer')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">shal-muh-NEE-zer</span>king of Assyria from 859 to 824 BC, son of Ashurnasirpal II, whose Black Obelisk records tribute from Jehu of Israel.</span></span>, king of Assyria from 859 to 824 BC, son of Ashurnasirpal II, whose Black Obelisk records tribute from Jehu of Israel.</div>
+        <div style="font-size: 14px; color: #1a2340; line-height: 1.5;"><span class="gloss" tabindex="0"><strong>Jehu</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Jehu, JEE-hoo')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">JEE-hoo</span>a king of Israel who appears on the Black Obelisk, bowing before Shalmaneser III and offering tribute.</span></span>, a king of Israel who appears on the Black Obelisk, bowing before Shalmaneser III and offering tribute.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; VASSAL, NOT CONQUERED</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Jehu's posture on the obelisk, prostrate, offering tribute rather than fighting, illustrates a status this course will see repeatedly across the next several weeks: a <strong>vassal</strong>, a ruler who keeps his own throne and his own people's daily life largely intact, in exchange for regular payment and acknowledged submission to a stronger power. This was, in its own way, a genuinely practical arrangement for a smaller kingdom facing an empire it had no realistic hope of defeating outright. Paying tribute preserved a kingdom's existence, even at the cost of its full independence. Whether that arrangement could last indefinitely, for Israel or for any of Assyria's other vassals, is a question this course will return to directly, since not every kingdom that becomes a vassal stays one for long.</p>
+        <div class="callout-label">&#128218; A MONUMENT OF TRIBUTE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The <strong>Black Obelisk</strong> is a tall, four-sided stone monument that Shalmaneser III set up at Nimrud. It stands nearly six and a half feet high. It records tribute received from five different foreign rulers. Small carved pictures run down its sides in rows, called registers. One panel shows a bearded figure lying flat on the ground before the Assyrian king. Attendants behind him carry silver, gold, and other precious goods. The words carved beside the image name this figure as <span class="gloss" tabindex="0">Jehu<span class="gloss-tip"><span class="gloss-pron">JEE-hoo</span>a king of Israel who appears on the Black Obelisk, bowing before Shalmaneser III and offering tribute.</span></span>, a king ruling in the region of Israel. The inscription describes him offering <strong>tribute</strong>, regular payments a weaker power sends to a stronger one to avoid war or conquest.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The obelisk's other four registers show tribute from rulers as far away as Egypt and Iran. In other words, Jehu was only one small part of a much bigger picture Shalmaneser III wanted the whole world to see. They list goods that clearly impressed the Assyrian scribes who recorded them: elephants, camels, apes, and even a two-humped animal Assyrians had likely never seen before arriving as tribute from a distant land. Jehu's panel stands out from these others for one simple reason. It is the only one that shows a ruler this course can otherwise place within a story it already knows in some detail.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">It is worth pausing on a detail that makes this scene less simple than it first looks. Just a few years earlier, in 853 BC, Shalmaneser III had fought a hard battle at Qarqar that neither side clearly won, against a group of Levantine kings. One of those kings was Ahab of Israel, fighting against Assyria rather than bowing before it. Jehu was not even from the same family as Ahab. He seized the throne of Israel himself, in a violent coup, only a few years before this tribute scene was carved. In less than a generation, Israel's relationship with Assyria swung from open battlefield resistance to a new king kneeling in submission. Nothing about that shift was guaranteed in advance. In other words, a king who once fought Assyria on the battlefield was replaced, within just a few years, by a king who instead knelt before it. History rarely moves in a straight line, even for the very same small kingdom.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; SHALMANESER III</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/The_Black_Obelisk%2C_Jehu_and_Sua_prostrate_before_Shalmaneser_III%2C_9th_century_BC%2C_from_Nimrud%2C_Iraq%2C_now_in_the_British_Museum.jpg" alt="The Black Obelisk of Shalmaneser III, showing tribute-bearers prostrate before the Assyrian king" />
+        <div class="img-credit">Photo: British Museum, via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Shalmaneser III<span class="gloss-tip"><span class="gloss-pron">shal-muh-NEE-zer</span>king of Assyria from 859 to 824 BC, son of Ashurnasirpal II, whose Black Obelisk records tribute from Jehu of Israel.</span></span> ruled Assyria from 859 to 824 BC. His Black Obelisk, set up at Nimrud, records tribute received from five foreign rulers, including Jehu of Israel.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; WHAT THIS SETS UP</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This single carved image is a bridge, not a full story. Week 13 will tell the fuller history of the kingdoms of Israel and Judah, their own religious and political development, and their eventual fates under first Assyrian and then Babylonian power. For now, it is enough to notice that Assyria's expansion under Ashurnasirpal II and Shalmaneser III was not a distant, abstract process happening somewhere else. It reached directly into the same region, and touched the same peoples, this course will study in detail soon. Next week, this same Assyrian empire reaches its absolute height, under a king who built one of the ancient world's great libraries, before collapsing with startling speed.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This is a truly striking piece of evidence, for a reason worth naming plainly. It is one of the very few surviving images that any ancient Near Eastern artist made of a specific, named Israelite king. Nearly everything else this course will read about the kingdoms of Israel and Judah in Week 13 comes from written text alone. Here, for one carved panel, a Mesopotamian sculptor left behind an actual picture. It shows the real political relationship between two very different kingdoms. One was enormous and still growing. The other was small, and more and more caught between rival regional powers. In other words, this single carved picture freezes, in stone, just how uneven that relationship really was.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; JEHU</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Jehu-on-Obelisk-of-Shalmaneser_%28cropped%29.jpg" alt="Detail of the Black Obelisk showing Jehu of Israel bowing before Shalmaneser III" />
+        <div class="img-credit">Photo: British Museum, via Wikimedia Commons, CC BY-SA 3.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Jehu<span class="gloss-tip"><span class="gloss-pron">JEE-hoo</span>a king of Israel who appears on the Black Obelisk, bowing before Shalmaneser III and offering tribute.</span></span> was a king of Israel. He appears on Shalmaneser III's Black Obelisk bowing before the Assyrian king and offering tribute, one of the only surviving ancient images of a named Israelite ruler.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; VASSAL, NOT CONQUERED</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Jehu's posture on the obelisk says a great deal. He is shown flat on the ground, offering tribute rather than fighting. This shows a status this course will see again and again across the next several weeks: a <strong>vassal</strong>. A vassal ruler keeps his own throne and his own people's daily life mostly intact. In exchange, he pays regular tribute and openly submits to a stronger power. This was, in its own way, a truly practical choice for a smaller kingdom facing an empire it had no real hope of beating outright. Paying tribute kept a kingdom alive, even at the cost of its full independence. In other words, Jehu made a hard trade. He gave up some of his own freedom to rule, in exchange for keeping his throne, his people, and his kingdom's daily life mostly the same. Would that deal last forever? Not always, and not for every vassal kingdom this course will meet in the weeks ahead. Some vassal kings later gambled on rebellion instead. Week 13 will show how that gamble played out for Israel and its southern neighbor, Judah.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; WHAT THIS SETS UP</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This single carved image is a bridge, not a full story. Week 13 will tell the fuller history of the kingdoms of Israel and Judah. It will cover their own religious and political growth, and what finally happened to them under first Assyrian and then Babylonian power. For now, it is enough to notice something important. Assyria's growth under Ashurnasirpal II and Shalmaneser III was not just something happening far away, only lines on a map. It reached directly into the same region, and touched the same peoples, this course will study in detail soon. Next week, this same Assyrian empire reaches its absolute height. It happens under a king who built one of the ancient world's great libraries. Then, with startling speed, that same empire collapses. In other words, the very same empire that looks unstoppable in this lesson will not stay that way for very long.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -93,5 +140,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
