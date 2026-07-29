@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -51,31 +63,89 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Could a pharaoh be great without ever going to war?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Egypt's Old Kingdom, the pyramid-building age Week 5 introduced, did not last forever. Around 2181 BC, central authority weakened, regional governors grew more powerful than the pharaoh in Memphis, and Egypt splintered into a period historians call the First Intermediate Period. Egypt reunified under the <strong>Middle Kingdom</strong> (c. 2055 to 1650 BC), a period of renewed stability, expanded trade, and some of Egypt's finest literature. That stability broke down again in the Second Intermediate Period, when a Semitic-speaking people called the <strong>Hyksos</strong> took control of Lower Egypt from their capital at Avaris, ruling as a foreign, if partly Egyptianized, dynasty from roughly 1650 to 1550 BC. The Hyksos are remembered for one especially consequential import: the horse-drawn chariot and the composite bow, technologies Egypt would soon turn into the backbone of its own New Kingdom armies. Egyptian princes eventually expelled the Hyksos and reunified the country under the <strong>New Kingdom</strong> (c. 1550 to 1150 BC), the era this week and next week's lessons explore, an age of empire, ambitious pharaohs, and, in this lesson, a queen who ruled as king.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">expedition<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'expedition')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ek-spuh-DISH-un</span>a journey made by a group of people for a clear purpose, such as trade or exploration.</span></span></li>
+            <li><span class="gloss" tabindex="0">obelisk<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'obelisk')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">OB-uh-lisk</span>a tall, four-sided stone pillar that narrows to a point at the top, often set up in pairs at a temple entrance.</span></span></li>
+            <li><span class="gloss" tabindex="0">regalia<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'regalia')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">rih-GAY-lee-uh</span>the special clothes, crowns, and objects that mark someone as a king or queen.</span></span></li>
+            <li><span class="gloss" tabindex="0">scarcity<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'scarcity')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SKAIR-sih-tee</span>not having enough of something people want or need.</span></span></li>
+        </ul>
+        <div style="font-size: 13px; color: #6b7a99; margin-top: 10px; font-style: italic;">Continuing from last week, this is the last lesson where Old Kingdom is called out.</div>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; EGYPT'S NEW KINGDOM AND THE LAND OF PUNT</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Egyptian_Empire%2C_B.C._1450_%282710782990%29.jpg" alt="Historical map of the Egyptian Empire around 1450 BC, showing the Nile Valley, Thebes, and the Red Sea trade routes toward Punt" />
+        <div class="img-credit">Map: public domain historical atlas, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map shows Egypt's Nile Valley heartland, the city of <strong>Thebes</strong>, and a likely trade route down the <strong>Red Sea</strong> coast toward <strong>Punt</strong>.</p>
+        <div style="margin-top: 12px; font-size: 13px; color: #444;">
+            <strong>Geographical Glossary:</strong>
+            <span class="gloss" tabindex="0">Thebes<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Thebes')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">theebz</span>a major city in southern Egypt, the New Kingdom's religious capital and home to the temple of Karnak.</span></span> &middot;
+            <span class="gloss" tabindex="0">Karnak<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Karnak')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">KAR-nak</span>a huge temple complex at Thebes, dedicated mainly to the god Amun.</span></span> &middot;
+            <span class="gloss" tabindex="0">Deir el-Bahari<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Deir el-Bahari')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">dayr el-ba-HAH-ree</span>the site near Thebes where Hatshepsut built her mortuary temple, cut into the cliffs.</span></span> &middot;
+            <span class="gloss" tabindex="0">Red Sea<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Red Sea')">&#128266;</button><span class="gloss-tip">the long, narrow sea between Egypt and Arabia, used as a trade route toward Punt.</span></span> &middot;
+            <span class="gloss" tabindex="0">Punt<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Punt')">&#128266;</button><span class="gloss-tip">a land likely along the Red Sea coast of modern Eritrea, Sudan, or Somalia, a source of incense, gold, and other prized goods.</span></span>
+        </div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; AN UNUSUAL PATH TO THE THRONE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;"><strong>Hatshepsut</strong> came to power around 1479 BC, first as regent for her young stepson and nephew Thutmose III, and then, within a few years, as pharaoh in her own right, adopting the full royal titulary, regalia, and even the traditional false beard of Egyptian kingship, though inscriptions and statues sometimes describe or depict her with feminine pronouns and features alongside these masculine royal symbols. This was, by any measure, an unusual path. Egyptian kingship had never formally excluded women, but almost no woman before Hatshepsut had claimed the full throne and held it for roughly two decades, as she did. Her officials worked to justify her rule through careful inscriptions describing her as chosen by the god Amun himself, a divine-selection story not unlike the divine kingship claim Week 5 introduced, now stretched to cover a genuinely unprecedented situation.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Egypt's Old Kingdom, the pyramid-building age Week 5 introduced, did not last forever. Around 2181 BC, central power grew weak. Local governors grew stronger than the pharaoh in Memphis. Egypt broke apart into a time historians call the First Intermediate Period. Egypt came back together under the <strong>Middle Kingdom</strong> (about 2055 to 1650 BC). This was a time of new order, growing trade, and some of Egypt's finest writing. That order broke down again in the Second Intermediate Period. A Semitic-speaking people called the <strong>Hyksos</strong> took control of Lower Egypt from their capital at Avaris. They ruled as outsiders, though partly in the Egyptian style, from roughly 1650 to 1550 BC. The Hyksos are remembered for one key import: the horse-drawn chariot and the composite bow. Egypt would soon turn these into the backbone of its own New Kingdom armies. Egyptian princes later drove out the Hyksos. They joined the country back together under the <strong>New Kingdom</strong> (about 1550 to 1150 BC), the age this week and next week's lessons explore. It was an age of empire and bold pharaohs. In this lesson, it is also the age of a queen who ruled as king.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; TRADE INSTEAD OF CONQUEST</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Rather than building her reputation primarily through military campaigns, Hatshepsut is best remembered for a different kind of achievement: a major trading expedition to the land of <strong>Punt</strong>, likely located along the Red Sea coast of modern Eritrea, Sudan, or Somalia, sent out around the ninth year of her reign. This week's Primary Source lets you read the inscriptions Hatshepsut had carved at her mortuary temple at Deir el-Bahari, recording the voyage in vivid detail: ships loaded for the return journey with incense trees dug up with their root balls intact, ebony, ivory, gold, myrrh resin, leopard skins, and even live baboons.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Egypt's own economy could not produce many of these luxury and ritual goods domestically. Incense in particular was burned constantly in temple rituals across Egypt, making a reliable supply from Punt a genuine economic and religious necessity, not merely a display of royal wealth. This is a useful case study in <strong>scarcity</strong>: Egypt lacked certain resources it needed, and rather than simply doing without them or seizing them by force, Hatshepsut's government organized a large, carefully planned trading and diplomatic expedition to acquire them through exchange.</p>
+        <div class="callout-label">&#128218; AN UNUSUAL PATH TO THE THRONE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;"><span class="gloss" tabindex="0">Hatshepsut<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Hatshepsut')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">hat-SHEP-soot</span>a female pharaoh of Egypt's New Kingdom, ruling in her own right from about 1479 to 1458 BC.</span></span> came to power around 1479 BC. She first ruled as regent for her young stepson and nephew Thutmose III. Within a few years, she ruled as pharaoh in her own right. She took on the full royal titles, <span class="gloss" tabindex="0">regalia<span class="gloss-tip"><span class="gloss-pron">rih-GAY-lee-uh</span>the special clothes, crowns, and objects that mark someone as a king or queen.</span></span>, and even the old false beard of Egyptian kingship. Still, carvings and statues sometimes show her with female features alongside these male royal symbols. This was, by any measure, a rare path. Egyptian kingship had never shut women out by rule. But almost no woman before Hatshepsut had claimed the full throne and held it for roughly two decades, as she did.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Her advisors worked to explain her rule through careful writings. They called her chosen by the god Amun himself. This divine-selection story is not unlike the "divine kingship" claim Week 5 introduced, now stretched to cover a truly new case. Carvings at <span class="gloss" tabindex="0">Deir el-Bahari<span class="gloss-tip"><span class="gloss-pron">dayr el-ba-HAH-ree</span>the site near Thebes where Hatshepsut built her mortuary temple, cut into the cliffs.</span></span> go even further, showing Amun himself as Hatshepsut's true father, visiting her mother in the form of the reigning pharaoh. This was a bold claim for any pharaoh to make about their own birth. It was even bolder for a female ruler seeking to hold power in her own name. Only one earlier woman, Sobekneferu near the end of the Middle Kingdom, had ever ruled Egypt as pharaoh in her own right, and her reign lasted only about four years. No queen before Hatshepsut had ever ruled anywhere near as long as her two full decades on the throne.</p>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; A DIFFERENT KIND OF GREATNESS</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Compare Hatshepsut's approach to what you might expect from an ambitious New Kingdom pharaoh eager to prove himself through war. Hatshepsut's Punt expedition, and the peaceful building projects that filled much of her reign, represent a genuine, deliberate choice: greatness achieved through prudent administration, careful diplomacy, and successful trade, rather than through the battlefield. Whether this made her a lesser pharaoh than a conquering warrior-king is a real question worth weighing, not a question with an obvious answer already settled. Wednesday's lesson introduces her stepson, Thutmose III, who chose a strikingly different path to greatness once the throne became fully his own, and this week's assessments, including your VR activity, will ask you to judge the two approaches side by side.</div>
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; HATSHEPSUT</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Large_Kneeling_Statue_of_Hatshepsut_MET_21V_CAT091R2.jpg" alt="A kneeling statue of Hatshepsut wearing traditional pharaoh regalia" />
+        <div class="img-credit">Photo: The Metropolitan Museum of Art, CC0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Hatshepsut<span class="gloss-tip"><span class="gloss-pron">hat-SHEP-soot</span>a female pharaoh of Egypt's New Kingdom, ruling in her own right from about 1479 to 1458 BC.</span></span> ruled Egypt as pharaoh from about 1479 to 1458 BC, one of the few women in Egyptian history to hold the full throne. She is remembered for her trading expedition to Punt and for the grand building projects of her reign.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; TRADE INSTEAD OF CONQUEST</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Rather than building her name mainly through war, Hatshepsut is best remembered for a different kind of feat: a major trading <span class="gloss" tabindex="0">expedition<span class="gloss-tip"><span class="gloss-pron">ek-spuh-DISH-un</span>a journey made by a group of people for a clear purpose, such as trade or exploration.</span></span> to the land of <span class="gloss" tabindex="0">Punt<span class="gloss-tip">a land likely along the Red Sea coast of modern Eritrea, Sudan, or Somalia, a source of incense, gold, and other prized goods.</span></span>. She sent this expedition out around the ninth year of her reign. Carvings that record the trip show a fleet of about five ships, each roughly seventy feet long, sailing down the Red Sea coast. This week's Primary Source lets you read the writings Hatshepsut had carved at her mortuary temple at Deir el-Bahari, near Thebes. They record the voyage in vivid detail: ships loaded for the return trip with incense trees dug up with their root balls whole, ebony, ivory, gold, myrrh resin, leopard skins, and even live baboons.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Egypt's own land could not make many of these luxury and ritual goods at home. Incense above all was burned nonstop in temple rituals across Egypt. This made a steady supply from Punt a real need, not just a show of royal wealth. This is a useful case study in <span class="gloss" tabindex="0">scarcity<span class="gloss-tip"><span class="gloss-pron">SKAIR-sih-tee</span>not having enough of something people want or need.</span></span>: Egypt lacked certain resources it needed. Rather than simply doing without them or seizing them by force, Hatshepsut's government organized a large, carefully planned trading trip to get them through fair exchange.</p>
+    </div>
+
+    <div class="tech-card">
+        <div class="callout-label">&#9881;&#65039; TECHNOLOGY SPOTLIGHT &middot; TRADE AND SCARCITY</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Incense_trees_transport._Punt_relief._Mortuary_Temple_of_Hatshepsut%2C_Deir_el-Bahari.jpg" alt="A relief carving from Deir el-Bahari showing incense trees being transported for the Punt expedition" />
+        <div class="img-credit">Photo: Olaf Tausch, CC BY-SA 4.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Every civilization this course has studied faces the same basic problem: scarcity, not having enough of something people want or need. Egypt had plentiful grain and stone, but it lacked incense, ebony, and other goods its temples and elites demanded. Hatshepsut's Punt expedition shows one common answer to scarcity: organized trade. Rather than seizing goods by force or simply doing without, her government sent ships, sailors, and trade goods on a long journey to exchange for what Egypt needed. This same basic pattern, a society identifying what it lacks and organizing to trade for it, will reappear across the rest of this course, from Phoenician traders to Persian roads.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Hatshepsut also spent resources on building projects at home. At the great temple of <span class="gloss" tabindex="0">Karnak<span class="gloss-tip"><span class="gloss-pron">KAR-nak</span>a huge temple complex at Thebes, dedicated mainly to the god Amun.</span></span>, she raised a pair of tall granite <span class="gloss" tabindex="0">obelisks<span class="gloss-tip"><span class="gloss-pron">OB-uh-lisk</span>a tall, four-sided stone pillar that narrows to a point at the top, often set up in pairs at a temple entrance.</span></span>, four-sided pillars carved from single blocks of stone, built for the god Amun. One still stands today, nearly 97 feet tall, among the tallest ever raised in Egypt. Cutting and moving a single block of stone that size took hundreds of workers. It likely also took barges built strong enough to carry the stone down the Nile without breaking apart. Her mortuary temple at Deir el-Bahari, cut into cliffs across the river from Thebes, was designed by her chief steward and architect, a trusted official named <span class="gloss" tabindex="0">Senenmut<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Senenmut')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SEN-en-moot</span>Hatshepsut's chief steward and architect, who oversaw her building projects and tutored her daughter.</span></span>, who also served as tutor to her young daughter.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; SENENMUT</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Statue_of_Senenmut_and_Neferure_%28RMO_Leiden%29_%284417516269%29.jpg" alt="A statue of Senenmut holding Hatshepsut's daughter Neferure" />
+        <div class="img-credit">Photo: Rijksmuseum van Oudheden, Leiden, CC BY-SA 2.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Senenmut<span class="gloss-tip"><span class="gloss-pron">SEN-en-moot</span>Hatshepsut's chief steward and architect, who oversaw her building projects and tutored her daughter.</span></span> served as Hatshepsut's chief steward and architect, likely overseeing the design of her mortuary temple at Deir el-Bahari. He also tutored her daughter, Neferure, and left behind more statues of himself than almost any other non-royal official of the New Kingdom.</p>
+    </div>
+
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; THEBES</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/The_Temple_of_Karnak_at_Luxor_%28Thebes%29_1984_%2832373916587%29.jpg" alt="The surviving ruins of the temple complex at Karnak, near Thebes" />
+        <div class="img-credit">Photo: Chris Devers, CC BY 2.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Thebes<span class="gloss-tip"><span class="gloss-pron">theebz</span>a major city in southern Egypt, the New Kingdom's religious capital and home to the temple of Karnak.</span></span>, in southern Egypt, served as the New Kingdom's religious capital and the site of the great temple of Karnak. Hatshepsut's mortuary temple at nearby Deir el-Bahari still stands today, cut into the cliffs across the river from the city.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; A DIFFERENT KIND OF GREATNESS</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Compare Hatshepsut's approach to what you might expect from a bold New Kingdom pharaoh eager to prove himself through war. Hatshepsut's Punt expedition, and the peaceful building projects that filled much of her reign, stand for a real, clear choice: greatness reached through careful rule, careful peace-making, and strong trade, rather than through the battlefield. Whether this made her a lesser pharaoh than a conquering warrior-king is a real question worth thinking about, not one with a clear answer already settled. Next lesson introduces her stepson, Thutmose III, who chose a very different path to greatness once the throne became fully his own. This week's assessments will ask you to judge the two approaches side by side.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
             <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
             <div>
                 <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 1</strong></div>
@@ -93,5 +163,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
