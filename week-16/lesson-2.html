@@ -7,6 +7,33 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
+    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+    .widget-reset:hover { background: #FDF3E3; }
 </style>
 </head>
 <body>
@@ -51,31 +78,77 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
+    <div class="glossary-box">
+        <div class="callout-label">&#128218; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <p style="font-size: 15px; color: #1a2340; margin: 0 0 6px 0;">There are some vocabulary words in this lesson worth reviewing.</p>
+        <p style="font-size: 13px; color: #6b7a99; font-style: italic; margin: 0 0 8px 0;">(Continuing from last lesson, this is the last lesson where these terms are called out: Dark Age, oral tradition.)</p>
+        <ul>
+            <li><span class="gloss" tabindex="0">epic poetry<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'epic poetry, EP-ik')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">EP-ik</span>a long poem, often first passed down by speech, that tells the deeds of heroes and gods.</span></span> (EP-ik) &mdash; a long poem, often first passed down by speech, that tells the deeds of heroes and gods.</li>
+            <li><span class="gloss" tabindex="0">Dark Age<span class="gloss-tip">a long stretch of time in which population, trade, building, and writing all sharply decline.</span></span> &mdash; a long stretch of time in which population, trade, building, and writing all sharply decline.</li>
+            <li><span class="gloss" tabindex="0">oral tradition<span class="gloss-tip"><span class="gloss-pron">OR-ul truh-DISH-un</span>stories, family lines, and songs passed down by memory and speech, without being written down.</span></span> (OR-ul truh-DISH-un) &mdash; stories, family lines, and songs passed down by memory and speech, without being written down.</li>
+        </ul>
+    </div>
+
+    <div style="background: #F4EFE3; border: 1px solid #E0D3AD; border-left: 5px solid #8A6416; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+        <div class="callout-label" style="color: #8A6416;">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340; line-height: 1.6;">
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><strong>Homer</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Homer, HOH-mur')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">HOH-mur</span>the poet, or tradition of poets, credited with shaping the Iliad and Odyssey out of centuries of spoken storytelling.</span></span> (HOH-mur) &mdash; the poet, or tradition of poets, credited with shaping the <em>Iliad</em> and <em>Odyssey</em> out of centuries of spoken storytelling.</p>
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><strong>Achilles</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Achilles, uh-KIL-eez')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">uh-KIL-eez</span>the greatest warrior at Troy, whose wrath over a captive woman drives the whole plot of the Iliad.</span></span> (uh-KIL-eez) &mdash; the greatest warrior at Troy, whose wrath over a captive woman drives the whole plot of the <em>Iliad</em>.</p>
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><strong>Agamemnon</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Agamemnon, ag-uh-MEM-non')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ag-uh-MEM-non</span>commander of the Greek forces at Troy, whose quarrel with Achilles opens the Iliad.</span></span> (ag-uh-MEM-non) &mdash; commander of the Greek forces at Troy, whose quarrel with Achilles opens the <em>Iliad</em>.</p>
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><strong>Odysseus</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Odysseus, oh-DIS-ee-us')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">oh-DIS-ee-us</span>the cunning hero of the Odyssey, famed for the tricks that get him and his crew out of danger.</span></span> (oh-DIS-ee-us) &mdash; the cunning hero of the <em>Odyssey</em>, famed for the tricks that get him and his crew out of danger.</p>
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><strong>Polyphemus</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Polyphemus, pol-ih-FEE-mus')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">pol-ih-FEE-mus</span>the one-eyed Cyclops Odysseus blinds and tricks to escape his cave.</span></span> (pol-ih-FEE-mus) &mdash; the one-eyed Cyclops Odysseus blinds and tricks to escape his cave.</p>
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><em><strong>arete</strong></em><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'arete, ah-reh-TAY')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ah-reh-TAY</span>excellence, or the kind of honor-winning greatness a Greek hero strives for.</span></span> (ah-reh-TAY) &mdash; excellence, or the kind of honor-winning greatness a Greek hero strives for.</p>
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><em><strong>polis</strong></em><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'polis, POH-lis')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">POH-lis</span>a Greek city-state, the basic unit of Greek government and community life.</span></span> (POH-lis) &mdash; a Greek city-state, the basic unit of Greek government and community life.</p>
+            <p style="margin: 0;"><span class="gloss" tabindex="0"><strong>Solon</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Solon, SOH-lun')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SOH-lun</span>an Athenian lawgiver who reformed the city's laws in the early sixth century BC.</span></span> (SOH-lun) &mdash; an Athenian lawgiver who reformed the city's laws in the early sixth century BC.</p>
+        </div>
+    </div>
+
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
+        <div class="callout-label">&#128214; TODAY'S FOCUS</div>
         <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What can a story remember about a world that left almost nothing else behind?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">By around 800 BC, the long Greek Dark Age Lesson 1 described was finally loosening its grip. Population was slowly recovering. Trade across the Mediterranean was picking back up, much of it, as this course studied directly in Week 15, carried by Phoenician ships. And Greek communities adopted and adapted the <strong>alphabet</strong> Phoenician traders had spread across the Mediterranean, adding vowel signs of their own to fit the Greek language, a direct, dedicated payoff of last week's writing spotlight. Historians call the new era that follows <strong>Archaic Greece</strong>, and it is in this period, roughly 750 to 700 BC, that this week's two Primary Sources took shape.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">By around 800 BC, the long Greek Dark Age Lesson 1 described was finally loosening its grip. Population was slowly climbing back up. Trade across the Mediterranean was picking back up too, much of it, as this course studied directly in Week 15, carried by Phoenician ships. Greek communities adopted and adapted the alphabet Phoenician traders had spread across the Mediterranean. They added their own vowel signs to fit the Greek language, a direct payoff of last week's writing spotlight. Historians call the new era that follows <strong>Archaic Greece</strong>. It is in this period, roughly 750 to 700 BC, that this week's two Primary Sources took shape.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A BARD'S MEMORY OF THE PALACE AGE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The poems known as the <em>Iliad</em> and the <em>Odyssey</em> are traditionally credited to a single poet named <strong>Homer</strong>, though scholars remain genuinely divided over whether one person composed them or whether the name represents a long tradition of professional oral storytellers, called <strong>bards</strong>, refining and reciting these same tales aloud for generations before either poem was ever written down. Either way, both poems preserve dim, half-accurate memories of the very Mycenaean world this course studied collapsing in Weeks 8 and 9: bronze weapons, boar's-tusk helmets, and named kings and cities that partly match what Linear B tablets actually recorded, filtered through three centuries of retelling and mixed with details, like iron weapons, that belong to the poet's own later age rather than the Bronze Age his heroes supposedly lived in. Homer is not, in other words, a reliable historical record of the Trojan War in the way a court chronicle would be. He is something rarer and in some ways more valuable: a direct link to how later Greeks remembered, reimagined, and made moral sense of a world they knew had been genuinely greater than their own.</p>
+        <div class="callout-label">&#128218; A BARD'S MEMORY OF THE PALACE AGE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Tradition credits the poems known as the <em>Iliad</em> and the <em>Odyssey</em> to a single poet named <span class="gloss" tabindex="0">Homer<span class="gloss-tip"><span class="gloss-pron">HOH-mur</span>the poet, or tradition of poets, credited with shaping the Iliad and Odyssey out of centuries of spoken storytelling.</span></span>. Scholars remain split over whether one person composed them. Some think the name instead stands for a long line of oral storytellers, called bards. These bards kept shaping and reciting these same tales aloud, for many generations, before either poem was ever written down. Either way, both poems are a kind of <span class="gloss" tabindex="0">epic poetry<span class="gloss-tip"><span class="gloss-pron">EP-ik</span>a long poem, often first passed down by speech, that tells the deeds of heroes and gods.</span></span>, long verse telling the deeds of great heroes and gods. Both poems also keep dim, half-true memories of the very Mycenaean world this course studied collapsing in Weeks 8 and 9. Bronze weapons, boar-tusk helmets, and named kings and cities partly match what Linear B tablets actually recorded. All of this got filtered through three centuries of retelling. It got mixed with details, like iron weapons, that belong to the poet's own later age, not the Bronze Age his heroes supposedly lived in. Homer is not, in other words, a sure record of the Trojan War the way a court chronicle would be. He is something rarer, and in some ways worth more. He shows how later Greeks remembered a world they knew had once been greater than their own, and how they turned that memory into a story about right and wrong.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; HOMER</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg" alt="Roman-era marble bust of Homer, British Museum" />
+        <div class="img-credit">Photo: British Museum, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Homer<span class="gloss-tip"><span class="gloss-pron">HOH-mur</span>the poet, or tradition of poets, credited with shaping the Iliad and Odyssey out of centuries of spoken storytelling.</span></span> (HOH-mur) is the name tradition gives to the poet, or line of poets, behind the <em>Iliad</em> and the <em>Odyssey</em>. Whether one person or many, Homer preserved Greece's dim memory of its own lost Mycenaean age. No portrait from Homer's own lifetime survives; this Roman-era marble bust reflects a later imagined type.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; ACHILLES'S WRATH</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This week's first Primary Source opens the <em>Iliad</em> on a quarrel. <strong>Achilles</strong>, the greatest warrior fighting at Troy, and <strong>Agamemnon</strong>, the expedition's overall commander, fall into a bitter dispute over a captive woman named Briseis, whom Agamemnon claims for himself after being forced to give up a captive of his own. Furious at the insult to his honor, Achilles withdraws entirely from the fighting, and the poem is explicit that this decision, not any single battle, will cost the Greeks dearly. The <em>Iliad</em>'s opening word, in the original Greek, is literally "<strong>wrath</strong>." This is no accident. The whole poem is built around examining what Achilles's pride, wounded and unchecked, actually costs everyone around him, allies and enemies alike. This is a vice, not a virtue, and Homer does not pretend otherwise, even while never denying Achilles's genuine courage as a fighter. A hero can possess real excellence in one respect and still cause real harm through a failure of temperance in another.</p>
+        <div class="callout-label">&#128218; ACHILLES'S WRATH</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This week's first Primary Source opens the <em>Iliad</em> on a quarrel. <span class="gloss" tabindex="0">Achilles<span class="gloss-tip"><span class="gloss-pron">uh-KIL-eez</span>the greatest warrior at Troy, whose wrath over a captive woman drives the whole plot of the Iliad.</span></span>, the greatest warrior fighting at Troy, and <span class="gloss" tabindex="0">Agamemnon<span class="gloss-tip"><span class="gloss-pron">ag-uh-MEM-non</span>commander of the Greek forces at Troy, whose quarrel with Achilles opens the Iliad.</span></span>, the leader of the whole Greek army, fall into a bitter fight. They argue over a captive woman named Briseis, whom Agamemnon claims for himself after being forced to give up a captive of his own. Furious at the insult to his honor, Achilles pulls out of the fighting entirely. The poem states plainly that this one choice, not any single battle, will cost the Greeks dearly. The <em>Iliad</em>'s opening word, in the old Greek, means "wrath." That is no accident. The whole poem is built around one question: what does Achilles's wounded pride cost everyone around him, friend and foe alike? This is a vice, not a virtue, and Homer does not hide it. He also never denies Achilles's real courage as a fighter. A hero can hold true excellence in one respect, what the Greeks called <span class="gloss" tabindex="0"><em>arete</em><span class="gloss-tip"><span class="gloss-pron">ah-reh-TAY</span>excellence, or the kind of honor-winning greatness a Greek hero strives for.</span></span>, and still cause real harm through a failure of self-control in another.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; ACHILLES AND AGAMEMNON</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Achilles_Briseis_MAN_Napoli_Inv9105_n01.jpg" alt="Roman fresco from Pompeii showing Briseis being led away from Achilles" />
+        <div class="img-credit">Fresco: Pompeii (VI 8 5), Naples Archaeological Museum, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Achilles<span class="gloss-tip"><span class="gloss-pron">uh-KIL-eez</span>the greatest warrior at Troy, whose wrath over a captive woman drives the whole plot of the Iliad.</span></span> and <span class="gloss" tabindex="0">Agamemnon<span class="gloss-tip"><span class="gloss-pron">ag-uh-MEM-non</span>commander of the Greek forces at Troy, whose quarrel with Achilles opens the Iliad.</span></span> are the <em>Iliad</em>'s central figures: the greatest warrior at Troy and the expedition's commander, whose quarrel over a captive sets the whole poem's tragedy in motion. This Roman fresco from Pompeii shows the moment Briseis is led away.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; ODYSSEUS'S CUNNING, AND ITS OWN LIMITS</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This week's second Primary Source turns to the <em>Odyssey</em> and one of its most famous episodes: <strong>Odysseus</strong> and his crew, trapped in the cave of the one-eyed <strong>Cyclops</strong> <strong>Polyphemus</strong>, escape only through Odysseus's quick thinking, tricking the giant with a false name, "Nobody," and blinding his single eye before slipping away. Where Achilles's story is a study in destructive pride, Odysseus's is, at least at first, a study in <strong>prudence</strong>: intelligence, patience, and self-control used to survive a situation raw strength alone could never have escaped.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Yet Homer does not let Odysseus off entirely clean either. As his ship pulls away to safety, Odysseus cannot resist shouting his own real name back at the blinded giant, boasting of his cleverness, a piece of vanity that allows Polyphemus to call down a curse on him that haunts the rest of his voyage home. Even this course's clearest example of prudence contains a lapse into the same kind of pride that undid Achilles, on a smaller scale. Homer's heroes, taken together, offer this course's fullest lesson yet in weighing virtue and vice honestly: real courage, real cunning, and real pride, sometimes bought at a genuine cost, often within the very same person.</p>
+        <div class="callout-label">&#128218; ODYSSEUS'S CUNNING, AND ITS OWN LIMITS</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This week's second Primary Source turns to the <em>Odyssey</em> and one of its most famous scenes. <span class="gloss" tabindex="0">Odysseus<span class="gloss-tip"><span class="gloss-pron">oh-DIS-ee-us</span>the cunning hero of the Odyssey, famed for the tricks that get him and his crew out of danger.</span></span> and his crew are trapped in the cave of the one-eyed Cyclops, <span class="gloss" tabindex="0">Polyphemus<span class="gloss-tip"><span class="gloss-pron">pol-ih-FEE-mus</span>the one-eyed Cyclops Odysseus blinds and tricks to escape his cave.</span></span>. They escape only through Odysseus's quick thinking. He tricks the giant with a false name, "Nobody," then blinds his single eye before slipping away. Where Achilles's story studies harmful pride, Odysseus's story is, at least at first, a study in <strong>prudence</strong>: quick thinking, patience, and self-control used to survive a spot raw strength alone could never have escaped.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Yet Homer does not let Odysseus off entirely clean either. As his ship pulls away to safety, Odysseus cannot resist shouting his own real name back at the blinded giant. He boasts of his own wit, a boast that lets Polyphemus curse him in return. That curse haunts the rest of his voyage home. Even this course's clearest example of prudence holds a small lapse into the same kind of pride that undid Achilles, just on a smaller scale. In other words, no hero in these poems gets to be purely wise or purely foolish. Each one carries both traits at once. Homer's heroes, taken together, offer this course's fullest lesson yet in weighing virtue and vice honestly. Real courage, real cunning, and real pride, sometimes bought at a genuine cost, often live inside the very same person.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; ODYSSEUS AND POLYPHEMUS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Eckersberg%2C_Christoffer_Wilhelm%2C_Ulysses_Fleeing_the_Cave_of_Polyphemus%2C_1812.jpg" alt="Painting of Odysseus and his crew fleeing the cave of Polyphemus, by Christoffer Wilhelm Eckersberg, 1812" />
+        <div class="img-credit">Painting: Christoffer Wilhelm Eckersberg, 1812, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Odysseus<span class="gloss-tip"><span class="gloss-pron">oh-DIS-ee-us</span>the cunning hero of the Odyssey, famed for the tricks that get him and his crew out of danger.</span></span> is the <em>Odyssey</em>'s hero, famed for cunning. <span class="gloss" tabindex="0">Polyphemus<span class="gloss-tip"><span class="gloss-pron">pol-ih-FEE-mus</span>the one-eyed Cyclops Odysseus blinds and tricks to escape his cave.</span></span> is the one-eyed Cyclops he tricks and blinds to escape, only to pay a price for boasting about it afterward. This 1812 painting shows the crew escaping the giant's cave beneath his flock of sheep.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; CLOSING &middot; A NEW BEGINNING, LOOKING OUTWARD</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Greece, by the end of this week's story, has climbed a long way back from the Dark Age's low point, newly literate, newly connected to Mediterranean trade, and newly in possession of poems that let it remember, however imperfectly, a lost heroic age. What Archaic Greece does not yet know is how close a far larger power has already come. This course has already met, in Week 14's timeline, the fact that the Ionian Greek cities along Anatolia's coast will soon fall under Persian rule. The empire responsible for that conquest is exactly where this course turns next.</p>
+        <div class="callout-label">&#128218; A NEW BEGINNING, LOOKING OUTWARD</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Greece, by the end of this week's story, has climbed a long way back from the Dark Age's low point. It is newly able to read and write, newly linked to Mediterranean trade, and it now has poems that let it remember, even if not perfectly, a lost heroic age. Around this same period, the Greek city, or <span class="gloss" tabindex="0"><em>polis</em><span class="gloss-tip"><span class="gloss-pron">POH-lis</span>a Greek city-state, the basic unit of Greek government and community life.</span></span>, began taking shape as Greece's basic form of government. Each polis governed itself, with its own laws and its own citizens, rather than answering to one king over the whole land. In Athens, one polis among many, a lawgiver named <span class="gloss" tabindex="0">Solon<span class="gloss-tip"><span class="gloss-pron">SOH-lun</span>an Athenian lawgiver who reformed the city's laws in the early sixth century BC.</span></span> would soon try to reform its laws, a story this course picks up directly in Week 17. What Archaic Greece does not yet know is how close a far larger power has already come. This course has already met, in Week 14's timeline, the fact that the Ionian Greek cities along Anatolia's coast will soon fall under Persian rule. The empire behind that conquest is exactly where this course turns next.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -98,5 +171,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
