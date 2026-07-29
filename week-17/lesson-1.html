@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
     .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
     .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
     .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
@@ -66,48 +78,93 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Why does the start of Cyrus's story sound like something this course has already heard twice before?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">This course left the Medes at the height of their power back in Week 14, ruling a kingdom strong enough to help destroy Assyria and negotiate as an equal with wealthy Lydia. That same lesson closed with a warning: the Median royal house was not destined to hold power much longer, and would be overthrown not by a foreign enemy, but by its own grandson. That grandson's name was <strong>Cyrus</strong>, and his rise begins, once again, with a story this course has now heard several times before.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128218; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <p style="font-size: 15px; color: #1a2340; margin: 0;">There are some vocabulary words in this lesson worth reviewing.</p>
+        <ul>
+            <li><span class="gloss" tabindex="0">Achaemenid<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Achaemenid, uh-KEE-muh-nid')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">uh-KEE-muh-nid</span>the Persian royal line founded by Cyrus, and the name historians give to his empire.</span></span> (uh-KEE-muh-nid) &mdash; the Persian royal line founded by Cyrus, and the name historians give to his empire.</li>
+        </ul>
+    </div>
+
+    <div style="background: #F4EFE3; border: 1px solid #E0D3AD; border-left: 5px solid #8A6416; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+        <div class="callout-label" style="color: #8A6416;">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <p style="font-size: 13px; color: #6b7a99; font-style: italic; margin: 0 0 8px 0;">(Continuing from last lesson, this is the last lesson where this figure is called out: Solon.)</p>
+        <div style="font-size: 14px; color: #1a2340; line-height: 1.6;">
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><strong>Cyrus</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Cyrus, SY-rus')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SY-rus</span>a Persian vassal king who overthrew his own grandfather Astyages around 550 BC and founded the Achaemenid Persian Empire.</span></span> (SY-rus) &mdash; a Persian vassal king who overthrew his own grandfather Astyages around 550 BC and founded the Achaemenid Persian Empire.</p>
+            <p style="margin: 0 0 8px 0;"><span class="gloss" tabindex="0"><strong>Astyages</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Astyages, as-TY-uh-jeez')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">as-TY-uh-jeez</span>the king of Media whose own grandson, Cyrus, overthrew him.</span></span> (as-TY-uh-jeez) &mdash; the king of Media whose own grandson, Cyrus, overthrew him.</p>
+            <p style="margin: 0;"><span class="gloss" tabindex="0"><strong>Croesus</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Croesus, KREE-sus')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">KREE-sus</span>the wealthy king of Lydia, defeated by Cyrus in 547 BC.</span></span> (KREE-sus) &mdash; the wealthy king of Lydia, defeated by Cyrus in 547 BC.</p>
+        </div>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; CYRUS'S GROWING EMPIRE</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Achaemenid_Empire_under_different_kings_%28flat_map%29.svg" alt="Map of the Achaemenid Persian Empire showing territory added under Cyrus, Cambyses, and Darius" />
+        <div class="img-credit">Map: Ali Zifan, via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map traces Cyrus's conquests from <strong>Media</strong> and <span class="gloss" tabindex="0">Persia<span class="gloss-tip"><span class="gloss-pron">PUR-zhuh</span>the homeland of the Persian people, in the highlands east of the Zagros Mountains, and the seat of Cyrus's growing empire.</span></span> west into <span class="gloss" tabindex="0">Lydia<span class="gloss-tip"><span class="gloss-pron">LID-ee-uh</span>a wealthy kingdom in western Anatolia, ruled by Croesus, conquered by Cyrus in 547 BC.</span></span>, reaching the shores of the Aegean Sea by 547 BC. The map's shading also previews the further growth this course studies in Week 18.</p>
+        <div style="margin-top: 12px; font-size: 13px; color: #444;">
+            <strong>Geographical Glossary:</strong>
+            <span class="gloss" tabindex="0">Persia<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Persia, PUR-zhuh')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">PUR-zhuh</span>the homeland of the Persian people, in the highlands east of the Zagros Mountains, and the seat of Cyrus's growing empire.</span></span> &middot;
+            <span class="gloss" tabindex="0">Lydia<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Lydia, LID-ee-uh')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">LID-ee-uh</span>a wealthy kingdom in western Anatolia, ruled by Croesus, conquered by Cyrus in 547 BC.</span></span>
+        </div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; ANOTHER INFANT, ANOTHER IMPROBABLE SURVIVAL</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">According to Herodotus, King <strong>Astyages</strong> of Media, Cyaxares's own descendant, dreamed that his daughter's newborn son would someday overthrow him. Terrified, Astyages ordered the infant killed. The herdsman given this grim task instead spared the child, raising him secretly as his own, and the boy grew up as Cyrus, a Persian vassal youth, without Astyages ever learning the truth until it was already too late to matter. However this story actually began, it should sound immediately familiar. This course has now met an abandoned or endangered infant, secretly saved and raised in obscurity before rising far beyond anyone's expectation, in Sargon's basket back in Week 3, in Romulus and Remus's river rescue in Week 15, and now in Cyrus. This course should say directly what it has only implied before: this is a recognizable kind of story, appealing across cultures with no contact at all, and its repeated appearance should make any student rightly cautious about taking any single version as reliable, word-for-word history.</p>
+        <div class="callout-label">&#128214; TODAY'S FOCUS</div>
+        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Why does the start of Cyrus's story sound like something this course has already heard twice before?</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">This course left the Medes at the height of their power back in Week 14. They ruled a kingdom strong enough to help destroy Assyria and deal with wealthy Lydia as an equal. That same lesson closed with a warning. The Median royal house was not going to hold power much longer. It would be overthrown, not by a foreign enemy, but by its own grandson. That grandson's name was <span class="gloss" tabindex="0">Cyrus<span class="gloss-tip"><span class="gloss-pron">SY-rus</span>a Persian vassal king who overthrew his own grandfather Astyages around 550 BC and founded the Achaemenid Persian Empire.</span></span>, and his rise begins, once again, with a story this course has now heard several times before. Once again, this course meets a hidden child who grows up to topple the very throne that tried to have him killed.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; ANOTHER INFANT, BARELY SAVED</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">According to Herodotus, King <span class="gloss" tabindex="0">Astyages<span class="gloss-tip"><span class="gloss-pron">as-TY-uh-jeez</span>the king of Media whose own grandson, Cyrus, overthrew him.</span></span> of Media, Cyaxares's own son, dreamed that his daughter's newborn son would someday overthrow him. Terrified, Astyages ordered the infant killed. The herdsman given this grim task instead spared the child. He raised the boy in secret as his own. The boy grew up as Cyrus, a Persian vassal youth, and Astyages never learned the truth until it was already too late to matter.</p>
 
         <div class="optima-widget">
             <div class="widget-kicker">&#127919; TRY IT: WHO'S WHO IN THE DREAM</div>
             <div class="widget-question">Match each description to the person it names in Herodotus's account.</div>
-            <div class="widget-row" data-correct="astyages">
-                <div class="widget-row-prompt">The Median king whose dream convinced him his own infant grandson would one day overthrow him.</div>
-                <div class="widget-options">
-                    <button data-choice="cyrus">Cyrus</button>
-                    <button data-choice="astyages">Astyages</button>
-                </div>
-            </div>
             <div class="widget-row" data-correct="cyrus">
                 <div class="widget-row-prompt">The infant secretly spared by a herdsman and raised in obscurity, who grew up to lead a revolt against his own grandfather.</div>
                 <div class="widget-options">
-                    <button data-choice="cyrus">Cyrus</button>
                     <button data-choice="astyages">Astyages</button>
+                    <button data-choice="cyrus">Cyrus</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="astyages">
+                <div class="widget-row-prompt">The Median king whose dream convinced him his own infant grandson would one day overthrow him.</div>
+                <div class="widget-options">
+                    <button data-choice="astyages">Astyages</button>
+                    <button data-choice="cyrus">Cyrus</button>
                 </div>
             </div>
             <button class="widget-reset">Reset</button>
         </div>
 
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 0 0;">Whatever the truth of his childhood, the adult Cyrus led a Persian revolt that overthrew Astyages around 550 BC, uniting Media and Persia under his own rule for the first time. This union marks the true beginning of the <strong>Achaemenid</strong> Persian Empire, named for Cyrus's royal line, an empire that will, within this course's remaining weeks, grow larger than anything the ancient Near East had yet seen.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 10px 0;">However this story actually began, it should sound familiar right away. This course has now met an abandoned or endangered infant, secretly saved and raised in hiding before rising far beyond what anyone expected, three separate times. It happened in Sargon's basket back in Week 3. It happened in Romulus and Remus's river rescue in Week 15. Now it happens again in Cyrus. This course should say directly what it has only hinted at before. This is a known kind of story. It shows up across far-apart cultures with no contact at all. Its repeated appearance should make any student rightly careful about taking any single version as sure, word-for-word history. In other words, when the very same tale keeps showing up in unrelated places, that is itself a clue about how legends grow, not proof that the tale is true.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Whatever the truth of his childhood, the grown Cyrus led a Persian revolt that overthrew Astyages around 550 BC. This united Media and Persia under his own rule for the first time. Until this moment, the Medes had been the stronger of the two peoples, with Persia serving as a vassal state beneath them. Cyrus flipped that order permanently, and Persia never again played second to Media. This union marks the true start of the <span class="gloss" tabindex="0">Achaemenid<span class="gloss-tip"><span class="gloss-pron">uh-KEE-muh-nid</span>the Persian royal line founded by Cyrus, and the name historians give to his empire.</span></span> Persian Empire, named for Cyrus's royal line. Within this course's remaining weeks, that empire will grow larger than anything the ancient Near East had yet seen, larger even than Assyria at its own height in Weeks 11 and 12.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; CYRUS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Winged_genius_relief_%28Pasargadae%29_by_Charles_Texier.png" alt="19th-century engraving of the winged-figure relief at Pasargadae, traditionally associated with Cyrus the Great" />
+        <div class="img-credit">Engraving: Charles Texier, 1852, via Wikimedia Commons, CC0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Cyrus<span class="gloss-tip"><span class="gloss-pron">SY-rus</span>a Persian vassal king who overthrew his own grandfather Astyages around 550 BC and founded the Achaemenid Persian Empire.</span></span> (SY-rus) overthrew his grandfather Astyages around 550 BC, united Media and Persia, and founded the Achaemenid Persian Empire, one of the largest empires the ancient world had yet seen. This engraving records the winged-figure relief at his capital, Pasargadae, long associated with Cyrus himself.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; CROESUS, SOLON, AND A WARNING IGNORED</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Cyrus's next target lay to the west: <strong>Lydia</strong>, a wealthy Anatolian kingdom this course already met briefly in Week 14, ruled now by King <strong>Croesus</strong>, whose name became a byword for riches in the ancient world. Herodotus preserves a memorable story about Croesus, set some years before his war with Cyrus. According to this account, the Athenian lawgiver <strong>Solon</strong>, already introduced to this course through his reforms in Week 16, visited Croesus's court, where the king proudly showed off his treasury and asked Solon to name the happiest man alive, plainly expecting Solon to name him. Solon instead named two obscure private citizens who had each lived well and died honorably, and when Croesus pressed him, Solon offered a warning rather than flattery: count no man happy until his life has actually ended, since fortune can turn on anyone, however wealthy, at any time.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Croesus, Herodotus tells us, dismissed the warning as foolishness. Confident in his own wealth and power, he went to war against the rising Persian empire and lost decisively, his kingdom conquered and, in most versions of the story, his own life placed in genuine danger before Cyrus spared him. Whether or not this specific conversation with Solon ever really happened, and Herodotus himself was writing generations after the fact, it captures a piece of Greek moral thinking this course should take seriously on its own terms: worldly success is not the same thing as a settled, secure happiness, and pride in present fortune has a long history of coming before a fall.</p>
+        <div class="callout-label">&#128218; CROESUS, SOLON, AND A WARNING IGNORED</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Cyrus's next target lay to the west: Lydia, a wealthy Anatolian kingdom this course already met briefly in Week 14. Lydia was now ruled by King <span class="gloss" tabindex="0">Croesus<span class="gloss-tip"><span class="gloss-pron">KREE-sus</span>the wealthy king of Lydia, defeated by Cyrus in 547 BC.</span></span>, whose name became a byword for riches in the ancient world. Herodotus tells a good story about Croesus, set some years before his war with Cyrus. In this account, the Athenian lawgiver Solon, already introduced to this course through his reforms in Week 16, visited Croesus's court. The king proudly showed off his riches and asked Solon to name the happiest man alive, plainly expecting Solon to name him. Solon instead named two little-known private citizens who had each lived well and died with honor. When Croesus pressed him further, Solon offered a warning rather than praise. Count no man happy, Solon said, until his life has actually ended, since fortune can turn on anyone, however rich, at any time. In other words, do not call your own life a success until it is over and done.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Croesus, Herodotus tells us, brushed the warning aside as foolish talk. Sure of his own wealth and power, he went to war against the rising Persian empire and lost badly. His kingdom was conquered, and, in most versions of the story, his own life stood in real danger before Cyrus spared him. Whether or not this exact talk with Solon ever truly happened, and Herodotus himself was writing generations after the fact, it holds a piece of Greek moral thinking worth taking to heart on its own terms. Worldly success is not the same thing as a settled, safe happiness, and pride in present fortune has a long history of coming right before a fall. This course has already met this same lesson once, in a different shape, back in Week 3. There, the Curse of Akkad blamed Naram-Sin's own pride for his empire's fall. Here, a Greek lawgiver offers almost the same warning about one overconfident king.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; ASTYAGES AND CROESUS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Kroisos_stake_Louvre_G197.jpg" alt="Attic red-figure amphora showing King Croesus on his funeral pyre, by the painter Myson, Louvre" />
+        <div class="img-credit">Vase painting: attributed to Myson, c. 500 BC, Louvre, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Astyages<span class="gloss-tip"><span class="gloss-pron">as-TY-uh-jeez</span>the king of Media whose own grandson, Cyrus, overthrew him.</span></span> was the Median king overthrown by his own grandson, Cyrus. <span class="gloss" tabindex="0">Croesus<span class="gloss-tip"><span class="gloss-pron">KREE-sus</span>the wealthy king of Lydia, defeated by Cyrus in 547 BC.</span></span> was the fabulously wealthy king of Lydia, defeated by Cyrus in 547 BC after ignoring Solon's warning about the fragility of fortune. This Greek vase painting, made not long after Croesus's own lifetime, shows him upon the pyre from a later stage of his legend.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; CLOSING</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Lydia's conquest in 547 BC brought the wealthy Ionian Greek coastal cities, the same cities Homer's descendants and neighbors called home, under Persian rule for the first time, a detail this course flagged as coming in Week 16. Cyrus's empire, barely a few years old, had already reached from the Zagros Mountains to the shores of the Aegean Sea. Lesson 2 turns to its next, and most consequential, conquest.</p>
+        <div class="callout-label">&#128218; CLOSING</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Lydia's conquest in 547 BC brought the wealthy Ionian Greek coastal cities, the same cities Homer's descendants and neighbors called home, under Persian rule for the first time, a detail this course flagged as coming back in Week 16. Cyrus's empire, barely a few years old, had already reached from the Zagros Mountains to the shores of the Aegean Sea. In less than a decade, Cyrus had gone from a hidden infant to the ruler of the largest kingdom the Near East had yet seen, and he was not finished yet. Lesson 2 turns to its next, and most important, conquest.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -132,6 +189,15 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
     var reset = e.target.closest('.widget-reset');
@@ -148,11 +214,18 @@
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches Part 1 of today\'s lesson.' : 'Not quite. Reread Part 1 of today\'s lesson.';
+      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;
       return;
+    }
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();
