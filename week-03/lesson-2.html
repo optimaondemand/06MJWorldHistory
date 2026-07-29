@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -27,19 +39,14 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q1 &middot; Module 3</div>
-        <div style="font-size: 12px; color: #666;">Sargon and the Akkadians</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
         <div style="font-size: 17px; color: #0e1c42;">Lesson 3.2 &middot; Wednesday</div>
     </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
         <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Holding an Empire Together, and Losing It</div>
-    </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
-        <div style="font-size: 16px; color: #0e1c42;">Sargon and the World's First Empire</div>
     </div>
 </div>
 
@@ -47,46 +54,64 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 2</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Holding an Empire Together, and Losing It</div>
-        <div style="font-size: 16px; color: #666;">Lesson</div>
+        <div style="font-size: 22px; color: #0e1c42;">Holding an Empire Together, and Losing It</div>
+    </div>
+
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">hubris<button class="gloss-audio" onclick="speakGloss(event,'hubris')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">HYOO-bris</span>a king or hero's dangerous, excessive pride, especially pride that leads someone to defy the gods or ignore real limits.</span></span></li>
+        </ul>
+        <div style="font-size: 12px; color: #8a94ab; margin-top: 10px; font-style: italic;">Continuing from Monday, this is the last lesson where these terms are called out: contingency, dynasty, empire.</div>
+    </div>
+
+    <div style="background: #FFF7E8; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin: 18px 0;">
+        <div class="callout-label">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <div style="font-size: 15px; color: #1a2340; line-height: 1.6;"><strong>Sargon</strong>, continuing from Monday, is the last lesson where this figure's callout appears. New this lesson: <span class="gloss" tabindex="0"><strong>Naram-Sin</strong><button class="gloss-audio" onclick="speakGloss(event,'Naram Sin')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">nah-RAHM-sin</span>Sargon's grandson, who expanded the Akkadian Empire further and took the title King of the Four Quarters.</span></span>.</div>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; THE GUTIANS AND THE ZAGROS MOUNTAINS</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 0;">This map shows the <span class="gloss" tabindex="0">Zagros Mountains<button class="gloss-audio" onclick="speakGloss(event,'Zagros Mountains')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ZAH-gross</span>a long mountain range along the eastern edge of Mesopotamia, home to the Gutians and, later, the Medes and Persians.</span></span>, home of the Gutian people, along the eastern edge of the Akkadian Empire, and marks <span class="gloss" tabindex="0">Nippur<button class="gloss-audio" onclick="speakGloss(event,'Nippur')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">nih-POOR</span>a Sumerian religious city, home to the great temple of the god Enlil.</span></span>, the city where Enlil's temple stood.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Why do empires fall apart?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Conquering dozens of independent Sumerian city-states, as Sargon did, is one problem. Governing them afterward, so they stay conquered, is a much harder one. This lesson looks at how the Akkadian Empire tried to solve that problem, and then at the still-debated question of why, roughly a century and a half later, it collapsed.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Conquering dozens of independent Sumerian city-states, as Sargon did, is one problem. Governing them afterward, so they stay conquered, is a much harder one. This lesson looks at how the Akkadian Empire tried to solve that problem. It then turns to a still-debated question: why, roughly a century and a half later, did the empire collapse?</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; STANDARDIZING AN EMPIRE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Sargon and his successors, most notably his grandson <strong>Naram-Sin</strong>, pursued a genuinely new administrative strategy: instead of leaving each conquered city entirely to its own local rulers and customs, they installed Akkadian-appointed governors, promoted the <strong>Akkadian</strong> language (a Semitic language distinct from Sumerian) alongside Sumerian in official business, and worked to standardize weights, measures, and administrative practice across the empire's many cities. This mattered enormously for the empire's ability to function: a merchant, tax collector, or soldier moving from one city to another could expect roughly the same units, the same expectations, and increasingly the same language of government, wherever they went. Naram-Sin went further than any Akkadian king before him, taking the title "King of the Four Quarters (of the world)" and, according to some traditions, even claiming a kind of divine status for himself during his lifetime, an extraordinary claim for a Mesopotamian king to make.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; STANDARDIZING AN EMPIRE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Sargon and his successors tried a truly new plan for ruling. The best-known of these successors was his grandson, Naram-Sin. Instead of leaving each conquered city fully to its own local rulers and customs, Sargon's dynasty put Akkadian-picked governors over conquered cities. They pushed the Akkadian language, a language apart from Sumerian, alongside Sumerian in state business, and worked to make weights, measures, and how things were run the same across the empire's many cities.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Naram-Sin went further than any Akkadian king before him. He took the title "King of the Four Quarters," meaning king of the whole known world. In some old tales, he even claimed to be a god himself during his own life. Kings before Naram-Sin mostly served the gods. Naram-Sin, in this telling, tried to stand next to them instead.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; THE CURSE OF AKKAD'S EXPLANATION</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">And then, within a few generations, the Akkadian Empire fell apart. A Sumerian literary composition called the <strong>Curse of Akkad</strong>, which you will read from directly this week, offers a striking explanation: Naram-Sin, in the poem's telling, defied the will of the great god Enlil and destroyed Enlil's own temple, the Ekur at Nippur. In response, Enlil cursed the city of Akkad itself, bringing famine, and calling down a fierce nomadic people, the Gutians, to overrun the land. The poem reads Akkad's collapse as a moral and religious event: <strong>hubris</strong>, a king's overreaching pride, invites divine punishment, and a civilization that abandons proper reverence toward the gods loses its right to endure.</p>
-    </div>
-
-    <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; DON'T PICK JUST ONE CAUSE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">This is worth taking seriously on its own terms rather than dismissing outright, because it reflects something genuinely important about how the people who lived through Akkad's collapse tried to make sense of it: they looked for a moral cause behind a political disaster, not merely a material one. At the same time, modern historians point to other, more material contributing causes: study of ancient soil and pollen layers suggests a serious, extended drought struck the region around the time of Akkad's fall, straining the irrigation-dependent agriculture Week 2 already told you Sumer depended on. Gutian incursions from the Zagros Mountains, mentioned in the poem itself, were also very likely real historical events, whatever their supernatural framing.</div>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; THE CURSE OF AKKAD'S EXPLANATION</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">And then, within a few generations, the Akkadian Empire fell apart. A Sumerian poem called the <strong>Curse of Akkad</strong>, which you will read from directly this week, gives a sharp reason why. In the poem's telling, Naram-Sin defied the will of the great god Enlil and tore down Enlil's own temple, the Ekur at Nippur. In reply, Enlil cursed the city of Akkad itself, brought famine down on the land, and called on a fierce people from the mountains, the Gutians, to overrun it. In this telling, <span class="gloss" tabindex="0">hubris<span class="gloss-tip"><span class="gloss-pron">HYOO-bris</span>a king or hero's dangerous, excessive pride, especially pride that leads someone to defy the gods or ignore real limits.</span></span>, a king's excess pride, calls down the wrath of the gods.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; WEIGHING AN ANCIENT EXPLANATION AGAINST A MODERN ONE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Which explanation is correct? This is exactly the kind of question this course wants you practicing: not "which single cause is the whole answer," but "how do a civilization's own moral explanation and a modern historian's material explanation each capture something real, without either one being the complete picture?" A drought does not, by itself, force a king to defy the priesthood of Enlil, and a moral failing does not, by itself, dry up a river. Both threads were very likely operating together.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Notice, too, that Akkad's fall does not fit a story of steady progress. Great empires can decline and dissolve, not simply grow ever stronger, and the reasons why are rarely simple. Keep this lesson in mind: the Bronze Age Collapse, which closes this quarter in Week 9, will ask this same question again, at a much larger scale.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; WEIGHING AN ANCIENT EXPLANATION AGAINST A MODERN ONE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This old reason is worth taking with real weight, on its own terms, rather than pushing it aside. Modern historians work from clues the ancient poem's author never had. Studies of old soil and pollen layers show a long, hard drought hit the region around the time of Akkad's fall, which would have strained the canal-fed farming Sumer relied on. The poem itself also names Gutian raids from the Zagros Mountains, which historians think were most likely real events too, even though the poem frames them as payback sent by the gods.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Do not ask "which single cause is the whole answer?" A drought does not, by itself, force a king to defy the priests of Enlil. A moral flaw does not, by itself, dry up a river. Both threads were very likely at work together. Notice, too, that Akkad's fall does not fit a story of steady progress. Great empires can decline and fall apart; they do not simply grow stronger forever, and the reasons why are rarely simple. The Bronze Age Collapse in Week 9 will ask this same question again, at a much larger scale.</p>
+    </div>
+
+    <div class="people-card">
+        <div class="callout-label">&#128101; PEOPLES &middot; THE GUTIANS</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 0;">Mesopotamian texts describe the Gutians as mountain people from the Zagros range, living outside the city-based world of Sumer and Akkad. Because nearly every surviving description of the Gutians was written by their enemies, historians treat these descriptions cautiously, as evidence of how Mesopotamians viewed outsiders as much as evidence of the Gutians themselves.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; NARAM-SIN</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Victory_stele_of_Naram_Sin_9068.jpg" alt="The Victory Stele of Naram-Sin, showing him trampling defeated enemies" style="max-width: 300px;" />
+        <div class="img-credit">Photo: Rama, CC BY-SA 2.0 France, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><strong>Naram-Sin</strong> ruled the Akkadian Empire as Sargon's grandson, around 2254 to 2218 BC. He expanded the empire further than Sargon had, took the title "King of the Four Quarters," and, according to some ancient traditions, claimed divine status during his own lifetime. His famous victory stele shows him trampling defeated enemies while wearing the horned crown normally reserved for gods.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
-            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
-            <div>
-                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 2</strong></div>
-                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short quiz on today's lesson, in Canvas.</div>
-            </div>
-        </div>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+        <div style="font-size: 16px; color: #1a2340; line-height: 1.55;"><strong>Reading Quiz 2</strong>, in Canvas.</div>
     </div>
 
 </div>
@@ -98,5 +123,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>

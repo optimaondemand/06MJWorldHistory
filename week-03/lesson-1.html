@@ -7,17 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
-    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
-    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
-    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
-    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
-    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
-    .widget-options button.selected { background: #0E1C42; color: #FFFFFF; border-color: #0E1C42; }
-    .widget-feedback { background: #FFFFFF; border-left: 3px solid #C7922C; padding: 10px 14px; font-size: 15px; color: #1a2340; line-height: 1.55; margin: 10px 0; display: none; border-radius: 4px; }
-    .widget-feedback.show { display: block; }
-    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
-    .widget-reset:hover { background: #FDF3E3; }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -38,19 +39,14 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q1 &middot; Module 3</div>
-        <div style="font-size: 12px; color: #666;">Sargon and the Akkadians</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
         <div style="font-size: 17px; color: #0e1c42;">Lesson 3.1 &middot; Monday</div>
     </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
         <div style="font-size: 17px; color: #0e1c42; font-style: italic;">A Basket on the River: The Rise of Sargon</div>
-    </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
-        <div style="font-size: 16px; color: #0e1c42;">Sargon and the World's First Empire</div>
     </div>
 </div>
 
@@ -58,53 +54,56 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 1</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">A Basket on the River: The Rise of Sargon</div>
-        <div style="font-size: 16px; color: #666;">Lesson</div>
+        <div style="font-size: 22px; color: #0e1c42;">A Basket on the River: The Rise of Sargon</div>
+    </div>
+
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">contingency<button class="gloss-audio" onclick="speakGloss(event,'contingency')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">kun-TIN-jen-see</span>the idea that history could easily have turned out differently, because it depended on small, uncertain events, not one fixed path.</span></span></li>
+            <li><span class="gloss" tabindex="0">dynasty<button class="gloss-audio" onclick="speakGloss(event,'dynasty')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">DY-nuh-stee</span>a line of rulers from the same family, passing power down from parent to child.</span></span></li>
+            <li><span class="gloss" tabindex="0">empire<button class="gloss-audio" onclick="speakGloss(event,'empire')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">EM-pyre</span>a single political power that rules over many different peoples, cities, and languages at once.</span></span></li>
+        </ul>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; THE AKKADIAN EMPIRE</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Empire_akkad.svg" alt="Map showing the extent of the Akkadian Empire under Sargon and Naram-Sin" />
+        <div class="img-credit">Map: Zunkir, CC BY-SA 3.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map shows Sargon's growing reach, from Kish and Uruk in southern Mesopotamia, north and west through <span class="gloss" tabindex="0">Akkad<button class="gloss-audio" onclick="speakGloss(event,'Akkad')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">AH-kahd</span>Sargon's capital city. Its exact location has never been found by archaeologists.</span></span>, and out toward the Mediterranean coast, Anatolia, and <span class="gloss" tabindex="0">Elam<button class="gloss-audio" onclick="speakGloss(event,'Elam')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">EE-lam</span>an ancient region in what is now western Iran, reached by Sargon's later campaigns.</span></span>.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What if the basket had sunk?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Every civilization studied so far in this course, Jericho, &Ccedil;atalh&ouml;y&uuml;k, Uruk, has been a single city or a single small region. This week that changes. Around 2334 BC, a man named <strong>Sargon</strong> built something the world had never seen: an <strong>empire</strong>, a single political power ruling over many previously separate cities and peoples at once, stretching across all of Mesopotamia and beyond. To understand how strange and unlikely this achievement was, you have to start with the story Sargon himself, or scribes writing in his name generations later, told about his own birth.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Every civilization studied so far in this course, Jericho, &Ccedil;atalh&ouml;y&uuml;k, and Uruk, has been a single city or a single small region. This week, that changes. Around 2334 BC, a man named <span class="gloss" tabindex="0">Sargon<button class="gloss-audio" onclick="speakGloss(event,'Sargon')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SAR-gon</span>founder of the Akkadian Empire, the first empire in recorded history, ruling from roughly 2334 to 2279 BC.</span></span> built something the world had never seen before: an <span class="gloss" tabindex="0">empire<span class="gloss-tip"><span class="gloss-pron">EM-pyre</span>a single political power that rules over many different peoples, cities, and languages at once.</span></span>. An empire is a single political power that rules over many separate cities and peoples at once. Sargon's empire stretched across all of Mesopotamia and beyond. To understand how strange and unlikely this feat was, you have to start with the story Sargon himself, or scribes writing in his name years later, told about his own birth.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; AN IMPROBABLE BEGINNING</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">According to the Sargon Birth Legend, a text you will read directly this week, Sargon was born to a priestess who could not openly raise him. She placed her infant son in a basket sealed with tar and set him adrift on the Euphrates River. The basket floated downstream until a man named <strong>Akki</strong>, a drawer of water, discovered it, rescued the child, and raised him as his own son, eventually training him as a gardener. From this humble, obscure beginning, the story says, the goddess Ishtar came to favor young Sargon, and he rose to become cupbearer, a position of real trust and access, to the king of the city of Kish. From cupbearer, Sargon eventually seized power for himself and began the conquests that built the Akkadian Empire.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Whether every detail of this story happened exactly as told is impossible to verify, and that uncertainty is itself worth sitting with rather than resolving too quickly. What matters for how you think about history is this: the entire empire that follows, the standardized administration, the conquered cities, the common language spreading across Mesopotamia, rests on a chain of events that did not have to happen. If the basket had sunk, if Akki had not been drawing water at that exact bend of the river that day, if Sargon had never caught the king's attention, none of the rest of this lesson would exist to tell. This is what historians mean by <strong>contingency</strong>: the real past was not marching toward Sargon's empire as an inevitable destination. A single improbable childhood, real or legendary, stands at the root of the first empire in recorded history.</p>
-
-        <div class="optima-widget">
-            <div class="widget-kicker">&#127919; THINK ABOUT IT</div>
-            <div class="widget-question">Which of these best captures what historians mean by "contingency"?</div>
-            <div class="widget-options">
-                <button data-response="Not quite. This describes an inevitable outcome, which is the opposite of contingency.">Sargon's empire was destined to happen no matter what.</button>
-                <button data-response="Right. Contingency means the outcome depended on events that could easily have gone another way.">Sargon's rise depended on a chain of events that could easily have turned out differently.</button>
-                <button data-response="Not quite. Contingency is about historical events, not personal talent alone.">Sargon simply worked harder than anyone else in Mesopotamia.</button>
-            </div>
-            <div class="widget-feedback"></div>
-            <button class="widget-reset">Reset</button>
-        </div>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; AN IMPROBABLE BEGINNING</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">According to the Sargon Birth Legend, a text you will read directly this week, Sargon was born to a priestess who could not openly raise him. She placed her infant son in a basket sealed with tar and set him adrift on the Euphrates River. The basket floated downstream until a man named Akki, a drawer of water, found it. Akki rescued the child and raised him as his own son, later training him as a gardener. From this humble, obscure beginning, the story says, the goddess Ishtar came to favor young Sargon. He rose to become cupbearer, a position of real trust and access, to the king of the city of Kish. From cupbearer, Sargon eventually seized power for himself. He then began the conquests that built the Akkadian Empire and founded his own royal <span class="gloss" tabindex="0">dynasty<span class="gloss-tip"><span class="gloss-pron">DY-nuh-stee</span>a line of rulers from the same family, passing power down from parent to child.</span></span>.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Whether every detail of this story happened exactly as told is hard to check for sure. No other written record from Sargon's own lifetime lives on to check the story against. Here is what matters for how you think about history: the entire empire that follows rests on a chain of events that did not have to happen. What if the basket had sunk? What if Akki had not been drawing water at that exact bend of the river that day? What if Sargon had never caught the king's eye? If any one of these small things had gone differently, none of the rest of this lesson would exist to tell. This is what historians mean by <span class="gloss" tabindex="0">contingency<span class="gloss-tip"><span class="gloss-pron">kun-TIN-jen-see</span>the idea that history could easily have turned out differently, because it depended on small, uncertain events, not one fixed path.</span></span>: the real past was not marching toward Sargon's empire like some fixed endpoint it had to reach. A single unlikely childhood, real or made up, stands at the root of the first empire in recorded history.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; FROM CUPBEARER TO CONQUEROR</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Once in power, Sargon moved with real speed. He conquered the Sumerian city-states one by one, including Uruk, the city you studied last week, defeating its king Lugalzagesi and bringing the whole of southern Mesopotamia under one rule for the first time. He then pushed his conquests northward and westward, campaigning as far as the Mediterranean coast and into parts of Anatolia and Elam, in what is now western Iran. Sargon founded a new capital city, <strong>Akkad</strong>, whose exact location has never been rediscovered by archaeologists, a small but telling reminder that even a capital city commanding an empire can vanish from the physical map while surviving in written memory.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; FROM CUPBEARER TO CONQUEROR</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Once in power, Sargon moved with real speed. He conquered the Sumerian city-states one by one, including Uruk, the city you studied last week. He defeated Uruk's king, Lugalzagesi, and brought the whole of southern Mesopotamia under one rule for the first time. He then pushed his conquests northward and westward, as far as the Mediterranean coast, and into parts of Anatolia and Elam. Sargon founded a new capital city, Akkad. Its exact spot has never been found again by archaeologists, a small but telling reminder: even a capital city ruling an empire can vanish from the map while still living on in written memory.</p>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; HELPFUL TO KNOW &middot; WHY "EMPIRE" IS A NEW KIND OF WORD</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">A kingdom typically rules one people, in one place, under one set of customs. An <strong>empire</strong> rules many different peoples, cities, and languages at once, peoples who did not necessarily choose to be ruled together and who often kept their own local customs, gods, and elites even while answering to a single distant authority. Holding that kind of arrangement together, across hundreds of miles, with no telephones, no rapid roads, and no professional bureaucracy inherited from anyone else, was a genuinely new political problem.</div>
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; WHY "EMPIRE" IS A NEW KIND OF WORD</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">It is worth pausing on why historians save the word empire for what Sargon built, rather than just calling it a large kingdom. A kingdom mostly rules one people, in one place, under one set of customs. An empire rules many different peoples, cities, and languages at once. These peoples did not always choose to be ruled together, and often kept their own local customs, gods, and leaders, even while bowing to one distant ruler. Sargon had no telephones, no fast roads, and no trained government passed down from anyone before him, since no one had ever built one this large. Lesson 2 turns to how Sargon and those who ruled after him tried to solve this problem, and to what later went wrong.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; SARGON OF AKKAD</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Royal_Akkadian_Head_from_Nineveh_%28inv.nr._IM_11331%29.jpg" alt="Bronze head of an Akkadian ruler, found at Nineveh, often identified with Sargon of Akkad" style="max-width: 320px;" />
+        <div class="img-credit">Photo: Hans Ollermann, CC BY-SA 2.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><strong>Sargon</strong> rose from a humble, disputed birth to found the world's first known empire, ruling Mesopotamia and beyond from his capital at Akkad around 2334 to 2279 BC. His conquests united dozens of independent Sumerian city-states under a single ruler for the first time in recorded history, setting a pattern that later empires across the ancient world would imitate.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
-            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
-            <div>
-                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 1</strong></div>
-                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short quiz on today's lesson, in Canvas.</div>
-            </div>
-        </div>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+        <div style="font-size: 16px; color: #1a2340; line-height: 1.55;"><strong>Reading Quiz 1</strong>, in Canvas.</div>
     </div>
 
 </div>
@@ -118,24 +117,23 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
-    var reset = e.target.closest('.widget-reset');
-    if (reset) {
-      var w = reset.closest('.optima-widget');
-      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
-      var fb = w.querySelector('.widget-feedback');
-      fb.classList.remove('show'); fb.textContent = '';
-      return;
-    }
-    var rBtn = e.target.closest('.widget-options button');
-    if (rBtn) {
-      var rw = rBtn.closest('.optima-widget');
-      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
-      rBtn.classList.add('selected');
-      var fb = rw.querySelector('.widget-feedback');
-      fb.textContent = rBtn.dataset.response || '';
-      fb.classList.add('show');
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();

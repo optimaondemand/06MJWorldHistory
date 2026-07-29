@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -27,19 +39,14 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q1 &middot; Module 4</div>
-        <div style="font-size: 12px; color: #666;">Hammurabi and Old Babylon</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
         <div style="font-size: 17px; color: #0e1c42;">Lesson 4.1 &middot; Monday</div>
     </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
         <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Amorite Migration and the Rise of Babylon</div>
-    </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
-        <div style="font-size: 16px; color: #0e1c42;">Law and Kingship in Mesopotamia</div>
     </div>
 </div>
 
@@ -47,41 +54,61 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 1</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Amorite Migration and the Rise of Babylon</div>
-        <div style="font-size: 16px; color: #666;">Lesson</div>
+        <div style="font-size: 22px; color: #0e1c42;">Amorite Migration and the Rise of Babylon</div>
+    </div>
+
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">code of law<button class="gloss-audio" onclick="speakGloss(event,'code of law')">&#128266;</button><span class="gloss-tip">a single, written collection of laws meant to apply the same way across an entire kingdom, rather than being decided case by case.</span></span></li>
+            <li><span class="gloss" tabindex="0">stele<button class="gloss-audio" onclick="speakGloss(event,'stele')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">STEE-lee</span>a tall, upright stone slab, often carved with writing or images, set up in a public place.</span></span></li>
+        </ul>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; BABYLON AND THE AMORITE MIGRATIONS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Hammurabi%27s_Babylonia_1.svg" alt="Map showing the extent of Hammurabi's Babylonian kingdom" />
+        <div class="img-credit">Map: MapMaster, CC BY-SA, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map shows the western desert and the Levant, where the Amorites migrated from, and marks <span class="gloss" tabindex="0">Babylon<button class="gloss-audio" onclick="speakGloss(event,'Babylon')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">BAB-uh-lon</span>a city on the Euphrates River, a minor town at first, that became the capital of Hammurabi's kingdom and gave its name to an entire age of Mesopotamian history.</span></span>'s rise on the Euphrates alongside the rival cities of Larsa, Mari, and Eshnunna.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What if Hammurabi had died at fifty?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">The Akkadian Empire's collapse, which closed last week's lesson, left a power vacuum across Mesopotamia. No single city held the kind of dominance Sargon or Naram-Sin once claimed. Into this unsettled landscape, over the following centuries, came waves of a semi-nomadic, Semitic-speaking people the Mesopotamians called the <strong>Amorites</strong>, migrating in from the western desert fringes and the Levant beginning around 2000 to 1900 BC. Amorite chieftains and their followers gradually settled among the existing Mesopotamian cities, and in some cases, simply took them over, establishing new ruling dynasties while largely adopting the language, writing system, and religious practices already in place. This is worth noting carefully: the Amorites did not erase Mesopotamian civilization when they arrived. They stepped into it, adapted to it, and eventually became some of its most consequential rulers.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">The Akkadian Empire's collapse, which closed last week's lesson, left a power vacuum across Mesopotamia. No single city held the kind of power Sargon or Naram-Sin once held. Into this shaken land, over the next centuries, came waves of a people the Mesopotamians called the <strong>Amorites</strong> (AM-uh-ryts). The Amorites were herders who moved from place to place and spoke a Semitic language. They came in from the western desert and the Levant, starting around 2000 to 1900 BC. Amorite chiefs and their followers slowly settled among the Mesopotamian cities already there, sometimes simply taking the cities over, but keeping the old language, writing system, and faith already in place.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Some Amorite groups still lived in tents even after their own kings sat on Mesopotamian thrones. Letters found in the city of Mari describe this mixed way of life in real detail: part herder, part city ruler, all at once. Within just a few generations, Amorite kings wrote in cuneiform, prayed to Mesopotamian gods, and ruled from Mesopotamian palaces like anyone born there.</p>
+    </div>
+
+    <div style="background: #FFF7E8; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin: 18px 0;">
+        <div class="callout-label">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <div style="font-size: 15px; color: #1a2340; line-height: 1.6;"><span class="gloss" tabindex="0"><strong>Hammurabi</strong><button class="gloss-audio" onclick="speakGloss(event,'Hammurabi')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">hah-moo-RAH-bee</span>the Amorite king of Babylon, ruling roughly 1792 to 1750 BC, best known today for his written code of law.</span></span>, the Amorite king of Babylon, ruling roughly 1792 to 1750 BC, best known today for his written code of law.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A MINOR CITY RISES</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Among the many small city-states an Amorite dynasty came to rule was <strong>Babylon</strong>, a relatively minor town on the Euphrates with no particular claim to greatness at the start of the second millennium BC. That changed with the reign of <strong>Hammurabi</strong>, who took Babylon's throne around 1792 BC. For much of his reign, Hammurabi ruled a modest kingdom, cautious and largely defensive, forming and breaking alliances with larger neighboring powers as circumstances demanded. Only late in his reign, in a rapid series of campaigns during his final decade of rule, did Hammurabi complete the military unification of southern and much of central Mesopotamia under Babylon's rule, defeating rival cities including Larsa, Mari, and Eshnunna.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This timing matters. It would be easy to imagine Hammurabi as a conqueror from the very start of his reign, methodically building an empire year by year. The actual pattern was different: decades of comparatively quiet, defensive kingship, followed by a late, decisive burst of conquest once the right combination of weakened rivals and opportunity appeared. Contingency shows up here too, just as it did with Sargon in Week 3: had Hammurabi died at fifty instead of ruling into his final campaigning years, Babylon might have remained a middling kingdom, remembered, if at all, as one Amorite city-state among many rather than the namesake of an age.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; A MINOR CITY RISES</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Among the many small city-states an Amorite family came to rule was Babylon, a fairly small town on the Euphrates. At the start of the second millennium BC, Babylon had no special claim to greatness. That changed with the reign of Hammurabi, who took Babylon's throne around 1792 BC. For much of his reign, Hammurabi ruled a modest kingdom, careful and mostly on guard, forming and breaking deals with bigger neighbors as needed. Only late in his reign did this pattern change. In a fast series of wars during his final decade of rule, Hammurabi finally joined southern and much of central Mesopotamia under Babylon's rule, beating rival cities one after another, including Larsa, Mari, and Eshnunna, each of which had once been at least as strong as Babylon itself.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This timing matters. It would be easy to picture Hammurabi as a conqueror from the very start of his reign. The actual pattern was not that simple. <span class="gloss" tabindex="0">Contingency<span class="gloss-tip">the idea that history could easily have turned out differently, because it depended on small, uncertain events, not one fixed path.</span></span> shows up here too, just as it did with Sargon in Week 3. If Hammurabi had died at fifty instead of ruling into his final years of war, Babylon might have stayed a middling kingdom, known today, if at all, as just one Amorite city-state among many.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; MORE THAN A CONQUEROR</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">What makes Hammurabi's reign matter to history far beyond his military campaigns is what he is best remembered for today: a written law code, inscribed on a monumental stone stele and set up publicly for his subjects to see. This was not the first law code in Mesopotamian history; earlier Sumerian rulers had issued their own, less complete legal collections. But Hammurabi's Code survives largely intact, is remarkably comprehensive across nearly every area of daily life, family, property, labor, agriculture, trade, and it explicitly frames Hammurabi's kingship around the promise of justice for his subjects, a claim Lesson 2 examines in detail.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; MORE THAN A CONQUEROR</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Hammurabi's military wins are not what makes his reign matter most to history. He is best known today for something else instead: a written <span class="gloss" tabindex="0">code of law<span class="gloss-tip">a single, written collection of laws meant to apply the same way across an entire kingdom, rather than being decided case by case.</span></span>. This code was carved onto a huge stone <span class="gloss" tabindex="0">stele<span class="gloss-tip"><span class="gloss-pron">STEE-lee</span>a tall, upright stone slab, often carved with writing or images, set up in a public place.</span></span> and set up in public. Hammurabi's Code survives largely whole today, nearly four thousand years later, covering nearly every part of daily life: family, land, work, farming, and trade. It also clearly frames Hammurabi's rule around one central promise: justice for his subjects. Lesson 2 looks closely at that promise, and at whether it held up.</p>
     </div>
 
     <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; HELPFUL TO KNOW &middot; A NOTE ON CHRONOLOGY</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Historians place Hammurabi's reign at roughly 1792 to 1750 BC using what is called the "Middle Chronology," one of several competing systems scholars use to anchor ancient Near Eastern dates, each shifting Hammurabi's reign by a few decades earlier or later depending on which astronomical and textual evidence is given priority. This course uses the Middle Chronology consistently, but it is worth remembering that even a king as famous as Hammurabi sits inside a timeline that professional historians still actively debate and refine.</div>
+        <div class="callout-label">&#128161; HELPFUL TO KNOW &middot; A NOTE ON CHRONOLOGY</div>
+        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Historians place Hammurabi's reign at roughly 1792 to 1750 BC using the "Middle Chronology," one of several rival dating systems scholars use for the ancient Near East. A Babylonian record of the planet Venus, kept by ancient sky-watchers, is one key piece of evidence scholars compare against modern star charts to test rival systems. This course uses the Middle Chronology throughout, but other textbooks may use a different one.</div>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; HAMMURABI</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/F0182_Louvre_Code_Hammourabi_Bas-relief_Sb8_rwk.jpg" alt="The relief carved at the top of the Code of Hammurabi's stele, showing Hammurabi before the god Shamash" style="max-width: 320px;" />
+        <div class="img-credit">Photo: Mbzt, CC BY 3.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><strong>Hammurabi</strong> ruled Babylon from about 1792 to 1750 BC. He spent most of his reign as a careful, guarded king, only finishing his conquest of Mesopotamia in his final years of rule. He is known today mainly for his code of law, one of the most complete and best-kept law collections to survive from the ancient world.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
-            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
-            <div>
-                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 1</strong></div>
-                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short quiz on today's lesson, in Canvas.</div>
-            </div>
-        </div>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+        <div style="font-size: 16px; color: #1a2340; line-height: 1.55;"><strong>Reading Quiz 1</strong>, in Canvas.</div>
     </div>
 
 </div>
@@ -93,5 +120,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>

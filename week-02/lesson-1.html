@@ -7,21 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
-    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
-    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
-    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
-    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
-    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
-    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
-    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
-    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
-    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
-    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
-    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
-    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
-    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
-    .widget-reset:hover { background: #FDF3E3; }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -42,19 +39,14 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q1 &middot; Module 2</div>
-        <div style="font-size: 12px; color: #666;">Sumer and the First Cities</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
         <div style="font-size: 17px; color: #0e1c42;">Lesson 2.1 &middot; Monday</div>
     </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
         <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Why Cities? Uruk and the Birth of Urban Life</div>
-    </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
-        <div style="font-size: 16px; color: #0e1c42;">Sumer and the Rise of the First Cities</div>
     </div>
 </div>
 
@@ -62,93 +54,87 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 1</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Why Cities? Uruk and the Birth of Urban Life</div>
-        <div style="font-size: 16px; color: #666;">Lesson</div>
+        <div style="font-size: 22px; color: #0e1c42;">Why Cities? Uruk and the Birth of Urban Life</div>
+    </div>
+
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">archaeology<button class="gloss-audio" onclick="speakGloss(event,'archaeology')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ar-kee-OL-uh-jee</span>the careful study of the things people left behind.</span></span></li>
+            <li><span class="gloss" tabindex="0">characteristics of civilization<button class="gloss-audio" onclick="speakGloss(event,'characteristics of civilization')">&#128266;</button><span class="gloss-tip">the features historians look for to decide whether a settlement counts as a true civilization: dense population, monumental buildings, specialized labor, social classes, and writing, all appearing together.</span></span></li>
+            <li><span class="gloss" tabindex="0">city-state<button class="gloss-audio" onclick="speakGloss(event,'city state')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SIH-tee-stayt</span>a single city and the farmland around it, all governed together as one unit.</span></span></li>
+            <li><span class="gloss" tabindex="0">excavation<button class="gloss-audio" onclick="speakGloss(event,'excavation')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ek-skuh-VAY-shun</span>a slow, careful dig done layer by layer.</span></span></li>
+            <li><span class="gloss" tabindex="0">social class<button class="gloss-audio" onclick="speakGloss(event,'social class')">&#128266;</button><span class="gloss-tip">a rank or group in society, such as priests, craftsmen, or laborers, based on the kind of work people do and how much power they hold.</span></span></li>
+            <li><span class="gloss" tabindex="0">specialized labor<button class="gloss-audio" onclick="speakGloss(event,'specialized labor')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SPESH-uh-lyzd LAY-bur</span>work where a person spends all their time on one skill, like pottery or record-keeping, instead of farming.</span></span></li>
+            <li><span class="gloss" tabindex="0">tell<button class="gloss-audio" onclick="speakGloss(event,'tell')">&#128266;</button><span class="gloss-tip">rhymes with "bell" &mdash; a mound formed when people build, abandon, and rebuild on the same spot for thousands of years.</span></span></li>
+            <li><span class="gloss" tabindex="0">ziggurat<button class="gloss-audio" onclick="speakGloss(event,'ziggurat')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ZIG-uh-rat</span>a massive, stepped platform of mudbrick built to raise a temple above the rest of a city.</span></span></li>
+        </ul>
+        <div style="font-size: 12px; color: #8a94ab; margin-top: 10px; font-style: italic;">This is the last lesson where archaeology, excavation, and tell are called out, continuing from Week 1.</div>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; SUMER AND THE TWIN RIVERS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Cities_of_Sumer_%28en%29.svg" alt="Map of Sumerian city-states along the Tigris and Euphrates Rivers, including Uruk" />
+        <div class="img-credit">Map: Crates / Phirosiberia, CC BY 3.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map shows southern Mesopotamia, the marshy floodplain between the <span class="gloss" tabindex="0">Tigris River<button class="gloss-audio" onclick="speakGloss(event,'Tigris')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">TY-griss</span>one of the two great rivers of Mesopotamia, flowing toward the Persian Gulf.</span></span> and <span class="gloss" tabindex="0">Euphrates River<button class="gloss-audio" onclick="speakGloss(event,'Euphrates')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">yoo-FRAY-teez</span>the second of Mesopotamia's two great rivers, running roughly parallel to the Tigris.</span></span> as they flow toward the <span class="gloss" tabindex="0">Persian Gulf<span class="gloss-tip">the body of water the Tigris and Euphrates flow into.</span></span>. It marks <span class="gloss" tabindex="0">Uruk<button class="gloss-audio" onclick="speakGloss(event,'Uruk')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">OO-rook</span>an early Sumerian city, and likely the first true city in world history.</span></span> and the wider region of <span class="gloss" tabindex="0">Sumer<button class="gloss-audio" onclick="speakGloss(event,'Sumer')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SOO-mer</span>the southernmost region of Mesopotamia, home to the world's first cities.</span></span>, all within <span class="gloss" tabindex="0">Mesopotamia<button class="gloss-audio" onclick="speakGloss(event,'Mesopotamia')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">mess-oh-puh-TAY-mee-uh</span>a Greek word meaning "land between rivers," naming the region between the Tigris and Euphrates.</span></span>.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Why did people choose to depend on strangers?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">By around 3450 BC, in the marshy floodplain where the Tigris and Euphrates rivers run down toward the Persian Gulf, a settlement called <strong>Uruk</strong> had grown into something the world had never quite seen before: a true city. Not a large village, not a cluster of farming hamlets, but a single, dense, walled community that may have held as many as forty thousand people at its height, ringed by a wall some historians credit to its legendary king Gilgamesh. To understand why this mattered, and why it happened here first, you need to understand both the region, called <strong>Sumer</strong>, and the pressures that pushed people to live packed together at a scale no Neolithic village ever attempted.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">By around 3450 BC, a settlement called Uruk had grown into something the world had never quite seen before: a true city. Uruk sat in the marshy floodplain where the Tigris and Euphrates Rivers run down toward the Persian Gulf. It was not a large village. It was not simply a cluster of farming hamlets sitting near each other. It was a single, dense, walled community, and at its height, Uruk may have held as many as forty thousand people. Some ancient writers credit its great wall to the <span class="gloss" tabindex="0">legendary king of Uruk<button class="gloss-audio" onclick="speakGloss(event,'Gilgamesh')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">GIL-guh-mesh</span>a ruler credited by some ancient writers with building Uruk's great wall, later remembered as the hero of the Epic of Gilgamesh.</span></span> (<em>Gilgamesh</em>), a ruler you will meet again in Lesson 2.</p>
     </div>
 
-    <div style="background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#127919; BY THE END OF THIS LESSON YOU WILL BE ABLE TO&hellip;</div>
-        <div style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
-            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
-            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> explain the first-order economic problem that irrigation posed for southern Mesopotamia, and how the city-state answered it.</div>
-        </div>
-        <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <div style="min-width: 26px; height: 26px; border-radius: 50%; background: #C7922C; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
-            <div style="font-size: 18px; color: #1a2340; line-height: 1.65;"><strong>I will be able to</strong> list the features historians use to identify a true civilization, using Uruk as the case study.</div>
-        </div>
+    <div style="background: #FFF7E8; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin: 18px 0;">
+        <div class="callout-label">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <div style="font-size: 15px; color: #1a2340; line-height: 1.6;"><strong>legendary king of Uruk</strong> (<em>Gilgamesh</em>) and <strong>priest-king</strong> (<em>en/ensi</em>), the title of the temple official who governed a Sumerian city.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A LANDSCAPE THAT DEMANDED COOPERATION</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Southern Mesopotamia is not naturally generous land. Rainfall is scarce, and without irrigation, the region is closer to desert than farmland. But the Tigris and Euphrates carry meltwater down from distant mountains every year, and the silt they deposit makes the soil, once watered, extraordinarily fertile. The catch is that no single family can dig, maintain, and manage a network of irrigation canals alone. Canals have to be planned, dug, cleaned of silt, and shared out fairly across many households at once, or the whole system fails and everyone's harvest suffers together.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This is a genuine first-order economic problem: how do you organize enough people, reliably enough, to keep a shared irrigation system working year after year? Sumer's answer was the <strong>city-state</strong>, a single city and its surrounding farmland, governed as one unit, capable of mustering labor and resources at a scale no individual village could match.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; A LANDSCAPE THAT DEMANDED COOPERATION</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Southern Mesopotamia is not a kind land on its own. Rainfall is scarce there, and without irrigation, the region looks closer to desert than farmland. But every year, the Tigris and Euphrates carry meltwater down from far-off mountains. The silt these rivers leave behind makes the soil, once watered, very rich for crops. Here is the catch: no single family can dig, keep up, and run a whole network of irrigation canals alone. Canals have to be planned, dug by many hands, and cleaned of silt and shared out fairly across many homes at once. If any part of this fails, the whole system fails, and everyone's crop suffers together.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Sumer's answer was the <span class="gloss" tabindex="0">city-state<span class="gloss-tip"><span class="gloss-pron">SIH-tee-stayt</span>a single city and the farmland around it, all governed together as one unit.</span></span>: a single city and its nearby farmland, ruled together as one unit. A city-state could gather workers and goods at a scale that no single village could ever match on its own.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; TEMPLES, PRIESTS, AND THE FIRST BUREAUCRATS</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">At the center of Uruk stood a great temple complex eventually built up into a <strong>ziggurat</strong>, a massive stepped platform of mudbrick meant to raise the god's house above the ordinary buildings of the city. The temple was not merely a religious center. It functioned as Uruk's central storehouse and redistribution hub: farmers delivered a portion of their grain, wool, and livestock to the temple, and temple administrators, called <strong>en</strong> or <strong>ensi</strong> depending on the era and city, tracked what came in and directed how it was given back out, to laborers, craftsmen, and priests. This arrangement, part religious devotion, part economic administration, meant that Uruk's earliest rulers were as much accountants as they were kings.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Managing this much incoming and outgoing grain by memory alone becomes impossible past a certain scale, and this practical problem is what drove Sumerians toward writing, a story Lesson 2 takes up directly. It also drove something else historians consider a hallmark of true civilization: specialized labor and social class. In a farming village, nearly everyone farms. In a city like Uruk, the temple's surplus could support people who did nothing but make pottery, weave cloth, cut stone, or administer records, full time. Society sorted itself into ranks: priestly administrators at the top, skilled craftsmen and merchants in the middle, laborers and farmers below them. This sorting is one of the clearest markers historians use to identify a true <strong>civilization</strong> rather than simply a large village: dense population, monumental architecture, specialized labor, social stratification, and (soon) writing, all appearing together for the first time at Uruk.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; TEMPLES, PRIESTS, AND THE FIRST BUREAUCRATS</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">At the center of Uruk stood a great temple complex. Over time, builders raised it into a <span class="gloss" tabindex="0">ziggurat<span class="gloss-tip"><span class="gloss-pron">ZIG-uh-rat</span>a massive, stepped platform of mudbrick built to raise a temple above the rest of a city.</span></span>, a massive stepped platform of mudbrick meant to lift the god's house above the plain buildings of the city. The temple was not just a place of worship. It also worked as Uruk's central storehouse. Farmers gave a share of their grain, wool, and livestock to the temple. Temple officials, called <span class="gloss" tabindex="0">priest-king<span class="gloss-tip"><span class="gloss-pron">EN / EN-see</span>the title of the temple official who governed a Sumerian city and managed its stored grain and goods.</span></span> (<em>en/ensi</em>), tracked everything that came in, and decided how it went back out again, to laborers, craftsmen, and priests.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Keeping track of all this grain moving in and out, by memory alone, becomes just too hard past a certain size. This real problem is what pushed Sumerians toward writing, a story Lesson 2 takes up directly. It also drove <span class="gloss" tabindex="0">specialized labor<span class="gloss-tip"><span class="gloss-pron">SPESH-uh-lyzd LAY-bur</span>work where a person spends all their time on one skill, like pottery or record-keeping, instead of farming.</span></span> and <span class="gloss" tabindex="0">social class<span class="gloss-tip">a rank or group in society, such as priests, craftsmen, or laborers, based on the kind of work people do and how much power they hold.</span></span>. Historians look for five things together to mark the <span class="gloss" tabindex="0">characteristics of civilization<span class="gloss-tip">the features historians look for to decide whether a settlement counts as a true civilization: dense population, monumental buildings, specialized labor, social classes, and writing, all appearing together.</span></span>, rather than simply a large village: dense population, big buildings, specialized labor, social class, and, soon, writing. All five showed up together for the first time at Uruk.</p>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; HELPFUL TO KNOW &middot; TWO NEW TOOLS OF THE AGE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">The <strong>wheel</strong>, first used for pottery-making and only later adapted for carts, appears in Mesopotamia by roughly 3500 BC. And working alongside older stone tools, Sumerians increasingly turned to metal: <strong>copper</strong>, worked since the Ubaid period that came just before Uruk's rise, and eventually <strong>bronze</strong>, an alloy of copper and tin that held a sharper edge and helped push the region fully into what archaeologists call the Bronze Age by around 3000 BC. This is the fullest treatment either thread gets in this course; watch for how later civilizations put both to new uses.</div>
+    <div class="tech-card">
+        <div class="callout-label">&#9881;&#65039; TECHNOLOGY SPOTLIGHT &middot; COPPER AND BRONZE METALWORKING</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Cuneiform_Tablet_LACMA_M.41.5.1b_%282_of_2%29.jpg" alt="A Mesopotamian clay tablet, representative of the era's craft and record-keeping technology" />
+        <div class="img-credit">Photo: LACMA, public domain, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Working alongside older stone tools, Sumerians turned more and more to metal. Copper had been worked since the Ubaid period, just before Uruk's rise. Craftsmen learned to heat copper ore until the metal came free of the rock, then poured it into molds to make tools and weapons sharper and tougher than stone. Later, Sumerian metalworkers found that mixing copper with a small amount of tin made bronze, a blend that held a sharper edge and stood up to wear far better than copper alone. Tin is not found in Mesopotamia on its own, so bronze-making relied on trade over long distances, tying Sumer's cities into trade routes stretching hundreds of miles away. By around 3000 BC, bronze tools and weapons were common enough that archaeologists call this new age the Bronze Age. A smaller technology worth noting alongside metalworking: the wheel, first used for spinning pottery and only later attached to carts, also appears in Mesopotamia by roughly 3500 BC.</p>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; A NEW KIND OF QUESTION</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">This week's Discussion Topic asks "Why Cities?" It's worth sitting with the fact that cities are not simply villages that grew large by accident. A city like Uruk represents thousands of individual households choosing, generation after generation, to depend on strangers, on a shared canal system, a shared temple storehouse, a shared set of administrators, rather than on their own extended family alone. That is a genuine gamble, and Sumer's temple economy was one particular, historically contingent answer to it, not the only possible one, as you will see when this course turns to Egypt in Week 5.</p>
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; METAL AND MINERAL SOURCES NEAR SUMER</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 0;">This map (displayed alongside the Technology Spotlight) shows the nearest sources of copper and tin ore in the mountains of Anatolia and Iran, and the trade routes that carried them down into Sumer's cities, since Sumer itself had no metal ore of its own.</p>
+    </div>
 
-        <div class="optima-widget">
-            <div class="widget-kicker">&#127919; TRY IT: WHAT MAKES A CIVILIZATION?</div>
-            <div class="widget-question">For each feature below, decide whether it was one of the traits historians point to at Uruk as marking a true civilization.</div>
-            <div class="widget-row" data-correct="yes">
-                <div class="widget-row-prompt">Specialized, full-time craftsmen supported by temple surplus</div>
-                <div class="widget-options">
-                    <button data-choice="no">Not a marker</button>
-                    <button data-choice="yes">A marker of civilization</button>
-                </div>
-            </div>
-            <div class="widget-row" data-correct="no">
-                <div class="widget-row-prompt">Every household farming its own separate plot with no shared labor</div>
-                <div class="widget-options">
-                    <button data-choice="yes">A marker of civilization</button>
-                    <button data-choice="no">Not a marker</button>
-                </div>
-            </div>
-            <div class="widget-row" data-correct="yes">
-                <div class="widget-row-prompt">A monumental ziggurat serving as temple and storehouse</div>
-                <div class="widget-options">
-                    <button data-choice="no">Not a marker</button>
-                    <button data-choice="yes">A marker of civilization</button>
-                </div>
-            </div>
-            <div class="widget-row" data-correct="yes">
-                <div class="widget-row-prompt">Social stratification: priestly administrators, craftsmen, laborers</div>
-                <div class="widget-options">
-                    <button data-choice="yes">A marker of civilization</button>
-                    <button data-choice="no">Not a marker</button>
-                </div>
-            </div>
-            <button class="widget-reset">Reset</button>
-        </div>
+    <div class="people-card">
+        <div class="callout-label">&#128101; PEOPLES &middot; THE SUMERIANS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Standing_Male_Worshiper.jpg" alt="Sumerian votive statue from the Square Temple at Eshnunna, showing typical clothing and hair" style="max-width: 260px;" />
+        <div class="img-credit">Photo: Metropolitan Museum of Art, CC0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Sumerian art often shows men and women in woven wool skirts or robes, sometimes with tufted, fringed patterns meant to look like sheepskin. Men are often shown clean-shaven with shaved heads, or else with long, carefully curled beards; women wore their hair long, often held back with headbands or fancy braided styles.</p>
+    </div>
+
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; URUK</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 0;">Picture a walled city ringed by a massive mudbrick wall, with a stepped ziggurat rising above flat-roofed houses packed along narrow lanes. Canals cut through the surrounding farmland, carrying river water to fields of barley and date palms just outside the walls.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; GILGAMESH</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Hero_lion_Dur-Sharrukin_Louvre_AO19862.jpg" alt="Assyrian relief of a hero taming a lion, a Master of Animals motif often used to depict Gilgamesh" style="max-width: 320px;" />
+        <div class="img-credit">Photo: Jastrow, public domain, via Wikimedia Commons. (A later Assyrian relief commonly used to depict Gilgamesh; no image survives from Gilgamesh's own era.)</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0"><strong>Gilgamesh</strong><button class="gloss-audio" onclick="speakGloss(event,'Gilgamesh')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">GIL-guh-mesh</span>legendary king of Uruk, and hero of the Epic of Gilgamesh.</span></span> appears in Sumerian records as a real king of Uruk's dynasty, credited by some ancient sources with building the city's great wall. He is also the hero of the <em>Epic of Gilgamesh</em>, a poem that gives him monster-slaying adventures and a quest for eternal life that no historian treats as literal fact. Gilgamesh is therefore both a real historical ruler and a legendary hero, remembered in two very different kinds of sources at once.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
-            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
-            <div>
-                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 1</strong></div>
-                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short quiz on today's lesson, in Canvas.</div>
-            </div>
-        </div>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+        <div style="font-size: 16px; color: #1a2340; line-height: 1.55;"><strong>Reading Quiz 1</strong>, in Canvas.</div>
     </div>
 
 </div>
@@ -162,27 +148,23 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
-    var reset = e.target.closest('.widget-reset');
-    if (reset) {
-      var w = reset.closest('.optima-widget');
-      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
-      return;
-    }
-    var sBtn = e.target.closest('.widget-row .widget-options button');
-    if (sBtn) {
-      var row = sBtn.closest('.widget-row');
-      var correct = row.dataset.correct;
-      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      var right = sBtn.dataset.choice === correct;
-      sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right.' : 'Not quite. Reread the paragraph about Uruk\'s temple and social ranks.';
-      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
-      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
-      rf.textContent = text;
-      return;
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();

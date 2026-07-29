@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -27,19 +39,14 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q1 &middot; Module 2</div>
-        <div style="font-size: 12px; color: #666;">Sumer and the First Cities</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
         <div style="font-size: 17px; color: #0e1c42;">Lesson 2.2 &middot; Wednesday</div>
     </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
         <div style="font-size: 17px; color: #0e1c42; font-style: italic;">Cuneiform and the Sumerian King List</div>
-    </div>
-    <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Module Theme</div>
-        <div style="font-size: 16px; color: #0e1c42;">Sumer and the Rise of the First Cities</div>
     </div>
 </div>
 
@@ -47,47 +54,58 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 2</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Cuneiform and the Sumerian King List</div>
-        <div style="font-size: 16px; color: #666;">Lesson</div>
+        <div style="font-size: 22px; color: #0e1c42;">Cuneiform and the Sumerian King List</div>
+    </div>
+
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">cuneiform<button class="gloss-audio" onclick="speakGloss(event,'cuneiform')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">kyoo-NEE-uh-form</span>an early writing system made of wedge-shaped marks pressed into wet clay with a reed stylus.</span></span></li>
+            <li><span class="gloss" tabindex="0">epic<button class="gloss-audio" onclick="speakGloss(event,'epic')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">EP-ik</span>a long poem about the adventures of a great hero, often mixing real memory with legend.</span></span></li>
+            <li><span class="gloss" tabindex="0">legend<button class="gloss-audio" onclick="speakGloss(event,'legend')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">LEJ-end</span>a traditional story about the past that may contain some real memory, but is not treated as a strictly factual record.</span></span></li>
+            <li><span class="gloss" tabindex="0">scribe<button class="gloss-audio" onclick="speakGloss(event,'scribe')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SKRYB</span>a person specially trained to read and write, one of the most respected jobs in Mesopotamian society.</span></span></li>
+        </ul>
+        <div style="font-size: 12px; color: #8a94ab; margin-top: 10px; font-style: italic;">Continuing from Monday, this is the last lesson where these terms are called out: characteristics of civilization, city-state, social class, specialized labor, ziggurat.</div>
+    </div>
+
+    <div style="background: #FFF7E8; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin: 18px 0;">
+        <div class="callout-label">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <div style="font-size: 15px; color: #1a2340; line-height: 1.6;">Continuing from Monday, this is the last lesson where these are called out: <strong>legendary king of Uruk</strong> (<em>Gilgamesh</em>) and <strong>priest-king</strong> (<em>en/ensi</em>).</div>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; LEGENDARY CITIES OF THE KING LIST</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Cities_of_Sumer_%28en%29.svg" alt="Map marking Eridu and Kish, cities named in the Sumerian King List, alongside Uruk" />
+        <div class="img-credit">Map: Crates / Phirosiberia, CC BY 3.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map marks <span class="gloss" tabindex="0">Eridu<button class="gloss-audio" onclick="speakGloss(event,'Eridu')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">EH-rih-doo</span>one of the oldest cities in Sumer, named in the Sumerian King List as the very first city to hold kingship.</span></span> and <span class="gloss" tabindex="0">Kish<button class="gloss-audio" onclick="speakGloss(event,'Kish')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">KISH</span>a Sumerian city named in the King List as the first city to hold kingship again after the great flood.</span></span>, the two cities the Sumerian King List names as the first homes of kingship, alongside Uruk from Lesson 1.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">How do you remember a number too large to hold in your head?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Lesson 1 ended with a practical problem: how do you keep track of a temple's grain, wool, and livestock once the numbers grow too large to hold in memory? Sumer's answer, developed gradually over centuries, became one of the most consequential inventions in human history.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Lesson 1 ended with a real problem. How do you keep track of a temple's grain, wool, and livestock once the numbers grow too large to hold in memory? Sumer's answer, grown slowly over centuries, became one of the biggest inventions in human history.</p>
+    </div>
+
+    <div class="tech-card">
+        <div class="callout-label">&#9881;&#65039; TECHNOLOGY SPOTLIGHT &middot; CUNEIFORM WRITING</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Cuneiform_Tablet_LACMA_M.41.5.1b_%282_of_2%29.jpg" alt="A clay cuneiform tablet" />
+        <div class="img-credit">Photo: LACMA, public domain, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Long before anyone in Mesopotamia wrote a full sentence, temple officials used small clay tokens shaped like cones, spheres, and disks, each standing for an amount of grain, oil, or animals. By around 3300 BC, officials began pressing these tokens into wet clay, then drawing the token's shape directly into the clay with a reed stylus. Over centuries, these pictures grew simpler and could also stand for sounds, not just objects, becoming true writing. The wedge-shaped marks left by a reed stylus give this script its name: <span class="gloss" tabindex="0">cuneiform<span class="gloss-tip"><span class="gloss-pron">kyoo-NEE-uh-form</span>an early writing system made of wedge-shaped marks pressed into wet clay with a reed stylus.</span></span>, from the Latin word for "wedge-shaped." A person trained to read and write cuneiform, called a <span class="gloss" tabindex="0">scribe<span class="gloss-tip"><span class="gloss-pron">SKRYB</span>a person specially trained to read and write, one of the most respected jobs in Mesopotamian society.</span></span>, became one of the most valued and respected jobs in Mesopotamian society. Cuneiform was written in dozens of different tongues for roughly three thousand years, longer than any other writing system in world history has lasted.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; FROM TOKENS TO TRUE WRITING</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Long before anyone in Mesopotamia wrote a sentence, temple administrators used small clay tokens, shaped like cones, spheres, and disks, to represent quantities of grain, oil, or animals. By around 3300 BC, administrators began pressing these tokens into the surface of a wet clay tablet to leave a record, and then, more efficiently still, simply drawing the token's shape directly into the clay with a reed stylus. Over the following centuries, these pictures grew more abstract, more standardized, and eventually more capable of representing sounds as well as objects, becoming true writing. Because the wedge-shaped marks left by a reed stylus pressed into clay give this script its name, we call it <strong>cuneiform</strong>, from the Latin for "wedge-shaped." A person trained to read and write it, a <strong>scribe</strong>, became one of the most valuable and respected professions in Mesopotamian society, and scribal schools trained new generations to keep the empire of records running.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Notice how directly this connects to Lesson 1's temple economy. Writing in Sumer was not invented to record poetry or philosophy first. Its earliest, overwhelming use was administrative: how many sheep, how much barley, delivered by whom, owed to whom. The literature and history writing that cuneiform would eventually make possible, including this lesson's second half, came later, riding on top of a system built first to solve an accounting problem.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; KINGSHIP DESCENDED FROM HEAVEN</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Once cuneiform grew into a flexible tool, Sumerian scribes began writing down their own past. One of the most amazing records to survive is the <strong>Sumerian King List</strong>, a long record of cities and kings. In the scribes' own telling, this list stretches back before a great flood swept over the land. According to the list, "kingship descended from heaven" and was first held by the city of Eridu. From there, kingship passed from city to city among a handful of legendary rulers, reigning for tens of thousands of years each, before the flood came and swept everything away. After the flood, kingship "descended from heaven" a second time, passing to the city of Kish. From Kish onward, the reigns recorded shrink down to lengths a real human king could actually rule for.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">What should a careful reader make of this? The King List mixes real historical memory, real cities in something close to a real order of political power, with clear <span class="gloss" tabindex="0">legend<span class="gloss-tip"><span class="gloss-pron">LEJ-end</span>a traditional story about the past that may contain some real memory, but is not treated as a strictly factual record.</span></span>: reigns of impossible length, and a single giant flood that ends an entire age of the world. Sorting out these two threads with honesty, without tossing out either one, is one of the core skills of historical thinking.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; KINGSHIP DESCENDED FROM HEAVEN</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Once cuneiform matured into a flexible tool, Sumerian scribes began recording their own past, and one of the most fascinating documents to survive is the <strong>Sumerian King List</strong>, a long record of cities and kings stretching back, in the scribes' own telling, before a great flood swept over the land. According to the list, "kingship descended from heaven" and was first held by the city of Eridu, then passed from city to city among a handful of legendary rulers who reigned for what the list records as tens of thousands of years each, before the flood came and swept everything away. After the flood, the list says, kingship descended from heaven a second time, this time to the city of Kish, and from there the reigns recorded shrink down toward more plausible, historical lengths.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">What should a careful reader make of this? The King List mixes what looks like genuine historical memory (real cities, in something close to a real order of political dominance) with what is clearly <strong>legend</strong> (impossibly long reigns, a single catastrophic flood ending an entire age). This is not unique to Sumer. Cultures across the ancient world tend to remember their own deep past through story and legend before they remember it through anything resembling careful record-keeping, and separating the two threads honestly, without dismissing either, is one of the central skills of historical thinking. Gilgamesh himself, the king credited with building Uruk's wall, appears on the King List as a real, historical ruler of Uruk's dynasty, yet he is also the hero of the <strong>Epic of Gilgamesh</strong>, an <strong>epic</strong> poem built up over centuries that gives him journeys, battles with monsters, and a quest for eternal life that no historian treats as literal fact. A single figure, in other words, can be both a real king remembered in an administrative document and a legendary hero remembered in poetry, at the very same time.</p>
-    </div>
-
-    <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; DON'T MIX THESE UP</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">A source can contain both real historical memory and legend at once. Don't assume that finding one impossible detail (a 28,800-year reign) means the whole document is worthless, and don't assume that one plausible-sounding detail (a real city name) proves every detail is literal fact. Read for both threads at once.</div>
-    </div>
-
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; READING THE FLOOD STORY DIRECTLY</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This week's primary sources let you read both threads for yourself. Primary Source 1 is an excerpt from the Epic of Gilgamesh's own flood story, told to Gilgamesh by a survivor named Utnapishtim, one of the oldest flood narratives ever recorded, and a text worth comparing honestly to other flood stories you may already know rather than treating any single version as simply "the same story" repeated. Primary Source 2 is an excerpt from the Sumerian King List itself, including its account of the flood and the return of kingship afterward. Read each on its own terms, and ask, as you go, which parts feel like memory and which feel like legend, and why that distinction matters.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Gilgamesh himself, the king credited with building Uruk's wall, is a perfect case of this mixing. He shows up on the King List as a real, historical ruler of Uruk's dynasty. Yet he is also the hero of the <em>Epic of Gilgamesh</em>, an <span class="gloss" tabindex="0">epic<span class="gloss-tip"><span class="gloss-pron">EP-ik</span>a long poem about the adventures of a great hero, often mixing real memory with legend.</span></span> poem built up over centuries. That poem gives him journeys, fights with monsters, and a quest for life without end that no historian treats as plain fact. A single figure can be both a real king remembered in an official record, and a legendary hero remembered in poetry, at the very same time.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This week's primary sources let you read both threads for yourself. Primary Source 1 is an excerpt from the Epic of Gilgamesh's own flood story, told by a survivor named Utnapishtim. Primary Source 2 is an excerpt from the Sumerian King List itself, including its own account of the flood and kingship's return afterward. As you read, ask yourself which parts feel like memory, and which feel like legend, and why that distinction matters.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
-            <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
-            <div>
-                <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 2</strong></div>
-                <div style="font-size: 16px; color: #1a2340; line-height: 1.55;">A short quiz on today's lesson, in Canvas.</div>
-            </div>
-        </div>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+        <div style="font-size: 16px; color: #1a2340; line-height: 1.55;"><strong>Reading Quiz 2</strong>, in Canvas.</div>
     </div>
 
 </div>
@@ -99,5 +117,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
