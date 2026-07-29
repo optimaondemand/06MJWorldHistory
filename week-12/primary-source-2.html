@@ -7,6 +7,11 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .source-note { background: #FFF7E8; border: 1px solid #E8D3A0; border-left: 5px solid #C7922C; border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-size: 14px; color: #4a3a1a; line-height: 1.55; }
+    .source-quote { background: #F7F5EF; border: 1px solid #D8CFB8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 22px 26px; margin: 18px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; color: #2a2214; line-height: 1.7; }
+    .source-quote p { margin: 0 0 12px 0; }
+    .source-quote p:last-child { margin-bottom: 0; }
+    .source-quote strong { color: #0E1C42; }
 </style>
 </head>
 <body>
@@ -27,11 +32,10 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q2 &middot; Module 12</div>
-        <div style="font-size: 12px; color: #666;">Nineveh and Ashurbanipal</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source</div>
-        <div style="font-size: 17px; color: #0e1c42;">Source 12.2 &middot; Thursday</div>
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source 2</div>
+        <div style="font-size: 17px; color: #0e1c42;">Thursday</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
@@ -43,21 +47,16 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Primary Source 2</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">The Babylonian Chronicle (on the Fall of Nineveh, 612 BC)</div>
-        <div style="font-size: 16px; color: #666;">Primary Source Reading</div>
+        <div style="font-size: 22px; color: #0e1c42;">The Babylonian Chronicle (on the Fall of Nineveh, 612 BC)</div>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; ABOUT THIS SOURCE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Adapted into plain modern English from scholarly translations of the Babylonian Chronicle covering the fall of Nineveh, a terse, year-by-year record typical of Mesopotamian chronicle writing, listing events with little commentary or explanation.</div>
+    <div class="source-note">
+        <strong>About this source:</strong> C.J. Gadd's 1923 publication and English translation of the "Fall of Nineveh" tablet, British Museum No. 21901 (<em>The Fall of Nineveh: The Newly Discovered Babylonian Chronicle No. 21901 in the British Museum</em>, Oxford University Press for the British Museum, 1923). Public domain. A terse, year-by-year record typical of Mesopotamian chronicle writing, listing events with little commentary or explanation.
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 24px 28px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#128214; THE CHRONICLE</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the alliance against Assyria:</strong><br/>"In that year, the king of Babylon called out his army and marched forth. The king of the Medes also called out his army and marched to join the king of Babylon. They met one another, and their armies moved together against the land of Assyria."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the siege of Nineveh:</strong><br/>"They encamped against Nineveh. From the month of Simanu until the month of Abu, for three months, they pressed the siege against the city. On the appointed day, they inflicted a great defeat upon the people. At that time, Sin-shar-ishkun, king of Assyria, [the text is damaged at this point, and its exact meaning is uncertain]."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the city's capture:</strong><br/>"They captured the city and turned it into ruin heaps. They carried off a great quantity of spoil from the city and from the temple, and they made the city into a mound and a ruin."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0;"><strong>On the aftermath, in the chronicle's characteristically terse style:</strong><br/>"The king of Babylon and the king of the Medes returned to their own lands after these events. In this way was Assyria brought to its end."</p>
+    <div class="source-quote">
+        <p><strong>Gadd's own summary of the chronicle's entries for these events:</strong><br>"Junction effected between Babylonians, Medes, and Scythians. March against Nineveh." ... "Siege of Nineveh pressed; three battles." ... "Capture of Nineveh. Death of Sin-shar-ishkun and many commanders." The city, Gadd notes, was "turned into a mound and a ruin." The chronicle then records the "Departure of Kyaxares" (the Median king) on the twentieth day of the month of Elul, with Nabopolassar of Babylon receiving further booty before the armies withdrew.</p>
+        <p><strong>On the siege's length, per the chronicle's own dating:</strong><br>The armies "encamped against Nineveh. From the month Sivan until the month Ab, for three months, they subjected the city to a heavy siege," before "Sin-shar-ishkun, king of Assyria," met his end and the city's booty was carried off.</p>
     </div>
 
     <div style="background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">

@@ -7,21 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
-    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
-    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
-    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
-    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
-    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
-    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
-    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
-    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
-    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
-    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
-    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
-    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
-    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
-    .widget-reset:hover { background: #FDF3E3; }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -66,48 +63,74 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What does an empire's greatest king choose to leave behind?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Assyria's empire, built through Ashurnasirpal II's terror and Shalmaneser III's steady expansion in Week 11, reached its widest extent and its greatest cultural achievement under one final king: <strong>Ashurbanipal</strong>, who ruled from roughly 668 to 627 BC. Under him, Assyria stretched from the Persian Gulf to the Nile, briefly ruling Egypt itself after the sack of Thebes this course met in Week 10. But Ashurbanipal's most lasting achievement was not a conquest at all.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">library (ancient)<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'library')">&#128266;</button><span class="gloss-tip">a planned collection of written tablets or scrolls, gathered and kept in one place for study and safekeeping.</span></span></li>
+            <li><span class="gloss" tabindex="0">tablet<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'tablet')">&#128266;</button><span class="gloss-tip">a flat piece of clay, used across Mesopotamia for writing in cuneiform, often dried or baked hard afterward.</span></span></li>
+        </ul>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A KING WHO LEARNED TO READ</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Assyrian kings were warriors first, and Ashurbanipal was no exception, boasting in his own inscriptions of hunting lions and leading campaigns. But he also claims something highly unusual for a Mesopotamian king: that he was personally taught to read and write cuneiform as a young prince, a skill normally left entirely to trained scribes. In his own words, adapted in this week's Primary Source, he describes learning "the wisdom of Nabu," the Mesopotamian god of writing and knowledge, studying difficult scholarly tablets in both Akkadian and the much older Sumerian language, a language that had not been spoken for well over a thousand years by his time but was still preserved, studied, and copied by scribes the way this course might treat a genuinely ancient classical language today.</p>
-    </div>
-
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; THE LIBRARY AT NINEVEH</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Ashurbanipal used his position, and his empire's resources, to gather an enormous royal library at his capital, <strong>Nineveh</strong>, sending agents throughout Assyria and especially into Babylonia to collect, copy, and bring back tablets on every subject: medicine, astronomy, omens, grammar, royal history, and literature. Among the many thousands of tablets recovered from this library by modern archaeologists is a nearly complete copy of the <strong>Epic of Gilgamesh</strong>, the same flood story and heroic epic this course first read all the way back in Week 2, preserved here in its fullest surviving ancient form specifically because Ashurbanipal's scribes thought it worth copying and keeping. Without this library, much of what this course, and modern scholarship generally, knows about Sumerian and Babylonian literature might simply be lost.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Ashurbanipal's tablets often end with a <strong>colophon</strong>, a short scribal note identifying the tablet's owner and sometimes warning future readers against removing or damaging it, occasionally invoking the gods' anger against anyone who might steal or destroy the collection. It is a small, very human detail: a king proud enough of his library to threaten curses on its behalf.</p>
-
-        <div class="optima-widget">
-            <div class="widget-kicker">&#127919; TRY IT: A KING'S LIBRARY</div>
-            <div class="widget-question">Check your understanding of two key terms from Part 2.</div>
-            <div class="widget-row" data-correct="colophon">
-                <div class="widget-row-prompt">A short scribal note on a tablet naming its owner and sometimes warning against its removal or damage.</div>
-                <div class="widget-options">
-                    <button data-choice="colophon">Colophon</button>
-                    <button data-choice="annals">Annals</button>
-                    <button data-choice="stele">Stele</button>
-                </div>
-            </div>
-            <div class="widget-row" data-correct="gilgamesh">
-                <div class="widget-row-prompt">The epic first read back in Week 2, recovered in its fullest surviving ancient form from Ashurbanipal's library.</div>
-                <div class="widget-options">
-                    <button data-choice="gilgamesh">The Epic of Gilgamesh</button>
-                    <button data-choice="code">The Code of Hammurabi</button>
-                    <button data-choice="kinglist">The Sumerian King List</button>
-                </div>
-            </div>
-            <button class="widget-reset">Reset</button>
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; THE ASSYRIAN EMPIRE AT ITS HEIGHT</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/C%2BB-Assyria-DetailedMap.JPG" alt="1903 map of the ancient Near East showing Nineveh and the wider Assyrian Empire, with an inset map of Egypt" />
+        <div class="img-credit">Map: from the <em>Encyclopaedia Biblica</em>, 1903, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map shows the Neo-Assyrian Empire under Ashurbanipal stretching from the <strong>Persian Gulf</strong> to the Nile (shown in the inset map), marking his capital, <strong>Nineveh</strong>.</p>
+        <div style="margin-top: 12px; font-size: 13px; color: #444;">
+            <strong>Geographical Glossary:</strong>
+            <span class="gloss" tabindex="0">Nineveh<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Nineveh, NIN-uh-vuh')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">NIN-uh-vuh</span>Ashurbanipal's royal capital, on the Tigris River, home to his great library.</span></span> &middot;
+            <span class="gloss" tabindex="0">Persian Gulf<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Persian Gulf')">&#128266;</button><span class="gloss-tip">the body of water at the southeastern edge of Mesopotamia, marking the empire's reach at its widest point.</span></span>
         </div>
     </div>
 
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Assyria's empire was built through Ashurnasirpal II's terror and Shalmaneser III's steady growth, both covered in Week 11. It reached its widest borders, and its greatest work of the mind, under one final king. His name was <strong>Ashurbanipal</strong>, and he ruled from roughly 668 to 627 BC. Under him, Assyria stretched from the Persian Gulf to the Nile. For a brief time, Assyria even ruled Egypt itself, after the sack of Thebes this course met in Week 10. But Ashurbanipal's most lasting achievement was not a conquest at all.</p>
+    </div>
+
+    <div style="background: #F4EFE3; border: 1px solid #E0D3AD; border-left: 5px solid #8A6416; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+        <div class="callout-label" style="color: #8A6416;">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340; line-height: 1.5;"><span class="gloss" tabindex="0"><strong>Ashurbanipal</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Ashurbanipal, ah-shur-BAH-nih-pal')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">ah-shur-BAH-nih-pal</span>king of Assyria from about 668 to 627 BC, whose library at Nineveh preserved thousands of Mesopotamian texts.</span></span>, king of Assyria from about 668 to 627 BC, whose library at Nineveh preserved thousands of Mesopotamian texts.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; A KING WHO LEARNED TO READ</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Assyrian kings were warriors first. <span class="gloss" tabindex="0">Ashurbanipal<span class="gloss-tip"><span class="gloss-pron">ah-shur-BAH-nih-pal</span>king of Assyria from about 668 to 627 BC, whose library at Nineveh preserved thousands of Mesopotamian texts.</span></span> was no exception. He boasted in his own writings of hunting lions and leading campaigns. This was the same kind of proud royal language this course has met before. Stone reliefs from his palace are among the finest carvings to survive from ancient Assyria. They show him hunting lions released from cages in a royal park. He spears and shoots them at close range, in front of a watching crowd. Scholars today often call these carvings the Lion Hunt reliefs. They were meant to show the king as Assyria's protector, brave enough to face its fiercest predator with his own hands.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">In other words, Ashurbanipal wanted to be remembered two ways at once. He wanted to be seen as a fighter strong enough to face wild lions. He also wanted to be seen as a scholar wise enough to read the old gods' own words. But he also claims something highly unusual for a Mesopotamian king. He says he himself was taught to read and write cuneiform as a young prince. That was a skill normally left only to trained scribes. In his own words, adapted in this week's Primary Source, he describes learning "the wisdom of Nabu." Nabu was the Mesopotamian god of writing and knowledge. He studied hard scholarly tablets in both Akkadian and the much older Sumerian language. By his own time, Sumerian had not been spoken aloud for well over a thousand years. Yet scribes still preserved it. They studied it and copied it, the way this course might treat a truly ancient classical language today. In other words, Ashurbanipal studied a language that was, to him, already ancient history. This is much like a student today studying a language no one speaks anymore. The goal, then and now, is to unlock what it can still teach.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; ASHURBANIPAL</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Assyrian_king_Ashurbanipal%2C_detail_of_a_lion-hunt_scene_from_Ninevah%2C_Iraq._British_Museum.jpg" alt="Stone relief detail of King Ashurbanipal from a lion-hunt scene at Nineveh" />
+        <div class="img-credit">Photo: British Museum, via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Ashurbanipal<span class="gloss-tip"><span class="gloss-pron">ah-shur-BAH-nih-pal</span>king of Assyria from about 668 to 627 BC, whose library at Nineveh preserved thousands of Mesopotamian texts.</span></span> ruled Assyria from about 668 to 627 BC. Unlike most Mesopotamian kings, he could personally read and write cuneiform, and he used his empire's resources to build the ancient world's largest known library at Nineveh.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; THE LIBRARY AT NINEVEH</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Ashurbanipal used his position, and his empire's resources, to gather an enormous royal <span class="gloss" tabindex="0">library<span class="gloss-tip">a planned collection of written tablets or scrolls, gathered and kept in one place for study and safekeeping.</span></span> at his capital, <span class="gloss" tabindex="0">Nineveh<span class="gloss-tip"><span class="gloss-pron">NIN-uh-vuh</span>Ashurbanipal's royal capital, on the Tigris River, home to his great library.</span></span>. He sent agents throughout Assyria, and above all into Babylonia, to collect, copy, and bring back <span class="gloss" tabindex="0">tablets<span class="gloss-tip">a flat piece of clay, used across Mesopotamia for writing in cuneiform, often dried or baked hard afterward.</span></span>. These tablets covered every subject: medicine, astronomy, omens, grammar, royal history, and story-poems. Modern archaeologists have found many thousands of tablets from this library. Among them is a nearly whole copy of the <strong>Epic of Gilgamesh</strong>, the same flood story and hero tale this course first read all the way back in Week 2. It survives here in its fullest ancient form because Ashurbanipal's scribes thought it worth copying and keeping. Without this library, much of what this course, and most scholars today, know about Sumerian and Babylonian writing might simply be lost. In other words, one king's own curiosity ended up saving stories and knowledge that might otherwise have vanished forever.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Ashurbanipal's tablets often end with a <strong>colophon</strong>, a short scribal note naming the tablet's owner. Some colophons even warn future readers against removing or damaging the tablet, calling down the gods' anger on anyone who might steal from the collection. It is a small, very human detail. Here is a king proud enough of his library to threaten curses in its defense.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The library sat buried and forgotten for over two thousand years. British archaeologists, Austen Henry Layard and later Hormuzd Rassam, dug into Nineveh's ruins in the 1850s. They uncovered room after room packed with broken clay tablets, tens of thousands of pieces in all. Museum staff and scholars have spent well over a century sorting, matching, and translating these pieces. New pieces are still being matched and joined together even today. In other words, a library one king built was lost for over two thousand years. It was found again, and pieced back together, by people from a country Ashurbanipal never even knew existed.</p>
+    </div>
+
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; NINEVEH</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Artist%E2%80%99s_impression_of_a_hall_in_an_Assyrian_palace_from_The_Monuments_of_Nineveh_by_Sir_Austen_Henry_Layard%2C_1853.jpg" alt="Artist's impression of a grand hall in an Assyrian palace at Nineveh, 1853" />
+        <div class="img-credit">Illustration: Austen Henry Layard, <em>The Monuments of Nineveh</em>, 1853, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Nineveh<span class="gloss-tip"><span class="gloss-pron">NIN-uh-vuh</span>Ashurbanipal's royal capital, on the Tigris River, home to his great library.</span></span>, on the Tigris River, was Ashurbanipal's royal capital and home to his great library. It would be destroyed within a generation of his death, a story Lesson 2 tells in full.</p>
+    </div>
+
     <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; AN IRONY WORTH SITTING WITH</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Here is a detail worth pausing on directly, since it connects this week's two lessons together. Nineveh's palace, library included, would be destroyed by fire within a generation of Ashurbanipal's death, a disaster Lesson 2 describes in full. Fire, under most circumstances, destroys writing. But clay tablets behave differently than papyrus or parchment. The very fire that destroyed Ashurbanipal's palace baked his unbaked clay tablets hard, in effect firing them like pottery, and in doing so helped preserve thousands of them, shattered but largely intact, for archaeologists to recover and reassemble more than two thousand years later. A catastrophe that ended a king's dynasty accidentally safeguarded some of his greatest achievement. History rarely hands out its ironies this cleanly, but this one is genuine, and it is exactly the kind of detail this week's graded VR activity asks you to sit with directly.</div>
+        <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; A WARNING BENEATH THE GLORY</div>
+        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Ashurbanipal's reign was not only lions and learning. Ashurbanipal's father had placed his own older brother, Shamash-shum-ukin, on the throne of Babylon as a separate, junior king. For several years, the two brothers fought a brutal civil war against each other. That war ended with Babylon besieged and Ashurbanipal's brother dead. It is worth naming plainly, since it hints at exactly the kind of danger Lesson 2 will describe in full. Even at Assyria's proudest height, a fight within the royal family itself could shake the whole empire to its foundations. In other words, it was Ashurbanipal's own family, not some foreign enemy, that came closest to tearing his empire apart. This happened while he still sat on his own throne.</div>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; AN IRONY WORTH SITTING WITH</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Here is a detail worth pausing on, since it connects this week's two lessons together. Nineveh's palace, library included, would be destroyed by fire within a generation of Ashurbanipal's death, a disaster Lesson 2 describes in full. Fire almost always destroys writing. But clay tablets are different. They do not act like papyrus or parchment. The very fire that destroyed Ashurbanipal's palace baked his unbaked clay tablets hard. In effect, it fired them like pottery. This accident helped preserve thousands of tablets, shattered but largely whole, for archaeologists to recover and piece back together more than two thousand years later. By pure accident, a disaster that ended a king's dynasty also protected some of his greatest work. History rarely hands out its ironies this cleanly, but this one is real. It is exactly the kind of detail this week's graded VR activity asks you to sit with directly.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -132,27 +155,23 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
-    var reset = e.target.closest('.widget-reset');
-    if (reset) {
-      var w = reset.closest('.optima-widget');
-      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
-      return;
-    }
-    var sBtn = e.target.closest('.widget-row .widget-options button');
-    if (sBtn) {
-      var row = sBtn.closest('.widget-row');
-      var correct = row.dataset.correct;
-      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      var right = sBtn.dataset.choice === correct;
-      sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches Part 2 of today\'s lesson.' : 'Not quite. Reread Part 2 of today\'s lesson.';
-      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
-      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
-      rf.textContent = text;
-      return;
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();

@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -51,30 +63,49 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Can a civilization look unstoppable and still fail its one true test?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Ashurbanipal died around 627 BC, ruler of the largest empire the Near East had yet seen. Within fifteen years, that empire's capital had burned, and within a generation, the Neo-Assyrian Empire itself had ceased to exist entirely. This is one of the most sudden reversals of fortune this course will study, and it deserves to be taken as seriously as Assyria's rise was in Week 11.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Continuing from Monday, this is the last lesson where these terms are called out: library (ancient), tablet.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">succession crisis<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'succession crisis')">&#128266;</button><span class="gloss-tip">a dangerous period after a ruler dies, when rival heirs or officials fight over who takes power next.</span></span></li>
+        </ul>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; THE FALL OF NINEVEH, 612 BC</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/C%2BB-Assyria-DetailedMap.JPG" alt="1903 map of the ancient Near East showing Nineveh and the surrounding region of Assyria, Babylonia, and Media" />
+        <div class="img-credit">Map: from the <em>Encyclopaedia Biblica</em>, 1903, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map shows Babylon and Media closing in on <strong>Nineveh</strong> from the south and east, the alliance that ended the Neo-Assyrian Empire.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A FAST, UGLY SUCCESSION</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Ashurbanipal's death was followed quickly by a succession crisis among his own sons and rival claimants, weakening the central authority that had held Assyria's vast, multi-ethnic empire together. This is exactly the kind of internal political failure Week 11 flagged as an open question: could terror alone bind together the many different peoples, cities, and former kingdoms Assyria had conquered, once the strong king who had inspired that terror was gone? The answer, playing out within just a few years of Ashurbanipal's death, was no. Vassal kingdoms and rival powers alike sensed weakness, and two of them, Babylon to the south and the Medes from the Zagros Mountains to the east, a people this course will meet in full in Week 14, formed an alliance against their common former master.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Ashurbanipal died around 627 BC. He was ruler of the largest empire the Near East had yet seen. Within fifteen years, his capital had burned to the ground. Within a generation, the Neo-Assyrian Empire itself had ceased to exist at all. This is one of the most sudden reversals of fortune this course will study. It deserves to be taken just as seriously as Assyria's rise was in Week 11. In other words, the empire's rise took generations. Its fall took only a few years.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; THE FALL OF NINEVEH</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This week's second Primary Source, drawn from a Babylonian chronicle, records the campaign in the terse, factual style typical of Mesopotamian chronicles, listing marches, sieges, and outcomes with almost no editorializing at all. In 612 BC, the combined Babylonian-Median army besieged Nineveh itself, Ashurbanipal's great capital and the home of his library, for roughly three months before the city fell. The Assyrian king at the time, Sin-shar-ishkun, is recorded as dying during the city's fall, though the chronicle's terse style leaves some of the exact details genuinely uncertain. Nineveh was thoroughly destroyed and never rebuilt as an imperial capital, a fate the Hittite Empire had already suffered after the Bronze Age Collapse in Week 9, though on a far larger scale and after a far shorter warning.</p>
+        <div class="callout-label">&#128218; A FAST, UGLY SUCCESSION</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Ashurbanipal's death was followed quickly by a <span class="gloss" tabindex="0">succession crisis<span class="gloss-tip">a dangerous period after a ruler dies, when rival heirs or officials fight over who takes power next.</span></span>. His own sons and rival officials fought each other for the throne. This fighting weakened the central authority that had held Assyria's vast, many-peopled empire together for so long. This is exactly the kind of internal political failure Week 11 flagged as an open question. Could terror alone bind together the many different peoples, cities, and former kingdoms Assyria had conquered? Could it do that once the strong king who had inspired that terror was gone? The answer, playing out within just a few years of Ashurbanipal's death, was no. In other words, fear alone could not hold the empire together.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Vassal kingdoms and rival powers alike sensed weakness at once. Two of them moved fastest. Babylon, to the south, had grown restless under Assyrian rule for generations. This went back to the civil war Lesson 1 described, between Ashurbanipal and his own brother. The Medes were a people from the Zagros Mountains to the east, a group this course will meet in full in Week 14. They had their own long-standing complaint against Assyrian power. These two very different peoples formed an alliance against their common former master. It was a partnership neither side could have counted on, just a generation earlier. In other words, two old enemies of Assyria became allies against it. Babylon's own king, Nabopolassar, had already broken away from Assyrian rule in 626 BC, the year after Ashurbanipal's death. He spent the next several years fighting Assyrian armies alone, before the Medes agreed to join him. The two allies took the old religious city of Assur first, in 614 BC. They turned together on Nineveh itself two years later.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">News of Nineveh's coming fall did not surprise everyone equally. A Hebrew prophet named Nahum wrote an entire short book celebrating the city's fall in advance. He called it long-deserved punishment for years of Assyrian cruelty. Judah, a kingdom this course will meet in full next week, had spent generations living in Assyria's shadow. Nahum's words capture just how many people across the region had reason to celebrate Assyria's fall, not mourn it. In other words, many people across the region were glad to see Assyria fall.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; THE FALL OF NINEVEH</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This week's second Primary Source is drawn from a Babylonian chronicle. It records the campaign in the terse, factual style typical of Mesopotamian chronicles, listing marches, sieges, and outcomes with almost no editorializing at all. In 612 BC, the combined Babylonian-Median army besieged <span class="gloss" tabindex="0">Nineveh<span class="gloss-tip"><span class="gloss-pron">NIN-uh-vuh</span>Ashurbanipal's royal capital, on the Tigris River, home to his great library.</span></span> itself, Ashurbanipal's great capital and the home of his library. The siege lasted roughly three months before the city fell. The Assyrian king at the time, Sin-shar-ishkun, is recorded as dying during the city's fall, though the chronicle's terse style leaves some of the exact details still uncertain.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Nineveh was thoroughly destroyed. It was never rebuilt as an imperial capital. This was a fate the Hittite Empire had already suffered, after the Bronze Age Collapse in Week 9. Here, though, it happened on a far larger scale, and after a far shorter warning. A surviving remnant of the Assyrian army did not simply vanish overnight. A new claimant, Ashur-uballit II, held out for a few more years at the western city of Harran. Egyptian troops backed him for a time. They wanted to keep some kind of Assyrian buffer standing between themselves and Babylon. Even that last foothold fell by 609 BC, closing the book on Assyrian rule for good. In other words, Assyria's fall did not happen all at once. It took a few more years to finish.</p>
     </div>
 
     <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
         <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; A QUESTION WORTH ANSWERING DIRECTLY</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">This course has repeatedly asked whether a people's laws, customs, and habits explain their success or failure at first-order political problems, especially the capacity to organize against external threats. War is, in a real sense, the ultimate test of that capacity, since it is the one problem an empire cannot fake its way through with propaganda alone. Assyria, at the height of its power under Ashurbanipal, looked as though it could not possibly fail that test. A single generation later, it failed completely, collapsing faster than the more gradual Egyptian decline this course studied in Week 10. Terror had won Assyria an empire. It did not, it turns out, leave behind the kind of shared political community, the bonds of loyalty and shared purpose, that might have held that empire together once its strongest king was gone.</div>
+        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">This course has repeatedly asked whether a people's laws, customs, and habits explain their success or failure at first-order political problems. One of those problems stands out here above all: the ability to organize against outside threats. War is, in a real sense, the ultimate test of that ability. It is the one problem an empire cannot fake its way through with proud carvings and royal boasts alone. Assyria, at the height of its power under Ashurbanipal, looked as though it could not possibly fail that test. A single generation later, it failed completely. It collapsed faster than the slower Egyptian decline this course studied in Week 10. Terror had won Assyria an empire. But terror alone, it turns out, left nothing else behind. It did not build the shared political community that might have held that empire together. It did not build the bonds of loyalty and shared purpose an empire needs once its strongest king is gone. A library full of borrowed wisdom, gathered from every corner of Mesopotamia, could not save the throne room that housed it. In other words, all that knowledge could not save the throne that gathered it.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; WHAT COMES NEXT</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Nineveh's fall did not end Mesopotamian empire itself, only the Assyrian one. Babylon, one of the two victorious powers in this campaign, was about to enter its own most famous and powerful period, under a king whose building projects would become legendary. Week 13 turns there directly.</p>
+        <div class="callout-label">&#128218; WHAT COMES NEXT</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Nineveh's fall did not end Mesopotamian empire itself. It only ended the Assyrian one. Babylon, one of the two winning powers in this campaign, was about to enter its own most famous and powerful period. It would happen under a king whose building projects would become legendary across the ancient world. Week 13 turns there directly.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -97,5 +128,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
