@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -51,37 +63,83 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Why would a Bronze Age capital build no walls at all?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">While the Hittites built their empire across Anatolia, two related but distinct civilizations were developing in the Aegean world: the <strong>Minoans</strong> on the island of Crete, and the <strong>Mycenaeans</strong> on the Greek mainland. Together they represent the Bronze Age foundation of a region that will matter enormously to world history, though its own classical age still lies well beyond this course's Fall semester.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">palace economy<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'palace economy')">&#128266;</button><span class="gloss-tip">a system in which a central palace collects, stores, and hands back out most of a region's food and goods, rather than people trading freely.</span></span></li>
+            <li><span class="gloss" tabindex="0">tholos tomb<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'tholos tomb')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">THOH-lohs</span>a beehive-shaped stone burial chamber built for Mycenaean royal families.</span></span></li>
+        </ul>
+        <div style="font-size: 13px; color: #6b7a99; margin-top: 10px; font-style: italic;">Continuing from Monday, this is the last lesson where these terms are called out: chariot, ironworking, monopoly, treaty.</div>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; MINOAN CRETE AND MYCENAEAN GREECE</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Lion_Gate%2C_Mycenae%2C_201510.jpg" alt="The Lion Gate at Mycenae, entrance to one of the main Mycenaean palace centers" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map marks <strong>Knossos</strong> on Crete, and <strong>Mycenae</strong>, <strong>Tiryns</strong>, and <strong>Pylos</strong> on the Greek mainland, the main palace centers this lesson describes.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; KNOSSOS AND AN UNWALLED PUZZLE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Minoan civilization, named by modern archaeologists for the legendary King Minos, developed on Crete from around 3000 BC, reaching its height in a palace-centered society by roughly 1700 BC. The largest Minoan palace, at <strong>Knossos</strong>, was an enormous, sprawling complex containing storage magazines, workshops, and living quarters, equipped with genuinely advanced plumbing: terracotta pipes, flushing latrines, and light-wells bringing sunlight deep into the structure, among the most sophisticated domestic water management found anywhere in the Bronze Age world.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Here is Knossos's real puzzle, though, one worth sitting with rather than explaining away: unlike nearly every other major Bronze Age capital this course has studied, Knossos was built with no defensive walls at all. Historians still debate why. Perhaps Crete's naval strength made land walls unnecessary, protected instead by ships patrolling the surrounding sea. Perhaps Minoan society was organized differently than its heavily fortified neighbors, with less to fear from internal rivals. The honest answer, again, is that no single explanation has won out, and this remains an open question much like the missing palaces of the Indus Valley from last week.</p>
-    </div>
-
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; A SCRIPT PARTLY UNDERSTOOD</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Minoan palace administrators kept records in a script called <strong>Linear A</strong>, still undeciphered today, though its numerals, a decimal counting system, can be read even though the underlying language cannot. This is a useful reminder that a writing system can be partially understood, its numbers legible while its words remain locked away, a distinction worth remembering the next time an undeciphered script comes up in this course.</div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">While the Hittites built their empire across Anatolia, two related but separate civilizations were growing up in the Aegean world, the sea and islands between Greece and Anatolia: the <strong>Minoans</strong> on the island of Crete, and the <strong>Mycenaeans</strong> on the Greek mainland. Together they form the Bronze Age foundation of a region that will matter greatly to world history, though its own classical age still lies well beyond this course's Fall semester.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; MYCENAE AND THE WANAX</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">On the Greek mainland, a related but separate civilization, the <strong>Mycenaeans</strong>, rose to prominence from around 1650 BC, eventually absorbing Crete into their own sphere of influence by around 1450 BC. Mycenaean palace centers, at sites including Mycenae, Tiryns, and Pylos, were organized around a ruler called the <strong>wanax</strong>, at the head of a detailed bureaucratic hierarchy of officials and scribes. Those scribes wrote in <strong>Linear B</strong>, adapted from Linear A to record an early form of the Greek language itself, the earliest attested Greek writing in existence, though it would remain undeciphered until 1952, when the architect and self-taught linguist Michael Ventris finally cracked it. Overwhelmingly, what Linear B tablets actually record are numbers: sheep, chariots, grain, land, all counted and tracked for palace bookkeeping. This is the <strong>palace economy</strong> in its clearest form, a centrally planned and redistributive system in which the palace itself collected, stored, and reallocated much of a region's agricultural and craft production, workers and goods flowing in and out of the palace's own accounts rather than trading freely on an open market.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Unlike unwalled Knossos, Mycenae itself was heavily fortified, protected by massive <strong>Cyclopean walls</strong>, built from stones so large that later Greeks, unable to imagine ordinary humans lifting them, credited their construction to the mythical one-eyed Cyclopes. Mycenaean elite burial included impressive <strong>tholos tombs</strong>, beehive-shaped stone chambers built to house the bodies and grave goods of Mycenae's ruling families, a monumental architecture of death to match the grandeur of the palace itself in life.</p>
+        <div class="callout-label">&#128218; KNOSSOS AND AN UNWALLED PUZZLE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Minoan civilization is named by modern archaeologists for the legendary King Minos. It grew up on Crete from around 3000 BC. It reached its height in a palace-centered society by roughly 1700 BC. The largest Minoan palace, at <strong>Knossos</strong>, was an enormous, sprawling complex. It held storage rooms, workshops, and living quarters. It was also fitted with truly advanced plumbing: clay pipes, flushing latrines, and light-wells that carried sunlight deep into the building. This was among the most advanced water systems found anywhere in the Bronze Age world. Much of what visitors see at Knossos today was rebuilt in concrete in the early 1900s. The British archaeologist Sir Arthur Evans, who dug up the site, did this rebuilding himself. Evans made his best guess at how the palace once looked. Many of his choices are now seen as guesswork, not accurate fact. This is worth remembering whenever a ruined site looks a little too complete.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Here is Knossos's real puzzle, though, one worth sitting with rather than explaining away. Unlike nearly every other major Bronze Age capital this course has studied, Knossos was built with no walls at all. Historians still debate why. Perhaps Crete's naval strength made land walls unneeded. Ships patrolling the sea around the island may have protected it instead. Perhaps Minoan society was set up in different ways than its heavily walled neighbors, with less to fear from rivals close by. The honest answer, again, is that no single reason has won out. This remains an open question, much like the missing palaces of the Indus Valley from last week. Some historians also point to a huge volcanic eruption on the nearby island of Thera, around 1600 BC, as a blow to Minoan sea power. Even so, Knossos itself carried on for centuries after that eruption, a reminder that no single event fully explains a civilization's later fortunes.</p>
+    </div>
+
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; KNOSSOS AND MYCENAE</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Ruins_of_the_Minoan_Palace_in_Knossos.jpg" alt="The ruins of the Minoan palace at Knossos" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><strong>Knossos</strong>, sprawling and unwalled, and <strong>Mycenae</strong>, compact and heavily fortified behind its famous Lion Gate, represent two very different answers to the same Bronze Age question: how should a palace center protect itself and its people?</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; A WAR AT THE EDGE OF MEMORY</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Greek tradition remembered a great war fought by a coalition of Mycenaean kings against the city of Troy, traditionally dated to around 1184 BC by the ancient scholar Eratosthenes. This week's Primary Source, an excerpt from Homer's <em>Iliad</em>, lists the ships and contingents that tradition says sailed to fight there. Like Gilgamesh's Uruk or Yu the Great's China, the Trojan War likely reflects some real kernel of Late Bronze Age memory, but the specific cast of characters, the exact date, and the true scale of any such conflict remain genuinely debated rather than confirmed history. Keep this distinction in mind as you read this week's excerpt: a poem composed centuries after the events it describes, drawing on a real palace-economy world this lesson has just introduced, but not a simple historical record of it.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Minoan palace officials kept records in a script called <strong>Linear A</strong>, still undeciphered today. Even so, its numbers, a base-ten counting system, can be read even though the words around them cannot. This is a useful reminder. A writing system can be partly understood, its numbers clear while its words stay locked away. This is worth remembering the next time an undeciphered script comes up in this course.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; MYCENAE AND THE WANAX</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">On the Greek mainland, a related but separate civilization, the <strong>Mycenaeans</strong>, rose to power from around 1650 BC. By around 1450 BC, they had taken over Crete and folded it into their own reach. Mycenaean palace centers stood at sites including Mycenae, Tiryns, and Pylos. Each was built around a ruler called the <span class="gloss" tabindex="0">king or ruler<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'wanax')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">WAH-naks (wanax)</span>the title for the ruler at the head of a Mycenaean palace state.</span></span>, at the head of a detailed chain of officials and scribes. Those scribes wrote in <strong>Linear B</strong>, adapted from Linear A to record an early form of the Greek language itself, the earliest known Greek writing of all. It would stay undeciphered until 1952, though. That year, the architect and self-taught language expert Michael Ventris finally cracked it. Ventris had long guessed that Linear B recorded some unknown, non-Greek language. He only changed his mind once the patterns he had charted stopped making sense any other way. He announced his surprising result in a BBC radio broadcast: the tablets were Greek after all.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Mostly, what Linear B tablets record are numbers: sheep, chariots, grain, and land, all counted and tracked for palace bookkeeping. This is the <span class="gloss" tabindex="0">palace economy<span class="gloss-tip">a system in which a central palace collects, stores, and hands back out most of a region's food and goods, rather than people trading freely.</span></span> in its clearest form. In this system, the palace itself collected, stored, and handed back out much of a region's farm and craft goods. Workers and goods flowed in and out of the palace's own accounts, rather than trading freely in an open market.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; MICHAEL VENTRIS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Blue_Plaque_for_Michael_Ventris_-_geograph.org.uk_-_884994.jpg" alt="A commemorative blue plaque marking Michael Ventris's home in London" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 2.0. (A commemorative plaque, used here since no verified public-domain portrait photograph of Ventris could be located during this reconciliation pass.)</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><strong>Michael Ventris</strong> (VEN-tris) was a British architect who, working outside any university, deciphered Linear B in 1952, proving it recorded an early form of Greek. His breakthrough remains one of the great achievements in the history of decoding ancient scripts.</p>
+    </div>
+
+    <div class="tech-card">
+        <div class="callout-label">&#9881;&#65039; TECHNOLOGY SPOTLIGHT &middot; THE PALACE ECONOMY</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Linear_B_tablet%2C_Pylos%2C_13th_century_BC%2C_NAMA%2C_191139.jpg" alt="A Linear B clay tablet from Pylos recording goods or livestock for palace bookkeeping" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">A palace economy is a system in which a central palace, not an open market, controls most of a region's farm and craft output. Mycenaean scribes tracked sheep, grain, wine, oil, chariots, and workers on thousands of Linear B tablets, almost all of them plain bookkeeping rather than poetry or history. Goods flowed into the palace as tribute or tax, were stored in huge palace warehouses, and flowed back out again as rations, tools, or raw material for palace workshops. This same basic pattern, a central authority collecting and redistributing goods rather than leaving trade to individuals, first appeared with Sumerian temples back in Week 2, and it will reappear again when this course reaches the Persian Empire's own vast bureaucracy later this semester.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Unlike unwalled Knossos, Mycenae itself was heavily fortified. It was protected by massive <strong>Cyclopean walls</strong>, built from stones so large that later Greeks could not picture ordinary humans lifting them. Instead, they credited the building of these walls to the mythical one-eyed Cyclopes. Mycenaean elite burial used grand <span class="gloss" tabindex="0">tholos tombs<span class="gloss-tip"><span class="gloss-pron">THOH-lohs</span>a beehive-shaped stone burial chamber built for Mycenaean royal families.</span></span>: beehive-shaped stone chambers built to hold the bodies and grave goods of Mycenae's ruling families. These grand buildings for the dead matched the grandeur of the palace itself in life.</p>
+    </div>
+
+    <div class="people-card">
+        <div class="callout-label">&#128101; PEOPLES &middot; THE MINOANS AND MYCENAEANS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/La_Parisienne_Fresco%2C_Knossos%2C_Final_Palatial_period%2C_AMH%2C_T27%2C_258455.jpg" alt="A Minoan fresco from Knossos showing a woman's clothing and hairstyle" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Minoan frescoes show men in short kilts and women in flounced, layered skirts with open bodices, along with elaborate curled hairstyles. Mycenaean warriors, by contrast, are shown in bronze armor and boar's-tusk helmets, a style of dress that turns up in Homer's poems centuries later.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; A WAR AT THE EDGE OF MEMORY</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Greek tradition remembered a great war fought by a group of Mycenaean kings against the city of Troy. The ancient scholar Eratosthenes later dated it to around 1184 BC. This week's Primary Source, an excerpt from Homer's <em>Iliad</em> known as the Catalogue of Ships, lists the ships and forces that tradition says sailed to fight there. Like Gilgamesh's Uruk or Yu the Great's China, the Trojan War likely reflects some real kernel of Late Bronze Age memory. But the exact cast of characters, the true date, and the real scale of any such conflict remain still debated rather than confirmed history. Keep this in mind as you read this week's excerpt: a poem written centuries after the events it describes, drawing on a real palace-economy world this lesson has just introduced, but not a simple historical record of it.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
             <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
             <div>
                 <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 2</strong></div>
@@ -99,5 +157,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>

@@ -7,21 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
-    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
-    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
-    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
-    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
-    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
-    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
-    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
-    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
-    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
-    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
-    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
-    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
-    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
-    .widget-reset:hover { background: #FDF3E3; }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -66,62 +63,110 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What do two empires do after neither one can win?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">This week turns to a region this course has not yet visited directly: Anatolia, the peninsula that makes up most of modern Turkey, and the Aegean world of Crete and mainland Greece just across the sea from it. Three civilizations rose here during the same centuries Egypt's New Kingdom pharaohs were campaigning abroad: the Hittites in Anatolia, and the Minoans and Mycenaeans further west. This lesson introduces the Hittites; Wednesday's lesson turns to the Minoans and Mycenaeans.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">chariot<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'chariot')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">CHAIR-ee-uht</span>a light, two-wheeled cart pulled by horses, used in war for fast attacks and quick movement.</span></span></li>
+            <li><span class="gloss" tabindex="0">ironworking<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'ironworking')">&#128266;</button><span class="gloss-tip">the skill of heating and shaping iron into tools and weapons, a harder and eventually more common metal than bronze.</span></span></li>
+            <li><span class="gloss" tabindex="0">monopoly<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'monopoly')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">muh-NOP-uh-lee</span>total control over making or selling something, with no real competition.</span></span></li>
+            <li><span class="gloss" tabindex="0">treaty<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'treaty')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">TREE-tee</span>a formal written agreement between two states, often ending a war or setting the terms of peace.</span></span></li>
+        </ul>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; ANATOLIAN BEGINNINGS</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Anatolia had been farmed since deep antiquity. Einkorn wheat, the world's very first domesticated cereal, was grown in this same region as far back as 9000 BC, part of the Fertile Crescent story Week 1 introduced, though the Hittite state itself would not exist for thousands of years afterward. Around 1650 BC, a Hittite kingdom centered on the massively fortified city of <strong>Hattusa</strong> began to consolidate power across central Anatolia. Hittite scribes adopted <strong>cuneiform</strong>, borrowing it from Akkadian scribal tradition much as Weeks 2 through 4 traced cuneiform's spread across Mesopotamia, and used it to write the Hittite language, the oldest attested member of the Indo-European language family, the same broad language family that eventually includes Greek, Latin, and English.</p>
-    </div>
-
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; AN EMPIRE BUILT BY CONQUEST</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Hittite power reached its height under kings like <strong>Suppiluliuma I</strong>, who around 1350 BC extended Hittite authority deep into Syria, defeating the powerful kingdom of Mitanni and bringing the Hittites into direct, sometimes hostile contact with Egypt's own sphere of influence in the Levant. Hittite kings ruled as both political and religious heads of their state, and negotiated on the world stage as self-declared equals to Egypt's pharaoh, using the diplomatic title "Great King," a title only a small handful of the era's most powerful rulers could plausibly claim for themselves.</p>
-    </div>
-
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; KADESH: THE LARGEST CHARIOT BATTLE IN HISTORY</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">That rivalry between Hatti and Egypt came to a head in 1274 BC at the <strong>Battle of Kadesh</strong>, fought in modern Syria between Ramesses II of Egypt and Muwatalli II of the Hittites. Both sides deployed thousands of horse-drawn chariots, likely making Kadesh the largest chariot battle ever fought in world history. Both empires' own accounts claim victory, a useful reminder that royal inscriptions are rarely neutral witnesses to their own outcomes. What actually followed the battle, however, was neither a clear Egyptian triumph nor a clear Hittite one: years of continued tension, followed eventually by something neither side had achieved through years of fighting.</p>
-
-        <div class="optima-widget">
-            <div class="widget-kicker">&#127919; TRY IT: AFTER THE BATTLE</div>
-            <div class="widget-question">Check your understanding of how the Kadesh rivalry actually ended.</div>
-            <div class="widget-row" data-correct="treaty">
-                <div class="widget-row-prompt">What did years of continued tension after Kadesh eventually lead to?</div>
-                <div class="widget-options">
-                    <button data-choice="conquest">Egypt's total conquest of the Hittite empire.</button>
-                    <button data-choice="destruction">The Hittite destruction of Egypt.</button>
-                    <button data-choice="treaty">A formal, negotiated peace treaty between the two exhausted powers.</button>
-                </div>
-            </div>
-            <div class="widget-row" data-correct="gradual">
-                <div class="widget-row-prompt">What does current scholarship say about the old "Hittite iron monopoly" story?</div>
-                <div class="widget-options">
-                    <button data-choice="confirmed">It has been fully confirmed by recent evidence.</button>
-                    <button data-choice="gradual">Iron-working knowledge developed more gradually and widely than a tightly guarded secret.</button>
-                    <button data-choice="none">The Hittites are now known to have never worked with iron.</button>
-                </div>
-            </div>
-            <button class="widget-reset">Reset</button>
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; ANATOLIA AND THE HITTITE EMPIRE</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Anatolie_hittite-pt.svg" alt="Map of Anatolia showing the extent of the Hittite Empire, its capital Hattusa, and the site of Kadesh" />
+        <div class="img-credit">Map: via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map shows <strong>Anatolia</strong>, the Hittite capital at <strong>Hattusa</strong>, and the site of the <strong>Battle of Kadesh</strong> on the Orontes River in modern Syria.</p>
+        <div style="margin-top: 12px; font-size: 13px; color: #444;">
+            <strong>Geographical Glossary:</strong>
+            <span class="gloss" tabindex="0">Anatolia<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Anatolia')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">an-uh-TOH-lee-uh</span>the large peninsula making up most of modern Turkey, home to the Hittite kingdom.</span></span> &middot;
+            <span class="gloss" tabindex="0">Hattusa<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Hattusa')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">HAT-oo-sah</span>the massively fortified capital city of the Hittite Empire.</span></span> &middot;
+            <span class="gloss" tabindex="0">Kadesh<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Kadesh')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">KAY-desh</span>a city on the Orontes River in modern Syria, site of the largest chariot battle in history.</span></span>
         </div>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; A DIFFERENT KIND OF ENDING</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">In 1259 BC, Ramesses II and the new Hittite king Hattusili III concluded a formal peace agreement, the <strong>Egyptian-Hittite Peace Treaty</strong>, the oldest surviving peace treaty in world history, this week's Primary Source. Rather than one side simply overpowering the other, both empires, worn down by years of costly conflict neither could decisively win, chose a negotiated settlement establishing mutual non-aggression and, notably, a promise of mutual defense against outside threats and the return of political refugees. This is worth holding up as a genuine case study in how lasting peace actually gets made: two exhausted great powers, having exhausted the military option, chose the harder, less glorious work of negotiated peace over the continued costs of open war, judging that peace better served the practical interests of both states than any further campaigning could.</div>
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">This week turns to a region this course has not yet visited directly: <span class="gloss" tabindex="0">Anatolia<span class="gloss-tip"><span class="gloss-pron">an-uh-TOH-lee-uh</span>the large peninsula making up most of modern Turkey, home to the Hittite kingdom.</span></span>, the peninsula that makes up most of modern Turkey, and the Aegean world of Crete and mainland Greece just across the sea from it. Three civilizations rose here during the same centuries Egypt's New Kingdom pharaohs were fighting abroad, roughly 1600 to 1200 BC: the Hittites in Anatolia, and the Minoans and Mycenaeans further west. This lesson introduces the Hittites. Wednesday's lesson turns to the Minoans and Mycenaeans, two related but separate peoples whose story this course has not yet touched at all.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 4 &middot; IRON, RECONSIDERED</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">One more Hittite achievement deserves a closer look: early <strong>ironworking</strong>. For decades, popular accounts described the Hittites as guarding a strict monopoly on iron-smelting technology as a closely held state secret. More recent scholarship has revised this picture considerably. Iron-working knowledge during the Hittite period appears to have developed more gradually and to have been more widespread across the region than the old "secret monopoly" story suggested, and iron would not actually replace bronze as the dominant metal everywhere until after the disruptions of the Bronze Age Collapse, still two lessons away in this course, cut off the long-distance tin trade that bronze production depended on. The Hittites deserve credit as early, skilled ironworkers, but not for a tightly guarded monopoly that the evidence no longer supports.</p>
+        <div class="callout-label">&#128218; ANATOLIAN BEGINNINGS</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Anatolia had been farmed since long, long ago. Einkorn wheat, the world's very first tamed grain, was grown in this same region as far back as 9000 BC, part of the Fertile Crescent story Week 1 introduced. The Hittite state itself would not exist for thousands more years. Around 1650 BC, a Hittite kingdom began to pull power together across central Anatolia. It centered on the heavily fortified city of <span class="gloss" tabindex="0">Hattusa<span class="gloss-tip"><span class="gloss-pron">HAT-oo-sah</span>the massively fortified capital city of the Hittite Empire.</span></span>. Hittite scribes borrowed <strong>cuneiform</strong> from Akkadian scribal custom, much as Weeks 2 through 4 traced cuneiform's spread across Mesopotamia. They used it to write the Hittite language, the oldest known member of the Indo-European language family. That same broad family later includes Greek, Latin, and English.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; AN EMPIRE BUILT BY CONQUEST</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Hittite power reached its height under kings like <span class="gloss" tabindex="0">Suppiluliuma I<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Suppiluliuma the First')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">soo-pih-loo-lee-OO-mah</span>a powerful Hittite king, ruling around 1350 BC, who expanded Hittite power deep into Syria.</span></span>, who around 1350 BC pushed Hittite rule deep into Syria. He beat the strong kingdom of Mitanni. This brought the Hittites into direct, sometimes hostile contact with Egypt's own sphere of power in the Levant. Hittite kings ruled as both political and religious heads of their state. They dealt with Egypt's pharaoh as self-declared equals. Both used the title "Great King." Only a small handful of the era's most powerful rulers could fairly claim that title for themselves. Historians sometimes call this small circle of rulers the Amarna system, named for a cache of clay letters found in Egypt. Those letters record the "Great Kings" of Egypt, Hatti, Babylon, Assyria, and Mitanni. They wrote to each other almost as equals, even while they were rivals and sometimes fought.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; SUPPILULIUMA I</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Relief_of_Tudhaliya_IV_%28Yazilikaya%29.jpg" alt="A carved relief of a Hittite king at the Yazilikaya sanctuary near Hattusa" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 2.0. (This relief actually depicts the later king Tudhaliya IV; no confirmed portrait of Suppiluliuma I himself survives, so this image stands in as a representative example of Hittite royal relief art.)</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Suppiluliuma I<span class="gloss-tip"><span class="gloss-pron">soo-pih-loo-lee-OO-mah</span>a powerful Hittite king, ruling around 1350 BC, who expanded Hittite power deep into Syria.</span></span> ruled the Hittites around 1350 to 1322 BC, expanding Hittite power deep into Syria and setting up the empire that would later face Egypt at Kadesh.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; KADESH: THE LARGEST CHARIOT BATTLE IN HISTORY</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">That rivalry between Hatti and Egypt came to a head in 1274 BC. The two powers clashed at the <strong>Battle of Kadesh</strong>, fought in modern Syria. Egypt's army was led by <span class="gloss" tabindex="0">Ramesses II<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Ramesses the Second')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">RAM-uh-seez</span>pharaoh of Egypt from about 1279 to 1213 BC, who led Egypt's army at Kadesh and later signed peace with the Hittites.</span></span>, only in the fifth year of a reign that would eventually last sixty-six years. The Hittite army was led by <span class="gloss" tabindex="0">Muwatalli II<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Muwatalli the Second')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">moo-wah-TAH-lee</span>the Hittite king who commanded Hittite forces against Ramesses II at Kadesh.</span></span>. Both sides sent out thousands of horse-drawn <span class="gloss" tabindex="0">chariots<span class="gloss-tip"><span class="gloss-pron">CHAIR-ee-uht</span>a light, two-wheeled cart pulled by horses, used in war for fast attacks and quick movement.</span></span>, with modern estimates for the two armies combined reaching five to six thousand chariots in all. This likely makes Kadesh the largest chariot battle ever fought in world history. Both empires' own records claim victory, a useful reminder that royal writings rarely give a fair, two-sided account of their own wars. What really followed the battle was neither a clear Egyptian win nor a clear Hittite one. Years of tension followed. At last came something neither side had won through years of fighting.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; RAMESSES II</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Abu_Simbel%2C_Ramesses_Temple%2C_front%2C_Egypt%2C_Oct_2004.jpg" alt="The colossal seated statues of Ramesses II at his temple at Abu Simbel" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 2.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Ramesses II<span class="gloss-tip"><span class="gloss-pron">RAM-uh-seez</span>pharaoh of Egypt from about 1279 to 1213 BC, who led Egypt's army at Kadesh and later signed peace with the Hittites.</span></span> ruled Egypt from about 1279 to 1213 BC, one of the longest reigns in Egyptian history. He personally led Egypt's army at Kadesh as a young pharaoh and, decades later, signed the peace treaty that ended the long rivalry with the Hittites.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#9876;&#65039; BATTLE &middot; KADESH</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Relief_Kadesh_Breasted.jpg" alt="An ancient Egyptian relief carving depicting the Battle of Kadesh, with chariots and soldiers" />
+        <div class="img-credit">Relief carving, public domain, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Fought in 1274 BC, the Battle of Kadesh pitted Ramesses II's Egyptian army against Muwatalli II's Hittite forces, each fielding thousands of chariots. Neither side won a clear victory on the field, but the battle's real legacy came fifteen years later, in the peace treaty it eventually produced.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; A DIFFERENT KIND OF ENDING</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">In 1259 BC, Ramesses II and the new Hittite king <span class="gloss" tabindex="0">Hattusili III<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Hattusili the Third')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">hah-too-SEE-lee</span>the Hittite king, and Muwatalli II's younger brother, who later signed the peace treaty with Ramesses II.</span></span> signed a formal peace deal. It was the <strong>Egyptian-Hittite Peace Treaty</strong>, the oldest surviving peace <span class="gloss" tabindex="0">treaty<span class="gloss-tip"><span class="gloss-pron">TREE-tee</span>a formal written agreement between two states, often ending a war or setting the terms of peace.</span></span> in world history, and this week's Primary Source. Rather than one side simply beating the other, both empires chose to talk out a deal instead. Years of costly fighting neither side could clearly win had worn them both down. The treaty set out clear rules. Neither side would attack the other. Both sides promised to help defend each other against outside threats. Each side agreed to send back people who had fled to it. Years later, Hattusili III's own daughter married Ramesses II, sealing the peace between the two empires with a royal marriage as well as a written deal. This is worth holding up as a real case study in how lasting peace really gets made. Two worn-out great powers, having fought as much as either could stand, chose the harder, less exciting work of talking out peace over the costs of more war. Both judged that peace served them better than any further fighting could.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; HATTUSILI III</div>
+        <div style="font-size: 13px; color: #8a94ab; font-style: italic; margin-bottom: 8px;">No verified public-domain image of Hattusili III (a seal impression or relief bearing his name) could be located during this reconciliation pass. Flagged rather than substituting an uncleared photo.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Hattusili III<span class="gloss-tip"><span class="gloss-pron">hah-too-SEE-lee</span>the Hittite king, and Muwatalli II's younger brother, who later signed the peace treaty with Ramesses II.</span></span> ruled the Hittites after taking the throne from his own nephew. He is best remembered for signing the Egyptian-Hittite Peace Treaty with Ramesses II in 1259 BC, ending decades of rivalry between the two empires.</p>
+    </div>
+
+    <div class="people-card">
+        <div class="callout-label">&#128101; PEOPLES &middot; THE HITTITES</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Relief_of_Tudhaliya_IV_%28Yazilikaya%29.jpg" alt="A Hittite relief carving showing royal clothing, headgear, and footwear" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 2.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Hittite relief carvings show soldiers and officials in pointed shoes, short kilts, and conical caps. Charioteers wore bronze scale armor for protection in battle.</p>
+    </div>
+
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; HATTUSA</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Reconstructed_City_Wall%2C_Hattusa%2C_Bo%C4%9Fazkale%2C_%C3%87orum%2C_Turkey_01.jpg" alt="The reconstructed fortified city wall at Hattusa, capital of the Hittite Empire" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Hattusa<span class="gloss-tip"><span class="gloss-pron">HAT-oo-sah</span>the massively fortified capital city of the Hittite Empire.</span></span> was ringed by massive stone walls more than four miles long, pierced by gates decorated with carved lions and a sphinx. Thousands of cuneiform tablets found in its ruins recorded the Hittite Empire's laws, treaties, and religious rituals.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; IRON, RECONSIDERED</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">One more Hittite feat deserves a closer look: early <span class="gloss" tabindex="0">ironworking<span class="gloss-tip">the skill of heating and shaping iron into tools and weapons, a harder and eventually more common metal than bronze.</span></span>. For decades, popular stories described the Hittites as guarding a strict <span class="gloss" tabindex="0">monopoly<span class="gloss-tip"><span class="gloss-pron">muh-NOP-uh-lee</span>total control over making or selling something, with no real competition.</span></span> on iron-making skill. In these stories, iron was a closely held state secret, kept hidden from rival kingdoms. More recent study has changed this picture a good deal. Iron-working knowledge during the Hittite period seems to have grown more slowly than that old story claimed. It also seems to have spread more widely across the region than the "secret monopoly" story allowed. One striking example, a dagger with an iron blade and a gold handle, was found in a royal tomb at Alaca H&ouml;y&uuml;k in central Anatolia, dating to around 2500 BC, centuries before the Hittite state itself existed. This shows iron was already known and prized as a rare, precious metal long before anyone learned to make it in any real amount. Iron did not fully replace bronze until later, once the shocks of the Bronze Age Collapse, still two lessons away in this course, cut off the long-distance tin trade that bronze production depended on. The Hittites deserve credit as early, skilled ironworkers, but not for a tightly guarded monopoly the evidence no longer supports.</p>
+    </div>
+
+    <div class="tech-card">
+        <div class="callout-label">&#9881;&#65039; TECHNOLOGY SPOTLIGHT &middot; IRONWORKING</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Alaca_H%C3%BCy%C3%BCk_dagger.jpg" alt="An early iron dagger with a gold handle, found in a royal tomb at Alaca Huyuk in Anatolia" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC BY 2.5.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Iron has one big advantage over bronze: it does not need tin, a metal that had to be hauled in from distant mines and made bronze production dependent on long, fragile trade routes. Early Hittite smiths worked with iron by at least 1400 BC, though it stayed rare and costly, more a prestige metal for gifts and ceremonial objects than an everyday replacement for bronze weapons. Turning raw iron ore into usable metal took much higher furnace heat than bronze-making required, along with repeated hammering to drive out impurities. Only after the Bronze Age Collapse cut off the tin trade did iron slowly become the practical, everyday metal of choice across the ancient world.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
             <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
             <div>
                 <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 1</strong></div>
@@ -141,27 +186,23 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
-    var reset = e.target.closest('.widget-reset');
-    if (reset) {
-      var w = reset.closest('.optima-widget');
-      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
-      return;
-    }
-    var sBtn = e.target.closest('.widget-row .widget-options button');
-    if (sBtn) {
-      var row = sBtn.closest('.widget-row');
-      var correct = row.dataset.correct;
-      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      var right = sBtn.dataset.choice === correct;
-      sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches what today\'s lesson describes.' : 'Not quite. Reread Part 3 or Part 4 of today\'s lesson.';
-      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
-      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
-      rf.textContent = text;
-      return;
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();
