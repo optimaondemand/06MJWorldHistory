@@ -7,6 +7,11 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .source-note { background: #FFF7E8; border: 1px solid #E8D3A0; border-left: 5px solid #C7922C; border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-size: 14px; color: #4a3a1a; line-height: 1.55; }
+    .source-quote { background: #F7F5EF; border: 1px solid #D8CFB8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 22px 26px; margin: 18px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; color: #2a2214; line-height: 1.7; }
+    .source-quote p { margin: 0 0 12px 0; }
+    .source-quote p:last-child { margin-bottom: 0; }
+    .source-quote strong { color: #0E1C42; }
 </style>
 </head>
 <body>
@@ -27,11 +32,10 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q2 &middot; Module 13</div>
-        <div style="font-size: 12px; color: #666;">Nebuchadnezzar's Babylon</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source</div>
-        <div style="font-size: 17px; color: #0e1c42;">Source 13.1 &middot; Tuesday</div>
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source 1</div>
+        <div style="font-size: 17px; color: #0e1c42;">Tuesday</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
@@ -43,24 +47,20 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Primary Source 1</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">The Babylonian Chronicles (on the Siege of Jerusalem)</div>
-        <div style="font-size: 16px; color: #666;">Primary Source Reading</div>
+        <div style="font-size: 22px; color: #0e1c42;">The Babylonian Chronicles (on the Siege of Jerusalem)</div>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; ABOUT THIS SOURCE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Adapted into plain modern English from scholarly translations of the Babylonian Chronicle covering Nebuchadnezzar II's seventh regnal year (598 to 597 BC), which records the first Babylonian capture of Jerusalem in its characteristically terse, factual style.</div>
+    <div class="source-note">
+        <strong>About this source:</strong> The Babylonian Chronicle tablet British Museum 21946 (the "Jerusalem Chronicle"), covering Nebuchadnezzar II's seventh regnal year (598 to 597 BC), records the first Babylonian capture of Jerusalem in the characteristically terse, factual style of Mesopotamian chronicles. This tablet was unknown to scholars until D.J. Wiseman first published and translated it in <em>Chronicles of Chaldaean Kings (626-556 B.C.) in the British Museum</em> (British Museum, 1956). The passage below is a minimal, precisely cited quotation of Wiseman's own translation, confirmed consistent across multiple independent scholarly citations of it.
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 24px 28px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#128214; THE CHRONICLE</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the campaign itself:</strong><br/>"In the seventh year, in the month of Kislev, the king of Babylon called out his troops and marched to the land of Hatti [the region including the Levant]. He set up camp against the city of Judah, and on the second day of the month of Adar he captured the city and seized its king."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0;"><strong>On the outcome:</strong><br/>"He appointed a king of his own choosing there, and he took heavy tribute and brought it back to Babylon."</p>
+    <div class="source-quote">
+        <p><strong>The chronicle's entry for the capture of Jerusalem, translated by D.J. Wiseman (1956):</strong><br>"In the seventh year, in the month of Kislev, the king of Akkad [Nebuchadnezzar] mustered his troops, marched to the Hatti-land, and encamped against the city of Judah, and on the second day of the month of Adar he captured the city and seized its king. He appointed there a king of his own choice, and, having received its heavy tribute, sent (them) to Babylon."</p>
     </div>
 
     <div style="background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #8A6416; margin-bottom: 8px;">&#128221; EDITORIAL NOTE, IMPORTANT FOR ACCURATE HISTORICAL UNDERSTANDING</div>
-        <div style="font-size: 16px; color: #0E1C42; line-height: 1.6;">This surviving chronicle tablet documents the first Babylonian capture of Jerusalem, in 597 BC, when Nebuchadnezzar deported the young king Jehoiachin and much of the city's elite population but left Jerusalem itself standing under a new, Babylonian-appointed king. The Babylonian Chronicle series has a significant gap in its surviving tablets covering the years immediately afterward, so the final, complete destruction of Jerusalem in 586 BC, described in Lesson 2, is known primarily from the Hebrew Bible's own historical books and later classical writers, not from a surviving Babylonian chronicle tablet describing that specific event. Historians are careful to keep these two distinct moments, 597 and 586 BC, and these two different kinds of evidence, separate rather than blending them together.</div>
+        <div style="font-size: 16px; color: #0E1C42; line-height: 1.6;">This surviving chronicle tablet documents the first Babylonian capture of Jerusalem, in 597 BC, when Nebuchadnezzar deported the young king Jehoiachin and much of the city's elite population but left Jerusalem itself standing under a new, Babylonian-appointed king (Zedekiah). The Babylonian Chronicle series has a significant gap in its surviving tablets covering the years immediately afterward, so the final, complete destruction of Jerusalem in 586 BC, described in Lesson 2, is known primarily from the Hebrew Bible's own historical books and later classical writers, not from a surviving Babylonian chronicle tablet describing that specific event. Historians are careful to keep these two distinct moments, 597 and 586 BC, and these two different kinds of evidence, separate rather than blending them together.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px;">

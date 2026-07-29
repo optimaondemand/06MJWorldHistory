@@ -7,6 +7,11 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .source-note { background: #FFF7E8; border: 1px solid #E8D3A0; border-left: 5px solid #C7922C; border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-size: 14px; color: #4a3a1a; line-height: 1.55; }
+    .source-quote { background: #F7F5EF; border: 1px solid #D8CFB8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 22px 26px; margin: 18px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; color: #2a2214; line-height: 1.7; }
+    .source-quote p { margin: 0 0 12px 0; }
+    .source-quote p:last-child { margin-bottom: 0; }
+    .source-quote strong { color: #0E1C42; }
 </style>
 </head>
 <body>
@@ -27,11 +32,10 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q2 &middot; Module 13</div>
-        <div style="font-size: 12px; color: #666;">Nebuchadnezzar's Babylon</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source</div>
-        <div style="font-size: 17px; color: #0e1c42;">Source 13.2 &middot; Thursday</div>
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source 2</div>
+        <div style="font-size: 17px; color: #0e1c42;">Thursday</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
@@ -43,20 +47,17 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Primary Source 2</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Nebuchadnezzar II's Building Inscriptions (on the Ishtar Gate)</div>
-        <div style="font-size: 16px; color: #666;">Primary Source Reading</div>
+        <div style="font-size: 22px; color: #0e1c42;">Nebuchadnezzar II's Building Inscriptions (on the Ishtar Gate)</div>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; ABOUT THIS SOURCE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Adapted into plain modern English from scholarly translations of Nebuchadnezzar II's royal building inscriptions describing his reconstruction of Babylon, including the Ishtar Gate and the Etemenanki ziggurat.</div>
+    <div class="source-note">
+        <strong>About this source:</strong> Excerpts from Nebuchadnezzar II's East India House Inscription, a long foundation inscription recording his building projects at Babylon. Citation: Stephen Langdon, <em>Die neubabylonischen K&ouml;nigsinschriften</em> (Vorderasiatische Bibliothek 4, Leipzig, 1912), which includes Langdon's own English-language summaries and translations of this text; public domain (pre-1929). Confirmed via cross-referenced quotations of Langdon's translation, plus the modern open-access Royal Inscriptions of the Neo-Babylonian Empire project used here only to cross-check accuracy, not as the quoted source.
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 24px 28px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#128214; THE INSCRIPTIONS</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the Ishtar Gate itself:</strong><br/>"I, Nebuchadnezzar, king of Babylon, built the Ishtar Gate with blue-glazed bricks, and set upon it the images of bulls and dragons, creatures sacred to the gods Adad and Marduk, that all who entered my city might know its greatness and the favor the gods have shown it."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On rebuilding the city's temples and the Etemenanki:</strong><br/>"I raised the top of the temple tower of Babylon toward heaven, that its head might reach the sky, and I caused the city's temples to shine like the sun, adorned with gold and precious stone, for the glory of Marduk, my lord."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0;"><strong>On the purpose of these projects, in the king's own words:</strong><br/>"I have made Babylon a wonder for all peoples, a city whose splendor no other city on earth can equal, that my name might endure and that the gods might look with favor upon my reign."</p>
+    <div class="source-quote">
+        <p><strong>On the Ishtar Gate itself, per Langdon's translation of the East India House Inscription:</strong><br>"I filled those gates with splendor for the wonder of all people." A related building inscription on the gate itself reads: "I stationed at its sills fierce bulls of copper and frenzied dragons," describing the same blue-glazed brickwork and sacred animal imagery that archaeologists later recovered at the site.</p>
+        <p><strong>On rebuilding the Etemenanki, Babylon's great temple tower:</strong><br>"In order to complete Etemenanki, I mobilized all countries everywhere... I built its structure with bitumen and baked brick throughout. I completed it, raising its top to the heaven."</p>
+        <p><strong>On the purpose of these projects, in a related inscription's own words:</strong><br>Nebuchadnezzar describes the rebuilt ziggurat itself as "the wonder of the people of the world," raised so that its top reached toward heaven.</p>
     </div>
 
     <div style="background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">

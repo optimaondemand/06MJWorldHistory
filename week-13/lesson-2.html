@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
     .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
     .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
     .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
@@ -66,20 +78,42 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What happens to a people's identity when its kingdom, temple, and homeland are all taken away at once?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">This course has met the kingdoms of Israel and Judah only in passing so far, through Shalmaneser III's Black Obelisk in Week 11. This lesson gives them the fuller attention their history deserves, both as a small kingdom caught between great powers and as a genuinely distinct set of religious beliefs worth understanding on their own terms.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">chronicle<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'chronicle, KRON-ih-kul')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">KRON-ih-kul</span>a written record of events, usually listed year by year in plain, factual order.</span></span></li>
+            <li><span class="gloss" tabindex="0">exile<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'exile')">&#128266;</button><span class="gloss-tip">being forced to leave your home country, often for a long time or forever, usually by a conquering power.</span></span></li>
+            <li><span class="gloss" tabindex="0">monotheism<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'monotheism, MON-oh-thee-iz-um')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">MON-oh-thee-iz-um</span>belief in and worship of only one god.</span></span></li>
+            <li><span class="gloss" tabindex="0">covenant<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'covenant, KUV-uh-nunt')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">KUV-uh-nunt</span>a binding, two-way agreement, often between a god and a people, with promised duties on both sides.</span></span></li>
+        </ul>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A KINGDOM STANDING ALONE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">By the seventh century BC, the northern kingdom of Israel no longer existed as an independent state at all. Assyria had destroyed it in 722 BC and deported much of its population, a policy this course has already seen Assyrian kings use to prevent conquered peoples from organizing future rebellions. That left only the smaller southern kingdom, <strong>Judah</strong>, ruled from Jerusalem, maneuvering as best it could between Egyptian and Mesopotamian power for over a century afterward. Judah's independence finally ended under Nebuchadnezzar II. This week's first Primary Source, drawn from a Babylonian chronicle, records his forces capturing Jerusalem in 597 BC and carrying off its king and much of its elite population to Babylon. When a later Judean uprising tested Nebuchadnezzar's patience further, his response was final: in 586 BC, Jerusalem itself was destroyed, along with its Temple, the central site of Israelite worship, and a further wave of its population was deported to Babylon, beginning the period Jewish tradition remembers as the <strong>Babylonian exile</strong>.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">This course has met the kingdoms of Israel and Judah only in passing so far, through Shalmaneser III's Black Obelisk in Week 11. This lesson gives them the fuller attention their history deserves. It looks at them two ways. First, as a small kingdom caught between great powers. Second, as a set of religious beliefs worth understanding on their own terms.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; A BELIEF WORTH UNDERSTANDING ON ITS OWN TERMS</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This course has studied several religious systems so far, Sumerian, Egyptian, and Mesopotamian more broadly, each recognizing many gods with different responsibilities, often tied closely to nature, kingship, or specific cities. Israelite religion, as reflected in its own surviving texts, worked differently. It centered on <strong>monotheism</strong>, devotion to a single god, and on a <strong>covenant</strong>, a binding, mutual agreement between that god and the Israelite people specifically, in which loyalty and obedience to a shared law were understood to carry consequences, for better or worse, in the community's actual historical fortunes. This is a genuinely distinct religious commitment, not simply the same kind of belief as its neighbors with the names changed, and it deserves to be taken seriously as its own thing rather than flattened into a version of Mesopotamian or Egyptian religion. At the same time, this course does not claim to settle, one way or another, any question of religious truth. What can be said with confidence, as a matter of history rather than theology, is that Israelite writers themselves frequently interpreted their kingdom's defeats, including this one, as directly connected to this covenant relationship, a framework worth understanding honestly on its own terms rather than translating into some other civilization's categories.</p>
+        <div class="callout-label">&#128218; A KINGDOM STANDING ALONE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">By the seventh century BC, the northern kingdom of Israel no longer existed as its own state at all. Assyria had destroyed it in 722 BC. Assyria's kings also deported much of its people, a policy this course has already seen used elsewhere to stop conquered peoples from planning future revolts. That left only the smaller southern kingdom, <strong>Judah</strong>, ruled from <strong>Jerusalem</strong>. For over a century, Judah worked hard just to survive between Egyptian and Mesopotamian power.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Judah's independence finally ended under Nebuchadnezzar II. This week's first Primary Source, drawn from a Babylonian <span class="gloss" tabindex="0">chronicle<span class="gloss-tip"><span class="gloss-pron">KRON-ih-kul</span>a written record of events, usually listed year by year in plain, factual order.</span></span>, records his forces capturing Jerusalem in 597 BC. They carried off its king, a young ruler named Jehoiachin. Much of its elite population went with him to Babylon. Cuneiform ration tablets found in Babylon actually name Jehoiachin directly. These tablets list food handed out to royal prisoners there. This is a rare case where an outside, non-biblical record backs up a specific detail from this story. In other words, we do not have to take this story only on faith. A real object backs it up.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Nebuchadnezzar placed a new king, Zedekiah, on Judah's throne in Jehoiachin's place, expecting loyalty in return. A later Judean revolt tested Nebuchadnezzar's patience past its limit. His response was final and harsh. Zedekiah was captured. He was forced to watch his own sons killed. Then he was blinded, and carried off to Babylon himself. In 586 BC, Jerusalem itself was destroyed, along with its Temple, the central site of Israelite worship. A further wave of its people was deported to Babylon, beginning the period Jewish tradition remembers as the <span class="gloss" tabindex="0">Babylonian exile<span class="gloss-tip">being forced to leave your home country, often for a long time or forever, usually by a conquering power.</span></span>.</p>
+    </div>
+
+    <div class="people-card">
+        <div class="callout-label">&#128101; PEOPLES &middot; THE ISRAELITES AND JUDAHITES</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/C%2BB-Music-Fig16-AssyrianCaptivesPlayingLyre.png" alt="Ancient Near Eastern relief depicting Semitic captives playing lyres, illustrating the experience of deportation and exile" />
+        <div class="img-credit">Illustration: from the <em>Encyclopaedia Biblica</em>, 1903, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">The <strong>Israelites</strong>, and later the people of the southern kingdom of <span class="gloss" tabindex="0">Judah<span class="gloss-tip"><span class="gloss-pron">JOO-duh</span>a small kingdom in the southern Levant, ruled from Jerusalem, whose fate under Babylon is this week's second lesson.</span></span>, worshipped one god and lived under a covenant law they believed bound them together as a single people. This relief, depicting Near Eastern captives deported by a conquering empire, illustrates the kind of forced exile Judah's own people experienced under Babylon.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; A BELIEF WORTH UNDERSTANDING ON ITS OWN TERMS</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This course has studied several religious systems so far. Sumerian, Egyptian, and Mesopotamian religion more broadly each recognized many gods with different jobs. These gods were often tied closely to nature, kingship, or a specific city. Israelite religion, as shown in its own surviving texts, worked differently. It centered on <span class="gloss" tabindex="0">monotheism<span class="gloss-tip"><span class="gloss-pron">MON-oh-thee-iz-um</span>belief in and worship of only one god.</span></span>, devotion to a single god, and on a <span class="gloss" tabindex="0">covenant<span class="gloss-tip"><span class="gloss-pron">KUV-uh-nunt</span>a binding, two-way agreement, often between a god and a people, with promised duties on both sides.</span></span>. A covenant was a binding, mutual agreement, just between that god and the Israelite people. Under its terms, loyalty and obedience to a shared law were understood to carry real weight. Good or bad, that weight would show up in the community's own fortunes across history. In other words, Israel's own story was tied to how well its people kept their promise to their god.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Prophets living through this very crisis wrote and preached in exactly these terms. Jeremiah was still in Jerusalem as the city fell. He warned that the coming disaster was a direct result of the people breaking their own covenant. Ezekiel had already been sent to Babylon, years earlier. He wrote visions trying to make sense of that same disaster from exile itself. Reading their words is one clear way to see this covenant idea used in real time. Real people living through these very events used it. It was not some distant historian summing things up long after the fact. In other words, we are not just reading a summary written after the fact. We are reading words from people living through it.</p>
 
         <div class="optima-widget">
             <div class="widget-kicker">&#127919; TRY IT: TWO KINDS OF BELIEF</div>
@@ -100,11 +134,21 @@
             </div>
             <button class="widget-reset">Reset</button>
         </div>
+
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 14px 0 0 0;">This is a truly different kind of belief. It is not simply the same kind of belief as its neighbors, with the names changed. It deserves to be taken seriously as its own thing. It should not be flattened into some version of Mesopotamian or Egyptian religion. At the same time, this course does not claim to settle any question of religious truth, one way or another. Here is what can be said with confidence, as a matter of history rather than belief itself: Israelite writers often explained their kingdom's own defeats, including this one, as tied directly to this covenant. That framework is worth understanding honestly on its own terms. It should not get turned into some other civilization's own terms instead.</p>
+    </div>
+
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; JERUSALEM</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Givati_Parking_Lot_Excavations_in_the_City_of_David_in_Jerusalem_Old_City_%2828307821157%29.jpg" alt="Archaeological excavations at the City of David site in Jerusalem" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Jerusalem<span class="gloss-tip"><span class="gloss-pron">juh-ROO-suh-lem</span>Judah's capital city, home to its Temple, destroyed by Nebuchadnezzar's forces in 586 BC.</span></span>, capital of the kingdom of Judah, was home to the Temple, the central site of Israelite worship. Nebuchadnezzar's forces destroyed both the city and the Temple in 586 BC, beginning the Babylonian exile. Modern excavations in the City of David, shown here, continue to uncover layers of the ancient city.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; AN ENDING THAT WAS NOT, IN FACT, AN ENDING</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Exile is a form of forced migration, and it might reasonably have meant the permanent disappearance of Judah's people and beliefs into the wider Babylonian population, the way conquered peoples sometimes did disappear from the historical record entirely. That is not what happened here. Religious and cultural identity persisted through decades of exile in Babylon itself, kept alive without a king, a temple, or a homeland to anchor it, a genuinely unusual outcome worth noting rather than assuming was inevitable. Its restoration, when it came, arrived from an unexpected direction: in 538 BC, a new conqueror, having just taken Babylon itself, issued a decree permitting Judean exiles to return home and rebuild their Temple, a policy markedly different from anything this course has studied from Assyria or Babylon. That conqueror's name was <strong>Cyrus</strong>, and his own remarkable rise, and his very different approach to holding an empire together, is where this course turns in full in Week 17.</p>
+        <div class="callout-label">&#128218; AN ENDING THAT WAS NOT, IN FACT, AN ENDING</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Exile is a form of forced migration. It might reasonably have meant the end of Judah's people and beliefs for good. They could have simply melted into the wider Babylonian population, the way conquered peoples sometimes did vanish from the record entirely. That is not what happened here. Religious and cultural identity survived through decades of exile in Babylon itself. It stayed alive without a king, a temple, or even a homeland to anchor it. This is a truly rare outcome, worth noting rather than assumed. In other words, losing a homeland did not mean losing who they were.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Its return, when it came, arrived from an unexpected direction. In 538 BC, a new conqueror had just taken Babylon itself. He issued a decree. That decree let Judean exiles return home and rebuild their Temple. This was a policy very different from anything this course has studied from Assyria or Babylon. That conqueror's name was <strong>Cyrus</strong>. His own remarkable rise, and his very different way of holding an empire together, is where this course turns in full in Week 17. In other words, the empire that conquered Babylon did not treat Judah's exiles the way Babylon had.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -129,6 +173,15 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
     var reset = e.target.closest('.widget-reset');
@@ -145,11 +198,18 @@
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches Part 2 of today\'s lesson.' : 'Not quite. Reread Part 2 of today\'s lesson.';
+      var text = right ? 'Right. That matches the distinction this lesson describes.' : 'Not quite. Reread the lesson above.';
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;
       return;
+    }
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();

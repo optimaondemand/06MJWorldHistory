@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -51,26 +63,53 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What is a city built to say, not just built to hold?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Nineveh fell to a combined Babylonian-Median army in 612 BC, an event Week 12 described in detail. Babylon, one of the two victors, was now free to build its own empire in the vacuum Assyria's collapse had left behind. Historians call this the <strong>Neo-Babylonian Empire</strong>, and its greatest king, <strong>Nebuchadnezzar II</strong> (r. 605 to 562 BC), turned Babylon itself into one of the most famous cities of the ancient world.</p>
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; NEBUCHADNEZZAR'S NEO-BABYLONIAN EMPIRE</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/C%2BB-Assyria-DetailedMap.JPG" alt="1903 map of the ancient Near East showing Babylon and the region of Judah and Jerusalem" />
+        <div class="img-credit">Map: from the <em>Encyclopaedia Biblica</em>, 1903, via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map shows the Neo-Babylonian Empire stretching from <strong>Babylon</strong> west across the Levant, marking the kingdom of <strong>Judah</strong> and its capital, <strong>Jerusalem</strong>.</p>
+        <div style="margin-top: 12px; font-size: 13px; color: #444;">
+            <strong>Geographical Glossary:</strong>
+            <span class="gloss" tabindex="0">Judah<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Judah, JOO-duh')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">JOO-duh</span>a small kingdom in the southern Levant, ruled from Jerusalem, whose fate under Babylon is this week's second lesson.</span></span> &middot;
+            <span class="gloss" tabindex="0">Jerusalem<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Jerusalem, juh-ROO-suh-lem')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">juh-ROO-suh-lem</span>Judah's capital city, home to its Temple, destroyed by Nebuchadnezzar's forces in 586 BC.</span></span>
+        </div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A CITY AS POLITICAL STATEMENT</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This is a city this course has already visited once before, under a very different king, Hammurabi, all the way back in Week 4. Nebuchadnezzar's Babylon was a far larger and grander place, and he was determined that visitors, subjects, and rivals alike would know it. His building inscriptions, this week's second Primary Source, describe rebuilding the city's massive walls, its royal palace, and above all its ceremonial gateway, the <strong>Ishtar Gate</strong>, covered in glazed blue bricks and decorated with rows of sculpted bulls and dragons sacred to Babylonian gods. Nearby stood the <strong>Etemenanki</strong>, a towering ziggurat dedicated to Babylon's chief god, Marduk, a structure so tall and so famous that later Greek visitors to Babylon described it in terms that may have influenced the biblical story of the Tower of Babel.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">It is worth being direct about what a project like this is actually for. A ziggurat or a glazed gateway is not primarily a practical structure the way a granary or a fortified wall is. It is a political statement in stone and colored brick, a deliberate display meant to announce that Babylon's king, and Babylon's gods, deserved awe and obedience. This is not a new idea in this course. Egyptian pyramids in Week 5 and Assyrian palace reliefs in Week 11 served a similar purpose in different forms. What makes Nebuchadnezzar's Babylon distinctive is its sheer scale and the deliberate use of color and imported material, cedar from Lebanon, glazed brick technique perfected specifically for these projects, to make the statement as vivid as possible.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Nineveh fell to a combined Babylonian-Median army in 612 BC, an event Week 12 described in detail. Babylon, one of the two victors, was now free to build its own empire. Assyria's collapse had left a gap, and Babylon meant to fill it. Historians call this the <strong>Neo-Babylonian Empire</strong>. Its greatest king, <strong>Nebuchadnezzar II</strong> (r. 605 to 562 BC), turned Babylon itself into one of the most famous cities of the ancient world.</p>
+    </div>
+
+    <div style="background: #F4EFE3; border: 1px solid #E0D3AD; border-left: 5px solid #8A6416; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+        <div class="callout-label" style="color: #8A6416;">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340; line-height: 1.5;"><span class="gloss" tabindex="0"><strong>Nebuchadnezzar II</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Nebuchadnezzar, neb-uh-kad-NEZ-er')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">neb-uh-kad-NEZ-er</span>king of the Neo-Babylonian Empire from 605 to 562 BC, known for rebuilding Babylon and for destroying Jerusalem in 586 BC.</span></span>, king of the Neo-Babylonian Empire from 605 to 562 BC, known for rebuilding Babylon and for destroying Jerusalem in 586 BC.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; AN EMPIRE, NOT JUST A CITY</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Nebuchadnezzar's ambitions were not confined to architecture. His armies expanded Neo-Babylonian control across much of the territory Assyria had once ruled, including a thirteen-year siege of the Phoenician city of Tyre, a campaign Week 15 will discuss further, and repeated campaigns into the region historians call the Levant, along the eastern Mediterranean coast. Among the small kingdoms in that region was <strong>Judah</strong>, ruled from the city of Jerusalem, whose fate under Nebuchadnezzar is the direct subject of this week's second lesson.</p>
+        <div class="callout-label">&#128218; A CITY AS POLITICAL STATEMENT</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This course has already visited Babylon once before, under a very different king, Hammurabi, all the way back in Week 4. <span class="gloss" tabindex="0">Nebuchadnezzar II<span class="gloss-tip"><span class="gloss-pron">neb-uh-kad-NEZ-er</span>king of the Neo-Babylonian Empire from 605 to 562 BC, known for rebuilding Babylon and for destroying Jerusalem in 586 BC.</span></span>'s Babylon was a far larger and grander place. He wanted visitors, subjects, and rivals alike to know it. His building writings are this week's second Primary Source. They describe rebuilding the city's massive walls, its royal palace, and above all its grand entrance gate, the <strong>Ishtar Gate</strong>. This gate was covered in glazed blue bricks and decorated with rows of carved bulls and dragons sacred to Babylonian gods. Herodotus, the Greek traveler this course met in Week 10, made a bold claim about Babylon's outer wall. He said it was so wide that two chariots could pass each other side by side along its top. Nearby stood the <strong>Etemenanki</strong>, a towering ziggurat built for Babylon's chief god, Marduk. It was so tall, and so famous, that later Greek visitors described it in striking terms. Some of those descriptions may have shaped the biblical story of the Tower of Babel. In other words, one real building may have helped inspire a famous old story.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The Ishtar Gate itself was flanked by a long walkway lined with more glazed bricks. This walkway was shaped into rows of striding lions, sacred to the goddess Ishtar herself. German archaeologists dug up thousands of these broken bricks in the early twentieth century, under a team led by Robert Koldewey. Museum workers spent years piecing the fragments back together. Today, a full rebuilt copy of the gate stands in a museum in Berlin, half a world away from Babylon's own ruins. Visitors there can walk beneath the same blue-glazed bricks that once greeted Nebuchadnezzar's own subjects and guests, nearly twenty-six centuries ago. In other words, a piece of ancient Babylon now stands, rebuilt, in a museum far from home.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; NEBUCHADNEZZAR II</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Nebuchadnezzar_II_crop.png" alt="Fragment of a stele showing Nebuchadnezzar II beside the Etemenanki ziggurat at Babylon" />
+        <div class="img-credit">Image: via Wikimedia Commons, public domain.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Nebuchadnezzar II<span class="gloss-tip"><span class="gloss-pron">neb-uh-kad-NEZ-er</span>king of the Neo-Babylonian Empire from 605 to 562 BC, known for rebuilding Babylon and for destroying Jerusalem in 586 BC.</span></span> ruled the Neo-Babylonian Empire from 605 to 562 BC. He rebuilt Babylon into one of the ancient world's grandest cities, and his armies destroyed Jerusalem in 586 BC after a long series of revolts.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Greek writers, centuries after Nebuchadnezzar's death, told of a second wonder at Babylon: the Hanging Gardens. These were tiered terraces of trees and plants, said to be built to please a homesick foreign queen. This is worth a note of real caution. No Babylonian text from Nebuchadnezzar's own time mentions any such gardens at all. Archaeologists have never confirmed exactly where, or whether, they stood. It may be a real memory of some lost building, muddled over time. It may be a legend attached to the wrong city entirely. It may even be a story with no real building behind it at all. Either way, it is a useful reminder. Even a well-documented king like Nebuchadnezzar can attract stories that outrun the actual evidence. In other words, not every famous old story turns out to be true.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">It is worth being direct about what a project like this is actually for. A ziggurat or a glazed gateway is not mainly a useful structure, the way a grain storehouse or a strong wall is. It is a political statement, made in stone and colored brick. It was a planned display, meant to announce that Babylon's king, and Babylon's gods, deserved awe and obedience. This is not a new idea in this course. Egyptian pyramids in Week 5 served this same purpose. So did Assyrian palace carvings in Week 11. Each civilization found its own way to send the same basic message. What makes Nebuchadnezzar's Babylon stand out is its sheer size and its careful use of color and imported material. Cedar wood came all the way from Lebanon. Glazed brick technique was perfected just for these projects, to make the statement as vivid as possible. In other words, a huge building can be a kind of message, not just a place to live or work.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; AN EMPIRE, NOT JUST A CITY</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Nebuchadnezzar's ambitions were not limited to building. His armies expanded Neo-Babylonian control across much of the land Assyria had once ruled. This included a thirteen-year siege of the Phoenician city of Tyre, a campaign Week 15 will discuss further. It also included repeated campaigns into the region historians call the Levant, along the eastern Mediterranean coast. Among the small kingdoms in that region was <span class="gloss" tabindex="0">Judah<span class="gloss-tip"><span class="gloss-pron">JOO-duh</span>a small kingdom in the southern Levant, ruled from Jerusalem, whose fate under Babylon is this week's second lesson.</span></span>, ruled from the city of <span class="gloss" tabindex="0">Jerusalem<span class="gloss-tip"><span class="gloss-pron">juh-ROO-suh-lem</span>Judah's capital city, home to its Temple, destroyed by Nebuchadnezzar's forces in 586 BC.</span></span>. Judah's fate under Nebuchadnezzar is the direct subject of this week's second lesson. In other words, Nebuchadnezzar's power reached far beyond Babylon's own walls.</p>
     </div>
 
     <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
         <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; A WARNING WORTH REMEMBERING</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Before moving forward, it is worth recalling a lesson Week 12 just finished teaching. Assyria, too, had once looked unstoppable, its capital seemingly permanent, its power seemingly total, only to collapse within a single generation once its internal unity failed. Nebuchadnezzar's Babylon is genuinely magnificent, and this lesson has described that magnificence honestly. But nothing about that magnificence is a guarantee of permanence. Babylon's own turn to face the same kind of test Assyria failed is not far off, a story this course will return to directly in Week 17. For now, Lesson 2 turns to one specific consequence of Nebuchadnezzar's power: the destruction of Jerusalem and the beginning of a period Jewish tradition still remembers as the Babylonian exile.</div>
+        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Before moving forward, it is worth recalling a lesson Week 12 just finished teaching. Assyria, too, had once looked unstoppable. Its capital had seemed permanent. Its power had seemed total. Yet it collapsed within a single generation, once its own internal unity gave way and failed. Nebuchadnezzar's Babylon is truly impressive, and this lesson has described that fact honestly. But nothing about that greatness means it will last. Babylon's own turn to face the same kind of test Assyria failed is not far off, a story this course will return to directly in Week 17. In other words, this lesson's story of glory is not yet the whole story. For now, Lesson 2 turns to one specific result of Nebuchadnezzar's power. It covers the destruction of Jerusalem, and the start of a period Jewish tradition still remembers as the Babylonian exile.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -93,5 +132,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
