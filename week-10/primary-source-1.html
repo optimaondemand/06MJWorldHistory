@@ -7,6 +7,11 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .source-note { background: #FFF7E8; border: 1px solid #E8D3A0; border-left: 5px solid #C7922C; border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-size: 14px; color: #4a3a1a; line-height: 1.55; }
+    .source-quote { background: #F7F5EF; border: 1px solid #D8CFB8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 22px 26px; margin: 18px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; color: #2a2214; line-height: 1.7; }
+    .source-quote p { margin: 0 0 12px 0; }
+    .source-quote p:last-child { margin-bottom: 0; }
+    .source-quote strong { color: #0E1C42; }
 </style>
 </head>
 <body>
@@ -27,11 +32,10 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q2 &middot; Module 10</div>
-        <div style="font-size: 12px; color: #666;">Twilight of the Pharaohs</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source</div>
-        <div style="font-size: 17px; color: #0e1c42;">Source 10.1 &middot; Tuesday</div>
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source 1</div>
+        <div style="font-size: 17px; color: #0e1c42;">Tuesday</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
@@ -43,26 +47,23 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Primary Source 1</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">The Great Triumphal Stele of Piye</div>
-        <div style="font-size: 16px; color: #666;">Primary Source Reading</div>
+        <div style="font-size: 22px; color: #0e1c42;">The Great Triumphal Stele of Piye</div>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; ABOUT THIS SOURCE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Adapted into plain modern English from Egyptological translations of the granite stele Piye had erected at Napata (Jebel Barkal) around 727 BC, recording his campaign against the northern Egyptian prince Tefnakht and other Delta rulers. The stele is unusually long and detailed for a royal victory inscription, narrating the campaign almost as a continuous story rather than a simple list of conquests.</div>
+    <div class="source-note">
+        <strong>About this source:</strong> James Henry Breasted's English translation of the granite stele Piye had erected at Napata (Jebel Barkal) around 727 BC, recording his campaign against the northern Egyptian prince Tefnakht and other Delta rulers. Source: James Henry Breasted, <em>Ancient Records of Egypt</em>, Part IV (University of Chicago Press, 1906), Sections 816ff. Public domain. The stele is unusually long and detailed for a royal victory inscription, narrating the campaign almost as a continuous story rather than a simple list of conquests. A few words in brackets are Breasted's own bracketed restorations of damaged stone, kept here as he printed them.
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 24px 28px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#128214; THE STELE</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On Piye's reason for marching north:</strong><br/>"His majesty sent to the princes and army commanders of Egypt: hasten to battle, take your positions, draw near to fight, surround, and capture the people within their own towns. Waste no time. But wash yourselves in the river before the battle, and dress in fine linen. Do not fight without cause. Offer to my father Amun before you advance, that he may deliver our enemies into our hands."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the fate of a defeated prince's horses:</strong><br/>"When the prince Namlot brought forth his horses to be inspected, his majesty's heart grieved for them, more than for any other matter of that day. His majesty said: it is more painful to my heart that these horses have suffered hunger than any wrong you have done in pursuit of your own ambitions. Let it be known that the stables of my enemies shall be inspected, and their neglect of these creatures counted against them."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On princes who submitted from a distance rather than approaching in person:</strong><br/>"Then came the princes of the north, prostrating themselves in the manner of dogs, saying, 'Be at peace with us.' They did not enter into the presence of his majesty, for they were unclean, eaters of fish, an abomination to the palace. Yet they sent forth their gifts, silver and gold and every good and precious thing, and his majesty accepted these offerings from where they stood."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0;"><strong>On the campaign's outcome:</strong><br/>"Then all the land was at peace under the feet of this god. All the princes lay upon their bellies before him, and Lower Egypt and the fortresses of the north opened their gates to him. Every man went about rejoicing, and every heart glad, for the terror of his majesty had entered every land."</p>
+    <div class="source-quote">
+        <p><strong>On Piye's instructions to his army before entering Thebes:</strong><br>"When ye arrive at Thebes, before Karnak, ye shall enter into the water, ye shall bathe in the river, ye shall dress in [fine linen], unstring the bow, loosen the arrow. Force battle upon them from afar. If he says to the infantry and chariotry of another city, 'Hasten;' (then) ye shall abide until his army comes, that ye may fight as he says."</p>
+        <p><strong>On the fate of a defeated prince's horses:</strong><br>"I swear, as Re loves me, and as my nostrils are rejuvenated with life, it is more grievous in my heart that my horses have suffered hunger, than any evil deed that thou hast done, in the prosecution of thy desire."</p>
+        <p><strong>On princes who submitted from a distance rather than approaching in person:</strong><br>"They entered not into the king's house, because they were unclean and eaters of fish; which is an abomination for the palace."</p>
+        <p><strong>On the campaign's outcome, as Piye sailed home in triumph:</strong><br>"His majesty sailed up-stream, with glad heart, the shores on his either side were jubilating... Thou makest bulls into women. Happy the heart of the mother who bore thee."</p>
     </div>
 
     <div style="background: #FDF3E3; border-left: 5px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #8A6416; margin-bottom: 8px;">&#128221; EDITORIAL NOTE</div>
-        <div style="font-size: 16px; color: #0E1C42; line-height: 1.6;">The stele closes with Piye departing for Napata, in the Kushite south, rather than remaining in Egypt to govern its northern territories directly, leaving local princes in place under his overarching authority, a detail this week's Lesson 1 discusses directly.</div>
+        <div style="font-size: 16px; color: #0E1C42; line-height: 1.6;">The stele closes with Piye departing for Napata, in the Kushite south, rather than remaining in Egypt to govern its northern territories directly, leaving local princes in place under his overarching authority, a detail this week's Lesson 1 discusses directly. Breasted's 1906 translation remains the standard English rendering used in classrooms. A more recent scholarly translation exists in R.K. Ritner's <em>The Libyan Anarchy</em> (2009), but that volume is still in copyright and was not used here.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px;">

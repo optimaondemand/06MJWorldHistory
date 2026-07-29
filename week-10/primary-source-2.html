@@ -7,6 +7,11 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .source-note { background: #FFF7E8; border: 1px solid #E8D3A0; border-left: 5px solid #C7922C; border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-size: 14px; color: #4a3a1a; line-height: 1.55; }
+    .source-quote { background: #F7F5EF; border: 1px solid #D8CFB8; border-left: 5px solid #0E1C42; border-radius: 8px; padding: 22px 26px; margin: 18px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; color: #2a2214; line-height: 1.7; }
+    .source-quote p { margin: 0 0 12px 0; }
+    .source-quote p:last-child { margin-bottom: 0; }
+    .source-quote strong { color: #0E1C42; }
 </style>
 </head>
 <body>
@@ -27,11 +32,10 @@
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
         <div style="font-size: 17px; color: #0e1c42;">Q2 &middot; Module 10</div>
-        <div style="font-size: 12px; color: #666;">Twilight of the Pharaohs</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
-        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source</div>
-        <div style="font-size: 17px; color: #0e1c42;">Source 10.2 &middot; Thursday</div>
+        <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Primary Source 2</div>
+        <div style="font-size: 17px; color: #0e1c42;">Thursday</div>
     </div>
     <div style="flex: 1; min-width: 140px; padding: 12px 16px;">
         <div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
@@ -43,22 +47,19 @@
 
     <div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 18px 22px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Primary Source 2</div>
-        <div style="font-size: 22px; color: #0e1c42; margin-bottom: 4px;">Herodotus, <em>Histories</em> Book II (on Egypt)</div>
-        <div style="font-size: 16px; color: #666;">Primary Source Reading</div>
+        <div style="font-size: 22px; color: #0e1c42;">Herodotus, <em>Histories</em> Book II (on Egypt)</div>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; ABOUT THIS SOURCE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Adapted into plain modern English from public domain English translations of Herodotus's <em>Histories</em>, Book II, written in the fifth century BC. These excerpts are chosen deliberately to include both Herodotus's careful, plausible eyewitness reporting and his more credulous traveler's tales, so that the two can be compared directly.</div>
+    <div class="source-note">
+        <strong>About this source:</strong> G.C. Macaulay's 1890 English translation of Herodotus's <em>Histories</em>, Book II ("Euterpe"), written in the fifth century BC. Source: <em>The History of Herodotus</em>, translated by G. C. Macaulay (Macmillan, 1890), public domain, hosted in full at Project Gutenberg (gutenberg.org/files/2131). These excerpts are chosen deliberately to include both Herodotus's careful, plausible eyewitness reporting and his more credulous traveler's tales, so that the two can be compared directly.
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 24px 28px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#128214; THE HISTORIES, BOOK II</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On Egypt's priests as a source of information:</strong><br/>"Concerning Egypt I will now speak at length, because it possesses more wonders than any other land, and more monuments that defy description. I questioned the priests of Egypt closely, and where I could, I saw things for myself, and I will set down what I was told, noting plainly where I myself believe it and where I do not."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the flooding of the Nile (careful, reasoned reporting):</strong><br/>"Concerning the source of the Nile's flooding, no one, Egyptian, Libyan, or Greek, could give me a satisfactory account. Some say melting snow causes it, which I judge impossible, since the river flows from the hottest parts of the world. Having weighed what I have seen and heard, my own opinion is that the flood results from the sun's changing position through the seasons, drawing water differently at different times of year. I offer this only as my own reasoned opinion, not as certain fact."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On the preparation of the dead (careful, plausible reporting):</strong><br/>"Those Egyptians who wish to preserve a body properly first remove certain internal organs through an incision, then fill the body with spices, and cover it with a preserving substance called natron for a fixed number of days, after which it is washed and wrapped in fine linen. There are simpler and cheaper methods as well, for those unable to afford the finest treatment."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0 0 14px 0;"><strong>On a phoenix said to visit the temple of the sun (an openly doubted tall tale):</strong><br/>"The Egyptians also tell of a sacred bird called the phoenix, which I myself have never seen except in paintings, for it is said to visit their country only once every five hundred years, when its father dies. It is said to carry its father's body, wrapped in myrrh, all the way from Arabia to the temple of the sun, and there to bury it. I repeat this only as the Egyptians themselves tell it. I do not vouch for its truth."</p>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.75; margin: 0;"><strong>On winged serpents guarding frankincense trees (a claim Herodotus presents as his own firsthand proof):</strong><br/>"I traveled to a certain place in Arabia to learn about winged serpents said to guard the trees that produce frankincense, and there I saw for myself an enormous quantity of their bones and ribs, piled in heaps of every size. Whether this proves the creatures were truly as described to me, I leave the reader to judge."</p>
+    <div class="source-quote">
+        <p><strong>On Egypt's wonders, as Herodotus opens his account:</strong><br>"Of Egypt however I shall make my report at length, because it has wonders more in number than any other land, and works too it has to show as much as any land, which are beyond expression great."</p>
+        <p><strong>On the flooding of the Nile (careful, reasoned reporting):</strong><br>Herodotus reports that no Egyptian, Libyan, or Greek could give him a satisfactory account of why the Nile floods in summer, unlike other rivers, and rejects the theory that melting snow causes it. He offers his own explanation instead: "the Sun passing in his course by the upper parts of Libya... draws to himself the water, and having drawn it he drives it away to the upper parts."</p>
+        <p><strong>On the preparation of the dead (careful, plausible reporting):</strong><br>"First with the crooked iron tool they draw out the brain through the nostrils, extracting it partly thus and partly by pouring in drugs; and after this with a sharp stone of Ethiopia they make a cut along the side and take out the whole contents of the belly."</p>
+        <p><strong>On a phoenix said to visit the temple of the sun (an openly doubted tall tale):</strong><br>"There is also another sacred bird called the phoenix which I did not myself see except in painting, for in truth he comes to them very rarely, at intervals, as the people of Heliopolis say, of five hundred years; and these say that he comes regularly when his father dies; and if he be like the painting he is of this size and nature, that is to say, some of his feathers are of gold colour and others red, and in outline and size he is as nearly as possible like an eagle."</p>
+        <p><strong>On winged serpents guarding frankincense trees (a claim Herodotus presents as his own firsthand proof):</strong><br>"There is a region moreover in Arabia, situated nearly over against the city of Buto, to which place I came to inquire about the winged serpents: and when I came thither I saw bones of serpents and spines in quantity so great that it is impossible to make report of the number, and there were heaps of spines, some heaps large and others less large and others smaller still than these, and these heaps were many in number."</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px;">

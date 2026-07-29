@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
     .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
     .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
     .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
@@ -66,36 +78,54 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What does it take to read an outsider's account of a civilization well?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Nearly everything this course has read so far comes from the civilizations themselves: royal inscriptions, law codes, king lists, administrative tablets. This week's second Primary Source is different. It comes from an outsider, a Greek traveler writing roughly two centuries after Piye, who set out to describe Egypt for readers who had never seen it.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below. Continuing from Monday: Third Intermediate Period, vassal, tribute.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">Saite Dynasty<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Saite Dynasty, SAY-ite')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">SAY-ite</span>the family of Egyptian kings who ruled from the Delta city of Sais, about 664 to 525 BC, known for reviving old Egyptian art styles.</span></span></li>
+            <li><span class="gloss" tabindex="0">historiography<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'historiography, his-tor-ee-OG-ruh-fee')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">his-tor-ee-OG-ruh-fee</span>the study of how history gets written, and of which sources deserve trust.</span></span></li>
+        </ul>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; HERODOTUS'S EGYPT</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Ancient_Egypt_map-IndexA4NKaart4.svg" alt="Map of ancient Egypt and Nubia showing Sais, Thebes, and the Nile" />
+        <div class="img-credit">Map: Jeff Dahl, revised by JLG, via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map traces Herodotus's likely route through Egypt, from the Delta city of <strong>Sais</strong> south toward <strong>Thebes</strong>, alongside the Nile's yearly flood zone he wrote so much about.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; MEET HERODOTUS</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;"><strong>Herodotus</strong>, born in the Greek city of Halicarnassus in the fifth century BC, is often called the "Father of History," not because he was the first person ever to write about the past, but because he was the first to approach it the way this course tries to: traveling to see things for himself, questioning multiple sources, and openly telling his readers when he was uncertain or skeptical rather than simply repeating whatever he had been told as settled fact. His book, the <em>Histories</em>, devotes an entire section, Book II, to Egypt, and this week's Primary Source draws from it directly.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Herodotus deserves careful reading, not uncritical trust. He genuinely traveled and genuinely questioned Egyptian priests and other informants, and much of what he reports about Egyptian customs, religious practice, and the Nile's flooding holds up well against what archaeology and Egyptian sources themselves confirm. But he was also a foreigner working through translators, centuries removed from the events he sometimes describes, and willing to pass along stories he found remarkable even when he openly doubted them himself. Reading him well means learning to tell these two kinds of material apart, which is exactly this week's Critical Questions and Primary Source Exercise ask you to practice.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Nearly everything this course has read so far comes from the civilizations themselves: royal writings, law codes, king lists, and office records. This week's second Primary Source is different. It comes from an outsider, a Greek traveler writing roughly two centuries after Piye, who set out to describe Egypt for readers who had never seen it.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; TWO KINDS OF CLAIM</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Consider two examples from his own text. Herodotus reports, carefully and at some length, several competing theories for why the Nile floods every year on a predictable schedule, weighs each one, and offers his own reasoned judgment, a genuinely historical way of handling a real puzzle. But he also reports a story about a phoenix bird that supposedly carries its dead father's body, wrapped in myrrh, from Arabia to the temple of the sun once every five hundred years, a story he explicitly tells his readers he does not fully believe, only that this is what the Egyptians say. That single word, "say," carried honestly through a text, is itself a piece of historical method worth noticing. Herodotus is not lying to us. He is showing his work.</p>
+        <div class="callout-label">&#128218; MEET HERODOTUS</div>
+        <div style="background: #F4EFE3; border: 1px solid #E0D3AD; border-left: 5px solid #8A6416; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;">
+            <div class="callout-label" style="color: #8A6416;">&#127760; FOREIGN LANGUAGE VOCABULARY</div>
+            <div style="font-size: 14px; color: #1a2340; line-height: 1.5;"><span class="gloss" tabindex="0"><strong>Herodotus</strong><button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Herodotus, heh-ROD-uh-tus')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">heh-ROD-uh-tus</span>a Greek writer of the fifth century BC, often called the Father of History for his careful, questioning approach to the past.</span></span>, a Greek writer of the fifth century BC, often called the "Father of History" for his careful, questioning approach to the past.</div>
+        </div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;"><span class="gloss" tabindex="0">Herodotus<span class="gloss-tip"><span class="gloss-pron">heh-ROD-uh-tus</span>a Greek writer of the fifth century BC, often called the Father of History for his careful, questioning approach to the past.</span></span>, born in the Greek city of Halicarnassus in the fifth century BC, is often called the "Father of History." That title is not because he was the first person ever to write about the past. It is because he was the first to approach it the way this course tries to. He traveled to see things for himself. He asked more than one source. He told his readers plainly when he was unsure or doubtful, rather than just repeating whatever he had been told as settled fact. This careful, questioning approach to the past is the start of what historians today call <span class="gloss" tabindex="0">historiography<span class="gloss-tip"><span class="gloss-pron">his-tor-ee-OG-ruh-fee</span>the study of how history gets written, and of which sources deserve trust.</span></span>. Historiography is the study of how history gets written and which sources deserve trust. In other words, it asks two questions at the same time: what happened, and how do we actually know that? His book, the <em>Histories</em>, gives an entire section, Book II, to Egypt, and this week's Primary Source draws from it directly.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Herodotus deserves careful reading, not blind trust. He really did travel, and he really did question Egyptian priests and other local sources. Much of what he reports about Egyptian customs, worship, and the Nile's flooding holds up well against what archaeology and Egypt's own sources confirm. In other words, when we can check his work against other evidence, he usually comes out looking honest and careful. But he was also a foreigner working through translators. He wrote centuries after some of the events he describes. He was willing to pass along stories he found amazing, even when he openly doubted them himself. Reading him well means learning to tell these two kinds of things apart. That is exactly what this week's Critical Questions and Primary Source Exercise ask you to practice.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; TWO KINDS OF CLAIM</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Consider two examples from his own text. Herodotus lists three different Greek ideas for why the Nile floods every year on a steady summer schedule. One idea blamed strong seasonal winds pushing the river back on itself. A second blamed melting snow far to the south. A third pointed to a great ocean Greeks believed circled the whole world. Herodotus argues against the first two ideas. He leans toward a version closer to the third. He weighs each one and offers his own reasoned judgment, a truly historical way of handling a real puzzle. Modern science instead credits heavy summer rains falling on the Ethiopian highlands, far south of Egypt, feeding the river until it rises and spreads across its banks each year. But he also repeats a story about a phoenix bird that is said to carry its dead father's body, wrapped in sweet-smelling resin, from Arabia to the temple of the sun once every five hundred years. This is a story he tells his readers he does not fully believe. He adds only that this is what the Egyptians themselves say. That one small word, "say," carried honestly through a whole text, is itself a piece of historical method worth noticing. Herodotus is not lying to us. He is showing his work. In other words, he lets his readers see the seam between what he checked himself and what he only heard from someone else. That seam is exactly what good historical reading looks for.</p>
 
         <div class="optima-widget">
             <div class="widget-kicker">&#127919; TRY IT: READING HERODOTUS</div>
             <div class="widget-question">Sort two of Herodotus's own claims by the kind of evidence behind them.</div>
-            <div class="widget-row" data-correct="reasoned">
-                <div class="widget-row-prompt">"Having weighed what I have seen and heard, my own opinion is that the flood results from the sun's changing position through the seasons."</div>
+            <div class="widget-row" data-correct="doubted">
+                <div class="widget-row-prompt">"It is said to carry its father's body, wrapped in sweet-smelling resin, all the way from Arabia to the temple of the sun. This is what the Egyptians themselves say."</div>
                 <div class="widget-options">
-                    <button data-choice="reasoned">His own reasoned judgment, after weighing competing theories.</button>
+                    <button data-choice="reasoned">His own reasoned judgment, after weighing competing ideas.</button>
                     <button data-choice="doubted">A story he openly doubts but repeats anyway.</button>
                 </div>
             </div>
-            <div class="widget-row" data-correct="doubted">
-                <div class="widget-row-prompt">"It is said to carry its father's body, wrapped in myrrh, all the way from Arabia to the temple of the sun. I do not vouch for its truth."</div>
+            <div class="widget-row" data-correct="reasoned">
+                <div class="widget-row-prompt">"Having weighed what I have seen and heard, my own opinion is that the flood results from the sun's changing position through the seasons."</div>
                 <div class="widget-options">
-                    <button data-choice="reasoned">His own reasoned judgment, after weighing competing theories.</button>
+                    <button data-choice="reasoned">His own reasoned judgment, after weighing competing ideas.</button>
                     <button data-choice="doubted">A story he openly doubts but repeats anyway.</button>
                 </div>
             </div>
@@ -103,10 +133,21 @@
         </div>
     </div>
 
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; HERODOTUS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Bust_of_Herodotus_in_Palazzo_Massimo_%28Rome%29.JPG" alt="Roman marble bust of the Greek historian Herodotus" />
+        <div class="img-credit">Photo: Palazzo Massimo, Rome, via Wikimedia Commons, CC BY-SA 4.0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Herodotus<span class="gloss-tip"><span class="gloss-pron">heh-ROD-uh-tus</span>a Greek writer of the fifth century BC, often called the Father of History for his careful, questioning approach to the past.</span></span> was a Greek writer of the fifth century BC, born in Halicarnassus. His book, the <em>Histories</em>, is one of the earliest surviving works of history in the Western tradition, and its Book II is this course's main window into ancient Egypt as an outsider saw it.</p>
+    </div>
+
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; A DYNASTY THAT LOOKED TO THE PAST</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Egypt's own story continues past the Kushite pharaohs of Week 10's first lesson. After Assyria's sack of Thebes in 663 BC weakened Kushite rule, a new Egyptian dynasty rose from the Delta city of Sais, one Egyptologists call the <strong>Saite</strong> period (664 to 525 BC), and Herodotus's own visit to Egypt likely came during or shortly after this era, which helps explain how much he was able to see and record.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The Saite pharaohs are worth noticing for a reason this course has flagged before: not everything in history moves forward. Saite artists and architects deliberately studied and imitated the styles of the Old Kingdom, the pyramid age this course met all the way back in Week 5, copying ancient tomb inscriptions and reviving nearly thousand-year-old artistic conventions on purpose. This was not backwardness or a failure of imagination. It was a deliberate choice, a civilization looking to its own deep past for legitimacy and continuity during an uncertain present, precisely the kind of pattern worth remembering: history is not one long climb toward something better, and sometimes a civilization's most confident move is to look backward rather than forward.</p>
+        <div class="callout-label">&#128218; A DYNASTY THAT LOOKED TO THE PAST</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Egypt's own story continues past the Kushite pharaohs of Monday's lesson. After Assyria's sack of Thebes in 663 BC weakened Kushite rule, a new Egyptian dynasty rose from the Delta city of <strong>Sais</strong>, a period historians call the <span class="gloss" tabindex="0">Saite Dynasty<span class="gloss-tip"><span class="gloss-pron">SAY-ite</span>the family of Egyptian kings who ruled from the Delta city of Sais, about 664 to 525 BC, known for reviving old Egyptian art styles.</span></span> (664 to 525 BC). Saite kings, unlike most earlier pharaohs, welcomed Greek traders and soldiers into Egypt. They even let Greek merchants build their own trading town, called Naukratis, in the Nile Delta. This new openness to outsiders is likely a real reason Herodotus, a Greek himself, could travel through Egypt so freely two centuries later. His own visit to Egypt likely came during or just after this era, which helps explain how much he was able to see and record for himself.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The Saite pharaohs are worth noticing for a reason this course has flagged before: not everything in history moves forward. Saite artists and builders studied and copied the styles of the Old Kingdom on purpose. That was the pyramid age this course met all the way back in Week 5. They copied ancient tomb writings on purpose. They brought back nearly thousand year old art styles by choice, down to fine details of pose and dress found on tomb walls far older than their own time. This was not laziness or a lack of new ideas. It was a planned choice: a civilization looking to its own deep past for the right to rule and a sense of steadiness during an uncertain present. It is exactly the kind of pattern worth remembering. History is not one long climb toward something better. Sometimes a civilization's most confident move is to look backward rather than forward. In other words, the Saite kings were not stuck in old habits by accident. They chose to look backward on purpose, because Egypt's own deep past gave them a kind of strength that a brand new style never could.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Egypt's own freedom, however, was not built to last. Beyond its borders, first Assyria, and later a much larger power still, was changing the whole Near East. Egypt would soon be pulled into that story directly, a thread this course picks back up in Week 18. For now, Week 11 turns north and east, to the empire whose rise Egypt's own weakness helped make possible. In other words, as Egypt grows weaker at home, somewhere else, a new power is quietly growing stronger.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
@@ -131,6 +172,15 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
     var reset = e.target.closest('.widget-reset');
@@ -147,11 +197,18 @@
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That is exactly the distinction Part 2 describes.' : 'Not quite. Reread Part 2 of today\'s lesson.';
+      var text = right ? 'Right. That is exactly the distinction Part 2 describes.' : 'Not quite. Reread the lesson above.';
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;
       return;
+    }
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();
