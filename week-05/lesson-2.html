@@ -7,21 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
-    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
-    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
-    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
-    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
-    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
-    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
-    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
-    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
-    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
-    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
-    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
-    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
-    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
-    .widget-reset:hover { background: #FDF3E3; }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -66,57 +63,71 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Who really built the Great Pyramid, and what did an all-powerful pharaoh's own officials teach about virtue?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Roughly five centuries after Narmer's unification, Egypt entered the period historians call the <strong>Old Kingdom</strong> (c. 2686 to 2181 BC), an era of strong centralized pharaonic rule and the most ambitious building projects the ancient world had yet attempted. This lesson looks at the Old Kingdom's most famous monument, what building it actually required, and a very different kind of Egyptian text: not a king's boast, but practical advice for living well.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">Old Kingdom<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Old Kingdom')">&#128266;</button><span class="gloss-tip">the period of Egyptian history, about 2686 to 2181 BC, when strong pharaohs ruled a unified Egypt and built its greatest pyramids.</span></span></li>
+            <li><span class="gloss" tabindex="0">vizier<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'vizier')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">vih-ZEER</span>a pharaoh's top official, in charge of running the day-to-day business of government.</span></span></li>
+        </ul>
+        <div style="font-size: 13px; color: #6b7a99; margin-top: 10px; font-style: italic;">Continuing from Monday, this is the last lesson where these terms are called out: divine kingship, hieroglyphics, inundation, pharaoh.</div>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; SECONDARY MAP &middot; PYRAMID SITES OF THE OLD KINGDOM</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Giza_pyramid_complex_%28map%29.svg" alt="Map of the Giza pyramid complex, one of the three main pyramid fields built near Memphis during the Old Kingdom" />
+        <div class="img-credit">Map: MesserWoland, CC BY-SA 3.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map details <strong>Giza</strong>, the best-known of the three main pyramid fields built along the Nile near Memphis during the Old Kingdom, alongside <strong>Saqqara</strong> and <strong>Dahshur</strong>.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; THE GREAT PYRAMID</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Around 2560 BC, under the pharaoh Khufu, workers completed the <strong>Great Pyramid of Giza</strong>, originally rising about 481 feet, built from over two million limestone and granite blocks, some weighing several tons apiece. For centuries, popular imagination pictured this as the work of masses of enslaved laborers driven by the whip. Archaeological evidence recovered from workers' villages near the pyramids tells a different story. Excavated bakeries, breweries, and cattle bones show that the pyramid workforce was fed a substantial diet including beer and meat, was housed in organized barracks, and appears to have included skilled permanent craftsmen alongside rotating gangs of Egyptian farmers, likely conscripted for a set season each year, probably during the months when the Nile flood made fieldwork impossible anyway. This does not mean the labor was easy or freely chosen in the way a modern job is. But it was organized, provisioned, state labor, not simply mass slavery, and it is worth correcting this popular misconception plainly rather than letting it stand.</p>
-
-        <div class="optima-widget">
-            <div class="widget-kicker">&#127919; TRY IT: WHO BUILT THE PYRAMID?</div>
-            <div class="widget-question">Test what the archaeological evidence actually shows about the Great Pyramid's construction.</div>
-            <div class="widget-row" data-correct="organized">
-                <div class="widget-row-prompt">What does evidence from workers' villages near the pyramids reveal about the labor force?</div>
-                <div class="widget-options">
-                    <button data-choice="slaves">A mass of foreign slaves driven by the whip.</button>
-                    <button data-choice="organized">Organized, provisioned laborers, some rotating seasonally and some permanent skilled craftsmen.</button>
-                    <button data-choice="priests">A small group of priests working alone.</button>
-                </div>
-            </div>
-            <div class="widget-row" data-correct="astronomy">
-                <div class="widget-row-prompt">How did Khufu's engineers align the pyramid's sides so precisely to true north?</div>
-                <div class="widget-options">
-                    <button data-choice="compass">Using a magnetic compass.</button>
-                    <button data-choice="guess">They did not; the alignment is accidental.</button>
-                    <button data-choice="astronomy">Naked-eye astronomical observation and careful surveying.</button>
-                </div>
-            </div>
-            <button class="widget-reset">Reset</button>
-        </div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Roughly five centuries after Narmer joined Egypt, it entered a time historians call the <span class="gloss" tabindex="0">Old Kingdom<span class="gloss-tip">the period of Egyptian history, about 2686 to 2181 BC, when strong pharaohs ruled a unified Egypt and built its greatest pyramids.</span></span> (about 2686 to 2181 BC). This was an age of strong, centered pharaoh rule. It was also the age of the boldest building projects the ancient world had yet tried. This lesson looks at the Old Kingdom's most famous monument. It also looks at what building that monument really took, and at a very different kind of Egyptian text: not a king's boast, but real advice for living well.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; PTAHHOTEP'S ADVICE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Not every Old Kingdom text is a royal monument. The <strong>Instructions of Ptahhotep</strong>, one of the oldest surviving wisdom texts from anywhere in the ancient world, is framed as advice from an aging vizier, a high royal official, to his son and successor. Rather than boasting of conquest or divine favor, Ptahhotep's advice concerns everyday virtue: how to listen well, how a powerful man should treat those beneath him without arrogance, how to control one's temper, and how to recognize that wisdom can come from anyone, regardless of rank. This week's primary source lets you read some of that advice directly. It is worth noticing how different this text feels from a pharaoh's monumental inscription. Where Narmer's Palette and a pyramid's scale project power outward, Ptahhotep's instructions look inward, at the private, personal virtues, courtesy, self-control, patience, that Egyptian culture expected even from its most powerful men.</p>
+        <div class="callout-label">&#128218; THE GREAT PYRAMID</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Around 2560 BC, under the pharaoh <span class="gloss" tabindex="0">Khufu<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Khufu')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">KOO-foo</span>the pharaoh under whom the Great Pyramid of Giza was built, ruling roughly 2589 to 2566 BC.</span></span>, workers finished the <strong>Great Pyramid of Giza</strong>. It first rose about 481 feet high. It was built from more than two million blocks of limestone and granite. Some granite blocks, hauled from quarries at Aswan far to the south, weighed as much as 80 tons each. The Greek historian Herodotus later claimed the pyramid took twenty years to build, though modern experts still debate the exact number.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">For a long time, popular stories pictured this as the work of huge crowds of enslaved workers driven by the whip. Evidence dug up from workers' villages near the pyramids tells a new story. Diggers found bakeries, breweries, and animal bones nearby. These finds show that pyramid workers ate a solid diet that included beer and meat. They lived in planned camps, not scattered huts. The workforce seems to have included skilled full-time builders. Alongside them worked changing crews of Egyptian farmers. These farmers were likely called up for a set season each year. This was likely during the months of the <span class="gloss" tabindex="0">inundation<span class="gloss-tip"><span class="gloss-pron">in-un-DAY-shun</span>the yearly flood of the Nile River, which covered nearby farmland with rich, dark soil.</span></span>, when Nile floodwaters left the fields underwater anyway. Some work crews even carved their own team names into the stone blocks they moved. Names like "Friends of Khufu" turn up on blocks today, a small, human trace of pride left behind by common laborers.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">None of this means the work was easy or freely chosen the way a modern job is. But it was organized, paid, state labor. It was not simple mass slavery, and that popular mistake is worth correcting plainly rather than letting it stand. In 1954, workers clearing rubble near the pyramid found a complete wooden boat, taken apart and sealed inside a pit. It had likely been built for Khufu's own journey through the afterlife. Once put back together, the boat stretched more than 140 feet long, its ancient cedar planks still sound enough to fit together again.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Building the pyramid took great skill and precision. Its sides line up with true north within a tiny fraction of a degree. Khufu's engineers had no compass or telescope. They used only careful eyesight, surveying tools, and star sightings to reach that precision. Ramps, levers, and copper tools, not any wheeled machine, moved and shaped the stone. Whatever else can be argued about the Old Kingdom, one thing stands out. Its power to organize labor, supplies, and exact engineering skill on this scale, kept up across decades of rule, was real. Nothing else on Earth matched it at the time.</p>
     </div>
 
-    <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; DON'T FLATTEN THIS</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">It is tempting to picture the pyramids as either pure oppression or a straightforward national achievement everyone happily volunteered for. Resist that. The labor was real, organized, and almost certainly compulsory for most rotating workers, even as it was fed, housed, and skillfully managed rather than driven by mass slavery. Correcting a myth is not the same thing as declaring the reality effortless or freely chosen.</div>
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; KHUFU</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Ivory_statuette_of_Khufu_from_Abydos%2C_2551-2528_BCE%3B_Egyptian_Museum%2C_Cairo_%281%29.jpg" alt="A small ivory statuette of the pharaoh Khufu, the only confirmed image of him that survives" />
+        <div class="img-credit">Photo: Prof. Mortel, CC BY 2.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Khufu<span class="gloss-tip"><span class="gloss-pron">KOO-foo</span>the pharaoh under whom the Great Pyramid of Giza was built, ruling roughly 2589 to 2566 BC.</span></span> ruled Egypt around 2589 to 2566 BC. He is remembered today almost entirely for one achievement: ordering the building of the Great Pyramid of Giza, the largest pyramid ever built and one of the most massive structures in human history. Ironically, this small ivory statuette, only a few inches tall, is the only confirmed image of him that survives.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; DIVINE KINGSHIP, HELD IN TENSION</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Taken together, this week's two lessons present a pharaoh who was, on one hand, treated as a living god responsible for maintaining ma'at across the entire cosmos, and on the other hand, a ruler whose own officials wrote guidance on ordinary human virtues like patience and self-restraint. These are not necessarily in contradiction. A king who is understood to embody cosmic order might be expected, precisely because of that role, to model the personal order and self-government that order requires at every level, from the pharaoh's own household down to the humblest farmer's. Compare this again to Mesopotamia: Hammurabi justified his kingship by a promise of justice enforced through law; Egypt's Old Kingdom pharaoh justified his rule through a claimed identity with the divine itself, reinforced, this lesson suggests, by an expectation of personal virtue rather than law alone. Keep watching for how this claim to divine kingship holds up, or comes under strain, as Egypt's story continues in the weeks ahead.</p>
+        <div class="callout-label">&#128218; PTAHHOTEP'S ADVICE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Not every Old Kingdom text is a royal monument. The <strong>Instructions of Ptahhotep</strong>, one of the oldest surviving wisdom texts anywhere in the world, is written as advice from an aging <span class="gloss" tabindex="0">vizier<span class="gloss-tip"><span class="gloss-pron">vih-ZEER</span>a pharaoh's top official, in charge of running the day-to-day business of government.</span></span> to his son and successor. The full text survives today mainly through a later copy called the Prisse Papyrus. Historians are not fully sure just when <span class="gloss" tabindex="0">Ptahhotep<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Ptahhotep')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">tah-HOH-tep</span>a vizier whose collected wise sayings, the Instructions of Ptahhotep, are among the oldest surviving wisdom writing in the world.</span></span> lived. The text names him as vizier to a king called Djedkare Isesi, which would place him late in the Old Kingdom, well over a century after Khufu. Egyptian tradition later said Ptahhotep lived to the legendary age of 110 years, a symbol of the wisdom his advice claimed to offer.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Rather than boasting of conquest or divine favor, Ptahhotep's advice is about everyday virtue. It covers how to listen well. It covers how a powerful man should treat those below him without pride. It covers how to control one's temper, and how to remember that wisdom can come from anyone, no matter their rank. This week's primary source lets you read some of that advice firsthand, written down long ago in <span class="gloss" tabindex="0">hieroglyphics<span class="gloss-tip"><span class="gloss-pron">hy-ruh-GLIF-iks</span>Egypt's early writing system, made of small pictures that stood for sounds, words, or ideas.</span></span> on papyrus. Notice how different this text feels from a pharaoh's grand monument. Where Narmer's Palette and a pyramid's huge size show power outward, Ptahhotep's instructions look inward. They point at the private, personal virtues, courtesy, self-control, and patience, that Egyptian culture expected even from its most powerful men.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; PTAHHOTEP</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Ancient_Egypt_Papyrus_Scroll_of_the_Dead_%2828748821475%29.jpg" alt="An ancient Egyptian papyrus scroll covered in hieroglyphic writing" />
+        <div class="img-credit">Photo: Gary Todd, CC0, via Wikimedia Commons. (A papyrus scroll, the same kind of material that preserved Ptahhotep's Instructions.)</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Ptahhotep<span class="gloss-tip"><span class="gloss-pron">tah-HOH-tep</span>a vizier whose collected wise sayings, the Instructions of Ptahhotep, are among the oldest surviving wisdom writing in the world.</span></span> served as vizier, a pharaoh's top official, during the Old Kingdom. He is remembered today for a collection of wise sayings on courtesy, self-control, and good leadership, among the oldest surviving wisdom writing anywhere in the world.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; DIVINE KINGSHIP, HELD IN TENSION</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Taken together, this week's two lessons present a pharaoh who was two things at once. On one hand, he was treated as a living god in charge of keeping <strong>ma'at</strong> across the entire universe. On the other hand, his own officials wrote guidance on ordinary human virtues like patience and self-control. These do not have to be opposites. A king understood to stand for cosmic order might be expected, just because of that role, to model the same personal order and self-government at every level. That standard would run from the pharaoh's own household down to the humblest farmer's.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Compare this again to Mesopotamia. Hammurabi backed his rule with a promise of justice enforced through law. Egypt's Old Kingdom pharaoh backed his rule with a claimed link to the divine itself. This lesson suggests that claim was backed up by a call for personal virtue, not law alone. Keep watching for how this claim to divine kingship holds up, or comes under strain, as Egypt's story continues in the weeks ahead.</p>
+    </div>
+
+    <div class="tech-card">
+        <div class="callout-label">&#9881;&#65039; TECHNOLOGY SPOTLIGHT &middot; DIVINE KINGSHIP</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Khafre_statue.jpg" alt="A statue of the Old Kingdom pharaoh Khafre, wearing the royal nemes headdress and protected by the falcon god Horus" />
+        <div class="img-credit">Photo: Jon Bodsworth, copyrighted free use, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Egyptian kingship claimed something Mesopotamian kingship never quite claimed for itself. A Sumerian or Akkadian king ruled with the gods' favor, chosen and backed by them, but still a man set apart from the gods themselves. Egypt's pharaoh, from the very start of the unified kingdom, was treated as an actual living god on earth, an image of the falcon god Horus, responsible for keeping ma'at, the truth and balance holding the whole universe together. This is a truly different idea of kingship, one this course will keep comparing against Mesopotamia's model as both civilizations' stories continue.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
             <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
             <div>
                 <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 2</strong></div>
@@ -136,27 +147,23 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
-    var reset = e.target.closest('.widget-reset');
-    if (reset) {
-      var w = reset.closest('.optima-widget');
-      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
-      return;
-    }
-    var sBtn = e.target.closest('.widget-row .widget-options button');
-    if (sBtn) {
-      var row = sBtn.closest('.widget-row');
-      var correct = row.dataset.correct;
-      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      var right = sBtn.dataset.choice === correct;
-      sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That is exactly what the archaeological record shows.' : 'Not quite. Reread Part 1 of today\'s lesson on what the workers\' villages actually reveal.';
-      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
-      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
-      rf.textContent = text;
-      return;
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();

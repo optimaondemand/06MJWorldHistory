@@ -7,6 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -51,38 +63,86 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">divine kingship<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'divine kingship')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">dih-VYNE KING-ship</span>the belief that a ruler is not just chosen by the gods, but is in some real way a god.</span></span></li>
+            <li><span class="gloss" tabindex="0">hieroglyphics<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'hieroglyphics')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">hy-ruh-GLIF-iks</span>Egypt's early writing system, made of small pictures that stood for sounds, words, or ideas.</span></span></li>
+            <li><span class="gloss" tabindex="0">inundation<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'inundation')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">in-un-DAY-shun</span>the yearly flood of the Nile River, which covered nearby farmland with rich, dark soil.</span></span></li>
+            <li><span class="gloss" tabindex="0">pharaoh<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'pharaoh')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">FAIR-oh</span>the title used for the king of Egypt in later periods of its history.</span></span></li>
+        </ul>
+    </div>
+
+    <div class="map-card">
+        <div class="callout-label">&#128506;&#65039; MAIN MAP &middot; EGYPT AND THE NILE VALLEY</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Ancient_Egypt_map-en.svg" alt="Map of ancient Egypt showing Upper Egypt, Lower Egypt, the Nile Delta, and cities including Memphis and Hierakonpolis" />
+        <div class="img-credit">Map: Jeff Dahl, CC BY-SA 4.0, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">This map traces the <strong>Nile River</strong> from south to north, marking the split between <strong>Upper Egypt</strong> and <strong>Lower Egypt</strong>, the wide <strong>Nile Delta</strong>, and the cities of <strong>Hierakonpolis</strong> and <strong>Memphis</strong>.</p>
+        <div style="margin-top: 12px; font-size: 13px; color: #444;">
+            <strong>Geographical Glossary:</strong>
+            <span class="gloss" tabindex="0">Nile River<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Nile River')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">NYLE</span>the long river running through Egypt from south to north, flooding its banks every year and making farming possible in an otherwise dry land.</span></span> &middot;
+            <span class="gloss" tabindex="0">Upper Egypt<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Upper Egypt')">&#128266;</button><span class="gloss-tip">the southern half of Egypt, a narrow strip of farmland along the river valley.</span></span> &middot;
+            <span class="gloss" tabindex="0">Lower Egypt<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Lower Egypt')">&#128266;</button><span class="gloss-tip">the northern half of Egypt, centered on the wide, marshy Nile Delta.</span></span> &middot;
+            <span class="gloss" tabindex="0">Nile Delta<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Nile Delta')">&#128266;</button><span class="gloss-tip">the fan-shaped area where the Nile splits into many smaller channels before reaching the Mediterranean Sea.</span></span> &middot;
+            <span class="gloss" tabindex="0">Hierakonpolis<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Hierakonpolis')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">hy-air-uh-KON-poh-lis</span>a city in Upper Egypt where the Narmer Palette was found.</span></span> &middot;
+            <span class="gloss" tabindex="0">Memphis<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Memphis')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">MEM-fis</span>the city founded near the border of Upper and Lower Egypt to serve as the new, united kingdom's capital.</span></span>
+        </div>
+    </div>
+
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
         <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">Why did Egypt unify almost overnight, while Mesopotamia took centuries?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">For eight weeks now, this course has followed Mesopotamia, a land pieced together from two unpredictable rivers, dozens of competing city-states, and centuries of shifting power between them. Egypt tells an almost opposite story from its very beginning. One river, the <strong>Nile</strong>, floods on a schedule so regular that Egyptian farmers could set their whole year by it. One long, narrow strip of farmland, hemmed in by deserts on both sides, made outside invasion difficult and internal unity easier to imagine. And, unlike Sumer's slow crawl toward kingship across centuries, Egypt's history opens with a single, decisive act of unification that historians can point to almost like a starting gun.</p>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">For eight weeks, this course has followed Mesopotamia. It was a land built from two rivers that could flood without warning. It had dozens of cities fighting for power, with centuries of shifting rule between them. Egypt tells a nearly opposite story from its very start. One river, the <span class="gloss" tabindex="0">Nile River<span class="gloss-tip"><span class="gloss-pron">NYLE</span>the long river running through Egypt from south to north, flooding its banks every year and making farming possible in an otherwise dry land.</span></span>, floods on such a steady schedule that Egyptian farmers could set their whole year by it. One long strip of farmland, boxed in by desert on both sides, made outside attack harder. It also made it easier to picture the land as one single place. Sumer took centuries to slowly crawl toward kingship. Egypt's story is not like that. It opens with one sharp act of unity that historians can almost point to like the starting shot of a race. This course will spend the next four weeks with Egypt, tracing its story from that first unity all the way through the height of its power.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; A RIVER THAT KEEPS ITS PROMISES</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Every year, snowmelt and monsoon rains far to the south in the Ethiopian highlands sent the Nile rising over its banks each summer, then receding each autumn, leaving behind a fresh layer of dark, fertile silt across the floodplain. Egyptians called their own land <strong>Kemet</strong>, "the black land," for that soil, in contrast to the <strong>deshret</strong>, the "red land" of desert beyond it. This predictability mattered enormously. A Mesopotamian farmer faced a river that might flood catastrophically or fail entirely in a given year. A Nile farmer, over most of Egyptian history, could count on the flood arriving close to the same weeks and receding in time to plant before the coming dry season.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">It is worth noting, though, that farming itself did not begin in Egypt independently. Agriculture reached the Nile Valley from the Fertile Crescent, the same region Week 1 introduced, spreading south and west by around 5200 BC. Egypt's genius was not inventing agriculture, but adapting it with unusual success to an unusually forgiving river.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; A RIVER THAT KEEPS ITS PROMISES</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Every year, snowmelt and rains far to the south sent the Nile rising over its banks. It rose each summer, then fell back each fall. This flood, called the <span class="gloss" tabindex="0">inundation<span class="gloss-tip"><span class="gloss-pron">in-un-DAY-shun</span>the yearly flood of the Nile River, which covered nearby farmland with rich, dark soil.</span></span>, left behind a fresh layer of dark, rich soil across the farmland. Egyptians called their own land Kemet, "the black land," for that soil. They called the desert beyond it deshret, the "red land." This steady pattern mattered a great deal. A Mesopotamian farmer faced a river that might flood too hard, or fail to rise at all, in a given year. A Nile farmer, for most of Egyptian history, could count on the flood arriving close to the same weeks each year. It usually began in June and peaked by September, then pulled back in time for planting.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Egyptian officials even built stone gauges called nilometers along the riverbank to measure the flood's height each year and guess how good the harvest would be. One famous nilometer still stands today on the island of Elephantine, near modern Aswan, marked with lines that once tracked flood heights year after year. Farming itself did not begin in Egypt on its own, though. It reached the Nile Valley from the Fertile Crescent, the same region Week 1 named. It spread south and west by around 5200 BC. Egypt's true skill was not inventing farming. It was fitting farming, with real success, to a kind and steady river.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; TWO LANDS BECOME ONE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">For centuries before its unification, Egypt existed as two loosely separate cultural and political zones: Upper Egypt to the south, a string of towns strung along the narrow river valley, and Lower Egypt to the north, centered on the wide, marshy Nile Delta where the river fans out toward the Mediterranean. Around 3100 BC, a ruler most historians identify with the name <strong>Narmer</strong> brought these two lands under one crown.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The event is commemorated on the <strong>Narmer Palette</strong>, a ceremonial slate carving found at Hierakonpolis in Upper Egypt, which shows a king wearing the White Crown of Upper Egypt on one side and the Red Crown of Lower Egypt on the other, smiting a bound enemy in a formal pose of conquest. Whether the Palette records a single decisive military campaign, a longer process of consolidation compressed into one symbolic image, or something in between is genuinely debated among historians, and this week's Critical Questions will ask you to weigh the evidence yourself.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; TWO LANDS BECOME ONE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">For centuries before it became one kingdom, Egypt was really two lands. <span class="gloss" tabindex="0">Upper Egypt<span class="gloss-tip">the southern half of Egypt, a narrow strip of farmland along the river valley.</span></span> lay to the south, a string of towns strung along the narrow river valley. <span class="gloss" tabindex="0">Lower Egypt<span class="gloss-tip">the northern half of Egypt, centered on the wide, marshy Nile Delta.</span></span> lay to the north, centered on the wide, marshy <span class="gloss" tabindex="0">Nile Delta<span class="gloss-tip">the fan-shaped area where the Nile splits into many smaller channels before reaching the Mediterranean Sea.</span></span>, where the river fans out toward the Mediterranean Sea. Around 3100 BC, a ruler most historians call <span class="gloss" tabindex="0">Narmer<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Narmer')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">NAR-mer</span>the ruler most historians credit with joining Egypt's two lands into one kingdom, around 3100 BC.</span></span> brought these two lands under one crown.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This event is shown on the <strong>Narmer Palette</strong>, a carved stone slab found at <span class="gloss" tabindex="0">Hierakonpolis<span class="gloss-tip"><span class="gloss-pron">hy-air-uh-KON-poh-lis</span>a city in Upper Egypt where the Narmer Palette was found.</span></span> in Upper Egypt. It shows a king wearing the White Crown of Upper Egypt on one side and the Red Crown of Lower Egypt on the other. On both sides, he is shown striking down a bound enemy in a formal pose of conquest. The Palette also carries one of the very first known cases of a king's name written down in Egypt, framed inside a small box above his figure. Some historians think an earlier ruler, known only as Scorpion from a second carved macehead, may have begun the work of joining Egypt that Narmer later finished, or simply claimed credit for. Whether the Palette records one clear war, a longer process of joining squeezed into one single picture, or something in between is a real debate among historians today. This week's Critical Questions will ask you to weigh the proof for yourself.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; NARMER</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Narmer_Palette.jpg" alt="The Narmer Palette, a carved ceremonial stone slab showing King Narmer wearing the White and Red Crowns of Egypt" />
+        <div class="img-credit">Photo: anonymous ancient Egyptian carver, public domain, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Narmer<span class="gloss-tip"><span class="gloss-pron">NAR-mer</span>the ruler most historians credit with joining Egypt's two lands into one kingdom, around 3100 BC.</span></span> is the ruler most historians credit with joining Upper and Lower Egypt into one kingdom, around 3100 BC. Almost everything known about him comes from a single carved stone slab, the Narmer Palette, found at Hierakonpolis.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; MEMPHIS AND THE PHARAOH FROM THE START</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Following unification, a new capital, <strong>Memphis</strong>, was founded near the boundary between Upper and Lower Egypt, a deliberate choice symbolizing the joining of the two lands. From nearly this same starting point, Egyptian kingship took a different shape than anything Mesopotamia had produced. Sumerian and Akkadian kings, as earlier weeks showed, built their authority gradually, often still answerable to priesthoods or councils of elders, with kingship itself only slowly separating from temple administration.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Egypt's king, called <strong>pharaoh</strong> in later periods, was from a very early point treated as a living god, an embodiment of the falcon god Horus on earth, responsible for maintaining <strong>ma'at</strong>, the cosmic order, truth, and balance that kept the universe itself functioning correctly. This is a genuinely different theory of kingship: not a man chosen or favored by the gods to rule, as Hammurabi would later claim, but a man who was, in some real sense, understood to be divine himself.</p>
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; MEMPHIS AND A KING FROM THE START</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">After Egypt was joined, a new capital, <strong>Memphis</strong>, was built near the border of Upper and Lower Egypt. This choice was meant to stand for the joining of the two lands. From nearly this same starting point, Egyptian kingship took a shape unlike anything Mesopotamia had built. Sumerian and Akkadian kings, as earlier weeks showed, built their power slowly. They often still had to answer to priests or councils of elders. Kingship itself only slowly pulled apart from temple rule in Mesopotamia.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Egypt's king, called <span class="gloss" tabindex="0">pharaoh<span class="gloss-tip"><span class="gloss-pron">FAIR-oh</span>the title used for the king of Egypt in later periods of its history.</span></span> in later times, was treated from a very early point as a living god. He was seen as an image of the falcon god Horus on earth, in charge of keeping <span class="gloss" tabindex="0">cosmic order and justice<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'ma at')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">MAH-aht (ma'at)</span>the truth and balance that ancient Egyptians believed kept the whole world working the right way, a duty every pharaoh had to protect.</span></span>: the cosmic order, truth, and balance that kept the whole world running the right way. The word pharaoh itself first meant "great house," a name for the royal palace, before it later came to mean the king himself. Dynastic Egypt, once begun, would go on to last more than three thousand years, one of the longest runs of any civilization in world history. This is a truly different idea of kingship. It is not a man chosen by the gods to rule, as Hammurabi would later claim. It is a man who was, in some real sense, seen as divine himself. Egyptian writing, called <span class="gloss" tabindex="0">hieroglyphics<span class="gloss-tip"><span class="gloss-pron">hy-ruh-GLIF-iks</span>Egypt's early writing system, made of small pictures that stood for sounds, words, or ideas.</span></span>, appears on royal monuments like the Narmer Palette from this same early period. It records the names and titles of kings almost from the moment Egypt was joined.</p>
     </div>
 
-    <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #1B6A94; margin-bottom: 8px;">&#128161; A COMPARATIVE QUESTION WORTH HOLDING ONTO</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Why might one river valley civilization arrive at total, abrupt divine kingship from nearly its first unified moment, while another spent centuries negotiating the relationship between kings and priests, cities and empires? Geography offers part of an answer: Egypt's natural isolation, protected by deserts on both sides, gave a unifying king less external competition to answer to than a Mesopotamian ruler surrounded by rival cities and open plains. But geography alone does not settle the question, and this course will keep returning to it as Egypt's own kingship evolves across the coming weeks.</div>
+    <div class="people-card">
+        <div class="callout-label">&#128101; PEOPLES &middot; THE EGYPTIANS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Maler_der_Grabkammer_des_Userh%C3%AAt_%28III%29_004.jpg" alt="Ancient Egyptian tomb painting showing figures in linen clothing, jewelry, and eye makeup" />
+        <div class="img-credit">Tomb painting, unknown ancient Egyptian artist, public domain, via Wikimedia Commons.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Early Egyptians wore simple linen clothing suited to a hot, dry climate: kilts for men, close-fitting dresses for women, and wide bead collars for the wealthy. Eye makeup made from ground minerals was common for both men and women, worn to guard against sun glare and eye disease as much as for looks.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; A QUESTION WORTH HOLDING ONTO</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This difference is worth sitting with rather than rushing past. Why might one river valley civilization arrive at total, sudden <span class="gloss" tabindex="0">divine kingship<span class="gloss-tip"><span class="gloss-pron">dih-VYNE KING-ship</span>the belief that a ruler is not just chosen by the gods, but is in some real way a god.</span></span> almost from its first united moment? Why did another spend centuries working out the pull between kings and priests, cities and empires? Geography answers part of the question. Egypt's desert walls on both sides gave a joining king fewer rivals to answer to than a Mesopotamian ruler ringed by rival cities and open plains. But geography alone does not settle the matter. This course will keep returning to this question as Egypt's own kingship grows and changes in the weeks ahead.</p>
+    </div>
+
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; MEMPHIS</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/MemphisMuseumEgypt_2007feb1-9b_byDanielCsorfoly.JPG" alt="Ruins and colossal statues at the open-air museum on the site of ancient Memphis, Egypt" />
+        <div class="img-credit">Photo: Daniel Cs&ouml;rf&ouml;ly, public domain, via Wikimedia Commons. (Ruins at the site of ancient Memphis today.)</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><strong>Memphis</strong> stood near the point where the Nile Delta begins, chosen as Egypt's first capital because it sat right on the border between Upper and Lower Egypt. For centuries afterward, it remained one of Egypt's most important cities.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
             <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
             <div>
                 <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 1</strong></div>
@@ -100,5 +160,29 @@
 </div>
 
 </div>
+
+<script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+(function () {
+  document.addEventListener('click', function (e) {
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
