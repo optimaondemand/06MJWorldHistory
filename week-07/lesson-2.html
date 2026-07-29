@@ -7,21 +7,18 @@
 <style>
     body { margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6fa; }
     .canvas-frame { max-width: 1100px; margin: 0 auto; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
-    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
-    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
-    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
-    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
-    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
-    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
-    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
-    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
-    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
-    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
-    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
-    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
-    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
-    .widget-reset:hover { background: #FDF3E3; }
+    .gloss { position: relative; border-bottom: 1px dotted #2196D0; font-weight: 600; color: #0E1C42; cursor: help; }
+    .gloss:hover .gloss-tip, .gloss:focus .gloss-tip, .gloss.gloss-open .gloss-tip { display: block; }
+    .gloss-tip { display: none; position: absolute; left: 0; bottom: 100%; margin-bottom: 8px; width: 260px; max-width: 70vw; background: #0E1C42; color: #fff; font-weight: normal; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 20; }
+    .gloss-tip .gloss-pron { color: #55C8E8; display: block; margin-bottom: 4px; font-style: italic; }
+    .gloss-audio { display: inline-flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; font-size: 12px; padding: 0 0 0 2px; vertical-align: middle; color: #1B6A94; }
+    .gloss-audio:hover { color: #0E1C42; }
+    .glossary-box, .map-card, .figure-card, .people-card, .city-card, .tech-card { background: #FFFFFF; border: 1px solid #D0D9E8; border-left: 5px solid #C7922C; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .glossary-box ul { margin: 8px 0 0 0; padding-left: 20px; }
+    .glossary-box li { margin-bottom: 8px; font-size: 15px; color: #1a2340; line-height: 1.5; }
+    .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
+    .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -66,58 +63,72 @@
         <div style="font-size: 16px; color: #666;">Lesson</div>
     </div>
 
-    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 12px;">&#128214; TODAY'S FOCUS</div>
-        <div style="font-size: 20px; color: #0e1c42; font-style: italic; margin-bottom: 10px;">What can a cracked bone tell a historian three thousand years later?</div>
-        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Far to the east of the Indus Valley, along the Yellow River in northern China, a very different kind of river valley civilization was taking shape by around 1600 BC: the <strong>Shang dynasty</strong>, the first Chinese dynasty confirmed by both archaeology and its own writing. Chinese tradition remembers an earlier dynasty, the Xia, founded by the legendary flood-taming hero Yu the Great, but no confirmed written or archaeological evidence for the Xia has yet been found, so historians treat it, like Gilgamesh's Uruk or the Trojan War, as legendary or semi-legendary rather than confirmed history. The Shang dynasty is a different matter entirely: its kings, its capital cities, and even individual named people are documented in the civilization's own surviving written records.</p>
+    <div class="glossary-box">
+        <div class="callout-label">&#128214; GLOSSARY OF SUBJECT VOCABULARY</div>
+        <div style="font-size: 14px; color: #1a2340;">There are some vocabulary words in this lesson worth reviewing. Tap or hover any highlighted word in the text for a quick reminder, or use the list below.</div>
+        <ul>
+            <li><span class="gloss" tabindex="0">divination<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'divination')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">div-uh-NAY-shun</span>a practice meant to answer questions or predict the future by reading signs, such as cracks in a heated bone.</span></span></li>
+            <li><span class="gloss" tabindex="0">oracle bone<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'oracle bone')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">OR-uh-kul</span>a bone or shell used in Shang China to ask the royal ancestors or gods a question, then carved with the question and answer.</span></span></li>
+        </ul>
+        <div style="font-size: 13px; color: #6b7a99; margin-top: 10px; font-style: italic;">Continuing from Monday, this is the last lesson where these terms are called out: Harappan, Indus script, standardized weights.</div>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 1 &middot; TALKING TO THE ANCESTORS</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Those records take an unusual form: <strong>oracle bones</strong>, the flat shoulder bones of cattle or the undersides of turtle shells, prepared by Shang diviners working for the royal court. A diviner would apply a heated point to the bone or shell, causing it to crack, and would then interpret the pattern of the crack as an answer from the royal ancestors or gods to a question the king wished to ask, questions about the harvest, about whether to go to war, about a coming illness, or about the meaning of a dream. Afterward, scribes carved the original question, and sometimes the outcome, directly onto the same bone in written characters.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This practice, called <strong>divination</strong>, gives modern historians something extraordinarily rare: a huge archive, tens of thousands of inscribed bones have survived, of a Bronze Age royal court's own day-to-day concerns, written in its own hand. Oracle bone script, dated to around 1250 BC under a king named Wu Ding, is the first confirmed, undisputed Chinese writing system, and it is the direct ancestor of the Chinese characters still used today, thousands of years later.</p>
-
-        <div class="optima-widget">
-            <div class="widget-kicker">&#127919; TRY IT: READING THE EVIDENCE</div>
-            <div class="widget-question">Test what oracle bones and Shang tombs actually tell historians.</div>
-            <div class="widget-row" data-correct="chinese">
-                <div class="widget-row-prompt">What is the historical significance of oracle bone script, dated to around 1250 BC?</div>
-                <div class="widget-options">
-                    <button data-choice="indus">It is the same undeciphered script found at Mohenjo-daro.</button>
-                    <button data-choice="chinese">It is the first confirmed Chinese writing system, ancestor of characters used today.</button>
-                    <button data-choice="cuneiform">It was borrowed directly from Sumerian cuneiform.</button>
-                </div>
-            </div>
-            <div class="widget-row" data-correct="fuhao">
-                <div class="widget-row-prompt">Whose unlooted tomb, discovered in 1976 at Anyang, revealed inscriptions describing her leading military campaigns?</div>
-                <div class="widget-options">
-                    <button data-choice="wuding">King Wu Ding himself.</button>
-                    <button data-choice="fuhao">Fu Hao, a consort of King Wu Ding.</button>
-                    <button data-choice="hatshepsut">Hatshepsut of Egypt.</button>
-                </div>
-            </div>
-            <button class="widget-reset">Reset</button>
-        </div>
+        <p style="font-size: 18px; color: #1a2340; line-height: 1.65; margin: 0;">Far to the east of the Indus Valley, along the Yellow River in northern China, a very different kind of river valley civilization was taking shape by around 1600 BC. Historians call it the <strong>Shang dynasty</strong>. It is the first Chinese dynasty confirmed by both digging and its own writing. Chinese tradition remembers an earlier dynasty, the Xia, founded by the legendary flood-taming hero Yu the Great. No confirmed writing or dig evidence for the Xia has yet turned up. Historians treat it, like Gilgamesh's Uruk or the Trojan War, as legendary rather than confirmed history. The Shang dynasty is a different matter entirely. Its kings, its capital cities, and even the names of certain people are recorded in the civilization's own surviving writing. At its height, Shang territory covered much of what is now northern China, organized around a network of walled towns loyal to the king at Anyang.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 2 &middot; ANYANG AND A WARRIOR QUEEN</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Around this same time, the Shang capital settled at <strong>Anyang</strong>, known archaeologically as Yinxu, where extensive royal tombs have been excavated. One of the most remarkable belonged to <strong>Fu Hao</strong>, a consort of King Wu Ding, whose tomb, discovered still sealed and unlooted in 1976, revealed an enormous store of ritual bronze vessels, jade objects, and weapons. Oracle bone inscriptions referring to Fu Hao describe her personally leading military campaigns on the king's behalf, commanding thousands of troops, an unusually direct and well-documented example of a woman wielding real military authority in the ancient world, worth comparing to Hatshepsut's very different path to power in Egypt two weeks ago.</p>
+        <div class="callout-label">&#128218; TALKING TO THE ANCESTORS</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Those records take a strange form: <span class="gloss" tabindex="0">oracle bones<span class="gloss-tip"><span class="gloss-pron">OR-uh-kul</span>a bone or shell used in Shang China to ask the royal ancestors or gods a question, then carved with the question and answer.</span></span>. These were the flat shoulder bones of cattle, or the underside of turtle shells, prepared by Shang diviners working for the royal court. A diviner would press a heated point against the bone or shell. This caused it to crack. The diviner then read the pattern of the crack as an answer from the royal ancestors or gods. Kings asked about the harvest, whether to go to war, a coming illness, or the meaning of a dream. Afterward, scribes carved the original question, and sometimes the answer, right onto the same bone. This practice, called <span class="gloss" tabindex="0">divination<span class="gloss-tip"><span class="gloss-pron">div-uh-NAY-shun</span>a practice meant to answer questions or predict the future by reading signs, such as cracks in a heated bone.</span></span>, gives modern historians something rare: a huge stash of evidence. Tens of thousands of carved bones survive today. They show a Bronze Age royal court's own day-to-day worries, written in its own hand. Oracle bone writing, dated to around 1250 BC under a king named <span class="gloss" tabindex="0">Wu Ding<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Wu Ding')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">woo-DING</span>a Shang king, ruling around 1250 BC, under whom the earliest confirmed Chinese writing appears.</span></span>, is the first confirmed Chinese writing system. It is the direct ancestor of the Chinese characters still used today, thousands of years later.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">For centuries after the Shang fell, no one remembered what oracle bones were. Farmers who dug them up sold them to pharmacies as "dragon bones," to be ground up as medicine. Only in 1899 did a Chinese scholar named Wang Yirong notice strange carved marks on some of these bones. According to the most common telling, he first spotted the marks on "dragon bones" he had bought from a pharmacy to treat his own illness. He realized the marks were real ancient writing, not random scratches. That discovery was made almost by accident. It opened up a whole lost period of Chinese history for the first time. Since then, well over one hundred thousand inscribed oracle bones have been recovered, most of them from Anyang itself.</p>
+    </div>
+
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; WU DING</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Shang_Oracle_Bone_%28Museum_Photo%29_%2845868930051%29.jpg" alt="A carved oracle bone from the Shang dynasty, the kind of record used to date the reign of King Wu Ding" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Wu Ding<span class="gloss-tip"><span class="gloss-pron">woo-DING</span>a Shang king, ruling around 1250 BC, under whom the earliest confirmed Chinese writing appears.</span></span> ruled Shang China around 1250 BC. The earliest confirmed Chinese writing dates to his reign, preserved on the oracle bones his court used to question the royal ancestors.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
-        <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; PART 3 &middot; BRONZE AT AN EXTRAORDINARY SCALE</div>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Shang China also produced ritual bronze vessels of remarkable technical sophistication, cast using a distinctive method called piece-mold casting, different from the lost-wax casting techniques used in the Near East, and capable of producing some of the largest and most intricately decorated bronze objects made anywhere in the ancient world. These vessels were not everyday tools but ritual objects, used to make offerings of food and wine to royal ancestors, whose favor and guidance, as the oracle bones show, the Shang kings sought constantly.</p>
+        <div class="callout-label">&#128218; ANYANG AND A WARRIOR QUEEN</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Around this same time, the Shang capital settled at <strong>Anyang</strong>, known to archaeologists as Yinxu. Large royal tombs have been dug up there. One of the most striking belonged to <span class="gloss" tabindex="0">Fu Hao<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Fu Hao')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">foo-HOW</span>a wife of King Wu Ding who personally led military campaigns, a rare example of a woman with real military power in the ancient world.</span></span>, a wife of King Wu Ding. Her tomb was found still sealed and unlooted in 1976. It held a huge store of ritual bronze vessels, jade objects, and weapons, more than 1,600 items in all. Oracle bone writings naming Fu Hao describe her leading her own military campaigns for the king. In at least one account, she commanded thousands of troops. This is a rare, well-recorded case of a woman holding real military power in the ancient world. It is worth comparing to Hatshepsut's very different path to power in Egypt two weeks ago.</p>
     </div>
 
-    <div style="background: #FDECEC; border-left: 5px solid #C0392B; border-top: 3px solid #E74C3C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
-        <div style="font-size: 11px; color: #8A1F16; margin-bottom: 8px;">&#9888;&#65039; A CIVILIZATION UNTOUCHED BY DISTANT COLLAPSE</div>
-        <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">One more point is worth holding onto as this course's Quarter 1 draws toward its close. Next week's lessons turn to the palace civilizations of the eastern Mediterranean, and Week 9 will describe a wave of crisis and collapse that devastates much of the Near East around 1200 to 1150 BC. Shang China, thousands of miles away with no direct contact with that world, is entirely unaffected by it, and its dynasty continues on for another century beyond that collapse. Keep this in mind as a useful check against assuming any single historical event, however dramatic, was a truly global one.</div>
+    <div class="figure-card">
+        <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; FU HAO</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Fu_Hao_Tomb%2C_c._1200_BC%2C_Reign_of_King_Wu_Ding%2C_Shang_Dynasty_1.jpg" alt="A bronze ritual vessel recovered from Fu Hao's tomb at Anyang" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><span class="gloss" tabindex="0">Fu Hao<span class="gloss-tip"><span class="gloss-pron">foo-HOW</span>a wife of King Wu Ding who personally led military campaigns, a rare example of a woman with real military power in the ancient world.</span></span> was a wife of the Shang king Wu Ding, who ruled China around 1250 BC. Oracle bone writings show her leading her own military campaigns, commanding thousands of soldiers, an unusually direct record of a woman's military power in the ancient world.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; BRONZE AT A REMARKABLE SCALE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Shang China also made ritual bronze vessels of great skill. Craftsmen cast them using a method called piece-mold casting. A clay model was carved, then cut into separate pieces that formed a mold. This method differed from the lost-wax casting used in the Near East. It could produce some of the largest and most finely carved bronze objects made anywhere in the ancient world. One surviving vessel, the Houmuwu ding, weighs over 1,600 pounds, among the heaviest bronze objects ever cast anywhere in the ancient world. Producing bronze on this scale needed tin and copper. Both metals were hauled in from mines sometimes hundreds of miles away, proof of trade networks reaching well beyond the Shang king's direct land. Shang China's elites also wore fine silk cloth, made from threads unwound from the cocoons of silkworms raised on mulberry leaves, a Chinese skill that stayed mostly unknown outside East Asia for many centuries. These vessels were not everyday tools. They were ritual objects, used to offer food and wine to royal ancestors, whose favor and guidance, as the oracle bones show, the Shang kings sought all the time.</p>
+    </div>
+
+    <div class="people-card">
+        <div class="callout-label">&#128101; PEOPLES &middot; THE SHANG</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Shang_Jade_Humanoid_Figure.jpg" alt="A carved Shang dynasty jade figure showing clothing and ornament styles" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;">Shang elites wore silk robes, a fabric first made in China from the cocoons of silkworms, along with jade jewelry believed to protect the wearer and honor the ancestors. Bronze helmets and armor equipped Shang soldiers for war.</p>
+    </div>
+
+    <div class="city-card">
+        <div class="callout-label">&#127961;&#65039; CITIES &middot; ANYANG</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Yinxu_World_Heritage_Site%2C_Anyang_%2810197192394%29.jpg" alt="The ruins of the Yinxu World Heritage Site at Anyang, the Shang dynasty's final capital" />
+        <div class="img-credit">Photo: via Wikimedia Commons, CC0.</div>
+        <p style="font-size: 15px; color: #1a2340; line-height: 1.6; margin: 8px 0 0 0;"><strong>Anyang</strong> served as the Shang dynasty's capital for over two centuries. Its royal tombs, packed with bronze, jade, and oracle bones, have made it one of the richest archaeological sites in Chinese history.</p>
+    </div>
+
+    <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
+        <div class="callout-label">&#128218; A CIVILIZATION UNTOUCHED BY DISTANT COLLAPSE</div>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">One more point is worth holding onto as this course's Quarter 1 draws toward its close. Next week's lessons turn to the palace civilizations of the eastern Mediterranean. Week 9 will describe a wave of crisis and collapse that hits much of the Near East around 1200 to 1150 BC. Shang China, thousands of miles away with no direct contact with that world, is not touched by it at all. Its dynasty continues on for another century beyond that collapse, only ending around 1046 BC, when a rival people called the Zhou overthrew it. Keep this in mind as a useful check against assuming any single historical event, however dramatic, reached the whole world at once.</p>
     </div>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
-        <div style="display: flex; align-items: flex-start; gap: 14px;">
+        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
             <div style="min-width: 34px; height: 34px; border-radius: 50%; background: #0E1C42; color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
             <div>
                 <div style="font-size: 18px; color: #0e1c42; margin-bottom: 4px;"><strong>Reading Quiz 2</strong></div>
@@ -137,27 +148,23 @@
 </div>
 
 <script>
+function speakGloss(e, text) {
+  e.stopPropagation();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
 (function () {
   document.addEventListener('click', function (e) {
-    var reset = e.target.closest('.widget-reset');
-    if (reset) {
-      var w = reset.closest('.optima-widget');
-      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
-      return;
-    }
-    var sBtn = e.target.closest('.widget-row .widget-options button');
-    if (sBtn) {
-      var row = sBtn.closest('.widget-row');
-      var correct = row.dataset.correct;
-      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
-      var right = sBtn.dataset.choice === correct;
-      sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That is exactly what today\'s lesson describes.' : 'Not quite. Reread Part 1 of today\'s lesson.';
-      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
-      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
-      rf.textContent = text;
-      return;
+    var gloss = e.target.closest('.gloss');
+    if (gloss && !e.target.closest('.gloss-audio')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
+      gloss.classList.toggle('gloss-open');
+    } else if (!e.target.closest('.gloss-tip')) {
+      document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { g.classList.remove('gloss-open'); });
     }
   });
 })();
