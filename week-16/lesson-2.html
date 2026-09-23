@@ -400,6 +400,26 @@
         <div class="callout-label">&#128218; ODYSSEUS'S CUNNING, AND ITS OWN LIMITS</div>
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">This week's second Primary Source turns to the <em>Odyssey</em> and one of its most famous scenes. <span class="gloss" tabindex="0">Odysseus<span class="gloss-tip"><span class="gloss-pron">oh-DIS-ee-us</span>the cunning hero of the Odyssey, famed for the tricks that get him and his crew out of danger.</span></span> and his crew are trapped in the cave of the one-eyed Cyclops, <span class="gloss" tabindex="0">Polyphemus<span class="gloss-tip"><span class="gloss-pron">pol-ih-FEE-mus</span>the one-eyed Cyclops Odysseus blinds and tricks to escape his cave.</span></span>. They escape only through Odysseus's quick thinking. He tricks the giant with a false name, "Nobody," then blinds his single eye before slipping away. Where Achilles's story studies harmful pride, Odysseus's story is, at least at first, a study in <strong>prudence</strong>: quick thinking, patience, and self-control used to survive a spot raw strength alone could never have escaped.</p>
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Yet Homer does not let Odysseus off entirely clean either. As his ship pulls away to safety, Odysseus cannot resist shouting his own real name back at the blinded giant. He boasts of his own wit, a boast that lets Polyphemus curse him in return. That curse haunts the rest of his voyage home. Even this course's clearest example of prudence holds a small lapse into the same kind of pride that undid Achilles, just on a smaller scale. In other words, no hero in these poems gets to be purely wise or purely foolish. Each one carries both traits at once. Homer's heroes, taken together, offer this course's fullest lesson yet in weighing virtue and vice honestly. Real courage, real cunning, and real pride, sometimes bought at a genuine cost, often live inside the very same person.</p>
+
+        <div class="optima-widget">
+            <div class="widget-kicker">&#127919; TRY IT: HOMER'S HEROES, VIRTUE AND VICE</div>
+            <div class="widget-question">Match each hero to the moment that shows his own vice.</div>
+            <div class="widget-row" data-correct="achilles">
+                <div class="widget-row-prompt">His wrath over a captive costs the Greeks dearly, a vice rather than a virtue.</div>
+                <div class="widget-options">
+                    <button data-choice="achilles">Achilles</button>
+                    <button data-choice="agamemnon">Agamemnon</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="odysseus">
+                <div class="widget-row-prompt">His clever escape from the Cyclops is undercut when he cannot resist shouting his own name.</div>
+                <div class="widget-options">
+                    <button data-choice="polyphemus">Polyphemus</button>
+                    <button data-choice="odysseus">Odysseus</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
     </div>
 
     <div class="figure-card">
@@ -456,6 +476,26 @@ function speakGloss(e, text) {
 }
 (function () {
   document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var sBtn = e.target.closest('.widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
     var gloss = e.target.closest('.gloss');
     if (gloss && !e.target.closest('.gloss-audio')) {
       document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });

@@ -19,6 +19,21 @@
     .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
     .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
     .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
+    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+    .widget-reset:hover { background: #FDF3E3; }
 </style>
 </head>
 <body>
@@ -362,6 +377,26 @@
         <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">Historians place Hammurabi's reign at roughly 1792 to 1750 BC using the "Middle Chronology," one of several rival dating systems scholars use for the ancient Near East. A Babylonian record of the planet Venus, kept by ancient sky-watchers, is one key piece of evidence scholars compare against modern star charts to test rival systems. This course uses the Middle Chronology throughout, but other textbooks may use a different one.</div>
     </div>
 
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: NAMING BABYLON'S RISE</div>
+        <div class="widget-question">Match each term to what it names in this week's story.</div>
+        <div class="widget-row" data-correct="amorites">
+            <div class="widget-row-prompt">Migrating herders from the western desert and the Levant whose chiefs came to rule Mesopotamian cities like Babylon, keeping the old language and gods already there.</div>
+            <div class="widget-options">
+                <button data-choice="amorites">Amorites</button>
+                <button data-choice="gutians">Gutians</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="codeoflaw">
+            <div class="widget-row-prompt">A single, written collection of laws, carved on a stone stele, meant to apply the same way across a whole kingdom rather than being decided case by case.</div>
+            <div class="widget-options">
+                <button data-choice="stele">Stele</button>
+                <button data-choice="codeoflaw">Code of law</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
+
     <div class="figure-card">
         <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; HAMMURABI</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/F0182_Louvre_Code_Hammourabi_Bas-relief_Sb8_rwk.jpg" alt="The relief carved at the top of the Code of Hammurabi's stele, showing Hammurabi before the god Shamash" style="max-width: 320px;" />
@@ -401,6 +436,26 @@ function speakGloss(e, text) {
 }
 (function () {
   document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var sBtn = e.target.closest('.widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
     var gloss = e.target.closest('.gloss');
     if (gloss && !e.target.closest('.gloss-audio')) {
       document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });

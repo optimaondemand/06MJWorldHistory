@@ -19,6 +19,21 @@
     .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
     .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
     .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
+    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+    .widget-reset:hover { background: #FDF3E3; }
 </style>
 </head>
 <body>
@@ -358,7 +373,27 @@
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div class="callout-label">&#128218; A RISKY CHOICE OF ROADS</div>
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Three roads led to Megiddo through the surrounding hills. Two were wide, safer routes coming in from the sides. One was a narrow, direct mountain pass called the Aruna Pass. It was so tight that soldiers had to march single file, horse following horse. They would be fully exposed if the enemy chose to attack while the army was strung out along it. According to the Annals, Thutmose III's own war council argued strongly against the narrow pass. They urged him to take one of the safer roads instead. Thutmose III overruled them. He reasoned that the enemy would expect an Egyptian attack from the safer routes. He guessed the enemy would gather their own forces there, leaving the direct pass open. He himself led his army through the narrow pass at its head, sharing the same risk he asked of his soldiers.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The gamble paid off. The Egyptian army came out of the pass with no enemy in sight, just as Thutmose III had guessed. His forces formed up in the open plain before Megiddo while the coalition's forces were still spread out elsewhere. In the battle that followed, the coalition army broke and ran back into the city. The open field was now Thutmose III's. To keep help from reaching the city, Egyptian soldiers built a wooden wall and ditch all the way around Megiddo, cutting it off from the outside. Still, Megiddo itself held out under siege for seven more months before it finally gave up. Egyptian scribes later listed a huge haul of goods taken from the fallen city. The list included hundreds of horses, chariots trimmed with gold, and enough grain to fill Egypt's royal storehouses for years.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">The gamble paid off. The Egyptian army came out of the pass with no enemy in sight, just as Thutmose III had guessed. His forces formed up in the open plain before Megiddo while the coalition's forces were still spread out elsewhere. In the battle that followed, the coalition army broke and ran back into the city. The open field was now Thutmose III's. To keep help from reaching the city, Egyptian soldiers built a wooden wall and ditch all the way around Megiddo, cutting it off from the outside. Still, Megiddo itself held out under siege for seven more months before it finally gave up. Egyptian scribes later listed a huge haul of goods taken from the fallen city. The list included hundreds of horses, chariots trimmed with gold, and enough grain to fill Egypt's royal storehouses for years.</p>
+
+        <div class="optima-widget">
+            <div class="widget-kicker">&#127919; TRY IT: THE MEGIDDO GAMBLE</div>
+            <div class="widget-question">Match each description to the correct choice.</div>
+            <div class="widget-row" data-correct="aruna">
+                <div class="widget-row-prompt">The narrow, risky route Thutmose III chose to march through, against his officers' advice.</div>
+                <div class="widget-options">
+                    <button data-choice="aruna">Aruna Pass</button>
+                    <button data-choice="horus">Ways of Horus</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="megiddo">
+                <div class="widget-row-prompt">The fortified city that held out under siege for seven months before surrendering.</div>
+                <div class="widget-options">
+                    <button data-choice="thebes">Thebes</button>
+                    <button data-choice="megiddo">Megiddo</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
     </div>
 
     <div style="background: #E8F6FB; border-left: 5px solid #2196D0; border-top: 3px solid #55C8E8; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
@@ -430,6 +465,26 @@ function speakGloss(e, text) {
 }
 (function () {
   document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var sBtn = e.target.closest('.widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
     var gloss = e.target.closest('.gloss');
     if (gloss && !e.target.closest('.gloss-audio')) {
       document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });

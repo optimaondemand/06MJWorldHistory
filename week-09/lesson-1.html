@@ -19,6 +19,21 @@
     .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
     .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
     .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
+    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+    .widget-reset:hover { background: #FDF3E3; }
 </style>
 </head>
 <body>
@@ -359,7 +374,27 @@
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div class="callout-label">&#128218; WHO WERE THE SEA PEOPLES?</div>
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Egyptian records from this period describe repeated attacks by a shifting group of seaborne raiders and migrants. Modern historians call them the <span class="gloss" tabindex="0">Sea Peoples<span class="gloss-tip">a shifting coalition of seaborne raiders and migrants, named by modern scholars, blamed for attacks on Egypt and other powers during the Bronze Age Collapse.</span></span>. This is a label invented by nineteenth-century scholars, not a name these groups used for themselves. Egyptian writings name several distinct peoples within this coalition. Egyptian scribes called them the Peleset, Sherden, Shekelesh, Denyen, and Weshesh. The Peleset most of all are widely thought to be the ancestors of the Philistines, a people this course will meet again in Week 13. Their exact origins are still debated among historians today. They may have come from the Aegean, Anatolia, the central Mediterranean, or several places at once. What is not in doubt is the timing. These attacks grow sharply worse in these very same years. This is exactly when the Hittite Empire, Mycenaean Greece, and Kassite Babylon all collapse or suffer heavy damage.</p>
-        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Around 1208 BC, shortly before this wider crisis, the pharaoh <span class="gloss" tabindex="0">Merneptah<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Merneptah')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">MER-nep-tah</span>pharaoh of Egypt from about 1213 to 1203 BC, whose victory stele contains the earliest known mention of "Israel."</span></span> had already fought off a coalition of enemies. It included Libyan raiders and groups later linked to the Sea Peoples. He marked his win on a stele. That stele happens to hold the earliest known mention anywhere of a people called "Israel," living in <span class="gloss" tabindex="0">Canaan<span class="gloss-tip"><span class="gloss-pron">KAY-nun</span>the region along the eastern Mediterranean coast, roughly modern Israel, the Palestinian territories, and Lebanon.</span></span>. This course will return to that detail directly in Week 13. But the more serious crisis was still to come. This week's Primary Source, the Medinet Habu inscription of <span class="gloss" tabindex="0">Ramesses III<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Ramesses the Third')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">RAM-uh-seez</span>pharaoh of Egypt from about 1186 to 1155 BC, who repelled a major Sea Peoples assault.</span></span>, describes a much larger Sea Peoples attack reaching Egypt's own borders roughly a generation later, one Egypt survived, but at lasting cost.</p>
+        <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 14px 0;">Around 1208 BC, shortly before this wider crisis, the pharaoh <span class="gloss" tabindex="0">Merneptah<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Merneptah')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">MER-nep-tah</span>pharaoh of Egypt from about 1213 to 1203 BC, whose victory stele contains the earliest known mention of "Israel."</span></span> had already fought off a coalition of enemies. It included Libyan raiders and groups later linked to the Sea Peoples. He marked his win on a stele. That stele happens to hold the earliest known mention anywhere of a people called "Israel," living in <span class="gloss" tabindex="0">Canaan<span class="gloss-tip"><span class="gloss-pron">KAY-nun</span>the region along the eastern Mediterranean coast, roughly modern Israel, the Palestinian territories, and Lebanon.</span></span>. This course will return to that detail directly in Week 13. But the more serious crisis was still to come. This week's Primary Source, the Medinet Habu inscription of <span class="gloss" tabindex="0">Ramesses III<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Ramesses the Third')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">RAM-uh-seez</span>pharaoh of Egypt from about 1186 to 1155 BC, who repelled a major Sea Peoples assault.</span></span>, describes a much larger Sea Peoples attack reaching Egypt's own borders roughly a generation later, one Egypt survived, but at lasting cost.</p>
+
+        <div class="optima-widget">
+            <div class="widget-kicker">&#127919; TRY IT: TWO EGYPTIAN PHARAOHS</div>
+            <div class="widget-question">Match each description to the pharaoh it names.</div>
+            <div class="widget-row" data-correct="merneptah">
+                <div class="widget-row-prompt">His victory stele contains the earliest known mention anywhere of "Israel."</div>
+                <div class="widget-options">
+                    <button data-choice="ramesses">Ramesses III</button>
+                    <button data-choice="merneptah">Merneptah</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="ramesses">
+                <div class="widget-row-prompt">He repelled a much larger Sea Peoples attack reaching Egypt's own borders.</div>
+                <div class="widget-options">
+                    <button data-choice="ramesses">Ramesses III</button>
+                    <button data-choice="merneptah">Merneptah</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
     </div>
 
     <div class="figure-card">
@@ -438,6 +473,26 @@ function speakGloss(e, text) {
 }
 (function () {
   document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var sBtn = e.target.closest('.widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
     var gloss = e.target.closest('.gloss');
     if (gloss && !e.target.closest('.gloss-audio')) {
       document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });

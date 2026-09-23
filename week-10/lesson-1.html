@@ -19,6 +19,21 @@
     .map-card img, .figure-card img, .people-card img, .city-card img, .tech-card img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 10px 0; }
     .callout-label { font-size: 11px; color: #c7922c; letter-spacing: 0.4px; margin-bottom: 10px; }
     .img-credit { font-size: 11px; color: #8a94ab; margin-top: 4px; }
+    .optima-widget { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .widget-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .widget-question { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .widget-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .widget-row-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+    .widget-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .widget-options button { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .widget-options button:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .widget-options button.correct { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .widget-options button.incorrect { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .row-feedback { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; }
+    .row-feedback.correct { background: #D8F0DD; border-left: 3px solid #2A9D5C; color: #1A6B3D; }
+    .row-feedback.incorrect { background: #FDECEC; border-left: 3px solid #C0392B; color: #8A1F16; }
+    .widget-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 6px; }
+    .widget-reset:hover { background: #FDF3E3; }
 </style>
 </head>
 <body>
@@ -364,6 +379,26 @@
         </div>
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">That someone came from far to the south. Along the upper Nile, past Egypt's old border, in the region called <span class="gloss" tabindex="0">Nubia<span class="gloss-tip"><span class="gloss-pron">NOO-bee-uh</span>the wider region south of Egypt along the Nile, home to the kingdom of Kush.</span></span>, a kingdom called <strong>Kush</strong> had grown for centuries around the city of <span class="gloss" tabindex="0">Napata<span class="gloss-tip"><span class="gloss-pron">nuh-PAH-tuh</span>the capital city of the kingdom of Kush, far south along the Nile, near a stretch of rocky river rapids called the Fourth Cataract.</span></span>. Kush had taken in Egyptian religion, Egyptian writing, and worship of the god Amun so fully that its own kings saw themselves as the true keepers of Egyptian ways, maybe even more devoted than Egypt's own divided rulers. Kushites even believed a holy mountain near Napata, called Jebel Barkal, was one of Amun's true homes on Earth. Around 727 BC, the Kushite king <span class="gloss" tabindex="0">Piye<button class="gloss-audio" aria-label="Play pronunciation" onclick="speakGloss(event,'Piye, PEE-yay')">&#128266;</button><span class="gloss-tip"><span class="gloss-pron">PEE-yay</span>the Kushite king who conquered Egypt around 727 BC, founding what historians call Egypt's Twenty-fifth Dynasty.</span></span> marched his army north. By his own account, he came not to grab land for its own sake, but to punish a northern prince named Tefnakht for showing no respect to Amun, and for upsetting <strong>ma'at</strong>, Egypt's own idea of cosmic and social balance, the same idea this course met with the Old Kingdom back in Week 5.</p>
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This week's Primary Source, Piye's own <strong>Great Triumphal Stele</strong>, tells this campaign in striking, personal detail. It tells a story quite different from a simple tale of conquest. Piye orders his generals to purify themselves before battle. He tells them to make proper offerings at Thebes before marching further, treating the war as a religious duty first, and only a war second. City after city surrenders to him. Again and again, the stele shows Piye showing mercy to defeated princes who submit and show proper respect. He lets many keep their thrones as his <span class="gloss" tabindex="0">vassals<span class="gloss-tip">a ruler who keeps his own throne and people, but agrees to obey and pay tribute to a stronger king.</span></span>, ruling their own cities but now paying him <span class="gloss" tabindex="0">tribute<span class="gloss-tip">goods, money, or gifts a weaker ruler sends to a stronger one to buy peace or show loyalty.</span></span> and owing him loyalty. Yet he saves his sharpest anger not for a defeated human rival, but for finding out that a surrendered prince's horses had been left to starve during a siege. Piye's own words show a king more upset by cruelty to animals than by the shame of his human rivals. Maybe this reflects Piye's real character. Maybe it reflects the stele's own careful public image making. It is likely both at once. Either way, it is a striking piece of evidence for how a real historical figure wanted to be remembered. In short, this stele lets us see how Piye wanted people to remember him: as a king who fought for order and fair play, not just for land and power.</p>
+
+        <div class="optima-widget">
+            <div class="widget-kicker">&#127919; TRY IT: KUSH AND EGYPT</div>
+            <div class="widget-question">Match each term to what it names in this week's story.</div>
+            <div class="widget-row" data-correct="piye">
+                <div class="widget-row-prompt">The Kushite king who marched north around 727 BC to restore order and respect for Amun.</div>
+                <div class="widget-options">
+                    <button data-choice="tefnakht">Tefnakht</button>
+                    <button data-choice="piye">Piye</button>
+                </div>
+            </div>
+            <div class="widget-row" data-correct="napata">
+                <div class="widget-row-prompt">The capital of the kingdom of Kush, beside the sacred mountain Jebel Barkal.</div>
+                <div class="widget-options">
+                    <button data-choice="thebes">Thebes</button>
+                    <button data-choice="napata">Napata</button>
+                </div>
+            </div>
+            <button class="widget-reset">Reset</button>
+        </div>
     </div>
 
     <div class="figure-card">
@@ -431,6 +466,26 @@ function speakGloss(e, text) {
 }
 (function () {
   document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      return;
+    }
+    var sBtn = e.target.closest('.widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
     var gloss = e.target.closest('.gloss');
     if (gloss && !e.target.closest('.gloss-audio')) {
       document.querySelectorAll('.gloss.gloss-open').forEach(function (g) { if (g !== gloss) g.classList.remove('gloss-open'); });
