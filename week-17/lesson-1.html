@@ -398,6 +398,76 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Whatever the truth of his childhood, the grown Cyrus led a Persian revolt that overthrew Astyages around 550 BC. This united Media and Persia under his own rule for the first time. Until this moment, the Medes had been the stronger of the two peoples, with Persia serving as a vassal state beneath them. Cyrus flipped that order permanently, and Persia never again played second to Media. This union marks the true start of the <span class="gloss" tabindex="0">Achaemenid<span class="gloss-tip"><span class="gloss-pron">uh-KEE-muh-nid</span>the Persian royal line founded by Cyrus, and the name historians give to his empire.</span></span> Persian Empire, named for Cyrus's royal line. Within this course's remaining weeks, that empire will grow larger than anything the ancient Near East had yet seen, larger even than Assyria at its own height in Weeks 11 and 12.</p>
     </div>
 
+    <style>
+    .xw { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 0 0 20px 0; }
+    .xw-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .xw-q { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .xw-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .xw-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; }
+    .xw-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .xw button.xw-b { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; font-family: inherit; text-align: left; line-height: 1.4; transition: all 0.15s; }
+    .xw button.xw-b:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .xw button.xw-b.good { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .xw button.xw-b.bad { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .xw button.xw-b.mid { background: #FDF3E3; border-color: #C7922C; color: #6B4A0E; }
+    .xw button.xw-b.picked { background: #EEF1F8; border-color: #0E1C42; }
+    .xw-fb { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; background: #EEF1F8; border-left: 3px solid #0E1C42; color: #0E1C42; }
+    .xw-fb:empty { display: none; }
+    .xw-fb.good { background: #D8F0DD; border-left-color: #2A9D5C; color: #1A6B3D; }
+    .xw-fb.bad { background: #FDECEC; border-left-color: #C0392B; color: #8A1F16; }
+    .xw-fb.mid { background: #FDF3E3; border-left-color: #C7922C; color: #6B4A0E; }
+    .xw-cards { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 4px; }
+    .xw-cards button.xw-b { flex: 1 1 200px; position: relative; padding-left: 44px; }
+    .xw-badge { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 50%; background: #D0D9E8; color: #0E1C42; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+    .xw-cards button.xw-b.good .xw-badge { background: #2A9D5C; color: #FFFFFF; }
+    .xw-bar { height: 10px; background: #D0D9E8; border-radius: 6px; overflow: hidden; margin: 10px 0 4px 0; }
+    .xw-bar > div { height: 100%; width: 0; background: #C7922C; transition: width 0.3s ease; }
+    .xw-score { font-size: 13px; color: #6b7a99; }
+    .xw-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 8px; }
+    .xw-reset:hover { background: #FDF3E3; }
+</style>
+
+    <div class="xw" id="xwA17a">
+        <div class="xw-kicker">&#127919; TRY IT: PUT CYRUS'S RISE IN ORDER</div>
+        <div class="xw-q">Click the four events in the order they happened, from first to last.</div>
+        <div class="xw-body"></div>
+        <div class="xw-fb" role="status" aria-live="polite"></div>
+        <button class="xw-reset" type="button">Reset</button>
+    </div>
+<script>
+(function () {
+  var root = document.getElementById("xwA17a");
+  var body = root.querySelector(".xw-body");
+  var fb = root.querySelector(".xw-fb");
+  function say(cls, t) { fb.className = "xw-fb " + cls; fb.textContent = t; }
+  function btn(t, cls) { var b = document.createElement("button"); b.type = "button"; b.className = "xw-b" + (cls ? " " + cls : ""); b.innerHTML = t; return b; }
+  var ev = ["Astyages dreams that his daughter's newborn son will one day overthrow him.", "A herdsman spares the infant and raises him in secret.", "Cyrus leads a Persian revolt that overthrows Astyages, around 550 BC.", "Cyrus defeats Croesus of Lydia, in 547 BC."];
+  var order = [2, 0, 3, 1];
+  var next;
+  function build() {
+    body.innerHTML = ""; fb.className = "xw-fb"; fb.textContent = ""; next = 0;
+    var wrap = document.createElement("div"); wrap.className = "xw-cards";
+    order.forEach(function (i) {
+      var b = btn('<span class="xw-badge">?</span>' + ev[i]);
+      b.addEventListener("click", function () {
+        if (b.classList.contains("good")) return;
+        if (i === next) {
+          b.classList.add("good"); b.querySelector(".xw-badge").textContent = String(next + 1); next++;
+          if (next === ev.length) say("good", "That is the whole chain. Notice how much of it comes from Herodotus alone, which is why the hidden-infant pattern calls for care."); else say("good", "Right. Which came next? (" + next + " of " + ev.length + " placed.)");
+        } else {
+          b.classList.add("bad"); setTimeout(function () { b.classList.remove("bad"); }, 700);
+          say("bad", "Not yet. Ask yourself which event had to happen before that one could.");
+        }
+      });
+      wrap.appendChild(b);
+    });
+    body.appendChild(wrap);
+  }
+  root.querySelector(".xw-reset").addEventListener("click", build);
+  build();
+})();
+</script>
+
     <div class="figure-card">
         <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; CYRUS</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Winged_genius_relief_%28Pasargadae%29_by_Charles_Texier.png" alt="19th-century engraving of the winged-figure relief at Pasargadae, traditionally associated with Cyrus the Great" />
@@ -410,6 +480,36 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0 0 10px 0;">Cyrus's next target lay to the west: Lydia, a wealthy Anatolian kingdom this course already met briefly in Week 14. Lydia was now ruled by King <span class="gloss" tabindex="0">Croesus<span class="gloss-tip"><span class="gloss-pron">KREE-sus</span>the wealthy king of Lydia, defeated by Cyrus in 547 BC.</span></span>, whose name became a byword for riches in the ancient world. Herodotus tells a good story about Croesus, set some years before his war with Cyrus. In this account, the Athenian lawgiver Solon, already introduced to this course through his reforms in Week 16, visited Croesus's court. The king proudly showed off his riches and asked Solon to name the happiest man alive, plainly expecting Solon to name him. Solon instead named two little-known private citizens who had each lived well and died with honor. When Croesus pressed him further, Solon offered a warning rather than praise. Count no man happy, Solon said, until his life has actually ended, since fortune can turn on anyone, however rich, at any time. In other words, do not call your own life a success until it is over and done.</p>
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Croesus, Herodotus tells us, brushed the warning aside as foolish talk. Sure of his own wealth and power, he went to war against the rising Persian empire and lost badly. His kingdom was conquered, and, in most versions of the story, his own life stood in real danger before Cyrus spared him. Whether or not this exact talk with Solon ever truly happened, and Herodotus himself was writing generations after the fact, it holds a piece of Greek moral thinking worth taking to heart on its own terms. Worldly success is not the same thing as a settled, safe happiness, and pride in present fortune has a long history of coming right before a fall. This course has already met this same lesson once, in a different shape, back in Week 3. There, the Curse of Akkad blamed Naram-Sin's own pride for his empire's fall. Here, a Greek lawgiver offers almost the same warning about one overconfident king.</p>
     </div>
+
+    <div class="xw" id="xwB17a">
+        <div class="xw-kicker">&#127919; TRY IT: WHAT DID SOLON MEAN?</div>
+        <div class="xw-q">Solon told Croesus, "Count no man happy until his life has ended." Tap each reading to see how well the lesson supports it. More than one can hold up.</div>
+        <div class="xw-body"></div>
+        <div class="xw-fb" role="status" aria-live="polite"></div>
+        <button class="xw-reset" type="button">Reset</button>
+    </div>
+<script>
+(function () {
+  var root = document.getElementById("xwB17a");
+  var body = root.querySelector(".xw-body");
+  var fb = root.querySelector(".xw-fb");
+  function say(cls, t) { fb.className = "xw-fb " + cls; fb.textContent = t; }
+  function btn(t, cls) { var b = document.createElement("button"); b.type = "button"; b.className = "xw-b" + (cls ? " " + cls : ""); b.innerHTML = t; return b; }
+  var opts = [["Rich people are never really happy.", "bad", "Not supported. Solon named two little-known private citizens who had lived well and died with honor, so he did not say wealth ruins happiness."], ["Fortune can turn on anyone, however rich, at any time.", "good", "This fits well. It is close to Solon's own words in the story, and Croesus's fall shows it."], ["Croesus should have given away his gold before going to war.", "bad", "The lesson never says this. Solon's warning was about how fragile fortune is, not about what Croesus should have done with his money."], ["Pride in present success can come right before a fall.", "good", "This also fits. Croesus brushed the warning aside, felt sure of his own power, went to war, and lost badly."]];
+  function build() {
+    body.innerHTML = ""; fb.className = "xw-fb"; fb.textContent = "";
+    var wrap = document.createElement("div"); wrap.className = "xw-opts"; wrap.style.flexDirection = "column"; wrap.style.alignItems = "stretch";
+    opts.forEach(function (o) {
+      var b = btn(o[0]);
+      b.addEventListener("click", function () { b.classList.remove("good", "mid", "bad"); b.classList.add(o[1]); say(o[1], o[2]); });
+      wrap.appendChild(b);
+    });
+    body.appendChild(wrap);
+  }
+  root.querySelector(".xw-reset").addEventListener("click", build);
+  build();
+})();
+</script>
 
     <div class="figure-card">
         <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; ASTYAGES AND CROESUS</div>

@@ -401,10 +401,125 @@
         </div>
     </div>
 
+    <style>
+    .xw { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 0 0 20px 0; }
+    .xw-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .xw-q { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .xw-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .xw-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; }
+    .xw-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .xw button.xw-b { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; font-family: inherit; text-align: left; line-height: 1.4; transition: all 0.15s; }
+    .xw button.xw-b:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .xw button.xw-b.good { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .xw button.xw-b.bad { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .xw button.xw-b.mid { background: #FDF3E3; border-color: #C7922C; color: #6B4A0E; }
+    .xw button.xw-b.picked { background: #EEF1F8; border-color: #0E1C42; }
+    .xw-fb { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; background: #EEF1F8; border-left: 3px solid #0E1C42; color: #0E1C42; }
+    .xw-fb:empty { display: none; }
+    .xw-fb.good { background: #D8F0DD; border-left-color: #2A9D5C; color: #1A6B3D; }
+    .xw-fb.bad { background: #FDECEC; border-left-color: #C0392B; color: #8A1F16; }
+    .xw-fb.mid { background: #FDF3E3; border-left-color: #C7922C; color: #6B4A0E; }
+    .xw-cards { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 4px; }
+    .xw-cards button.xw-b { flex: 1 1 200px; position: relative; padding-left: 44px; }
+    .xw-badge { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 50%; background: #D0D9E8; color: #0E1C42; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+    .xw-cards button.xw-b.good .xw-badge { background: #2A9D5C; color: #FFFFFF; }
+    .xw-bar { height: 10px; background: #D0D9E8; border-radius: 6px; overflow: hidden; margin: 10px 0 4px 0; }
+    .xw-bar > div { height: 100%; width: 0; background: #C7922C; transition: width 0.3s ease; }
+    .xw-score { font-size: 13px; color: #6b7a99; }
+    .xw-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 8px; }
+    .xw-reset:hover { background: #FDF3E3; }
+</style>
+
+    <div class="xw" id="xwA17b">
+        <div class="xw-kicker">&#127919; TRY IT: TWO WAYS TO TREAT CONQUERED PEOPLES</div>
+        <div class="xw-q">Sort each practice into the column it belongs to.</div>
+        <div class="xw-body"></div>
+        <div class="xw-fb" role="status" aria-live="polite"></div>
+        <button class="xw-reset" type="button">Reset</button>
+    </div>
+<script>
+(function () {
+  var root = document.getElementById("xwA17b");
+  var body = root.querySelector(".xw-body");
+  var fb = root.querySelector(".xw-fb");
+  function say(cls, t) { fb.className = "xw-fb " + cls; fb.textContent = t; }
+  function btn(t, cls) { var b = document.createElement("button"); b.type = "button"; b.className = "xw-b" + (cls ? " " + cls : ""); b.innerHTML = t; return b; }
+  var labels = ["Removal and terror (Assyria and Babylon)", "Return and restoration (Cyrus)"];
+  var items = [["Scattering the northern Kingdom of Israel for good.", 0, false], ["Sending displaced peoples back to their home cities.", 1, true], ["Removing Judah's elite to Babylon.", 0, true], ["Giving captured statues of the gods back to the right temples.", 1, false], ["Fixing up temples left in neglect.", 1, true], ["Letting the Judean exiles go home to rebuild their Temple.", 1, false]];
+  function build() {
+    body.innerHTML = ""; fb.className = "xw-fb"; fb.textContent = ""; var got = 0;
+    var tally = document.createElement("div"); tally.className = "xw-score";
+    var bar = document.createElement("div"); bar.className = "xw-bar"; var fill = document.createElement("div"); bar.appendChild(fill);
+    function upd() { tally.textContent = got + " of " + items.length + " sorted correctly"; fill.style.width = (got / items.length * 100) + "%"; if (got === items.length) say("good", "All sorted. Notice what the two columns show: two very different answers to the same problem of ruling many peoples."); }
+    items.forEach(function (it) {
+      var row = document.createElement("div"); row.className = "xw-row";
+      var p = document.createElement("div"); p.className = "xw-prompt"; p.textContent = it[0];
+      var o = document.createElement("div"); o.className = "xw-opts";
+      var done = false;
+      var order = it[2] ? [1, 0] : [0, 1];
+      order.forEach(function (k) {
+        var b = btn(labels[k]);
+        b.addEventListener("click", function () {
+          if (done) return;
+          if (k === it[1]) { done = true; b.classList.add("good"); got++; upd(); if (got < items.length) say("good", "Correct."); }
+          else { b.classList.add("bad"); say("bad", "Not that one. Think about whether people were sent away or sent home."); }
+        });
+        o.appendChild(b);
+      });
+      row.appendChild(p); row.appendChild(o); body.appendChild(row);
+    });
+    body.appendChild(bar); body.appendChild(tally); upd(); fb.className = "xw-fb"; fb.textContent = "";
+  }
+  root.querySelector(".xw-reset").addEventListener("click", build);
+  build();
+})();
+</script>
+
     <div style="background: #FDF3E3; border-left: 5px solid #C7922C; border-top: 3px solid #C7922C; border-radius: 6px; padding: 14px 20px; margin: 14px 0 20px 0;">
         <div class="callout-label" style="color: #8A6416;">&#128161; A QUESTION WORTH ARGUING BOTH WAYS</div>
         <div style="font-size: 17px; color: #0E1C42; line-height: 1.6;">This course has now studied two very different ways of holding a large, mixed empire together. Assyria, in Weeks 11 and 12, relied on planned terror. It fell apart with shocking speed the moment its strongest king was gone. Cyrus relies instead on going easy on conquered peoples. He rebuilds local temples. He lets exiles return home. As later weeks of the Achaemenid story will show, he mostly lets conquered peoples keep their own customs and their own local rule. In each province, a Persian-appointed governor called a <span class="gloss" tabindex="0">satrap<span class="gloss-tip"><span class="gloss-pron">SAY-trap</span>a governor appointed to rule one province, or satrapy, of the Persian Empire on the king's behalf.</span></span> oversaw the region on the king's behalf. Even so, daily life and local law mostly stayed in local hands, not the satrap's own. This kind of layered rule, a central king above and local officials still handling most local business below, is a very different design from Assyria's own habit of tearing down local structures whenever it conquered a people. Does this truly bind an empire together better than terror does? Does it solve the first-order political problem of holding a vast, mixed land in lasting peace? Or is it simply too soon to tell, a policy that has not yet met the kind of real test that broke Assyria apart? A policy of tolerance has not yet had to survive a weak king, a lost war, or a hard famine. Assyria's terror looked strong too, right up until it did not. This course will not settle that question outright. Weigh the evidence from both empires with care, and be ready to argue it either way.</div>
     </div>
+
+    <div class="xw" id="xwB17b">
+        <div class="xw-kicker">&#127919; TRY IT: STRESS-TEST THE TWO EMPIRES</div>
+        <div class="xw-q">The lesson asks whether tolerance holds an empire together better than terror. For each hard test, pick the empire you think would hold up. There is no single right answer, so read the feedback each time.</div>
+        <div class="xw-body"></div>
+        <div class="xw-fb" role="status" aria-live="polite"></div>
+        <button class="xw-reset" type="button">Reset</button>
+    </div>
+<script>
+(function () {
+  var root = document.getElementById("xwB17b");
+  var body = root.querySelector(".xw-body");
+  var fb = root.querySelector(".xw-fb");
+  function say(cls, t) { fb.className = "xw-fb " + cls; fb.textContent = t; }
+  function btn(t, cls) { var b = document.createElement("button"); b.type = "button"; b.className = "xw-b" + (cls ? " " + cls : ""); b.innerHTML = t; return b; }
+  var cases = [["A strong king dies and a weak one takes his place.", [["Assyria's terror", "Weigh the evidence. Assyria's rule fell apart with shocking speed once its strongest king was gone, so this is the test it already seems to have failed."], ["Cyrus's tolerance", "A fair guess. With local officials still handling most local business, the empire might keep running. But the lesson reminds us that tolerance has not yet had to survive a weak king."], ["Too soon to tell", "An honest answer. Cyrus's way has not yet met this test, so any claim is a prediction, not a result."]]], ["The empire loses a war.", [["Cyrus's tolerance", "Possible. Peoples who were treated well might stay loyal. Yet nothing in the lesson shows tolerance surviving a lost war, so this stays a guess."], ["Assyria's terror", "Assyria looked strong right up until it did not, so terror's record under real pressure is not encouraging."], ["Too soon to tell", "Honest, and well supported. Tolerance has not been tested this way yet."]]], ["A hard famine strikes the provinces.", [["Assyria's terror", "Fear can force obedience, but nothing in the lesson shows terror feeding anyone. Be ready to argue why it would work."], ["Cyrus's tolerance", "A decree that wins loyalty might help in a hard year. But the lesson names famine as a test tolerance has not yet had to survive."], ["Too soon to tell", "Reasonable. The lesson names famine as one of the tests neither side can be judged on yet."]]]];
+  var closing = "You have now argued it three ways. The lesson's point stands: Assyria's terror looked strong until it collapsed, and Cyrus's tolerance has not yet faced a real test. Weigh both with care.";
+  function build() {
+    body.innerHTML = ""; fb.className = "xw-fb"; fb.textContent = ""; var answered = 0;
+    cases.forEach(function (c) {
+      var row = document.createElement("div"); row.className = "xw-row";
+      var p = document.createElement("div"); p.className = "xw-prompt"; p.textContent = c[0];
+      var o = document.createElement("div"); o.className = "xw-opts";
+      var note = document.createElement("div"); note.className = "xw-fb mid";
+      var counted = false;
+      c[1].forEach(function (ch) {
+        var b = btn(ch[0]);
+        b.addEventListener("click", function () {
+          o.querySelectorAll("button").forEach(function (x) { x.classList.remove("picked"); });
+          b.classList.add("picked"); note.textContent = ch[1];
+          if (!counted) { counted = true; answered++; if (answered === cases.length) say("mid", closing); }
+        });
+        o.appendChild(b);
+      });
+      row.appendChild(p); row.appendChild(o); row.appendChild(note); body.appendChild(row);
+    });
+  }
+  root.querySelector(".xw-reset").addEventListener("click", build);
+  build();
+})();
+</script>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>

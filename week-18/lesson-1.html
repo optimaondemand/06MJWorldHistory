@@ -372,6 +372,74 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This moment deserves to be named clearly and with care. For the first time in the history this course has studied, <strong>Mesopotamia</strong>, <strong>Egypt</strong>, and Persia's own homeland were bound together under a single ruler. Two of the ancient world's oldest and most storied civilizations, each with thousands of years of its own kings, gods, and written record behind it, now answered to the same distant court. This is not a small event to fold quietly into a bigger story. In a real sense, it is the arrival of something the ancient Near East had never quite seen before: one empire, spanning what had always been separate worlds. Think back across this whole course. Sumer, Akkad, Babylon, Assyria, and Egypt itself each rose and ruled their own separate patch of the map, sometimes trading, sometimes fighting, but never truly one. In other words, three of history's oldest river civilizations now shared a single king for the very first time.</p>
     </div>
 
+    <style>
+    .xw { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 0 0 20px 0; }
+    .xw-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .xw-q { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .xw-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .xw-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; }
+    .xw-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .xw button.xw-b { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; font-family: inherit; text-align: left; line-height: 1.4; transition: all 0.15s; }
+    .xw button.xw-b:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .xw button.xw-b.good { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .xw button.xw-b.bad { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .xw button.xw-b.mid { background: #FDF3E3; border-color: #C7922C; color: #6B4A0E; }
+    .xw button.xw-b.picked { background: #EEF1F8; border-color: #0E1C42; }
+    .xw-fb { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; background: #EEF1F8; border-left: 3px solid #0E1C42; color: #0E1C42; }
+    .xw-fb:empty { display: none; }
+    .xw-fb.good { background: #D8F0DD; border-left-color: #2A9D5C; color: #1A6B3D; }
+    .xw-fb.bad { background: #FDECEC; border-left-color: #C0392B; color: #8A1F16; }
+    .xw-fb.mid { background: #FDF3E3; border-left-color: #C7922C; color: #6B4A0E; }
+    .xw-cards { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 4px; }
+    .xw-cards button.xw-b { flex: 1 1 200px; position: relative; padding-left: 44px; }
+    .xw-badge { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 50%; background: #D0D9E8; color: #0E1C42; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+    .xw-cards button.xw-b.good .xw-badge { background: #2A9D5C; color: #FFFFFF; }
+    .xw-bar { height: 10px; background: #D0D9E8; border-radius: 6px; overflow: hidden; margin: 10px 0 4px 0; }
+    .xw-bar > div { height: 100%; width: 0; background: #C7922C; transition: width 0.3s ease; }
+    .xw-score { font-size: 13px; color: #6b7a99; }
+    .xw-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 8px; }
+    .xw-reset:hover { background: #FDF3E3; }
+</style>
+
+    <div class="xw" id="xwA18a">
+        <div class="xw-kicker">&#127919; TRY IT: ONE KING, THREE LANDS</div>
+        <div class="xw-q">Tap each land to place it under Persian rule and watch what the empire becomes.</div>
+        <div class="xw-body"></div>
+        <div class="xw-fb" role="status" aria-live="polite"></div>
+        <button class="xw-reset" type="button">Reset</button>
+    </div>
+<script>
+(function () {
+  var root = document.getElementById("xwA18a");
+  var body = root.querySelector(".xw-body");
+  var fb = root.querySelector(".xw-fb");
+  function say(cls, t) { fb.className = "xw-fb " + cls; fb.textContent = t; }
+  function btn(t, cls) { var b = document.createElement("button"); b.type = "button"; b.className = "xw-b" + (cls ? " " + cls : ""); b.innerHTML = t; return b; }
+  var parts = [["Persia's homeland", "Cyrus's own kingdom", "United with Media around 550 BC.", "One land is under the Persian king. Two to go."], ["Mesopotamia", "Babylon", "Babylon taken by Cyrus's army, 539 BC.", "Mesopotamia now answers to a Persian king. It had never done so before."], ["Egypt", "Pelusium", "Psamtik III defeated at Pelusium, 525 BC.", "Egypt's long run of independent kings is over."]];
+  var final = "All three lands now share one ruler, for the first time in this course's story. Sumer, Akkad, Babylon, Assyria, and Egypt each ruled their own patch of the map, but never as one empire like this.";
+  function build() {
+    body.innerHTML = ""; fb.className = "xw-fb"; fb.textContent = ""; var n = 0;
+    var wrap = document.createElement("div"); wrap.className = "xw-cards";
+    var bar = document.createElement("div"); bar.className = "xw-bar"; var fill = document.createElement("div"); bar.appendChild(fill);
+    var tally = document.createElement("div"); tally.className = "xw-score"; tally.textContent = "0 of " + parts.length + " lands under one king";
+    parts.forEach(function (pt) {
+      var b = btn('<span class="xw-badge">+</span><strong>' + pt[0] + '</strong><br><span class="xw-sub">' + pt[1] + '</span>');
+      b.addEventListener("click", function () {
+        if (b.classList.contains("good")) return;
+        b.classList.add("good"); b.querySelector(".xw-badge").textContent = "\u2713"; n++;
+        b.querySelector(".xw-sub").textContent = pt[2];
+        fill.style.width = (n / parts.length * 100) + "%"; tally.textContent = n + " of " + parts.length + " lands under one king";
+        if (n === parts.length) say("good", final); else say("mid", pt[3]);
+      });
+      wrap.appendChild(b);
+    });
+    body.appendChild(wrap); body.appendChild(bar); body.appendChild(tally);
+  }
+  root.querySelector(".xw-reset").addEventListener("click", build);
+  build();
+})();
+</script>
+
     <div class="figure-card">
         <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; CAMBYSES II</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Achaemenid_King_and_His_Attendants_%284693822415%29.jpg" alt="Relief of an Achaemenid Persian king and his attendants, Persepolis" />
@@ -411,6 +479,47 @@
             <button class="widget-reset">Reset</button>
         </div>
     </div>
+
+    <div class="xw" id="xwB18a">
+        <div class="xw-kicker">&#127919; TRY IT: HOW MUCH SHOULD YOU DOUBT?</div>
+        <div class="xw-q">This course has doubted flattering inscriptions. Should a hostile source get the same treatment? For each source, pick the best response.</div>
+        <div class="xw-body"></div>
+        <div class="xw-fb" role="status" aria-live="polite"></div>
+        <button class="xw-reset" type="button">Reset</button>
+    </div>
+<script>
+(function () {
+  var root = document.getElementById("xwB18a");
+  var body = root.querySelector(".xw-body");
+  var fb = root.querySelector(".xw-fb");
+  function say(cls, t) { fb.className = "xw-fb " + cls; fb.textContent = t; }
+  function btn(t, cls) { var b = document.createElement("button"); b.type = "button"; b.className = "xw-b" + (cls ? " " + cls : ""); b.innerHTML = t; return b; }
+  var cases = [["The Cyrus Cylinder, which praises Cyrus's own reign.", [["Accept it as plain fact", "That would treat a king's self-praise as neutral. Nearly every Mesopotamian king wrote the same kind of praise about himself."], ["Reject it as false", "Too far. Outside evidence backs up the policy of returning exiles. Doubt is not the same as dismissal."], ["Doubt it, but do not throw it out", "This is the careful middle path. Read it as a king's own account, and check what outside evidence supports."]]], ["Herodotus's hostile portrait of Cambyses, likely shaped by Egyptian priests who resented him.", [["Doubt it, but do not throw it out", "Right. A source with a clear reason to make a conqueror look bad deserves the same doubt as one with a reason to flatter a king. Some of it may still be true."], ["Reject it as false", "A hostile source is not automatically a false one. Some of what Herodotus reports may well be true."], ["Accept it as plain fact", "The priests had every reason to resent the man who ended their native royal line, so this source cannot be taken as neutral."]]], ["A scribe's praise of his own god.", [["Reject it as false", "Too harsh. It tells us what the scribe's people believed, even if it cannot prove what the god did."], ["Accept it as plain fact", "A scribe praising his own god has an obvious reason to praise. This course has practiced doubting such sources week after week."], ["Doubt it, but do not throw it out", "Yes. Ask who wrote it and why, then use it for what it can really show."]]]];
+  var closing = "The same careful question applies whether a source praises or blames: who wrote it, and what reason did they have? Doubt without dismissing is the habit to keep.";
+  function build() {
+    body.innerHTML = ""; fb.className = "xw-fb"; fb.textContent = ""; var answered = 0;
+    cases.forEach(function (c) {
+      var row = document.createElement("div"); row.className = "xw-row";
+      var p = document.createElement("div"); p.className = "xw-prompt"; p.textContent = c[0];
+      var o = document.createElement("div"); o.className = "xw-opts";
+      var note = document.createElement("div"); note.className = "xw-fb mid";
+      var counted = false;
+      c[1].forEach(function (ch) {
+        var b = btn(ch[0]);
+        b.addEventListener("click", function () {
+          o.querySelectorAll("button").forEach(function (x) { x.classList.remove("picked"); });
+          b.classList.add("picked"); note.textContent = ch[1];
+          if (!counted) { counted = true; answered++; if (answered === cases.length) say("mid", closing); }
+        });
+        o.appendChild(b);
+      });
+      row.appendChild(p); row.appendChild(o); row.appendChild(note); body.appendChild(row);
+    });
+  }
+  root.querySelector(".xw-reset").addEventListener("click", build);
+  build();
+})();
+</script>
 
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div class="callout-label">&#128218; CLOSING</div>

@@ -371,6 +371,46 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This course should be honest about a real limit here. Darius's version is the only full account of these events to survive. It was carved at his own command, to defend his own right to rule. No separate Persian or Egyptian record exists to check his claims against. This does not mean Darius made up the whole story. It does mean this course cannot simply take a king's own defense of seizing his own throne as plain, checked fact. It could not take the Cyrus Cylinder's words at face value either, back in Week 17, for the exact same reason. A king writing about his own rise to power is never a neutral witness to it.</p>
     </div>
 
+    <div class="xw" id="xwB18b">
+        <div class="xw-kicker">&#127919; TRY IT: WRITE IT LIKE A HISTORIAN</div>
+        <div class="xw-q">Darius's own inscription is the only full account of how he took the throne. For each event, choose the wording a careful historian would use.</div>
+        <div class="xw-body"></div>
+        <div class="xw-fb" role="status" aria-live="polite"></div>
+        <button class="xw-reset" type="button">Reset</button>
+    </div>
+<script>
+(function () {
+  var root = document.getElementById("xwB18b");
+  var body = root.querySelector(".xw-body");
+  var fb = root.querySelector(".xw-fb");
+  function say(cls, t) { fb.className = "xw-fb " + cls; fb.textContent = t; }
+  function btn(t, cls) { var b = document.createElement("button"); b.type = "button"; b.className = "xw-b" + (cls ? " " + cls : ""); b.innerHTML = t; return b; }
+  var items = [["<strong>Event 1.</strong> A man claiming to be Cambyses's brother Bardiya seized the throne.", [["Gaumata the impostor seized the throne.", "bad", "This states Darius's claim as checked fact, but no separate record exists to confirm it."], ["According to Darius's own inscription, a man named Gaumata, an impostor, seized the throne.", "good", "Yes. It keeps the claim and says whose claim it is."], ["Darius invented the whole story.", "bad", "Too far. The lesson says this does not mean Darius made the story up, only that we cannot take it as neutral fact."]]], ["<strong>Event 2.</strong> The real Bardiya had been killed years earlier by Cambyses's order.", [["Darius invented the whole story.", "bad", "Not supported. We cannot check it, but that does not make it false."], ["Cambyses secretly killed the real Bardiya years earlier.", "bad", "This repeats Darius's claim as if it were confirmed. Nothing else survives to check it."], ["Darius says that Cambyses had the real Bardiya killed years earlier.", "good", "Right. The claim is reported, and its source is named."]]], ["<strong>Event 3.</strong> Darius spent much of his first year putting down revolts.", [["Darius says he spent much of his first year putting down a wave of revolts.", "good", "Good. Even a claim that sounds likely is still his own account of his own reign."], ["Darius spent his first year putting down revolts, and that is certain.", "bad", "Too sure. It comes from the king himself."], ["There were no revolts, since Darius was the only source.", "bad", "A single source is not the same as a false source. This goes too far."]]]];
+  var closing = "That is the habit: keep what the source says, and say whose voice it is. A king writing about his own rise is never a neutral witness, but he is still a witness.";
+  function build() {
+    body.innerHTML = ""; fb.className = "xw-fb"; fb.textContent = ""; var got = 0;
+    items.forEach(function (it) {
+      var row = document.createElement("div"); row.className = "xw-row";
+      var p = document.createElement("div"); p.className = "xw-prompt"; p.innerHTML = it[0];
+      var o = document.createElement("div"); o.className = "xw-opts"; o.style.flexDirection = "column"; o.style.alignItems = "stretch";
+      var note = document.createElement("div"); note.className = "xw-fb"; var done = false;
+      it[1].forEach(function (ch) {
+        var b = btn(ch[0]);
+        b.addEventListener("click", function () {
+          if (done) return;
+          b.classList.add(ch[1]); note.className = "xw-fb " + ch[1]; note.textContent = ch[2];
+          if (ch[1] === "good") { done = true; got++; if (got === items.length) say("good", closing); }
+        });
+        o.appendChild(b);
+      });
+      row.appendChild(p); row.appendChild(o); row.appendChild(note); body.appendChild(row);
+    });
+  }
+  root.querySelector(".xw-reset").addEventListener("click", build);
+  build();
+})();
+</script>
+
     <div class="figure-card">
         <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; DARIUS I</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Behistun_relief_Darius.jpg" alt="The Behistun relief showing Darius I standing over the defeated pretender Gaumata" />
@@ -403,6 +443,74 @@
             <button class="widget-reset">Reset</button>
         </div>
     </div>
+
+    <style>
+    .xw { background: linear-gradient(135deg, #E8F6FB 0%, #F4F9FC 100%); border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; border-radius: 8px; padding: 18px 22px; margin: 0 0 20px 0; }
+    .xw-kicker { font-size: 11px; color: #1B6A94; margin-bottom: 10px; letter-spacing: 0.4px; }
+    .xw-q { font-size: 17px; color: #0E1C42; margin-bottom: 14px; line-height: 1.55; }
+    .xw-row { background: #FFFFFF; border: 1px solid #D0D9E8; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+    .xw-prompt { font-size: 15px; color: #0E1C42; margin-bottom: 8px; line-height: 1.5; }
+    .xw-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .xw button.xw-b { background: #FFFFFF; border: 1.5px solid #D0D9E8; border-radius: 8px; padding: 8px 14px; font-size: 14px; color: #0E1C42; cursor: pointer; font-family: inherit; text-align: left; line-height: 1.4; transition: all 0.15s; }
+    .xw button.xw-b:hover { background: #F4F6FA; border-color: #55C8E8; }
+    .xw button.xw-b.good { background: #D8F0DD; border-color: #2A9D5C; color: #1A6B3D; }
+    .xw button.xw-b.bad { background: #FDECEC; border-color: #C0392B; color: #8A1F16; }
+    .xw button.xw-b.mid { background: #FDF3E3; border-color: #C7922C; color: #6B4A0E; }
+    .xw button.xw-b.picked { background: #EEF1F8; border-color: #0E1C42; }
+    .xw-fb { padding: 8px 12px; margin-top: 8px; font-size: 14px; border-radius: 4px; line-height: 1.5; background: #EEF1F8; border-left: 3px solid #0E1C42; color: #0E1C42; }
+    .xw-fb:empty { display: none; }
+    .xw-fb.good { background: #D8F0DD; border-left-color: #2A9D5C; color: #1A6B3D; }
+    .xw-fb.bad { background: #FDECEC; border-left-color: #C0392B; color: #8A1F16; }
+    .xw-fb.mid { background: #FDF3E3; border-left-color: #C7922C; color: #6B4A0E; }
+    .xw-cards { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 4px; }
+    .xw-cards button.xw-b { flex: 1 1 200px; position: relative; padding-left: 44px; }
+    .xw-badge { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 50%; background: #D0D9E8; color: #0E1C42; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+    .xw-cards button.xw-b.good .xw-badge { background: #2A9D5C; color: #FFFFFF; }
+    .xw-bar { height: 10px; background: #D0D9E8; border-radius: 6px; overflow: hidden; margin: 10px 0 4px 0; }
+    .xw-bar > div { height: 100%; width: 0; background: #C7922C; transition: width 0.3s ease; }
+    .xw-score { font-size: 13px; color: #6b7a99; }
+    .xw-reset { background: transparent; border: 1px solid #C7922C; color: #C7922C; border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit; margin-top: 8px; }
+    .xw-reset:hover { background: #FDF3E3; }
+</style>
+
+    <div class="xw" id="xwA18b">
+        <div class="xw-kicker">&#127919; TRY IT: HOW BEHISTUN BROKE THE CODE</div>
+        <div class="xw-q">Work through how the inscription let scholars read cuneiform again.</div>
+        <div class="xw-body"></div>
+        <div class="xw-fb" role="status" aria-live="polite"></div>
+        <button class="xw-reset" type="button">Reset</button>
+    </div>
+<script>
+(function () {
+  var root = document.getElementById("xwA18b");
+  var body = root.querySelector(".xw-body");
+  var fb = root.querySelector(".xw-fb");
+  function say(cls, t) { fb.className = "xw-fb " + cls; fb.textContent = t; }
+  function btn(t, cls) { var b = document.createElement("button"); b.type = "button"; b.className = "xw-b" + (cls ? " " + cls : ""); b.innerHTML = t; return b; }
+  var steps = [["The same message is carved three times, in three scripts. Which version could scholars already partly read?", [["Babylonian", false, "Not yet. Babylonian was the script scholars needed to unlock."], ["Old Persian", true, "Yes. The Old Persian part was already partly known, so it gave scholars a starting point."], ["Elamite", false, "Not this one. Look at which version the lesson says was already partly known."]]], ["Why does carving one message three times help a decipherer?", [["Each version says something different, so there is more to read.", false, "No. The point is that it is the same message in each."], ["Only one copy was readable, so the other two could be ignored.", false, "No. The other two scripts were the ones scholars wanted to learn."], ["The known version can guide the reading of the unknown ones.", true, "Right. Because the message is the same, what is known in one script can be matched against what is unknown in the others."]]], ["What did this make readable?", [["Egyptian hieroglyphics", false, "That was the Rosetta Stone's job, a different discovery that played the same role for Egypt."], ["Babylonian cuneiform, the script of Gilgamesh and Hammurabi's Code", true, "Yes. Rawlinson and others worked out Babylonian cuneiform, and the sources this course has read from Sumer onward became readable."], ["Only Old Persian", false, "Not quite. Old Persian was the starting point, not the end result."]]]];
+  var doneMsg = "That is the chain: a partly known script, a repeated message, and then a whole lost writing system opened up. Every cuneiform source in this course is readable today mostly because of it.";
+  function build() { body.innerHTML = ""; fb.className = "xw-fb"; fb.textContent = ""; show(0); }
+  function show(i) {
+    if (i >= steps.length) { say("good", doneMsg); return; }
+    var s = steps[i];
+    var row = document.createElement("div"); row.className = "xw-row";
+    var p = document.createElement("div"); p.className = "xw-prompt"; p.innerHTML = "<strong>Step " + (i + 1) + " of " + steps.length + ".</strong> " + s[0];
+    var o = document.createElement("div"); o.className = "xw-opts"; var solved = false;
+    s[1].forEach(function (ch) {
+      var b = btn(ch[0]);
+      b.addEventListener("click", function () {
+        if (solved) return;
+        if (ch[1]) { solved = true; b.classList.add("good"); say("good", ch[2]); setTimeout(function () { show(i + 1); }, 450); }
+        else { b.classList.add("bad"); say("bad", ch[2]); }
+      });
+      o.appendChild(b);
+    });
+    row.appendChild(p); row.appendChild(o); body.appendChild(row);
+  }
+  root.querySelector(".xw-reset").addEventListener("click", build);
+  build();
+})();
+</script>
 
     <div class="figure-card">
         <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; HENRY RAWLINSON</div>
