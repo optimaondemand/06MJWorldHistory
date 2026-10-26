@@ -372,6 +372,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">For centuries after the Shang fell, no one remembered what oracle bones were. Farmers who dug them up sold them to pharmacies as "dragon bones," to be ground up as medicine. Only in 1899 did a Chinese scholar named Wang Yirong notice strange carved marks on some of these bones. According to the most common telling, he first spotted the marks on "dragon bones" he had bought from a pharmacy to treat his own illness. He realized the marks were real ancient writing, not random scratches. That discovery was made almost by accident. It opened up a whole lost period of Chinese history for the first time. Since then, well over one hundred thousand inscribed oracle bones have been recovered, most of them from Anyang itself.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: TALKING TO THE ANCESTORS</div>
+        <div class="widget-question">Check what you just read about oracle bones.</div>
+        <div class="widget-row" data-correct="bones" data-right="Right. Kings asked about the harvest, war, illness, and dreams." data-wrong="Not quite. They came from animals and were used by the royal court.">
+            <div class="widget-row-prompt">What were oracle bones?</div>
+            <div class="widget-options">
+                <button data-choice="bones">Flat cattle shoulder bones or the underside of turtle shells, prepared by Shang diviners</button>
+                <button data-choice="toys">Carved toys for royal children</button>
+                <button data-choice="tools">Bronze tools for farming</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="crack" data-right="Right. Scribes then carved the question onto the same bone." data-wrong="Not quite. The bone itself gave the answer, in a way.">
+            <div class="widget-row-prompt">How did a diviner get an answer?</div>
+            <div class="widget-options">
+                <button data-choice="crack">He pressed a heated point against the bone and read the crack as an answer from the royal ancestors</button>
+                <button data-choice="dice">He rolled dice made of bone</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="medicine" data-right="Right. Only in 1899 did a scholar notice the carved marks." data-wrong="Not quite. Nobody remembered what the bones really were.">
+            <div class="widget-row-prompt">Why did farmers sell oracle bones to pharmacies for centuries?</div>
+            <div class="widget-options">
+                <button data-choice="medicine">They did not know what they were. They sold them as "dragon bones" to be ground up as medicine</button>
+                <button data-choice="gold">They believed the bones contained gold</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="figure-card">
         <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; WU DING</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Shang_Oracle_Bone_%28Museum_Photo%29_%2845868930051%29.jpg" alt="A carved oracle bone from the Shang dynasty, the kind of record used to date the reign of King Wu Ding" />
@@ -416,6 +444,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Shang China also made ritual bronze vessels of great skill. Craftsmen cast them using a method called piece-mold casting. A clay model was carved, then cut into separate pieces that formed a mold. This method differed from the lost-wax casting used in the Near East. It could produce some of the largest and most finely carved bronze objects made anywhere in the ancient world. One surviving vessel, the Houmuwu ding, weighs over 1,600 pounds, among the heaviest bronze objects ever cast anywhere in the ancient world. Producing bronze on this scale needed tin and copper. Both metals were hauled in from mines sometimes hundreds of miles away, proof of trade networks reaching well beyond the Shang king's direct land. Shang China's elites also wore fine silk cloth, made from threads unwound from the cocoons of silkworms raised on mulberry leaves, a Chinese skill that stayed mostly unknown outside East Asia for many centuries. These vessels were not everyday tools. They were ritual objects, used to offer food and wine to royal ancestors, whose favor and guidance, as the oracle bones show, the Shang kings sought all the time.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: BRONZE AT A GRAND SCALE</div>
+        <div class="widget-question">Check what you just read about Shang bronze.</div>
+        <div class="widget-row" data-correct="piecemold" data-right="Right. It could produce some of the largest, most finely carved bronze objects in the ancient world." data-wrong="Not quite. The lesson says it differed from the Near Eastern method.">
+            <div class="widget-row-prompt">What method did Shang craftsmen use to cast ritual vessels?</div>
+            <div class="widget-options">
+                <button data-choice="lostwax">Lost-wax casting, as in the Near East</button>
+                <button data-choice="piecemold">Piece-mold casting, with a clay model cut into pieces that formed a mold</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="1600" data-right="Right. It is among the heaviest bronze objects ever cast in the ancient world." data-wrong="Not quite. It is one of the heaviest ever cast.">
+            <div class="widget-row-prompt">How heavy is the Houmuwu ding?</div>
+            <div class="widget-options">
+                <button data-choice="16">About 16 pounds</button>
+                <button data-choice="160">About 160 pounds</button>
+                <button data-choice="1600">Over 1,600 pounds</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="ancestors" data-right="Right. The oracle bones show how often the kings sought their ancestors' favor." data-wrong="Not quite. They were not everyday tools.">
+            <div class="widget-row-prompt">What were these vessels used for?</div>
+            <div class="widget-options">
+                <button data-choice="cooking">Everyday cooking for the king's household</button>
+                <button data-choice="ancestors">Ritual offerings of food and wine to royal ancestors</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="people-card">
         <div class="callout-label">&#128101; PEOPLES &middot; THE SHANG</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Shang_Jade_Humanoid_Figure.jpg" alt="A carved Shang dynasty jade figure showing clothing and ornament styles" />
@@ -491,7 +547,7 @@ function speakGloss(e, text) {
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var text = right ? (row.dataset.right || 'Right. That matches the section above.') : (row.dataset.wrong || 'Not quite. Reread the section above.');
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;

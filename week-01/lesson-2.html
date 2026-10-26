@@ -368,6 +368,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Why build a monument like this so early? This was before writing, before the wheel, before fired clay pots. Kenyon herself argued over the answer. A wall to keep out raiders is the obvious guess. But some archaeologists think the wall might have held back flash floods or mudslides instead. Others think the tower had some special role in Jericho's rituals, a role we do not fully grasp today. This is worth sitting with honestly. Sometimes the physical evidence is clear, but the human reason behind it is not. That gap, between what we can prove and what we can only guess, is part of what makes history a subject built on careful reasoning. It is not simple fact-finding.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: READING A MOUND</div>
+        <div class="widget-question">Check what you just read about how archaeologists know the past.</div>
+        <div class="widget-row" data-correct="tell" data-right="Right. Each tell is a stack of ancient towns, with the oldest on the bottom." data-wrong="Not quite. Think of a hill made of many towns stacked on top of each other.">
+            <div class="widget-row-prompt">What is a tell?</div>
+            <div class="widget-options">
+                <button data-choice="tell">A mound that grows when people build, abandon, and rebuild on the same spot for thousands of years</button>
+                <button data-choice="tomb">A tomb for an ancient king</button>
+                <button data-choice="tool">A stone tool used for farming</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="depth" data-right="Right. Archaeologists do not simply dig for treasure." data-wrong="Not quite. Archaeologists do not simply dig for treasure.">
+            <div class="widget-row-prompt">Why do archaeologists record exactly how deep each object was found?</div>
+            <div class="widget-options">
+                <button data-choice="depth">The depth of a layer usually tells its age compared to the layers above and below it</button>
+                <button data-choice="treasure">To measure how valuable it is</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="unsure" data-right="Right. The physical evidence is clear, but the human reason behind it is not." data-wrong="Not quite. The lesson says even Kenyon argued over the answer.">
+            <div class="widget-row-prompt">Why did Jericho's early wall and tower get built?</div>
+            <div class="widget-options">
+                <button data-choice="raiders">Everyone agrees it was built to keep out raiders</button>
+                <button data-choice="unsure">Archaeologists disagree: raiders, floods or mudslides, or a ritual role are all possible</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="city-card">
         <div class="callout-label">&#127961;&#65039; CITIES &middot; JERICHO</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Jericho_Neolitic_Tower_P1190749.JPG" alt="The excavated Neolithic stone tower at Jericho, Tell es-Sultan" />
@@ -388,6 +416,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Inside many homes, Mellaart's team found painted walls showing hunting scenes. They also found startling <strong>bucrania</strong>, the horned skulls of wild cattle, set into walls and platforms. Archaeologists still argue over exactly what these skulls meant to the people who placed them there, though most agree they held some ritual or family meaning.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: A TOWN WITHOUT STREETS</div>
+        <div class="widget-question">Check what Mellaart's team found at the Turkish town.</div>
+        <div class="widget-row" data-correct="nostreets" data-right="Right. People walked across the rooftops to get from house to house." data-wrong="Not quite. The town was very different from a city of streets.">
+            <div class="widget-row-prompt">What was unusual about the layout of the town?</div>
+            <div class="widget-options">
+                <button data-choice="walls">It was ringed by seven walls</button>
+                <button data-choice="grid">It was laid out in a neat grid of streets</button>
+                <button data-choice="nostreets">It had no streets. Mudbrick houses were built wall to wall like a honeycomb</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="bucrania" data-right="Right. Mellaart's team found them inside many homes." data-wrong="Not quite. They were set into walls and platforms.">
+            <div class="widget-row-prompt">What are bucrania?</div>
+            <div class="widget-options">
+                <button data-choice="bucrania">The horned skulls of wild cattle set into walls and platforms</button>
+                <button data-choice="pots">Painted clay pots for storing grain</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="ritual" data-right="Right. We can prove the objects exist, but not exactly why they were placed." data-wrong="Not quite. Archaeologists still argue over the exact meaning.">
+            <div class="widget-row-prompt">What do archaeologists agree about what the skulls meant?</div>
+            <div class="widget-options">
+                <button data-choice="ritual">Most agree they held some ritual or family meaning, but argue about exactly what</button>
+                <button data-choice="decoration">They were plain decoration with no meaning</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="city-card">
         <div class="callout-label">&#127961;&#65039; CITIES &middot; &Ccedil;ATALH&Ouml;Y&Uuml;K</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Bull%27s_head%2C_shrine%2C_%C3%87atalh%C3%B6y%C3%BCk%2C_6000-5500_BC%2C_MACA%2C_99001.jpg" alt="Reconstructed bull's-head shrine wall from a house at Catalhoyuk" />
@@ -483,7 +539,7 @@ function speakGloss(e, text) {
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var text = right ? (row.dataset.right || 'Right. That matches the section above.') : (row.dataset.wrong || 'Not quite. Reread the section above.');
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;

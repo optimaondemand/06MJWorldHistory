@@ -370,6 +370,35 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Judged by these standards, Hammurabi's Code is a real win. It covers a huge range of daily life: contracts, wages, marriage, inheritance, and the duties of doctors, builders, and boat-builders. A trader, a farmer, or a family with a complaint had, at least in theory, a public, written rule to point to, rather than trusting only the private word of whichever local strongman happened to be in charge.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: JUDGING A REGIME</div>
+        <div class="widget-question">Check how the lesson asks you to judge Hammurabi's Code.</div>
+        <div class="widget-row" data-correct="282" data-right="Right. It was set up where subjects could see it or hear it read." data-wrong="Not quite. It was a few hundred.">
+            <div class="widget-row-prompt">How many laws were carved on Hammurabi's stele?</div>
+            <div class="widget-options">
+                <button data-choice="28">28</button>
+                <button data-choice="2820">2,820</button>
+                <button data-choice="282">282</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="solve" data-right="Right. By these standards the Code is a real win." data-wrong="Not quite. The lesson asks about order, stable offices, and steady law.">
+            <div class="widget-row-prompt">Which question do historians ask to judge an ancient government?</div>
+            <div class="widget-options">
+                <button data-choice="size">How large was its army?</button>
+                <button data-choice="solve">Does it solve the basic problems every group faces, with stable offices and steady, fair common laws?</button>
+                <button data-choice="gold">How much gold did its king own?</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="rule" data-right="Right. That is a big change from rule by whims." data-wrong="Not quite. The Code was meant to replace rule by whoever held power.">
+            <div class="widget-row-prompt">What did a trader, a farmer, or a family with a complaint have, at least in theory?</div>
+            <div class="widget-options">
+                <button data-choice="rule">A public, written rule to point to</button>
+                <button data-choice="private">Only the private word of the local strongman</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 14px;">&#128218; "AN EYE FOR AN EYE": PROPORTIONAL JUSTICE</div>
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">The Code's most famous rule is eye-for-an-eye justice (<em>lex talionis</em>), Latin for "law of getting even." Under this rule, the punishment should match the harm done: an eye for an eye, a tooth for a tooth, a broken bone for a broken bone. Feuds and revenge killings, before written law, could spin far out past the size of the first wrong. Against that backdrop, lex talionis is a real limit on revenge. The law caps what a wronged side is allowed to take back, rather than leaving revenge open-ended.</p>
@@ -418,6 +447,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Finally, notice how Hammurabi frames his own right to rule. He does not just claim power by force of arms. In the Code's prologue, which you will read this week, Hammurabi presents himself as chosen by the gods, sent to "cause justice to prevail in the land," and to protect the weak from the strong. A king who bases his rule on justice, rather than on raw force alone, sets a real standard his own subjects, and history after them, can measure him against.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: KINGSHIP AND JUSTICE</div>
+        <div class="widget-question">Think about how Hammurabi claimed his right to rule.</div>
+        <div class="widget-row" data-correct="gods" data-right="Right. He bases his rule on justice, not just raw force." data-wrong="Not quite. Look at the purpose he gives in the prologue.">
+            <div class="widget-row-prompt">How does the Code's prologue present Hammurabi's right to rule?</div>
+            <div class="widget-options">
+                <button data-choice="force">He claims power by force of arms alone</button>
+                <button data-choice="gods">He is chosen by the gods, sent to cause justice to prevail and protect the weak from the strong</button>
+                <button data-choice="vote">He was elected by the free citizens</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="standard" data-right="Right. That is a real standard." data-wrong="Not quite. A promise of justice is something people can test.">
+            <div class="widget-row-prompt">What standard does basing rule on justice set?</div>
+            <div class="widget-options">
+                <button data-choice="none">None. Kings were never judged</button>
+                <button data-choice="standard">One his own subjects, and history after them, can measure him against</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="unequal" data-right="Right. Both things are true at once." data-wrong="Not quite. Different classes got different shields and fines.">
+            <div class="widget-row-prompt">How does the lesson describe the justice of Babylonian society under the Code?</div>
+            <div class="widget-options">
+                <button data-choice="equal">Real and equal for everyone</button>
+                <button data-choice="unequal">Real and steady, but never equal</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="figure-card">
         <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; HAMMURABI</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/F0182_Louvre_Code_Hammourabi_Bas-relief_Sb8_rwk.jpg" alt="The relief carved at the top of the Code of Hammurabi's stele, showing Hammurabi before the god Shamash" style="max-width: 320px;" />
@@ -475,7 +532,7 @@ function speakGloss(e, text) {
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var text = right ? (row.dataset.right || 'Right. That matches the section above.') : (row.dataset.wrong || 'Not quite. Reread the section above.');
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;

@@ -374,6 +374,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Building the pyramid took great skill and precision. Its sides line up with true north within a tiny fraction of a degree. Khufu's engineers had no compass or telescope. They used only careful eyesight, surveying tools, and star sightings to reach that precision. Ramps, levers, and copper tools, not any wheeled machine, moved and shaped the stone. Whatever else can be argued about the Old Kingdom, one thing stands out. Its power to organize labor, supplies, and exact engineering skill on this scale, kept up across decades of rule, was real. Nothing else on Earth matched it at the time.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: WHO BUILT THE PYRAMID?</div>
+        <div class="widget-question">Check what the evidence says about the Great Pyramid's builders.</div>
+        <div class="widget-row" data-correct="bakeries" data-right="Right. The workers lived in planned camps, not scattered huts." data-wrong="Not quite. The popular story of whip-driven slaves does not match what was dug up.">
+            <div class="widget-row-prompt">What did diggers find in the workers' villages near the pyramids?</div>
+            <div class="widget-options">
+                <button data-choice="chains">Chains and whips</button>
+                <button data-choice="bakeries">Bakeries, breweries, and animal bones, showing a solid diet that included beer and meat</button>
+                <button data-choice="nothing">Nothing at all</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="flood" data-right="Right. Alongside them worked skilled full-time builders." data-wrong="Not quite. Think about when a farmer's fields could not be used.">
+            <div class="widget-row-prompt">When were farmers likely called up to work on the pyramid?</div>
+            <div class="widget-options">
+                <button data-choice="flood">During the months of the inundation, when their fields were underwater anyway</button>
+                <button data-choice="harvest">During the harvest, when they were busiest</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="pride" data-right="Right. The work was organized, paid, state labor." data-wrong="Not quite. Work crews carved their own team names.">
+            <div class="widget-row-prompt">What do team names like "Friends of Khufu" carved on blocks show?</div>
+            <div class="widget-options">
+                <button data-choice="pride">A small, human trace of pride left by common laborers</button>
+                <button data-choice="curse">A curse against anyone who moved the blocks</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="figure-card">
         <div class="callout-label">&#128100; HISTORICAL FIGURE &middot; KHUFU</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Ivory_statuette_of_Khufu_from_Abydos%2C_2551-2528_BCE%3B_Egyptian_Museum%2C_Cairo_%281%29.jpg" alt="A small ivory statuette of the pharaoh Khufu, the only confirmed image of him that survives" />
@@ -420,6 +448,33 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Compare this again to Mesopotamia. Hammurabi backed his rule with a promise of justice enforced through law. Egypt's Old Kingdom pharaoh backed his rule with a claimed link to the divine itself. This lesson suggests that claim was backed up by a call for personal virtue, not law alone. Keep watching for how this claim to divine kingship holds up, or comes under strain, as Egypt's story continues in the weeks ahead.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: A GOD WHO MODELED VIRTUE</div>
+        <div class="widget-question">Think about how the two Old Kingdom texts fit together.</div>
+        <div class="widget-row" data-correct="both" data-right="Right. These do not have to be opposites." data-wrong="Not quite. The lesson says he was two things at once.">
+            <div class="widget-row-prompt">What two things was the pharaoh at once?</div>
+            <div class="widget-options">
+                <button data-choice="both">A living god in charge of keeping ma'at, and a king whose officials wrote guidance on ordinary virtues</button>
+                <button data-choice="warrior">Only a warrior, with no link to the gods</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="divine" data-right="Right. Hammurabi's promise was justice through law." data-wrong="Not quite. The lesson contrasts it with Hammurabi's approach.">
+            <div class="widget-row-prompt">How did Egypt's pharaoh back his rule, compared to Hammurabi?</div>
+            <div class="widget-options">
+                <button data-choice="law">With a promise of justice enforced through law</button>
+                <button data-choice="divine">With a claimed link to the divine itself</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="farmer" data-right="Right. Personal order and self-government at every level." data-wrong="Not quite. The lesson says it ran from the top down to the lowest.">
+            <div class="widget-row-prompt">How far down did the standard of personal order run?</div>
+            <div class="widget-options">
+                <button data-choice="court">Only to the pharaoh's court</button>
+                <button data-choice="farmer">From the pharaoh's household down to the humblest farmer's</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="tech-card">
         <div class="callout-label">&#9881;&#65039; TECHNOLOGY SPOTLIGHT &middot; DIVINE KINGSHIP</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Khafre_statue.jpg" alt="A statue of the Old Kingdom pharaoh Khafre, wearing the royal nemes headdress and protected by the falcon god Horus" />
@@ -483,7 +538,7 @@ function speakGloss(e, text) {
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var text = right ? (row.dataset.right || 'Right. That matches the section above.') : (row.dataset.wrong || 'Not quite. Reread the section above.');
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;

@@ -394,6 +394,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">This is worth sitting with directly. Whoever wrote these tablets was doing ordinary office work. It was the same kind of work Linear B scribes had been doing for a long time: counting men and assigning posts. They had no sense that they were recording the last acts of a civilization. Other tablets from these same final months record ordinary religious offerings, oil and wine sent out to local shrines, exactly as they had been every year before. History rarely announces its own turning points in advance. The people living through the Bronze Age Collapse felt it, in the moment, as a string of ordinary decisions, urgent threats, and office responses. They did not call it "the Bronze Age Collapse," a label historians would only apply looking backward, centuries later, once the full pattern of loss across a whole region became clear. No scribe at Pylos ever wrote that word for what was happening to them, because from where they stood, nothing yet had a name.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: ORDINARY WORK, EXTRAORDINARY MOMENT</div>
+        <div class="widget-question">Think about the people who wrote the Pylos tablets.</div>
+        <div class="widget-row" data-correct="office" data-right="Right. It was the same bookkeeping Linear B scribes had done for a long time." data-wrong="Not quite. The tablets are dry and practical.">
+            <div class="widget-row-prompt">What kind of work were the tablet writers doing?</div>
+            <div class="widget-options">
+                <button data-choice="office">Ordinary office work: counting men and assigning posts</button>
+                <button data-choice="poetry">Writing poems about the coming war</button>
+                <button data-choice="law">Drafting a new law code</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="offerings" data-right="Right. Life went on as it had every year before." data-wrong="Not quite. Nothing in them suggests the end was known.">
+            <div class="widget-row-prompt">What do other tablets from the same final months record?</div>
+            <div class="widget-options">
+                <button data-choice="offerings">Ordinary religious offerings, such as oil and wine sent to local shrines</button>
+                <button data-choice="surrender">A surrender to an invading army</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="label" data-right="Right. History rarely announces its turning points in advance." data-wrong="Not quite. Think about when the pattern became clear.">
+            <div class="widget-row-prompt">Why did no scribe at Pylos call it the Bronze Age Collapse?</div>
+            <div class="widget-options">
+                <button data-choice="label">The label came from historians looking backward centuries later. Nothing yet had a name</button>
+                <button data-choice="secret">The name was a state secret</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="city-card">
         <div class="callout-label">&#127961;&#65039; CITIES &middot; PYLOS</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Palace_of_Nestor_ruins_%289%29.jpg" alt="The ruins of the Palace of Nestor at Pylos" />
@@ -408,6 +436,35 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Nothing about any of this was planned, or owed to any civilization by the shape of history itself. Some things ended. Some things endured, changed by what they survived. Some new things were only now becoming possible. Quarter 2 opens on a Near East that would look, within a century, nothing like the world these first nine weeks have described.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: WHAT ENDURED AND WHAT DID NOT</div>
+        <div class="widget-question">Take stock of what the crisis swept away.</div>
+        <div class="widget-row" data-correct="hittite" data-right="Right. The collapse came in pieces, not all at once." data-wrong="Not quite. Hattusa was destroyed.">
+            <div class="widget-row-prompt">What happened to the Hittite Empire?</div>
+            <div class="widget-options">
+                <button data-choice="grew">It grew into the largest empire yet</button>
+                <button data-choice="hittite">It ceased to exist as a political power, and Hattusa was never rebuilt as an imperial capital</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="400" data-right="Right. Week 16 returns to this dark period." data-wrong="Not quite. It was centuries.">
+            <div class="widget-row-prompt">How long did Greece go without writing?</div>
+            <div class="widget-options">
+                <button data-choice="40">About forty years</button>
+                <button data-choice="400">Roughly four hundred years, until a new alphabet borrowed from Phoenicia took hold around 800 BC</button>
+                <button data-choice="4000">About four thousand years</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="cyprus" data-right="Right. Egypt and the rest of Mesopotamia also survived, though wounded." data-wrong="Not quite. It was an island rich in copper off the Levantine coast.">
+            <div class="widget-row-prompt">Which island came through the period more intact than many neighbors?</div>
+            <div class="widget-options">
+                <button data-choice="crete">Crete</button>
+                <button data-choice="cyprus">Cyprus, whose copper trade was likely too useful to lose</button>
+                <button data-choice="sicily">Sicily</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
         <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
@@ -464,7 +521,7 @@ function speakGloss(e, text) {
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var text = right ? (row.dataset.right || 'Right. That matches the section above.') : (row.dataset.wrong || 'Not quite. Reread the section above.');
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;

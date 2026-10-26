@@ -367,6 +367,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Here is Knossos's real puzzle, though, one worth sitting with rather than explaining away. Unlike nearly every other major Bronze Age capital this course has studied, Knossos was built with no walls at all. Historians still debate why. Perhaps Crete's naval strength made land walls unneeded. Ships patrolling the sea around the island may have protected it instead. Perhaps Minoan society was set up in different ways than its heavily walled neighbors, with less to fear from rivals close by. The honest answer, again, is that no single reason has won out. This remains an open question, much like the missing palaces of the Indus Valley from last week. Some historians also point to a huge volcanic eruption on the nearby island of Thera, around 1600 BC, as a blow to Minoan sea power. Even so, Knossos itself carried on for centuries after that eruption, a reminder that no single event fully explains a civilization's later fortunes.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: KNOSSOS</div>
+        <div class="widget-question">Check what you just read about the Minoan palace at Knossos.</div>
+        <div class="widget-row" data-correct="evans" data-right="Right. Many of his choices are now seen as guesswork." data-wrong="Not quite. The lesson tells us to remember this whenever a ruin looks too complete.">
+            <div class="widget-row-prompt">Why should visitors be careful when they see Knossos today?</div>
+            <div class="widget-options">
+                <button data-choice="evans">Much of it was rebuilt in concrete in the early 1900s by Sir Arthur Evans, from his best guess</button>
+                <button data-choice="new">It is a modern city built to look old</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="nowalls" data-right="Right. Historians still debate why." data-wrong="Not quite. Think about how it compares to other capitals.">
+            <div class="widget-row-prompt">What was Knossos's real puzzle?</div>
+            <div class="widget-options">
+                <button data-choice="nowalls">Unlike nearly every other Bronze Age capital this course has studied, it had no walls at all</button>
+                <button data-choice="tower">It had a tower taller than any pyramid</button>
+                <button data-choice="underground">It was built underground</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="plumbing" data-right="Right. It was among the most advanced water systems of the Bronze Age." data-wrong="Not quite. Think about water and light.">
+            <div class="widget-row-prompt">What advanced feature did the palace have?</div>
+            <div class="widget-options">
+                <button data-choice="plumbing">Clay pipes, flushing latrines, and light-wells that carried sunlight deep inside</button>
+                <button data-choice="iron">Iron-plated doors</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="city-card">
         <div class="callout-label">&#127961;&#65039; CITIES &middot; KNOSSOS AND MYCENAE</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Ruins_of_the_Minoan_Palace_in_Knossos.jpg" alt="The ruins of the Minoan palace at Knossos" />
@@ -427,6 +455,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Unlike unwalled Knossos, Mycenae itself was heavily fortified. It was protected by massive <strong>Cyclopean walls</strong>, built from stones so large that later Greeks could not picture ordinary humans lifting them. Instead, they credited the building of these walls to the mythical one-eyed Cyclopes. Mycenaean elite burial used grand <span class="gloss" tabindex="0">tholos tombs<span class="gloss-tip"><span class="gloss-pron">THOH-lohs</span>a beehive-shaped stone burial chamber built for Mycenaean royal families.</span></span>: beehive-shaped stone chambers built to hold the bodies and grave goods of Mycenae's ruling families. These grand buildings for the dead matched the grandeur of the palace itself in life.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: A FORTRESS AND ITS TOMBS</div>
+        <div class="widget-question">Check what you just read about Mycenae's defenses and burials.</div>
+        <div class="widget-row" data-correct="cyclopean" data-right="Right. Later Greeks could not picture ordinary humans lifting them." data-wrong="Not quite. The name comes from a myth.">
+            <div class="widget-row-prompt">Why were Mycenae's walls called Cyclopean?</div>
+            <div class="widget-options">
+                <button data-choice="cyclopean">The stones were so large that later Greeks credited the mythical one-eyed Cyclopes</button>
+                <button data-choice="named">They were named for a Mycenaean king named Cyclops</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="tholos" data-right="Right. They matched the grandeur of the palace itself in life." data-wrong="Not quite. The shape gives the clue.">
+            <div class="widget-row-prompt">What are tholos tombs?</div>
+            <div class="widget-options">
+                <button data-choice="tholos">Beehive-shaped stone chambers for the bodies and grave goods of Mycenae's ruling families</button>
+                <button data-choice="pyramids">Small pyramids made of limestone</button>
+                <button data-choice="caves">Natural caves used for storing grain</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="fortified" data-right="Right. That was a real difference between the two civilizations." data-wrong="Not quite. The lesson sets the two side by side.">
+            <div class="widget-row-prompt">How did Mycenae differ from unwalled Knossos?</div>
+            <div class="widget-options">
+                <button data-choice="same">It was also unwalled</button>
+                <button data-choice="fortified">It was heavily fortified</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="people-card">
         <div class="callout-label">&#128101; PEOPLES &middot; THE MINOANS AND MYCENAEANS</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/La_Parisienne_Fresco%2C_Knossos%2C_Final_Palatial_period%2C_AMH%2C_T27%2C_258455.jpg" alt="A Minoan fresco from Knossos showing a woman's clothing and hairstyle" />
@@ -495,7 +551,7 @@ function speakGloss(e, text) {
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches the section above.' : 'Not quite. Reread the section above.';
+      var text = right ? (row.dataset.right || 'Right. That matches the section above.') : (row.dataset.wrong || 'Not quite. Reread the section above.');
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;
