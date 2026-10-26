@@ -372,6 +372,35 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Nebuchadnezzar placed a new king, Zedekiah, on Judah's throne in Jehoiachin's place, expecting loyalty in return. A later Judean revolt tested Nebuchadnezzar's patience past its limit. His response was final and harsh. Zedekiah was captured. He was forced to watch his own sons killed. Then he was blinded, and carried off to Babylon himself. In 586 BC, Jerusalem itself was destroyed, along with its Temple, the central site of Israelite worship. A further wave of its people was deported to Babylon, beginning the period Jewish tradition remembers as the <span class="gloss" tabindex="0">Babylonian exile<span class="gloss-tip">being forced to leave your home country, often for a long time or forever, usually by a conquering power.</span></span>.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: JUDAH BETWEEN GREAT POWERS</div>
+        <div class="widget-question">Check what you just read about Judah's fall.</div>
+        <div class="widget-row" data-correct="assyria" data-right="Right. That left only the smaller southern kingdom of Judah." data-wrong="Not quite. This happened a century and a half before Nebuchadnezzar's time.">
+            <div class="widget-row-prompt">What happened to the northern kingdom of Israel in 722 BC?</div>
+            <div class="widget-options">
+                <button data-choice="assyria">Assyria destroyed it and deported much of its people</button>
+                <button data-choice="babylon">Babylon destroyed it and rebuilt Jerusalem</button>
+                <button data-choice="egypt">Egypt absorbed it peacefully</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="tablets" data-right="Right. We do not have to take this detail only on faith." data-wrong="Not quite. Think about what lists food for royal prisoners.">
+            <div class="widget-row-prompt">What outside, non-biblical record names Jehoiachin?</div>
+            <div class="widget-options">
+                <button data-choice="stele">A royal stele set up in Jerusalem</button>
+                <button data-choice="tablets">Cuneiform ration tablets found in Babylon</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="destroyed" data-right="Right. This began the period Jewish tradition remembers as the Babylonian exile." data-wrong="Not quite. A later Judean revolt tested Nebuchadnezzar's patience past its limit.">
+            <div class="widget-row-prompt">What happened to Jerusalem and its Temple in 586 BC?</div>
+            <div class="widget-options">
+                <button data-choice="moved">They were moved to Babylon stone by stone</button>
+                <button data-choice="spared">They were spared when Zedekiah surrendered</button>
+                <button data-choice="destroyed">They were destroyed, and a further wave of people was deported to Babylon</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div class="people-card">
         <div class="callout-label">&#128101; PEOPLES &middot; THE ISRAELITES AND JUDAHITES</div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/C%2BB-Music-Fig16-AssyrianCaptivesPlayingLyre.png" alt="Ancient Near Eastern relief depicting Semitic captives playing lyres, illustrating the experience of deportation and exile" />
@@ -420,6 +449,34 @@
         <p style="font-size: 17px; color: #1a2340; line-height: 1.65; margin: 0;">Its return, when it came, arrived from an unexpected direction. In 538 BC, a new conqueror had just taken Babylon itself. He issued a decree. That decree let Judean exiles return home and rebuild their Temple. This was a policy very different from anything this course has studied from Assyria or Babylon. That conqueror's name was <strong>Cyrus</strong>. His own remarkable rise, and his very different way of holding an empire together, is where this course turns in full in Week 17. In other words, the empire that conquered Babylon did not treat Judah's exiles the way Babylon had.</p>
     </div>
 
+
+    <div class="optima-widget">
+        <div class="widget-kicker">&#127919; TRY IT: AN ENDING THAT WAS NOT AN ENDING</div>
+        <div class="widget-question">Think about how Judah's exile ended.</div>
+        <div class="widget-row" data-correct="vanish" data-right="Right. That is what happened to some conquered peoples. It is not what happened here." data-wrong="Not quite. The lesson says exile might reasonably have meant the end.">
+            <div class="widget-row-prompt">What could exile have meant for Judah's people and beliefs?</div>
+            <div class="widget-options">
+                <button data-choice="vanish">They could have melted into the wider Babylonian population and vanished from the record</button>
+                <button data-choice="grow">They were certain to grow stronger</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="cyrus" data-right="Right. Week 17 turns to him in full." data-wrong="Not quite. A new conqueror had just taken Babylon itself.">
+            <div class="widget-row-prompt">Who let the Judean exiles return home in 538 BC?</div>
+            <div class="widget-options">
+                <button data-choice="nebuchadnezzar">Nebuchadnezzar II</button>
+                <button data-choice="ashurbanipal">Ashurbanipal</button>
+                <button data-choice="cyrus">Cyrus, who had just taken Babylon</button>
+            </div>
+        </div>
+        <div class="widget-row" data-correct="return" data-right="Right. It was very different from anything this course has studied from Assyria or Babylon." data-wrong="Not quite. Assyria and Babylon deported people. This conqueror did the opposite.">
+            <div class="widget-row-prompt">How was this policy different from Assyria's and Babylon's?</div>
+            <div class="widget-options">
+                <button data-choice="return">It let exiles go home and rebuild their Temple</button>
+                <button data-choice="deport">It deported even more people</button>
+            </div>
+        </div>
+        <button class="widget-reset">Reset</button>
+    </div>
     <div style="background: #FFFFFF; border-top: 3px solid #0E1C42; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 11px; color: #c7922c; margin-bottom: 16px;">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
         <div style="display: flex; align-items: flex-start; gap: 14px;">
@@ -476,7 +533,7 @@ function speakGloss(e, text) {
       row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('correct', 'incorrect'); });
       var right = sBtn.dataset.choice === correct;
       sBtn.classList.add(right ? 'correct' : 'incorrect');
-      var text = right ? 'Right. That matches the distinction this lesson describes.' : 'Not quite. Reread the lesson above.';
+      var text = right ? (row.dataset.right || 'Right. That matches the distinction this lesson describes.') : (row.dataset.wrong || 'Not quite. Reread the lesson above.');
       var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
       rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
       rf.textContent = text;
